@@ -1,0 +1,687 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="podologiaModelStoreContainer" CdmEntityContainer="podologiaEntities">
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="podologiaModel.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="anguloFick">
+      <EntityTypeMapping TypeName="podologiaModel.anguloFick">
+        <MappingFragment StoreEntitySet="anguloFick">
+          <ScalarProperty Name="idAngulo" ColumnName="idAngulo" />
+          <ScalarProperty Name="abierto" ColumnName="abierto" />
+          <ScalarProperty Name="cerrado" ColumnName="cerrado" />
+          <ScalarProperty Name="neutro" ColumnName="neutro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="antecedentesFamiliares">
+      <EntityTypeMapping TypeName="podologiaModel.antecedentesFamiliares">
+        <MappingFragment StoreEntitySet="antecedentesFamiliares">
+          <ScalarProperty Name="idAFamiliares" ColumnName="idAFamiliares" />
+          <ScalarProperty Name="dismetrias" ColumnName="dismetrias" />
+          <ScalarProperty Name="escoliosis" ColumnName="escoliosis" />
+          <ScalarProperty Name="tibiasVaras" ColumnName="tibiasVaras" />
+          <ScalarProperty Name="piesPlanos" ColumnName="piesPlanos" />
+          <ScalarProperty Name="piesCavos" ColumnName="piesCavos" />
+          <ScalarProperty Name="piesValgos" ColumnName="piesValgos" />
+          <ScalarProperty Name="piesZambos" ColumnName="piesZambos" />
+          <ScalarProperty Name="hallusValgus" ColumnName="hallusValgus" />
+          <ScalarProperty Name="dedosGarra" ColumnName="dedosGarra" />
+          <ScalarProperty Name="otros" ColumnName="otros" />
+          <ScalarProperty Name="genuVaro" ColumnName="genuVaro" />
+          <ScalarProperty Name="genuValgo" ColumnName="genuValgo" />
+          <ScalarProperty Name="metaAductus" ColumnName="metaAductus" />
+          <ScalarProperty Name="metaVarus" ColumnName="metaVarus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="antecedentesFisiologicos">
+      <EntityTypeMapping TypeName="podologiaModel.antecedentesFisiologicos">
+        <MappingFragment StoreEntitySet="antecedentesFisiologicos">
+          <ScalarProperty Name="idAFisiologico" ColumnName="idAFisiologico" />
+          <ScalarProperty Name="andador" ColumnName="andador" />
+          <ScalarProperty Name="tacata" ColumnName="tacata" />
+          <ScalarProperty Name="inicioDeambulacion" ColumnName="inicioDeambulacion" />
+          <ScalarProperty Name="habitosPosturales" ColumnName="habitosPosturales" />
+          <ScalarProperty Name="cambiosPonderales" ColumnName="cambiosPonderales" />
+          <ScalarProperty Name="zurdo" ColumnName="zurdo" />
+          <ScalarProperty Name="diestro" ColumnName="diestro" />
+          <ScalarProperty Name="ambidiestro" ColumnName="ambidiestro" />
+          <ScalarProperty Name="otros" ColumnName="otros" />
+          <ScalarProperty Name="partoCabeza" ColumnName="partoCabeza" />
+          <ScalarProperty Name="partoNalgas" ColumnName="partoNalgas" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="antecedentesPatologicos">
+      <EntityTypeMapping TypeName="podologiaModel.antecedentesPatologicos">
+        <MappingFragment StoreEntitySet="antecedentesPatologicos">
+          <ScalarProperty Name="idAPatologico" ColumnName="idAPatologico" />
+          <ScalarProperty Name="patologiaPrevia" ColumnName="patologiaPrevia" />
+          <ScalarProperty Name="enfermedadInfantil" ColumnName="enfermedadInfantil" />
+          <ScalarProperty Name="antecedentesTraumatico" ColumnName="antecedentesTraumatico" />
+          <ScalarProperty Name="bursitis" ColumnName="bursitis" />
+          <ScalarProperty Name="capsulitis" ColumnName="capsulitis" />
+          <ScalarProperty Name="enfermedadReumatica" ColumnName="enfermedadReumatica" />
+          <ScalarProperty Name="tipoEnfermedadReumatica" ColumnName="tipoEnfermedadReumatica" />
+          <ScalarProperty Name="ciatica" ColumnName="ciatica" />
+          <ScalarProperty Name="otros" ColumnName="otros" />
+          <ScalarProperty Name="distension" ColumnName="distension" />
+          <ScalarProperty Name="esguince" ColumnName="esguince" />
+          <ScalarProperty Name="tendinitis" ColumnName="tendinitis" />
+          <ScalarProperty Name="contracturas" ColumnName="contracturas" />
+          <ScalarProperty Name="luxacion" ColumnName="luxacion" />
+          <ScalarProperty Name="subluxacion" ColumnName="subluxacion" />
+          <ScalarProperty Name="fisura" ColumnName="fisura" />
+          <ScalarProperty Name="fractura" ColumnName="fractura" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="antecedentesPodologicos">
+      <EntityTypeMapping TypeName="podologiaModel.antecedentesPodologicos">
+        <MappingFragment StoreEntitySet="antecedentesPodologicos">
+          <ScalarProperty Name="idAPodologicos" ColumnName="idAPodologicos" />
+          <ScalarProperty Name="haidoPodologo" ColumnName="haidoPodologo" />
+          <ScalarProperty Name="antecedentes" ColumnName="antecedentes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="antepie">
+      <EntityTypeMapping TypeName="podologiaModel.antepie">
+        <MappingFragment StoreEntitySet="antepie">
+          <ScalarProperty Name="idAntepie" ColumnName="idAntepie" />
+          <ScalarProperty Name="varo" ColumnName="varo" />
+          <ScalarProperty Name="supinado" ColumnName="supinado" />
+          <ScalarProperty Name="valgo" ColumnName="valgo" />
+          <ScalarProperty Name="neutro" ColumnName="neutro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="podologiaModel.AspNetRoles">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="podologiaModel.AspNetUserClaims">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="podologiaModel.AspNetUserLogins">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="podologiaModel.AspNetUsers">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="bipedestacion">
+      <EntityTypeMapping TypeName="podologiaModel.bipedestacion">
+        <MappingFragment StoreEntitySet="bipedestacion">
+          <ScalarProperty Name="idBipedestacion" ColumnName="idBipedestacion" />
+          <ScalarProperty Name="visionAnterior" ColumnName="visionAnterior" />
+          <ScalarProperty Name="visionPosterior" ColumnName="visionPosterior" />
+          <ScalarProperty Name="visionLateral" ColumnName="visionLateral" />
+          <ScalarProperty Name="basculaEscapular" ColumnName="basculaEscapular" />
+          <ScalarProperty Name="basculaPelvica" ColumnName="basculaPelvica" />
+          <ScalarProperty Name="balculaPelvicaMM" ColumnName="balculaPelvicaMM" />
+          <ScalarProperty Name="posicionEscoliotica" ColumnName="posicionEscoliotica" />
+          <ScalarProperty Name="testAdams" ColumnName="testAdams" />
+          <ScalarProperty Name="testAdamsGiro" ColumnName="testAdamsGiro" />
+          <ScalarProperty Name="pruebaIsquiotibilaesCortos" ColumnName="pruebaIsquiotibilaesCortos" />
+          <ScalarProperty Name="genuFisiologico" ColumnName="genuFisiologico" />
+          <ScalarProperty Name="genuValgo" ColumnName="genuValgo" />
+          <ScalarProperty Name="genuValgoDim" ColumnName="genuValgoDim" />
+          <ScalarProperty Name="genuVaro" ColumnName="genuVaro" />
+          <ScalarProperty Name="genuVaroDic" ColumnName="genuVaroDic" />
+          <ScalarProperty Name="tibiasFisiologicas" ColumnName="tibiasFisiologicas" />
+          <ScalarProperty Name="tibiasValgas" ColumnName="tibiasValgas" />
+          <ScalarProperty Name="tibiasVaras" ColumnName="tibiasVaras" />
+          <ScalarProperty Name="pieRadioInsuficiente" ColumnName="pieRadioInsuficiente" />
+          <ScalarProperty Name="pieRadioInsucienteNotas" ColumnName="pieRadioInsucienteNotas" />
+          <ScalarProperty Name="pieSobrecargaMeta" ColumnName="pieSobrecargaMeta" />
+          <ScalarProperty Name="pieSobrecargaMetaNotas" ColumnName="pieSobrecargaMetaNotas" />
+          <ScalarProperty Name="id_retropie" ColumnName="id_retropie" />
+          <ScalarProperty Name="id_antepie" ColumnName="id_antepie" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="calzadoHabitual">
+      <EntityTypeMapping TypeName="podologiaModel.calzadoHabitual">
+        <MappingFragment StoreEntitySet="calzadoHabitual">
+          <ScalarProperty Name="idCalzado" ColumnName="idCalzado" />
+          <ScalarProperty Name="deportivos" ColumnName="deportivos" />
+          <ScalarProperty Name="vestir" ColumnName="vestir" />
+          <ScalarProperty Name="sandalias" ColumnName="sandalias" />
+          <ScalarProperty Name="botines" ColumnName="botines" />
+          <ScalarProperty Name="tacones" ColumnName="tacones" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="consulta">
+      <EntityTypeMapping TypeName="podologiaModel.consulta">
+        <MappingFragment StoreEntitySet="consulta">
+          <ScalarProperty Name="idConsulta" ColumnName="idConsulta" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="id_paciente" ColumnName="id_paciente" />
+          <ScalarProperty Name="id_podologo" ColumnName="id_podologo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="deambulacion">
+      <EntityTypeMapping TypeName="podologiaModel.deambulacion">
+        <MappingFragment StoreEntitySet="deambulacion">
+          <ScalarProperty Name="idDeambulacion" ColumnName="idDeambulacion" />
+          <ScalarProperty Name="anotaciones" ColumnName="anotaciones" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="decubitoPronoExploracionArticular">
+      <EntityTypeMapping TypeName="podologiaModel.decubitoPronoExploracionArticular">
+        <MappingFragment StoreEntitySet="decubitoPronoExploracionArticular">
+          <ScalarProperty Name="idEArticularPieIzdo" ColumnName="idEArticularPieIzdo" />
+          <ScalarProperty Name="idEArticularPieDcho" ColumnName="idEArticularPieDcho" />
+          <ScalarProperty Name="caderaRotInternaIzdo" ColumnName="caderaRotInternaIzdo" />
+          <ScalarProperty Name="caderaRotInternaDcho" ColumnName="caderaRotInternaDcho" />
+          <ScalarProperty Name="caderaRotExternaIzdo" ColumnName="caderaRotExternaIzdo" />
+          <ScalarProperty Name="caderaRotExternaDcho" ColumnName="caderaRotExternaDcho" />
+          <ScalarProperty Name="torsionFemoralInternaIzdo" ColumnName="torsionFemoralInternaIzdo" />
+          <ScalarProperty Name="torsionFemoralInternaDcho" ColumnName="torsionFemoralInternaDcho" />
+          <ScalarProperty Name="torsionFemoralExternaIzdo" ColumnName="torsionFemoralExternaIzdo" />
+          <ScalarProperty Name="torsionFemoralExternaDcho" ColumnName="torsionFemoralExternaDcho" />
+          <ScalarProperty Name="torsionTibialInternaIzdo" ColumnName="torsionTibialInternaIzdo" />
+          <ScalarProperty Name="torsionTibialInternaDcho" ColumnName="torsionTibialInternaDcho" />
+          <ScalarProperty Name="torsionTibialExternaIzdo" ColumnName="torsionTibialExternaIzdo" />
+          <ScalarProperty Name="torsionTibialExternaDcho" ColumnName="torsionTibialExternaDcho" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="decubitoSupinoAntepiePosicion1Radio">
+      <EntityTypeMapping TypeName="podologiaModel.decubitoSupinoAntepiePosicion1Radio">
+        <MappingFragment StoreEntitySet="decubitoSupinoAntepiePosicion1Radio">
+          <ScalarProperty Name="idPosicion1radio" ColumnName="idPosicion1radio" />
+          <ScalarProperty Name="dorsalrFlex" ColumnName="dorsalrFlex" />
+          <ScalarProperty Name="plantarFlex" ColumnName="plantarFlex" />
+          <ScalarProperty Name="neutro" ColumnName="neutro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="decubitoSupinoExploracionArticular">
+      <EntityTypeMapping TypeName="podologiaModel.decubitoSupinoExploracionArticular">
+        <MappingFragment StoreEntitySet="decubitoSupinoExploracionArticular">
+          <ScalarProperty Name="idEArticularIzdo" ColumnName="idEArticularIzdo" />
+          <ScalarProperty Name="idEArticularDcho" ColumnName="idEArticularDcho" />
+          <ScalarProperty Name="dismetriaPiesAltosIzdo" ColumnName="dismetriaPiesAltosIzdo" />
+          <ScalarProperty Name="dismetriaPiesAltosDcho" ColumnName="dismetriaPiesAltosDcho" />
+          <ScalarProperty Name="dismetriaPiesBajosIzdo" ColumnName="dismetriaPiesBajosIzdo" />
+          <ScalarProperty Name="dismetriaPiesBajosDcho" ColumnName="dismetriaPiesBajosDcho" />
+          <ScalarProperty Name="caderaFlexionIzda" ColumnName="caderaFlexionIzda" />
+          <ScalarProperty Name="caderaFlexionDcha" ColumnName="caderaFlexionDcha" />
+          <ScalarProperty Name="caderaExtensionIzda" ColumnName="caderaExtensionIzda" />
+          <ScalarProperty Name="caderaExtensionDcha" ColumnName="caderaExtensionDcha" />
+          <ScalarProperty Name="caderaHiperextensionIzda" ColumnName="caderaHiperextensionIzda" />
+          <ScalarProperty Name="caderaHiperextensionDcha" ColumnName="caderaHiperextensionDcha" />
+          <ScalarProperty Name="caderaAbduccionIzda" ColumnName="caderaAbduccionIzda" />
+          <ScalarProperty Name="caderaAbduccionDcha" ColumnName="caderaAbduccionDcha" />
+          <ScalarProperty Name="caderaAduccionIzda" ColumnName="caderaAduccionIzda" />
+          <ScalarProperty Name="caderaAduccionDcha" ColumnName="caderaAduccionDcha" />
+          <ScalarProperty Name="caderaRotInternaIzda" ColumnName="caderaRotInternaIzda" />
+          <ScalarProperty Name="caderaRotInternaDcha" ColumnName="caderaRotInternaDcha" />
+          <ScalarProperty Name="caderaRotExternaIzda" ColumnName="caderaRotExternaIzda" />
+          <ScalarProperty Name="caderaRotExternaDcha" ColumnName="caderaRotExternaDcha" />
+          <ScalarProperty Name="rodillaFlexionIzda" ColumnName="rodillaFlexionIzda" />
+          <ScalarProperty Name="rodillaFlexionDcha" ColumnName="rodillaFlexionDcha" />
+          <ScalarProperty Name="rodillaExtensionIzda" ColumnName="rodillaExtensionIzda" />
+          <ScalarProperty Name="rodillaExtensionDcha" ColumnName="rodillaExtensionDcha" />
+          <ScalarProperty Name="rodillaHiperextensionIzda" ColumnName="rodillaHiperextensionIzda" />
+          <ScalarProperty Name="rodillaHiperextensionDcha" ColumnName="rodillaHiperextensionDcha" />
+          <ScalarProperty Name="genuValgoReductibleIzda" ColumnName="genuValgoReductibleIzda" />
+          <ScalarProperty Name="genuValgoReductibleDcha" ColumnName="genuValgoReductibleDcha" />
+          <ScalarProperty Name="genuValgoIrreductibleIzda" ColumnName="genuValgoIrreductibleIzda" />
+          <ScalarProperty Name="genuValgoIrreductibleDcha" ColumnName="genuValgoIrreductibleDcha" />
+          <ScalarProperty Name="genuVaroReductibleIzda" ColumnName="genuVaroReductibleIzda" />
+          <ScalarProperty Name="genuVaroReductibleDcha" ColumnName="genuVaroReductibleDcha" />
+          <ScalarProperty Name="genuVaroIrreductibleIzda" ColumnName="genuVaroIrreductibleIzda" />
+          <ScalarProperty Name="genuVaroIrreductibleDcha" ColumnName="genuVaroIrreductibleDcha" />
+          <ScalarProperty Name="anguloQizda" ColumnName="anguloQizda" />
+          <ScalarProperty Name="anguloQdcha" ColumnName="anguloQdcha" />
+          <ScalarProperty Name="tpaFpIzda" ColumnName="tpaFpIzda" />
+          <ScalarProperty Name="tpaFpDcha" ColumnName="tpaFpDcha" />
+          <ScalarProperty Name="tpaFdIzda" ColumnName="tpaFdIzda" />
+          <ScalarProperty Name="tpaFdDcha" ColumnName="tpaFdDcha" />
+          <ScalarProperty Name="retropieAsaEversionIzda" ColumnName="retropieAsaEversionIzda" />
+          <ScalarProperty Name="retropieAsaEversionDcha" ColumnName="retropieAsaEversionDcha" />
+          <ScalarProperty Name="retropieAsaInversionIzda" ColumnName="retropieAsaInversionIzda" />
+          <ScalarProperty Name="retropieAsaInversionDcha" ColumnName="retropieAsaInversionDcha" />
+          <ScalarProperty Name="mediopiePronacionIzda" ColumnName="mediopiePronacionIzda" />
+          <ScalarProperty Name="mediopiePronacionDcha" ColumnName="mediopiePronacionDcha" />
+          <ScalarProperty Name="mediopieSupinacionIzda" ColumnName="mediopieSupinacionIzda" />
+          <ScalarProperty Name="mediopieSupinacionDcha" ColumnName="mediopieSupinacionDcha" />
+          <ScalarProperty Name="antepie1radioAmtfFpIzda" ColumnName="antepie1radioAmtfFpIzda" />
+          <ScalarProperty Name="antepie1radioAmtfFpDcha" ColumnName="antepie1radioAmtfFpDcha" />
+          <ScalarProperty Name="antepie1radioAmtfFdIzda" ColumnName="antepie1radioAmtfFdIzda" />
+          <ScalarProperty Name="antepie1radioAmtfFdDcha" ColumnName="antepie1radioAmtfFdDcha" />
+          <ScalarProperty Name="antepie1radioFalangeFpIzda" ColumnName="antepie1radioFalangeFpIzda" />
+          <ScalarProperty Name="antepie1radioFalangeFpDcha" ColumnName="antepie1radioFalangeFpDcha" />
+          <ScalarProperty Name="antepie1radioHallusLimitusIzdo" ColumnName="antepie1radioHallusLimitusIzdo" />
+          <ScalarProperty Name="antepie1radioHallusLimitusDcho" ColumnName="antepie1radioHallusLimitusDcho" />
+          <ScalarProperty Name="antepie1radioHallusRigidusIzdo" ColumnName="antepie1radioHallusRigidusIzdo" />
+          <ScalarProperty Name="antepie1radioHallusRigidusDcho" ColumnName="antepie1radioHallusRigidusDcho" />
+          <ScalarProperty Name="antepie1radioHallusFlexusIzdo" ColumnName="antepie1radioHallusFlexusIzdo" />
+          <ScalarProperty Name="antepie1radioHallusFlexusDcho" ColumnName="antepie1radioHallusFlexusDcho" />
+          <ScalarProperty Name="antepie1radioHallusHiperextensusIzdo" ColumnName="antepie1radioHallusHiperextensusIzdo" />
+          <ScalarProperty Name="antepie1radioHallusHiperextensusDcho" ColumnName="antepie1radioHallusHiperextensusDcho" />
+          <ScalarProperty Name="antepie1radioHallusVizdo" ColumnName="antepie1radioHallusVizdo" />
+          <ScalarProperty Name="antepie1radioHallusVdcho" ColumnName="antepie1radioHallusVdcho" />
+          <ScalarProperty Name="antepie1radioOtrosIzdo" ColumnName="antepie1radioOtrosIzdo" />
+          <ScalarProperty Name="antepie1radioOtrosDcho" ColumnName="antepie1radioOtrosDcho" />
+          <ScalarProperty Name="antepie25radioAmtfFpIzdo" ColumnName="antepie25radioAmtfFpIzdo" />
+          <ScalarProperty Name="antepie25radioAmtfFpDcho" ColumnName="antepie25radioAmtfFpDcho" />
+          <ScalarProperty Name="antepie25radioAmtfFdIzdo" ColumnName="antepie25radioAmtfFdIzdo" />
+          <ScalarProperty Name="antepie25radioAmtfFdDcho" ColumnName="antepie25radioAmtfFdDcho" />
+          <ScalarProperty Name="antepie25radioProximalFpIzdo" ColumnName="antepie25radioProximalFpIzdo" />
+          <ScalarProperty Name="antepie25radioProximalFpDcho1" ColumnName="antepie25radioProximalFpDcho1" />
+          <ScalarProperty Name="antepie25radioProximalFdIzdo1" ColumnName="antepie25radioProximalFdIzdo1" />
+          <ScalarProperty Name="antepie25radioProximalFdDcho" ColumnName="antepie25radioProximalFdDcho" />
+          <ScalarProperty Name="antepie25radioDistalFpIzdo" ColumnName="antepie25radioDistalFpIzdo" />
+          <ScalarProperty Name="antepie25radioDistalFpDcho" ColumnName="antepie25radioDistalFpDcho" />
+          <ScalarProperty Name="antepie25radioDistalFdIzdo" ColumnName="antepie25radioDistalFdIzdo" />
+          <ScalarProperty Name="antepie25radioDistalFdDcho" ColumnName="antepie25radioDistalFdDcho" />
+          <ScalarProperty Name="antepie25radio5metaCortoIzdo" ColumnName="antepie25radio5metaCortoIzdo" />
+          <ScalarProperty Name="antepie25radio5metaCortoDcho" ColumnName="antepie25radio5metaCortoDcho" />
+          <ScalarProperty Name="antepie25radio5varoIzdo" ColumnName="antepie25radio5varoIzdo" />
+          <ScalarProperty Name="antepie25radio5varoDcho" ColumnName="antepie25radio5varoDcho" />
+          <ScalarProperty Name="antepie25radio5hipermovilIzdo" ColumnName="antepie25radio5hipermovilIzdo" />
+          <ScalarProperty Name="antepie25radio5hipermovilDcho" ColumnName="antepie25radio5hipermovilDcho" />
+          <ScalarProperty Name="antepie25radioJuaneteSastreIzdo" ColumnName="antepie25radioJuaneteSastreIzdo" />
+          <ScalarProperty Name="antepie25radioJuaneteSastreDcho" ColumnName="antepie25radioJuaneteSastreDcho" />
+          <ScalarProperty Name="antepie25radioOtrosIzdo" ColumnName="antepie25radioOtrosIzdo" />
+          <ScalarProperty Name="antepie25radioOtrosDcho" ColumnName="antepie25radioOtrosDcho" />
+          <ScalarProperty Name="id_posicion_angulo_antepie" ColumnName="id_posicion_angulo_antepie" />
+          <ScalarProperty Name="id_posicion_1_radio" ColumnName="id_posicion_1_radio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="decubitoSupinoExploracionMorfologica">
+      <EntityTypeMapping TypeName="podologiaModel.decubitoSupinoExploracionMorfologica">
+        <MappingFragment StoreEntitySet="decubitoSupinoExploracionMorfologica">
+          <ScalarProperty Name="idEMorfologica" ColumnName="idEMorfologica" />
+          <ScalarProperty Name="antepieTriangular" ColumnName="antepieTriangular" />
+          <ScalarProperty Name="otros" ColumnName="otros" />
+          <ScalarProperty Name="id_formula_metatarsal" ColumnName="id_formula_metatarsal" />
+          <ScalarProperty Name="id_formula_digital" ColumnName="id_formula_digital" />
+          <ScalarProperty Name="id_formula_podal" ColumnName="id_formula_podal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="decubitoSupinoExploracionMuscular">
+      <EntityTypeMapping TypeName="podologiaModel.decubitoSupinoExploracionMuscular">
+        <MappingFragment StoreEntitySet="decubitoSupinoExploracionMuscular">
+          <ScalarProperty Name="idEMuscularPieIzdo" ColumnName="idEMuscularPieIzdo" />
+          <ScalarProperty Name="idEMuscularPieDcho" ColumnName="idEMuscularPieDcho" />
+          <ScalarProperty Name="aductoresCaderaIzdo" ColumnName="aductoresCaderaIzdo" />
+          <ScalarProperty Name="aductoresCaderaDcho" ColumnName="aductoresCaderaDcho" />
+          <ScalarProperty Name="cudricepsFemoralIzdo" ColumnName="cudricepsFemoralIzdo" />
+          <ScalarProperty Name="cudricepsFemoralDcho" ColumnName="cudricepsFemoralDcho" />
+          <ScalarProperty Name="isquiotibialesIzdo" ColumnName="isquiotibialesIzdo" />
+          <ScalarProperty Name="isquiotibialesDcho" ColumnName="isquiotibialesDcho" />
+          <ScalarProperty Name="tibialPosteriorIzdo" ColumnName="tibialPosteriorIzdo" />
+          <ScalarProperty Name="tibialPosteriorDcho" ColumnName="tibialPosteriorDcho" />
+          <ScalarProperty Name="flexProp1Izdo" ColumnName="flexProp1Izdo" />
+          <ScalarProperty Name="flexProp1Dcho" ColumnName="flexProp1Dcho" />
+          <ScalarProperty Name="plcYpplIzdo" ColumnName="plcYpplIzdo" />
+          <ScalarProperty Name="plcYpplDcho" ColumnName="plcYpplDcho" />
+          <ScalarProperty Name="tibialAnterioryExteriorIzdo" ColumnName="tibialAnterioryExteriorIzdo" />
+          <ScalarProperty Name="tibialAnterioryExteriorDcho" ColumnName="tibialAnterioryExteriorDcho" />
+          <ScalarProperty Name="extComunDedosIzdo" ColumnName="extComunDedosIzdo" />
+          <ScalarProperty Name="extComunDedosDcho" ColumnName="extComunDedosDcho" />
+          <ScalarProperty Name="musculosFlexoresDorsalesIzdo" ColumnName="musculosFlexoresDorsalesIzdo" />
+          <ScalarProperty Name="musculosFlexoresDorsalesDcho" ColumnName="musculosFlexoresDorsalesDcho" />
+          <ScalarProperty Name="musculosFlexoresPlantaresIzdo" ColumnName="musculosFlexoresPlantaresIzdo" />
+          <ScalarProperty Name="musculosFlexoresPlantaresDcho" ColumnName="musculosFlexoresPlantaresDcho" />
+          <ScalarProperty Name="musculosPronatoriosIzdo" ColumnName="musculosPronatoriosIzdo" />
+          <ScalarProperty Name="musculosPronatoriosDcho" ColumnName="musculosPronatoriosDcho" />
+          <ScalarProperty Name="musculosSemipronatoriosIzdo" ColumnName="musculosSemipronatoriosIzdo" />
+          <ScalarProperty Name="musculosSemipronatoriosDcho" ColumnName="musculosSemipronatoriosDcho" />
+          <ScalarProperty Name="simetriaIzdo" ColumnName="simetriaIzdo" />
+          <ScalarProperty Name="simetriaDcho" ColumnName="simetriaDcho" />
+          <ScalarProperty Name="asimetriaIzdo" ColumnName="asimetriaIzdo" />
+          <ScalarProperty Name="asimetriaDcho" ColumnName="asimetriaDcho" />
+          <ScalarProperty Name="otrosIzdo" ColumnName="otrosIzdo" />
+          <ScalarProperty Name="otrosDcho" ColumnName="otrosDcho" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="decubitoSupinoPosicionAnguloAntepie">
+      <EntityTypeMapping TypeName="podologiaModel.decubitoSupinoPosicionAnguloAntepie">
+        <MappingFragment StoreEntitySet="decubitoSupinoPosicionAnguloAntepie">
+          <ScalarProperty Name="idPosicionAnguloAntepie" ColumnName="idPosicionAnguloAntepie" />
+          <ScalarProperty Name="valgo" ColumnName="valgo" />
+          <ScalarProperty Name="varo" ColumnName="varo" />
+          <ScalarProperty Name="supinado" ColumnName="supinado" />
+          <ScalarProperty Name="neutro" ColumnName="neutro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="decubitoSupinoPulsos">
+      <EntityTypeMapping TypeName="podologiaModel.decubitoSupinoPulsos">
+        <MappingFragment StoreEntitySet="decubitoSupinoPulsos">
+          <ScalarProperty Name="idPulsos" ColumnName="idPulsos" />
+          <ScalarProperty Name="pulsoPedio" ColumnName="pulsoPedio" />
+          <ScalarProperty Name="pulsoTibialPosterior" ColumnName="pulsoTibialPosterior" />
+          <ScalarProperty Name="id_pulsos_tipo" ColumnName="id_pulsos_tipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="decubitoSupinoPulsosTipo">
+      <EntityTypeMapping TypeName="podologiaModel.decubitoSupinoPulsosTipo">
+        <MappingFragment StoreEntitySet="decubitoSupinoPulsosTipo">
+          <ScalarProperty Name="idPulsosTipo" ColumnName="idPulsosTipo" />
+          <ScalarProperty Name="presente" ColumnName="presente" />
+          <ScalarProperty Name="ausente" ColumnName="ausente" />
+          <ScalarProperty Name="debil" ColumnName="debil" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="diagnostico">
+      <EntityTypeMapping TypeName="podologiaModel.diagnostico">
+        <MappingFragment StoreEntitySet="diagnostico">
+          <ScalarProperty Name="idDiagnostico" ColumnName="idDiagnostico" />
+          <ScalarProperty Name="anotaciones" ColumnName="anotaciones" />
+          <ScalarProperty Name="id_primera_visita" ColumnName="id_primera_visita" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="estudioOrtopodologico">
+      <EntityTypeMapping TypeName="podologiaModel.estudioOrtopodologico">
+        <MappingFragment StoreEntitySet="estudioOrtopodologico">
+          <ScalarProperty Name="idEOrtopodologico" ColumnName="idEOrtopodologico" />
+          <ScalarProperty Name="id_dse_articular_izdo" ColumnName="id_dse_articular_izdo" />
+          <ScalarProperty Name="id_dse_articular_dcho" ColumnName="id_dse_articular_dcho" />
+          <ScalarProperty Name="id_dse_muscular_dcho" ColumnName="id_dse_muscular_dcho" />
+          <ScalarProperty Name="id_dse_muscular_izdo" ColumnName="id_dse_muscular_izdo" />
+          <ScalarProperty Name="id_dse_morfologico" ColumnName="id_dse_morfologico" />
+          <ScalarProperty Name="id_dp_articular_dcho" ColumnName="id_dp_articular_dcho" />
+          <ScalarProperty Name="id_dp_articular_izdo" ColumnName="id_dp_articular_izdo" />
+          <ScalarProperty Name="id_se_articular_dcho" ColumnName="id_se_articular_dcho" />
+          <ScalarProperty Name="id_se_articular_izdo" ColumnName="id_se_articular_izdo" />
+          <ScalarProperty Name="id_se_muscular_dcho" ColumnName="id_se_muscular_dcho" />
+          <ScalarProperty Name="id_se_muscular_izdo" ColumnName="id_se_muscular_izdo" />
+          <ScalarProperty Name="id_adv_frontal" ColumnName="id_adv_frontal" />
+          <ScalarProperty Name="id_adv_sagital" ColumnName="id_adv_sagital" />
+          <ScalarProperty Name="id_deambulacion" ColumnName="id_deambulacion" />
+          <ScalarProperty Name="id_bipedestacion" ColumnName="id_bipedestacion" />
+          <ScalarProperty Name="id_pulsos" ColumnName="id_pulsos" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="formulaDigital">
+      <EntityTypeMapping TypeName="podologiaModel.formulaDigital">
+        <MappingFragment StoreEntitySet="formulaDigital">
+          <ScalarProperty Name="idFormulaDigital" ColumnName="idFormulaDigital" />
+          <ScalarProperty Name="egipcia" ColumnName="egipcia" />
+          <ScalarProperty Name="griega" ColumnName="griega" />
+          <ScalarProperty Name="cuadrada" ColumnName="cuadrada" />
+          <ScalarProperty Name="otra" ColumnName="otra" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="formulaMetatarsal">
+      <EntityTypeMapping TypeName="podologiaModel.formulaMetatarsal">
+        <MappingFragment StoreEntitySet="formulaMetatarsal">
+          <ScalarProperty Name="idFormulaMetatarsal" ColumnName="idFormulaMetatarsal" />
+          <ScalarProperty Name="indexMinus" ColumnName="indexMinus" />
+          <ScalarProperty Name="indexPlus" ColumnName="indexPlus" />
+          <ScalarProperty Name="indexPlusMinus" ColumnName="indexPlusMinus" />
+          <ScalarProperty Name="otra" ColumnName="otra" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="formulaPodal">
+      <EntityTypeMapping TypeName="podologiaModel.formulaPodal">
+        <MappingFragment StoreEntitySet="formulaPodal">
+          <ScalarProperty Name="idFormulaPodal" ColumnName="idFormulaPodal" />
+          <ScalarProperty Name="normolineo" ColumnName="normolineo" />
+          <ScalarProperty Name="longilineo" ColumnName="longilineo" />
+          <ScalarProperty Name="brevilineo" ColumnName="brevilineo" />
+          <ScalarProperty Name="otra" ColumnName="otra" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FPI">
+      <EntityTypeMapping TypeName="podologiaModel.FPI">
+        <MappingFragment StoreEntitySet="FPI">
+          <ScalarProperty Name="idFPI" ColumnName="idFPI" />
+          <ScalarProperty Name="palpacionEstragaloIzda" ColumnName="palpacionEstragaloIzda" />
+          <ScalarProperty Name="palpacionEstragaloDcha" ColumnName="palpacionEstragaloDcha" />
+          <ScalarProperty Name="curvaturaMaleolarIzda" ColumnName="curvaturaMaleolarIzda" />
+          <ScalarProperty Name="curvaturaMaleolarDcha" ColumnName="curvaturaMaleolarDcha" />
+          <ScalarProperty Name="posicionCalcaneoIzda" ColumnName="posicionCalcaneoIzda" />
+          <ScalarProperty Name="posicionCalcaneoDcha" ColumnName="posicionCalcaneoDcha" />
+          <ScalarProperty Name="prominenciaArticulacionIzda" ColumnName="prominenciaArticulacionIzda" />
+          <ScalarProperty Name="prominenciaArticulacionDcha" ColumnName="prominenciaArticulacionDcha" />
+          <ScalarProperty Name="alturaYcongruenciaIzda" ColumnName="alturaYcongruenciaIzda" />
+          <ScalarProperty Name="alturaYcongruenciaDcha" ColumnName="alturaYcongruenciaDcha" />
+          <ScalarProperty Name="abduccionYaduccionIzda" ColumnName="abduccionYaduccionIzda" />
+          <ScalarProperty Name="abduccionYaduccionDcha" ColumnName="abduccionYaduccionDcha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="historialClinico">
+      <EntityTypeMapping TypeName="podologiaModel.historialClinico">
+        <MappingFragment StoreEntitySet="historialClinico">
+          <ScalarProperty Name="idHistorialClinico" ColumnName="idHistorialClinico" />
+          <ScalarProperty Name="numeroHistorialClinico" ColumnName="numeroHistorialClinico" />
+          <ScalarProperty Name="id_ant_podologicos" ColumnName="id_ant_podologicos" />
+          <ScalarProperty Name="id_ant_patologicos" ColumnName="id_ant_patologicos" />
+          <ScalarProperty Name="id_ant_fisiologicos" ColumnName="id_ant_fisiologicos" />
+          <ScalarProperty Name="id_ant_familiares" ColumnName="id_ant_familiares" />
+          <ScalarProperty Name="id_estudio" ColumnName="id_estudio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="materialSoportePlantar">
+      <EntityTypeMapping TypeName="podologiaModel.materialSoportePlantar">
+        <MappingFragment StoreEntitySet="materialSoportePlantar">
+          <ScalarProperty Name="idMaterialSoportePlantar" ColumnName="idMaterialSoportePlantar" />
+          <ScalarProperty Name="TAD" ColumnName="TAD" />
+          <ScalarProperty Name="resinas" ColumnName="resinas" />
+          <ScalarProperty Name="EVA" ColumnName="EVA" />
+          <ScalarProperty Name="propileno" ColumnName="propileno" />
+          <ScalarProperty Name="componentes" ColumnName="componentes" />
+          <ScalarProperty Name="otros" ColumnName="otros" />
+          <ScalarProperty Name="id_tratamiento" ColumnName="id_tratamiento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="paciente">
+      <EntityTypeMapping TypeName="podologiaModel.paciente">
+        <MappingFragment StoreEntitySet="paciente">
+          <ScalarProperty Name="idPaciente" ColumnName="idPaciente" />
+          <ScalarProperty Name="medicacionHabitual" ColumnName="medicacionHabitual" />
+          <ScalarProperty Name="observacion" ColumnName="observacion" />
+          <ScalarProperty Name="numeroHistoriaClinica" ColumnName="numeroHistoriaClinica" />
+          <ScalarProperty Name="id_podologo" ColumnName="id_podologo" />
+          <ScalarProperty Name="id_historial_clinico" ColumnName="id_historial_clinico" />
+          <ScalarProperty Name="id_persona" ColumnName="id_persona" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="persona">
+      <EntityTypeMapping TypeName="podologiaModel.persona">
+        <MappingFragment StoreEntitySet="persona">
+          <ScalarProperty Name="idPersona" ColumnName="idPersona" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="apellido1" ColumnName="apellido1" />
+          <ScalarProperty Name="apellido2" ColumnName="apellido2" />
+          <ScalarProperty Name="fechaNacimiento" ColumnName="fechaNacimiento" />
+          <ScalarProperty Name="edad" ColumnName="edad" />
+          <ScalarProperty Name="profesion" ColumnName="profesion" />
+          <ScalarProperty Name="calle" ColumnName="calle" />
+          <ScalarProperty Name="ciudad" ColumnName="ciudad" />
+          <ScalarProperty Name="provincia" ColumnName="provincia" />
+          <ScalarProperty Name="pais" ColumnName="pais" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="dni" ColumnName="dni" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="podologo">
+      <EntityTypeMapping TypeName="podologiaModel.podologo">
+        <MappingFragment StoreEntitySet="podologo">
+          <ScalarProperty Name="idPodologo" ColumnName="idPodologo" />
+          <ScalarProperty Name="id_persona" ColumnName="id_persona" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="primeraVisita">
+      <EntityTypeMapping TypeName="podologiaModel.primeraVisita">
+        <MappingFragment StoreEntitySet="primeraVisita">
+          <ScalarProperty Name="idPrimeraVisita" ColumnName="idPrimeraVisita" />
+          <ScalarProperty Name="peso" ColumnName="peso" />
+          <ScalarProperty Name="talla" ColumnName="talla" />
+          <ScalarProperty Name="actividadDeportiva" ColumnName="actividadDeportiva" />
+          <ScalarProperty Name="diabetes" ColumnName="diabetes" />
+          <ScalarProperty Name="alergias" ColumnName="alergias" />
+          <ScalarProperty Name="tipoAlergias" ColumnName="tipoAlergias" />
+          <ScalarProperty Name="motivoPrimeraConsulta" ColumnName="motivoPrimeraConsulta" />
+          <ScalarProperty Name="hayDolor" ColumnName="hayDolor" />
+          <ScalarProperty Name="dolorSitio" ColumnName="dolorSitio" />
+          <ScalarProperty Name="dolorTipo" ColumnName="dolorTipo" />
+          <ScalarProperty Name="fechaPrimeraConsulta" ColumnName="fechaPrimeraConsulta" />
+          <ScalarProperty Name="id_podologo" ColumnName="id_podologo" />
+          <ScalarProperty Name="id_paciente" ColumnName="id_paciente" />
+          <ScalarProperty Name="id_historial_clinico" ColumnName="id_historial_clinico" />
+          <ScalarProperty Name="id_tipo_estudio" ColumnName="id_tipo_estudio" />
+          <ScalarProperty Name="id_estudio_ortopodologico" ColumnName="id_estudio_ortopodologico" />
+          <ScalarProperty Name="id_calzado_habitual" ColumnName="id_calzado_habitual" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="retropie">
+      <EntityTypeMapping TypeName="podologiaModel.retropie">
+        <MappingFragment StoreEntitySet="retropie">
+          <ScalarProperty Name="idRetropie" ColumnName="idRetropie" />
+          <ScalarProperty Name="varo" ColumnName="varo" />
+          <ScalarProperty Name="valgo" ColumnName="valgo" />
+          <ScalarProperty Name="neutro" ColumnName="neutro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sedestacionExploracionArticular">
+      <EntityTypeMapping TypeName="podologiaModel.sedestacionExploracionArticular">
+        <MappingFragment StoreEntitySet="sedestacionExploracionArticular">
+          <ScalarProperty Name="idEArticularPieIzdo" ColumnName="idEArticularPieIzdo" />
+          <ScalarProperty Name="idEArticularPieDcho" ColumnName="idEArticularPieDcho" />
+          <ScalarProperty Name="anteversionFemoralNinosIzda" ColumnName="anteversionFemoralNinosIzda" />
+          <ScalarProperty Name="anteversionFemoralNinosDcha" ColumnName="anteversionFemoralNinosDcha" />
+          <ScalarProperty Name="anteversionFemoralAdultosIzda" ColumnName="anteversionFemoralAdultosIzda" />
+          <ScalarProperty Name="anteversionFemoralAdultosDcha" ColumnName="anteversionFemoralAdultosDcha" />
+          <ScalarProperty Name="anguloTorsionBimaleolarIzda" ColumnName="anguloTorsionBimaleolarIzda" />
+          <ScalarProperty Name="anguloTorsionBimaleolarDcha" ColumnName="anguloTorsionBimaleolarDcha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sedestacionExploracionMuscular">
+      <EntityTypeMapping TypeName="podologiaModel.sedestacionExploracionMuscular">
+        <MappingFragment StoreEntitySet="sedestacionExploracionMuscular">
+          <ScalarProperty Name="idEMuscularPieIzdo" ColumnName="idEMuscularPieIzdo" />
+          <ScalarProperty Name="idEMuscularPieDcho" ColumnName="idEMuscularPieDcho" />
+          <ScalarProperty Name="hiperlaxitudArticularIzdo" ColumnName="hiperlaxitudArticularIzdo" />
+          <ScalarProperty Name="hiperlaxitudArticularDcho" ColumnName="hiperlaxitudArticularDcho" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipoEstudio">
+      <EntityTypeMapping TypeName="podologiaModel.tipoEstudio">
+        <MappingFragment StoreEntitySet="tipoEstudio">
+          <ScalarProperty Name="idTipoEstudio" ColumnName="idTipoEstudio" />
+          <ScalarProperty Name="ortopodologico" ColumnName="ortopodologico" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tratamiento">
+      <EntityTypeMapping TypeName="podologiaModel.tratamiento">
+        <MappingFragment StoreEntitySet="tratamiento">
+          <ScalarProperty Name="idTratamiento" ColumnName="idTratamiento" />
+          <ScalarProperty Name="fisico" ColumnName="fisico" />
+          <ScalarProperty Name="ejerciciosPropioceptivos" ColumnName="ejerciciosPropioceptivos" />
+          <ScalarProperty Name="farmacologico" ColumnName="farmacologico" />
+          <ScalarProperty Name="quiropodologico" ColumnName="quiropodologico" />
+          <ScalarProperty Name="ortosisDigital" ColumnName="ortosisDigital" />
+          <ScalarProperty Name="ortosisDigitalTipo" ColumnName="ortosisDigitalTipo" />
+          <ScalarProperty Name="soportePlantar" ColumnName="soportePlantar" />
+          <ScalarProperty Name="vendajeFuncional" ColumnName="vendajeFuncional" />
+          <ScalarProperty Name="preventivo" ColumnName="preventivo" />
+          <ScalarProperty Name="preventivoObservacion" ColumnName="preventivoObservacion" />
+          <ScalarProperty Name="calzadoterapia" ColumnName="calzadoterapia" />
+          <ScalarProperty Name="otros" ColumnName="otros" />
+          <ScalarProperty Name="id_primera_visita" ColumnName="id_primera_visita" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="visionFrontal">
+      <EntityTypeMapping TypeName="podologiaModel.visionFrontal">
+        <MappingFragment StoreEntitySet="visionFrontal">
+          <ScalarProperty Name="idFrontal" ColumnName="idFrontal" />
+          <ScalarProperty Name="anterior" ColumnName="anterior" />
+          <ScalarProperty Name="posterior" ColumnName="posterior" />
+          <ScalarProperty Name="id_anguloFick" ColumnName="id_anguloFick" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="visionSagital">
+      <EntityTypeMapping TypeName="podologiaModel.visionSagital">
+        <MappingFragment StoreEntitySet="visionSagital">
+          <ScalarProperty Name="idSagital" ColumnName="idSagital" />
+          <ScalarProperty Name="estatica" ColumnName="estatica" />
+          <ScalarProperty Name="dinamica" ColumnName="dinamica" />
+          <ScalarProperty Name="otros" ColumnName="otros" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="podologiaModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetRoles">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+      <EndProperty Name="AspNetUsers">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,1391 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="podologiaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="anguloFick">
+    <Key>
+      <PropertyRef Name="idAngulo" />
+    </Key>
+    <Property Name="idAngulo" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="abierto" Type="bit" />
+    <Property Name="cerrado" Type="bit" />
+    <Property Name="neutro" Type="bit" />
+  </EntityType>
+  <EntityType Name="antecedentesFamiliares">
+    <Key>
+      <PropertyRef Name="idAFamiliares" />
+    </Key>
+    <Property Name="idAFamiliares" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="dismetrias" Type="bit" />
+    <Property Name="escoliosis" Type="bit" />
+    <Property Name="tibiasVaras" Type="bit" />
+    <Property Name="piesPlanos" Type="bit" />
+    <Property Name="piesCavos" Type="bit" />
+    <Property Name="piesValgos" Type="bit" />
+    <Property Name="piesZambos" Type="bit" />
+    <Property Name="hallusValgus" Type="bit" />
+    <Property Name="dedosGarra" Type="bit" />
+    <Property Name="otros" Type="nvarchar(max)" />
+    <Property Name="genuVaro" Type="bit" />
+    <Property Name="genuValgo" Type="bit" />
+    <Property Name="metaAductus" Type="bit" />
+    <Property Name="metaVarus" Type="bit" />
+  </EntityType>
+  <EntityType Name="antecedentesFisiologicos">
+    <Key>
+      <PropertyRef Name="idAFisiologico" />
+    </Key>
+    <Property Name="idAFisiologico" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="andador" Type="bit" />
+    <Property Name="tacata" Type="bit" />
+    <Property Name="inicioDeambulacion" Type="int" />
+    <Property Name="habitosPosturales" Type="nvarchar(max)" />
+    <Property Name="cambiosPonderales" Type="int" />
+    <Property Name="zurdo" Type="bit" />
+    <Property Name="diestro" Type="bit" />
+    <Property Name="ambidiestro" Type="bit" />
+    <Property Name="otros" Type="nvarchar(max)" />
+    <Property Name="partoCabeza" Type="bit" />
+    <Property Name="partoNalgas" Type="bit" />
+  </EntityType>
+  <EntityType Name="antecedentesPatologicos">
+    <Key>
+      <PropertyRef Name="idAPatologico" />
+    </Key>
+    <Property Name="idAPatologico" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="patologiaPrevia" Type="nvarchar(max)" />
+    <Property Name="enfermedadInfantil" Type="nvarchar(max)" />
+    <Property Name="antecedentesTraumatico" Type="nvarchar(max)" />
+    <Property Name="bursitis" Type="bit" />
+    <Property Name="capsulitis" Type="bit" />
+    <Property Name="enfermedadReumatica" Type="bit" />
+    <Property Name="tipoEnfermedadReumatica" Type="nvarchar(max)" />
+    <Property Name="ciatica" Type="bit" />
+    <Property Name="otros" Type="nvarchar(max)" />
+    <Property Name="distension" Type="bit" />
+    <Property Name="esguince" Type="bit" />
+    <Property Name="tendinitis" Type="bit" />
+    <Property Name="contracturas" Type="bit" />
+    <Property Name="luxacion" Type="bit" />
+    <Property Name="subluxacion" Type="bit" />
+    <Property Name="fisura" Type="bit" />
+    <Property Name="fractura" Type="bit" />
+  </EntityType>
+  <EntityType Name="antecedentesPodologicos">
+    <Key>
+      <PropertyRef Name="idAPodologicos" />
+    </Key>
+    <Property Name="idAPodologicos" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="haidoPodologo" Type="bit" />
+    <Property Name="antecedentes" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="antepie">
+    <Key>
+      <PropertyRef Name="idAntepie" />
+    </Key>
+    <Property Name="idAntepie" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="varo" Type="bit" />
+    <Property Name="supinado" Type="bit" />
+    <Property Name="valgo" Type="bit" />
+    <Property Name="neutro" Type="bit" />
+  </EntityType>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ClaimType" Type="nvarchar(max)" />
+    <Property Name="ClaimValue" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="bipedestacion">
+    <Key>
+      <PropertyRef Name="idBipedestacion" />
+    </Key>
+    <Property Name="idBipedestacion" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="visionAnterior" Type="nvarchar(max)" />
+    <Property Name="visionPosterior" Type="nvarchar(max)" />
+    <Property Name="visionLateral" Type="nvarchar(max)" />
+    <Property Name="basculaEscapular" Type="bit" />
+    <Property Name="basculaPelvica" Type="bit" />
+    <Property Name="balculaPelvicaMM" Type="float" />
+    <Property Name="posicionEscoliotica" Type="bit" />
+    <Property Name="testAdams" Type="bit" />
+    <Property Name="testAdamsGiro" Type="nvarchar(max)" />
+    <Property Name="pruebaIsquiotibilaesCortos" Type="bit" />
+    <Property Name="genuFisiologico" Type="bit" />
+    <Property Name="genuValgo" Type="bit" />
+    <Property Name="genuValgoDim" Type="float" />
+    <Property Name="genuVaro" Type="bit" />
+    <Property Name="genuVaroDic" Type="float" />
+    <Property Name="tibiasFisiologicas" Type="bit" />
+    <Property Name="tibiasValgas" Type="bit" />
+    <Property Name="tibiasVaras" Type="bit" />
+    <Property Name="pieRadioInsuficiente" Type="bit" />
+    <Property Name="pieRadioInsucienteNotas" Type="nvarchar(max)" />
+    <Property Name="pieSobrecargaMeta" Type="bit" />
+    <Property Name="pieSobrecargaMetaNotas" Type="nvarchar(max)" />
+    <Property Name="id_retropie" Type="uniqueidentifier" />
+    <Property Name="id_antepie" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="calzadoHabitual">
+    <Key>
+      <PropertyRef Name="idCalzado" />
+    </Key>
+    <Property Name="idCalzado" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="deportivos" Type="bit" />
+    <Property Name="vestir" Type="bit" />
+    <Property Name="sandalias" Type="bit" />
+    <Property Name="botines" Type="bit" />
+    <Property Name="tacones" Type="bit" />
+  </EntityType>
+  <EntityType Name="consulta">
+    <Key>
+      <PropertyRef Name="idConsulta" />
+    </Key>
+    <Property Name="idConsulta" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="fecha" Type="datetime" />
+    <Property Name="descripcion" Type="nvarchar(max)" />
+    <Property Name="id_paciente" Type="uniqueidentifier" />
+    <Property Name="id_podologo" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="deambulacion">
+    <Key>
+      <PropertyRef Name="idDeambulacion" />
+    </Key>
+    <Property Name="idDeambulacion" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="anotaciones" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="decubitoPronoExploracionArticular">
+    <Key>
+      <PropertyRef Name="idEArticularPieIzdo" />
+      <PropertyRef Name="idEArticularPieDcho" />
+    </Key>
+    <Property Name="idEArticularPieIzdo" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="idEArticularPieDcho" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="caderaRotInternaIzdo" Type="float" />
+    <Property Name="caderaRotInternaDcho" Type="float" />
+    <Property Name="caderaRotExternaIzdo" Type="float" />
+    <Property Name="caderaRotExternaDcho" Type="float" />
+    <Property Name="torsionFemoralInternaIzdo" Type="float" />
+    <Property Name="torsionFemoralInternaDcho" Type="float" />
+    <Property Name="torsionFemoralExternaIzdo" Type="float" />
+    <Property Name="torsionFemoralExternaDcho" Type="float" />
+    <Property Name="torsionTibialInternaIzdo" Type="float" />
+    <Property Name="torsionTibialInternaDcho" Type="float" />
+    <Property Name="torsionTibialExternaIzdo" Type="float" />
+    <Property Name="torsionTibialExternaDcho" Type="float" />
+  </EntityType>
+  <EntityType Name="decubitoSupinoAntepiePosicion1Radio">
+    <Key>
+      <PropertyRef Name="idPosicion1radio" />
+    </Key>
+    <Property Name="idPosicion1radio" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="dorsalrFlex" Type="bit" />
+    <Property Name="plantarFlex" Type="bit" />
+    <Property Name="neutro" Type="bit" />
+  </EntityType>
+  <EntityType Name="decubitoSupinoExploracionArticular">
+    <Key>
+      <PropertyRef Name="idEArticularIzdo" />
+      <PropertyRef Name="idEArticularDcho" />
+    </Key>
+    <Property Name="idEArticularIzdo" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="idEArticularDcho" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="dismetriaPiesAltosIzdo" Type="float" />
+    <Property Name="dismetriaPiesAltosDcho" Type="float" />
+    <Property Name="dismetriaPiesBajosIzdo" Type="float" />
+    <Property Name="dismetriaPiesBajosDcho" Type="float" />
+    <Property Name="caderaFlexionIzda" Type="float" />
+    <Property Name="caderaFlexionDcha" Type="float" />
+    <Property Name="caderaExtensionIzda" Type="float" />
+    <Property Name="caderaExtensionDcha" Type="float" />
+    <Property Name="caderaHiperextensionIzda" Type="float" />
+    <Property Name="caderaHiperextensionDcha" Type="float" />
+    <Property Name="caderaAbduccionIzda" Type="float" />
+    <Property Name="caderaAbduccionDcha" Type="float" />
+    <Property Name="caderaAduccionIzda" Type="float" />
+    <Property Name="caderaAduccionDcha" Type="float" />
+    <Property Name="caderaRotInternaIzda" Type="float" />
+    <Property Name="caderaRotInternaDcha" Type="float" />
+    <Property Name="caderaRotExternaIzda" Type="float" />
+    <Property Name="caderaRotExternaDcha" Type="float" />
+    <Property Name="rodillaFlexionIzda" Type="float" />
+    <Property Name="rodillaFlexionDcha" Type="float" />
+    <Property Name="rodillaExtensionIzda" Type="float" />
+    <Property Name="rodillaExtensionDcha" Type="float" />
+    <Property Name="rodillaHiperextensionIzda" Type="float" />
+    <Property Name="rodillaHiperextensionDcha" Type="float" />
+    <Property Name="genuValgoReductibleIzda" Type="bit" />
+    <Property Name="genuValgoReductibleDcha" Type="bit" />
+    <Property Name="genuValgoIrreductibleIzda" Type="bit" />
+    <Property Name="genuValgoIrreductibleDcha" Type="bit" />
+    <Property Name="genuVaroReductibleIzda" Type="bit" />
+    <Property Name="genuVaroReductibleDcha" Type="bit" />
+    <Property Name="genuVaroIrreductibleIzda" Type="bit" />
+    <Property Name="genuVaroIrreductibleDcha" Type="bit" />
+    <Property Name="anguloQizda" Type="float" />
+    <Property Name="anguloQdcha" Type="float" />
+    <Property Name="tpaFpIzda" Type="float" />
+    <Property Name="tpaFpDcha" Type="float" />
+    <Property Name="tpaFdIzda" Type="float" />
+    <Property Name="tpaFdDcha" Type="float" />
+    <Property Name="retropieAsaEversionIzda" Type="float" />
+    <Property Name="retropieAsaEversionDcha" Type="float" />
+    <Property Name="retropieAsaInversionIzda" Type="float" />
+    <Property Name="retropieAsaInversionDcha" Type="float" />
+    <Property Name="mediopiePronacionIzda" Type="float" />
+    <Property Name="mediopiePronacionDcha" Type="float" />
+    <Property Name="mediopieSupinacionIzda" Type="float" />
+    <Property Name="mediopieSupinacionDcha" Type="float" />
+    <Property Name="antepie1radioAmtfFpIzda" Type="float" />
+    <Property Name="antepie1radioAmtfFpDcha" Type="float" />
+    <Property Name="antepie1radioAmtfFdIzda" Type="float" />
+    <Property Name="antepie1radioAmtfFdDcha" Type="float" />
+    <Property Name="antepie1radioFalangeFpIzda" Type="float" />
+    <Property Name="antepie1radioFalangeFpDcha" Type="float" />
+    <Property Name="antepie1radioHallusLimitusIzdo" Type="bit" />
+    <Property Name="antepie1radioHallusLimitusDcho" Type="bit" />
+    <Property Name="antepie1radioHallusRigidusIzdo" Type="bit" />
+    <Property Name="antepie1radioHallusRigidusDcho" Type="bit" />
+    <Property Name="antepie1radioHallusFlexusIzdo" Type="bit" />
+    <Property Name="antepie1radioHallusFlexusDcho" Type="bit" />
+    <Property Name="antepie1radioHallusHiperextensusIzdo" Type="bit" />
+    <Property Name="antepie1radioHallusHiperextensusDcho" Type="bit" />
+    <Property Name="antepie1radioHallusVizdo" Type="bit" />
+    <Property Name="antepie1radioHallusVdcho" Type="bit" />
+    <Property Name="antepie1radioOtrosIzdo" Type="nvarchar(max)" />
+    <Property Name="antepie1radioOtrosDcho" Type="nvarchar(max)" />
+    <Property Name="antepie25radioAmtfFpIzdo" Type="float" />
+    <Property Name="antepie25radioAmtfFpDcho" Type="float" />
+    <Property Name="antepie25radioAmtfFdIzdo" Type="float" />
+    <Property Name="antepie25radioAmtfFdDcho" Type="float" />
+    <Property Name="antepie25radioProximalFpIzdo" Type="float" />
+    <Property Name="antepie25radioProximalFpDcho1" Type="float" />
+    <Property Name="antepie25radioProximalFdIzdo1" Type="float" />
+    <Property Name="antepie25radioProximalFdDcho" Type="float" />
+    <Property Name="antepie25radioDistalFpIzdo" Type="float" />
+    <Property Name="antepie25radioDistalFpDcho" Type="float" />
+    <Property Name="antepie25radioDistalFdIzdo" Type="float" />
+    <Property Name="antepie25radioDistalFdDcho" Type="float" />
+    <Property Name="antepie25radio5metaCortoIzdo" Type="bit" />
+    <Property Name="antepie25radio5metaCortoDcho" Type="bit" />
+    <Property Name="antepie25radio5varoIzdo" Type="bit" />
+    <Property Name="antepie25radio5varoDcho" Type="bit" />
+    <Property Name="antepie25radio5hipermovilIzdo" Type="bit" />
+    <Property Name="antepie25radio5hipermovilDcho" Type="bit" />
+    <Property Name="antepie25radioJuaneteSastreIzdo" Type="bit" />
+    <Property Name="antepie25radioJuaneteSastreDcho" Type="bit" />
+    <Property Name="antepie25radioOtrosIzdo" Type="nvarchar(max)" />
+    <Property Name="antepie25radioOtrosDcho" Type="nvarchar(max)" />
+    <Property Name="id_posicion_angulo_antepie" Type="uniqueidentifier" />
+    <Property Name="id_posicion_1_radio" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="decubitoSupinoExploracionMorfologica">
+    <Key>
+      <PropertyRef Name="idEMorfologica" />
+    </Key>
+    <Property Name="idEMorfologica" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="antepieTriangular" Type="bit" />
+    <Property Name="otros" Type="nvarchar(max)" />
+    <Property Name="id_formula_metatarsal" Type="uniqueidentifier" />
+    <Property Name="id_formula_digital" Type="uniqueidentifier" />
+    <Property Name="id_formula_podal" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="decubitoSupinoExploracionMuscular">
+    <Key>
+      <PropertyRef Name="idEMuscularPieIzdo" />
+      <PropertyRef Name="idEMuscularPieDcho" />
+    </Key>
+    <Property Name="idEMuscularPieIzdo" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="idEMuscularPieDcho" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="aductoresCaderaIzdo" Type="nvarchar(max)" />
+    <Property Name="aductoresCaderaDcho" Type="nvarchar(max)" />
+    <Property Name="cudricepsFemoralIzdo" Type="nvarchar(max)" />
+    <Property Name="cudricepsFemoralDcho" Type="nvarchar(max)" />
+    <Property Name="isquiotibialesIzdo" Type="nvarchar(max)" />
+    <Property Name="isquiotibialesDcho" Type="nvarchar(max)" />
+    <Property Name="tibialPosteriorIzdo" Type="nvarchar(max)" />
+    <Property Name="tibialPosteriorDcho" Type="nvarchar(max)" />
+    <Property Name="flexProp1Izdo" Type="nvarchar(max)" />
+    <Property Name="flexProp1Dcho" Type="nvarchar(max)" />
+    <Property Name="plcYpplIzdo" Type="nvarchar(max)" />
+    <Property Name="plcYpplDcho" Type="nvarchar(max)" />
+    <Property Name="tibialAnterioryExteriorIzdo" Type="nvarchar(max)" />
+    <Property Name="tibialAnterioryExteriorDcho" Type="nvarchar(max)" />
+    <Property Name="extComunDedosIzdo" Type="nvarchar(max)" />
+    <Property Name="extComunDedosDcho" Type="nvarchar(max)" />
+    <Property Name="musculosFlexoresDorsalesIzdo" Type="nvarchar(max)" />
+    <Property Name="musculosFlexoresDorsalesDcho" Type="nvarchar(max)" />
+    <Property Name="musculosFlexoresPlantaresIzdo" Type="nvarchar(max)" />
+    <Property Name="musculosFlexoresPlantaresDcho" Type="nvarchar(max)" />
+    <Property Name="musculosPronatoriosIzdo" Type="nvarchar(max)" />
+    <Property Name="musculosPronatoriosDcho" Type="nvarchar(max)" />
+    <Property Name="musculosSemipronatoriosIzdo" Type="nvarchar(max)" />
+    <Property Name="musculosSemipronatoriosDcho" Type="nvarchar(max)" />
+    <Property Name="simetriaIzdo" Type="bit" />
+    <Property Name="simetriaDcho" Type="bit" />
+    <Property Name="asimetriaIzdo" Type="bit" />
+    <Property Name="asimetriaDcho" Type="bit" />
+    <Property Name="otrosIzdo" Type="nvarchar(max)" />
+    <Property Name="otrosDcho" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="decubitoSupinoPosicionAnguloAntepie">
+    <Key>
+      <PropertyRef Name="idPosicionAnguloAntepie" />
+    </Key>
+    <Property Name="idPosicionAnguloAntepie" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="valgo" Type="bit" />
+    <Property Name="varo" Type="bit" />
+    <Property Name="supinado" Type="bit" />
+    <Property Name="neutro" Type="bit" />
+  </EntityType>
+  <EntityType Name="decubitoSupinoPulsos">
+    <Key>
+      <PropertyRef Name="idPulsos" />
+    </Key>
+    <Property Name="idPulsos" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="pulsoPedio" Type="nvarchar(max)" />
+    <Property Name="pulsoTibialPosterior" Type="nvarchar(max)" />
+    <Property Name="id_pulsos_tipo" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="decubitoSupinoPulsosTipo">
+    <Key>
+      <PropertyRef Name="idPulsosTipo" />
+    </Key>
+    <Property Name="idPulsosTipo" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="presente" Type="bit" />
+    <Property Name="ausente" Type="bit" />
+    <Property Name="debil" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="diagnostico">
+    <Key>
+      <PropertyRef Name="idDiagnostico" />
+    </Key>
+    <Property Name="idDiagnostico" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="anotaciones" Type="nvarchar(max)" />
+    <Property Name="id_primera_visita" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="estudioOrtopodologico">
+    <Key>
+      <PropertyRef Name="idEOrtopodologico" />
+    </Key>
+    <Property Name="idEOrtopodologico" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="id_dse_articular_izdo" Type="uniqueidentifier" />
+    <Property Name="id_dse_articular_dcho" Type="uniqueidentifier" />
+    <Property Name="id_dse_muscular_dcho" Type="uniqueidentifier" />
+    <Property Name="id_dse_muscular_izdo" Type="uniqueidentifier" />
+    <Property Name="id_dse_morfologico" Type="uniqueidentifier" />
+    <Property Name="id_dp_articular_dcho" Type="uniqueidentifier" />
+    <Property Name="id_dp_articular_izdo" Type="uniqueidentifier" />
+    <Property Name="id_se_articular_dcho" Type="uniqueidentifier" />
+    <Property Name="id_se_articular_izdo" Type="uniqueidentifier" />
+    <Property Name="id_se_muscular_dcho" Type="uniqueidentifier" />
+    <Property Name="id_se_muscular_izdo" Type="uniqueidentifier" />
+    <Property Name="id_adv_frontal" Type="uniqueidentifier" />
+    <Property Name="id_adv_sagital" Type="uniqueidentifier" />
+    <Property Name="id_deambulacion" Type="uniqueidentifier" />
+    <Property Name="id_bipedestacion" Type="uniqueidentifier" />
+    <Property Name="id_pulsos" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="formulaDigital">
+    <Key>
+      <PropertyRef Name="idFormulaDigital" />
+    </Key>
+    <Property Name="idFormulaDigital" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="egipcia" Type="bit" />
+    <Property Name="griega" Type="bit" />
+    <Property Name="cuadrada" Type="bit" />
+    <Property Name="otra" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="formulaMetatarsal">
+    <Key>
+      <PropertyRef Name="idFormulaMetatarsal" />
+    </Key>
+    <Property Name="idFormulaMetatarsal" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="indexMinus" Type="bit" />
+    <Property Name="indexPlus" Type="bit" />
+    <Property Name="indexPlusMinus" Type="bit" />
+    <Property Name="otra" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="formulaPodal">
+    <Key>
+      <PropertyRef Name="idFormulaPodal" />
+    </Key>
+    <Property Name="idFormulaPodal" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="normolineo" Type="bit" />
+    <Property Name="longilineo" Type="bit" />
+    <Property Name="brevilineo" Type="bit" />
+    <Property Name="otra" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="FPI">
+    <Key>
+      <PropertyRef Name="idFPI" />
+    </Key>
+    <Property Name="idFPI" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="palpacionEstragaloIzda" Type="int" />
+    <Property Name="palpacionEstragaloDcha" Type="int" />
+    <Property Name="curvaturaMaleolarIzda" Type="int" />
+    <Property Name="curvaturaMaleolarDcha" Type="int" />
+    <Property Name="posicionCalcaneoIzda" Type="int" />
+    <Property Name="posicionCalcaneoDcha" Type="int" />
+    <Property Name="prominenciaArticulacionIzda" Type="int" />
+    <Property Name="prominenciaArticulacionDcha" Type="int" />
+    <Property Name="alturaYcongruenciaIzda" Type="int" />
+    <Property Name="alturaYcongruenciaDcha" Type="int" />
+    <Property Name="abduccionYaduccionIzda" Type="int" />
+    <Property Name="abduccionYaduccionDcha" Type="int" />
+  </EntityType>
+  <EntityType Name="historialClinico">
+    <Key>
+      <PropertyRef Name="idHistorialClinico" />
+    </Key>
+    <Property Name="idHistorialClinico" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="numeroHistorialClinico" Type="nchar" MaxLength="10" />
+    <Property Name="id_ant_podologicos" Type="uniqueidentifier" />
+    <Property Name="id_ant_patologicos" Type="uniqueidentifier" />
+    <Property Name="id_ant_fisiologicos" Type="uniqueidentifier" />
+    <Property Name="id_ant_familiares" Type="uniqueidentifier" />
+    <Property Name="id_estudio" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="materialSoportePlantar">
+    <Key>
+      <PropertyRef Name="idMaterialSoportePlantar" />
+    </Key>
+    <Property Name="idMaterialSoportePlantar" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="TAD" Type="bit" />
+    <Property Name="resinas" Type="bit" />
+    <Property Name="EVA" Type="bit" />
+    <Property Name="propileno" Type="bit" />
+    <Property Name="componentes" Type="nvarchar(max)" />
+    <Property Name="otros" Type="nvarchar(max)" />
+    <Property Name="id_tratamiento" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="paciente">
+    <Key>
+      <PropertyRef Name="idPaciente" />
+    </Key>
+    <Property Name="idPaciente" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="medicacionHabitual" Type="nvarchar(max)" />
+    <Property Name="observacion" Type="nvarchar(max)" />
+    <Property Name="numeroHistoriaClinica" Type="nvarchar" MaxLength="20" />
+    <Property Name="id_podologo" Type="uniqueidentifier" />
+    <Property Name="id_historial_clinico" Type="uniqueidentifier" />
+    <Property Name="id_persona" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="persona">
+    <Key>
+      <PropertyRef Name="idPersona" />
+    </Key>
+    <Property Name="idPersona" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar(max)" />
+    <Property Name="apellido1" Type="nvarchar(max)" />
+    <Property Name="apellido2" Type="nvarchar(max)" />
+    <Property Name="fechaNacimiento" Type="datetime" />
+    <Property Name="edad" Type="int" />
+    <Property Name="profesion" Type="nvarchar(max)" />
+    <Property Name="calle" Type="nvarchar(max)" />
+    <Property Name="ciudad" Type="nvarchar(max)" />
+    <Property Name="provincia" Type="nvarchar(max)" />
+    <Property Name="pais" Type="nvarchar(max)" />
+    <Property Name="telefono" Type="nvarchar" MaxLength="20" />
+    <Property Name="dni" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="podologo">
+    <Key>
+      <PropertyRef Name="idPodologo" />
+    </Key>
+    <Property Name="idPodologo" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="id_persona" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="primeraVisita">
+    <Key>
+      <PropertyRef Name="idPrimeraVisita" />
+    </Key>
+    <Property Name="idPrimeraVisita" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="peso" Type="float" />
+    <Property Name="talla" Type="float" />
+    <Property Name="actividadDeportiva" Type="nvarchar(max)" />
+    <Property Name="diabetes" Type="bit" />
+    <Property Name="alergias" Type="bit" />
+    <Property Name="tipoAlergias" Type="nvarchar(max)" />
+    <Property Name="motivoPrimeraConsulta" Type="nvarchar(max)" />
+    <Property Name="hayDolor" Type="bit" />
+    <Property Name="dolorSitio" Type="nvarchar(max)" />
+    <Property Name="dolorTipo" Type="nvarchar(max)" />
+    <Property Name="fechaPrimeraConsulta" Type="datetime" />
+    <Property Name="id_podologo" Type="uniqueidentifier" />
+    <Property Name="id_paciente" Type="uniqueidentifier" />
+    <Property Name="id_historial_clinico" Type="uniqueidentifier" />
+    <Property Name="id_tipo_estudio" Type="uniqueidentifier" />
+    <Property Name="id_estudio_ortopodologico" Type="uniqueidentifier" />
+    <Property Name="id_calzado_habitual" Type="uniqueidentifier" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'podologia.dbo.pruebasComplementarias' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="pruebasComplementarias">
+          <Property Name="idPrueba" Type="uniqueidentifier" />
+          <Property Name="pedigrafia" Type="varbinary(max)" />
+          <Property Name="rayosX" Type="varbinary(max)" />
+          <Property Name="analisisSanguineo" Type="varbinary(max)" />
+          <Property Name="cultivo" Type="varbinary(max)" />
+          <Property Name="doppler" Type="varbinary(max)" />
+          <Property Name="ecografia" Type="varbinary(max)" />
+          <Property Name="fotos" Type="varbinary(max)" />
+          <Property Name="fecha" Type="datetime" />
+          <Property Name="id_primera_visita" Type="uniqueidentifier" />
+        </EntityType>-->
+  <EntityType Name="retropie">
+    <Key>
+      <PropertyRef Name="idRetropie" />
+    </Key>
+    <Property Name="idRetropie" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="varo" Type="bit" />
+    <Property Name="valgo" Type="bit" />
+    <Property Name="neutro" Type="bit" />
+  </EntityType>
+  <EntityType Name="sedestacionExploracionArticular">
+    <Key>
+      <PropertyRef Name="idEArticularPieIzdo" />
+      <PropertyRef Name="idEArticularPieDcho" />
+    </Key>
+    <Property Name="idEArticularPieIzdo" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="idEArticularPieDcho" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="anteversionFemoralNinosIzda" Type="float" />
+    <Property Name="anteversionFemoralNinosDcha" Type="float" />
+    <Property Name="anteversionFemoralAdultosIzda" Type="float" />
+    <Property Name="anteversionFemoralAdultosDcha" Type="float" />
+    <Property Name="anguloTorsionBimaleolarIzda" Type="float" />
+    <Property Name="anguloTorsionBimaleolarDcha" Type="float" />
+  </EntityType>
+  <EntityType Name="sedestacionExploracionMuscular">
+    <Key>
+      <PropertyRef Name="idEMuscularPieIzdo" />
+      <PropertyRef Name="idEMuscularPieDcho" />
+    </Key>
+    <Property Name="idEMuscularPieIzdo" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="idEMuscularPieDcho" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="hiperlaxitudArticularIzdo" Type="bit" Nullable="false" />
+    <Property Name="hiperlaxitudArticularDcho" Type="bit" />
+  </EntityType>
+  <EntityType Name="tipoEstudio">
+    <Key>
+      <PropertyRef Name="idTipoEstudio" />
+    </Key>
+    <Property Name="idTipoEstudio" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ortopodologico" Type="bit" />
+  </EntityType>
+  <EntityType Name="tratamiento">
+    <Key>
+      <PropertyRef Name="idTratamiento" />
+    </Key>
+    <Property Name="idTratamiento" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="fisico" Type="bit" />
+    <Property Name="ejerciciosPropioceptivos" Type="nvarchar(max)" />
+    <Property Name="farmacologico" Type="bit" />
+    <Property Name="quiropodologico" Type="bit" />
+    <Property Name="ortosisDigital" Type="bit" />
+    <Property Name="ortosisDigitalTipo" Type="nvarchar(max)" />
+    <Property Name="soportePlantar" Type="bit" />
+    <Property Name="vendajeFuncional" Type="bit" />
+    <Property Name="preventivo" Type="bit" />
+    <Property Name="preventivoObservacion" Type="nvarchar(max)" />
+    <Property Name="calzadoterapia" Type="bit" />
+    <Property Name="otros" Type="nvarchar(max)" />
+    <Property Name="id_primera_visita" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="visionFrontal">
+    <Key>
+      <PropertyRef Name="idFrontal" />
+    </Key>
+    <Property Name="idFrontal" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="anterior" Type="nvarchar(max)" />
+    <Property Name="posterior" Type="nvarchar(max)" />
+    <Property Name="id_anguloFick" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="visionSagital">
+    <Key>
+      <PropertyRef Name="idSagital" />
+    </Key>
+    <Property Name="idSagital" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="estatica" Type="nvarchar(max)" />
+    <Property Name="dinamica" Type="nvarchar(max)" />
+    <Property Name="otros" Type="nvarchar(max)" />
+  </EntityType>
+  <Association Name="FK_bipedestacion_antepie">
+    <End Role="antepie" Type="Self.antepie" Multiplicity="0..1" />
+    <End Role="bipedestacion" Type="Self.bipedestacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="antepie">
+        <PropertyRef Name="idAntepie" />
+      </Principal>
+      <Dependent Role="bipedestacion">
+        <PropertyRef Name="id_antepie" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_bipedestacion_retropie">
+    <End Role="retropie" Type="Self.retropie" Multiplicity="0..1" />
+    <End Role="bipedestacion" Type="Self.bipedestacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="retropie">
+        <PropertyRef Name="idRetropie" />
+      </Principal>
+      <Dependent Role="bipedestacion">
+        <PropertyRef Name="id_retropie" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_consulta_paciente">
+    <End Role="paciente" Type="Self.paciente" Multiplicity="0..1" />
+    <End Role="consulta" Type="Self.consulta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="paciente">
+        <PropertyRef Name="idPaciente" />
+      </Principal>
+      <Dependent Role="consulta">
+        <PropertyRef Name="id_paciente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_consulta_podologo">
+    <End Role="podologo" Type="Self.podologo" Multiplicity="0..1" />
+    <End Role="consulta" Type="Self.consulta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="podologo">
+        <PropertyRef Name="idPodologo" />
+      </Principal>
+      <Dependent Role="consulta">
+        <PropertyRef Name="id_podologo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_decubitoSupinoExploracionArticular_decubitoSupinoAntepiePosicion1Radio">
+    <End Role="decubitoSupinoAntepiePosicion1Radio" Type="Self.decubitoSupinoAntepiePosicion1Radio" Multiplicity="0..1" />
+    <End Role="decubitoSupinoExploracionArticular" Type="Self.decubitoSupinoExploracionArticular" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="decubitoSupinoAntepiePosicion1Radio">
+        <PropertyRef Name="idPosicion1radio" />
+      </Principal>
+      <Dependent Role="decubitoSupinoExploracionArticular">
+        <PropertyRef Name="id_posicion_1_radio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_decubitoSupinoExploracionArticular_decubitoSupinoPosicionAnguloAntepie">
+    <End Role="decubitoSupinoPosicionAnguloAntepie" Type="Self.decubitoSupinoPosicionAnguloAntepie" Multiplicity="0..1" />
+    <End Role="decubitoSupinoExploracionArticular" Type="Self.decubitoSupinoExploracionArticular" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="decubitoSupinoPosicionAnguloAntepie">
+        <PropertyRef Name="idPosicionAnguloAntepie" />
+      </Principal>
+      <Dependent Role="decubitoSupinoExploracionArticular">
+        <PropertyRef Name="id_posicion_angulo_antepie" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_decubitoSupinoExploracionMorfologica_formulaDigital">
+    <End Role="formulaDigital" Type="Self.formulaDigital" Multiplicity="0..1" />
+    <End Role="decubitoSupinoExploracionMorfologica" Type="Self.decubitoSupinoExploracionMorfologica" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="formulaDigital">
+        <PropertyRef Name="idFormulaDigital" />
+      </Principal>
+      <Dependent Role="decubitoSupinoExploracionMorfologica">
+        <PropertyRef Name="id_formula_digital" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_decubitoSupinoExploracionMorfologica_formulaMetatarsal">
+    <End Role="formulaMetatarsal" Type="Self.formulaMetatarsal" Multiplicity="0..1" />
+    <End Role="decubitoSupinoExploracionMorfologica" Type="Self.decubitoSupinoExploracionMorfologica" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="formulaMetatarsal">
+        <PropertyRef Name="idFormulaMetatarsal" />
+      </Principal>
+      <Dependent Role="decubitoSupinoExploracionMorfologica">
+        <PropertyRef Name="id_formula_metatarsal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_decubitoSupinoExploracionMorfologica_formulaPodal">
+    <End Role="formulaPodal" Type="Self.formulaPodal" Multiplicity="0..1" />
+    <End Role="decubitoSupinoExploracionMorfologica" Type="Self.decubitoSupinoExploracionMorfologica" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="formulaPodal">
+        <PropertyRef Name="idFormulaPodal" />
+      </Principal>
+      <Dependent Role="decubitoSupinoExploracionMorfologica">
+        <PropertyRef Name="id_formula_podal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_decubitoSupinoPulsos_decubitoSupinoPulsosTipo">
+    <End Role="decubitoSupinoPulsosTipo" Type="Self.decubitoSupinoPulsosTipo" Multiplicity="0..1" />
+    <End Role="decubitoSupinoPulsos" Type="Self.decubitoSupinoPulsos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="decubitoSupinoPulsosTipo">
+        <PropertyRef Name="idPulsosTipo" />
+      </Principal>
+      <Dependent Role="decubitoSupinoPulsos">
+        <PropertyRef Name="id_pulsos_tipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_diagnostico_primeraVisita">
+    <End Role="primeraVisita" Type="Self.primeraVisita" Multiplicity="0..1" />
+    <End Role="diagnostico" Type="Self.diagnostico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="primeraVisita">
+        <PropertyRef Name="idPrimeraVisita" />
+      </Principal>
+      <Dependent Role="diagnostico">
+        <PropertyRef Name="id_primera_visita" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_estudioOrtopodologico_bipedestacion">
+    <End Role="bipedestacion" Type="Self.bipedestacion" Multiplicity="0..1" />
+    <End Role="estudioOrtopodologico" Type="Self.estudioOrtopodologico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bipedestacion">
+        <PropertyRef Name="idBipedestacion" />
+      </Principal>
+      <Dependent Role="estudioOrtopodologico">
+        <PropertyRef Name="id_bipedestacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_estudioOrtopodologico_deambulacion">
+    <End Role="deambulacion" Type="Self.deambulacion" Multiplicity="0..1" />
+    <End Role="estudioOrtopodologico" Type="Self.estudioOrtopodologico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="deambulacion">
+        <PropertyRef Name="idDeambulacion" />
+      </Principal>
+      <Dependent Role="estudioOrtopodologico">
+        <PropertyRef Name="id_deambulacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_estudioOrtopodologico_decubitoPronoExploracionArticular">
+    <End Role="decubitoPronoExploracionArticular" Type="Self.decubitoPronoExploracionArticular" Multiplicity="0..1" />
+    <End Role="estudioOrtopodologico" Type="Self.estudioOrtopodologico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="decubitoPronoExploracionArticular">
+        <PropertyRef Name="idEArticularPieIzdo" />
+        <PropertyRef Name="idEArticularPieDcho" />
+      </Principal>
+      <Dependent Role="estudioOrtopodologico">
+        <PropertyRef Name="id_dp_articular_izdo" />
+        <PropertyRef Name="id_dp_articular_dcho" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_estudioOrtopodologico_decubitoSupinoExploracionArticular">
+    <End Role="decubitoSupinoExploracionArticular" Type="Self.decubitoSupinoExploracionArticular" Multiplicity="0..1" />
+    <End Role="estudioOrtopodologico" Type="Self.estudioOrtopodologico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="decubitoSupinoExploracionArticular">
+        <PropertyRef Name="idEArticularIzdo" />
+        <PropertyRef Name="idEArticularDcho" />
+      </Principal>
+      <Dependent Role="estudioOrtopodologico">
+        <PropertyRef Name="id_dse_articular_izdo" />
+        <PropertyRef Name="id_dse_articular_dcho" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_estudioOrtopodologico_decubitoSupinoExploracionMorfologica">
+    <End Role="decubitoSupinoExploracionMorfologica" Type="Self.decubitoSupinoExploracionMorfologica" Multiplicity="0..1" />
+    <End Role="estudioOrtopodologico" Type="Self.estudioOrtopodologico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="decubitoSupinoExploracionMorfologica">
+        <PropertyRef Name="idEMorfologica" />
+      </Principal>
+      <Dependent Role="estudioOrtopodologico">
+        <PropertyRef Name="id_dse_morfologico" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_estudioOrtopodologico_decubitoSupinoExploracionMuscular">
+    <End Role="decubitoSupinoExploracionMuscular" Type="Self.decubitoSupinoExploracionMuscular" Multiplicity="0..1" />
+    <End Role="estudioOrtopodologico" Type="Self.estudioOrtopodologico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="decubitoSupinoExploracionMuscular">
+        <PropertyRef Name="idEMuscularPieIzdo" />
+        <PropertyRef Name="idEMuscularPieDcho" />
+      </Principal>
+      <Dependent Role="estudioOrtopodologico">
+        <PropertyRef Name="id_dse_muscular_izdo" />
+        <PropertyRef Name="id_dse_muscular_dcho" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_estudioOrtopodologico_decubitoSupinoPulsos">
+    <End Role="decubitoSupinoPulsos" Type="Self.decubitoSupinoPulsos" Multiplicity="0..1" />
+    <End Role="estudioOrtopodologico" Type="Self.estudioOrtopodologico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="decubitoSupinoPulsos">
+        <PropertyRef Name="idPulsos" />
+      </Principal>
+      <Dependent Role="estudioOrtopodologico">
+        <PropertyRef Name="id_pulsos" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_estudioOrtopodologico_sedestacionExploracionArticular">
+    <End Role="sedestacionExploracionArticular" Type="Self.sedestacionExploracionArticular" Multiplicity="0..1" />
+    <End Role="estudioOrtopodologico" Type="Self.estudioOrtopodologico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sedestacionExploracionArticular">
+        <PropertyRef Name="idEArticularPieIzdo" />
+        <PropertyRef Name="idEArticularPieDcho" />
+      </Principal>
+      <Dependent Role="estudioOrtopodologico">
+        <PropertyRef Name="id_se_articular_izdo" />
+        <PropertyRef Name="id_se_articular_dcho" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_estudioOrtopodologico_sedestacionExploracionMuscular">
+    <End Role="sedestacionExploracionMuscular" Type="Self.sedestacionExploracionMuscular" Multiplicity="0..1" />
+    <End Role="estudioOrtopodologico" Type="Self.estudioOrtopodologico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sedestacionExploracionMuscular">
+        <PropertyRef Name="idEMuscularPieIzdo" />
+        <PropertyRef Name="idEMuscularPieDcho" />
+      </Principal>
+      <Dependent Role="estudioOrtopodologico">
+        <PropertyRef Name="id_se_muscular_izdo" />
+        <PropertyRef Name="id_se_muscular_dcho" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_estudioOrtopodologico_visionFrontal">
+    <End Role="visionFrontal" Type="Self.visionFrontal" Multiplicity="0..1" />
+    <End Role="estudioOrtopodologico" Type="Self.estudioOrtopodologico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="visionFrontal">
+        <PropertyRef Name="idFrontal" />
+      </Principal>
+      <Dependent Role="estudioOrtopodologico">
+        <PropertyRef Name="id_adv_frontal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_estudioOrtopodologico_visionSagital">
+    <End Role="visionSagital" Type="Self.visionSagital" Multiplicity="0..1" />
+    <End Role="estudioOrtopodologico" Type="Self.estudioOrtopodologico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="visionSagital">
+        <PropertyRef Name="idSagital" />
+      </Principal>
+      <Dependent Role="estudioOrtopodologico">
+        <PropertyRef Name="id_adv_sagital" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_historialClinico_antecedentesFamiliares">
+    <End Role="antecedentesFamiliares" Type="Self.antecedentesFamiliares" Multiplicity="0..1" />
+    <End Role="historialClinico" Type="Self.historialClinico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="antecedentesFamiliares">
+        <PropertyRef Name="idAFamiliares" />
+      </Principal>
+      <Dependent Role="historialClinico">
+        <PropertyRef Name="id_ant_familiares" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_historialClinico_antecedentesFisiologicos">
+    <End Role="antecedentesFisiologicos" Type="Self.antecedentesFisiologicos" Multiplicity="0..1" />
+    <End Role="historialClinico" Type="Self.historialClinico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="antecedentesFisiologicos">
+        <PropertyRef Name="idAFisiologico" />
+      </Principal>
+      <Dependent Role="historialClinico">
+        <PropertyRef Name="id_ant_fisiologicos" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_historialClinico_antecedentesPatologicos">
+    <End Role="antecedentesPatologicos" Type="Self.antecedentesPatologicos" Multiplicity="0..1" />
+    <End Role="historialClinico" Type="Self.historialClinico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="antecedentesPatologicos">
+        <PropertyRef Name="idAPatologico" />
+      </Principal>
+      <Dependent Role="historialClinico">
+        <PropertyRef Name="id_ant_patologicos" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_historialClinico_antecedentesPodologicos">
+    <End Role="antecedentesPodologicos" Type="Self.antecedentesPodologicos" Multiplicity="0..1" />
+    <End Role="historialClinico" Type="Self.historialClinico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="antecedentesPodologicos">
+        <PropertyRef Name="idAPodologicos" />
+      </Principal>
+      <Dependent Role="historialClinico">
+        <PropertyRef Name="id_ant_podologicos" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_materialSoportePlantar_tratamiento">
+    <End Role="tratamiento" Type="Self.tratamiento" Multiplicity="0..1" />
+    <End Role="materialSoportePlantar" Type="Self.materialSoportePlantar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tratamiento">
+        <PropertyRef Name="idTratamiento" />
+      </Principal>
+      <Dependent Role="materialSoportePlantar">
+        <PropertyRef Name="id_tratamiento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_paciente_persona">
+    <End Role="persona" Type="Self.persona" Multiplicity="0..1" />
+    <End Role="paciente" Type="Self.paciente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="persona">
+        <PropertyRef Name="idPersona" />
+      </Principal>
+      <Dependent Role="paciente">
+        <PropertyRef Name="id_persona" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_paciente_podologo">
+    <End Role="podologo" Type="Self.podologo" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="paciente" Type="Self.paciente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="podologo">
+        <PropertyRef Name="idPodologo" />
+      </Principal>
+      <Dependent Role="paciente">
+        <PropertyRef Name="id_podologo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_podologo_persona">
+    <End Role="persona" Type="Self.persona" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="podologo" Type="Self.podologo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="persona">
+        <PropertyRef Name="idPersona" />
+      </Principal>
+      <Dependent Role="podologo">
+        <PropertyRef Name="id_persona" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_primeraVisita_calzadoHabitual">
+    <End Role="calzadoHabitual" Type="Self.calzadoHabitual" Multiplicity="0..1" />
+    <End Role="primeraVisita" Type="Self.primeraVisita" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="calzadoHabitual">
+        <PropertyRef Name="idCalzado" />
+      </Principal>
+      <Dependent Role="primeraVisita">
+        <PropertyRef Name="id_calzado_habitual" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_primeraVisita_estudioOrtopodologico">
+    <End Role="estudioOrtopodologico" Type="Self.estudioOrtopodologico" Multiplicity="0..1" />
+    <End Role="primeraVisita" Type="Self.primeraVisita" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="estudioOrtopodologico">
+        <PropertyRef Name="idEOrtopodologico" />
+      </Principal>
+      <Dependent Role="primeraVisita">
+        <PropertyRef Name="id_estudio_ortopodologico" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_primeraVisita_paciente">
+    <End Role="paciente" Type="Self.paciente" Multiplicity="0..1" />
+    <End Role="primeraVisita" Type="Self.primeraVisita" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="paciente">
+        <PropertyRef Name="idPaciente" />
+      </Principal>
+      <Dependent Role="primeraVisita">
+        <PropertyRef Name="id_paciente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_primeraVisita_podologo">
+    <End Role="podologo" Type="Self.podologo" Multiplicity="0..1" />
+    <End Role="primeraVisita" Type="Self.primeraVisita" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="podologo">
+        <PropertyRef Name="idPodologo" />
+      </Principal>
+      <Dependent Role="primeraVisita">
+        <PropertyRef Name="id_podologo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_primeraVisita_tipoEstudio">
+    <End Role="tipoEstudio" Type="Self.tipoEstudio" Multiplicity="0..1" />
+    <End Role="primeraVisita" Type="Self.primeraVisita" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipoEstudio">
+        <PropertyRef Name="idTipoEstudio" />
+      </Principal>
+      <Dependent Role="primeraVisita">
+        <PropertyRef Name="id_tipo_estudio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <!--Errores durante la generación:
+error 6004: Una relación hace referencia a la tabla 'podologia.dbo.pruebasComplementarias', pero no se encuentra la tabla.
+        <Association Name="FK_pruebasComplementarias_primeraVisita" />-->
+  <Association Name="FK_tratamiento_primeraVisita">
+    <End Role="primeraVisita" Type="Self.primeraVisita" Multiplicity="0..1" />
+    <End Role="tratamiento" Type="Self.tratamiento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="primeraVisita">
+        <PropertyRef Name="idPrimeraVisita" />
+      </Principal>
+      <Dependent Role="tratamiento">
+        <PropertyRef Name="id_primera_visita" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_visionFrontal_anguloFick">
+    <End Role="anguloFick" Type="Self.anguloFick" Multiplicity="0..1" />
+    <End Role="visionFrontal" Type="Self.visionFrontal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="anguloFick">
+        <PropertyRef Name="idAngulo" />
+      </Principal>
+      <Dependent Role="visionFrontal">
+        <PropertyRef Name="id_anguloFick" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="podologiaModelStoreContainer">
+    <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="anguloFick" EntityType="Self.anguloFick" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="antecedentesFamiliares" EntityType="Self.antecedentesFamiliares" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="antecedentesFisiologicos" EntityType="Self.antecedentesFisiologicos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="antecedentesPatologicos" EntityType="Self.antecedentesPatologicos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="antecedentesPodologicos" EntityType="Self.antecedentesPodologicos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="antepie" EntityType="Self.antepie" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="bipedestacion" EntityType="Self.bipedestacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="calzadoHabitual" EntityType="Self.calzadoHabitual" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="consulta" EntityType="Self.consulta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="deambulacion" EntityType="Self.deambulacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="decubitoPronoExploracionArticular" EntityType="Self.decubitoPronoExploracionArticular" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="decubitoSupinoAntepiePosicion1Radio" EntityType="Self.decubitoSupinoAntepiePosicion1Radio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="decubitoSupinoExploracionArticular" EntityType="Self.decubitoSupinoExploracionArticular" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="decubitoSupinoExploracionMorfologica" EntityType="Self.decubitoSupinoExploracionMorfologica" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="decubitoSupinoExploracionMuscular" EntityType="Self.decubitoSupinoExploracionMuscular" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="decubitoSupinoPosicionAnguloAntepie" EntityType="Self.decubitoSupinoPosicionAnguloAntepie" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="decubitoSupinoPulsos" EntityType="Self.decubitoSupinoPulsos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="decubitoSupinoPulsosTipo" EntityType="Self.decubitoSupinoPulsosTipo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="diagnostico" EntityType="Self.diagnostico" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="estudioOrtopodologico" EntityType="Self.estudioOrtopodologico" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="formulaDigital" EntityType="Self.formulaDigital" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="formulaMetatarsal" EntityType="Self.formulaMetatarsal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="formulaPodal" EntityType="Self.formulaPodal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FPI" EntityType="Self.FPI" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="historialClinico" EntityType="Self.historialClinico" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="materialSoportePlantar" EntityType="Self.materialSoportePlantar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="paciente" EntityType="Self.paciente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="persona" EntityType="Self.persona" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="podologo" EntityType="Self.podologo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="primeraVisita" EntityType="Self.primeraVisita" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="retropie" EntityType="Self.retropie" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sedestacionExploracionArticular" EntityType="Self.sedestacionExploracionArticular" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sedestacionExploracionMuscular" EntityType="Self.sedestacionExploracionMuscular" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tipoEstudio" EntityType="Self.tipoEstudio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tratamiento" EntityType="Self.tratamiento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="visionFrontal" EntityType="Self.visionFrontal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="visionSagital" EntityType="Self.visionSagital" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_bipedestacion_antepie" Association="Self.FK_bipedestacion_antepie">
+      <End Role="antepie" EntitySet="antepie" />
+      <End Role="bipedestacion" EntitySet="bipedestacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_bipedestacion_retropie" Association="Self.FK_bipedestacion_retropie">
+      <End Role="retropie" EntitySet="retropie" />
+      <End Role="bipedestacion" EntitySet="bipedestacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_consulta_paciente" Association="Self.FK_consulta_paciente">
+      <End Role="paciente" EntitySet="paciente" />
+      <End Role="consulta" EntitySet="consulta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_consulta_podologo" Association="Self.FK_consulta_podologo">
+      <End Role="podologo" EntitySet="podologo" />
+      <End Role="consulta" EntitySet="consulta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_decubitoSupinoExploracionArticular_decubitoSupinoAntepiePosicion1Radio" Association="Self.FK_decubitoSupinoExploracionArticular_decubitoSupinoAntepiePosicion1Radio">
+      <End Role="decubitoSupinoAntepiePosicion1Radio" EntitySet="decubitoSupinoAntepiePosicion1Radio" />
+      <End Role="decubitoSupinoExploracionArticular" EntitySet="decubitoSupinoExploracionArticular" />
+    </AssociationSet>
+    <AssociationSet Name="FK_decubitoSupinoExploracionArticular_decubitoSupinoPosicionAnguloAntepie" Association="Self.FK_decubitoSupinoExploracionArticular_decubitoSupinoPosicionAnguloAntepie">
+      <End Role="decubitoSupinoPosicionAnguloAntepie" EntitySet="decubitoSupinoPosicionAnguloAntepie" />
+      <End Role="decubitoSupinoExploracionArticular" EntitySet="decubitoSupinoExploracionArticular" />
+    </AssociationSet>
+    <AssociationSet Name="FK_decubitoSupinoExploracionMorfologica_formulaDigital" Association="Self.FK_decubitoSupinoExploracionMorfologica_formulaDigital">
+      <End Role="formulaDigital" EntitySet="formulaDigital" />
+      <End Role="decubitoSupinoExploracionMorfologica" EntitySet="decubitoSupinoExploracionMorfologica" />
+    </AssociationSet>
+    <AssociationSet Name="FK_decubitoSupinoExploracionMorfologica_formulaMetatarsal" Association="Self.FK_decubitoSupinoExploracionMorfologica_formulaMetatarsal">
+      <End Role="formulaMetatarsal" EntitySet="formulaMetatarsal" />
+      <End Role="decubitoSupinoExploracionMorfologica" EntitySet="decubitoSupinoExploracionMorfologica" />
+    </AssociationSet>
+    <AssociationSet Name="FK_decubitoSupinoExploracionMorfologica_formulaPodal" Association="Self.FK_decubitoSupinoExploracionMorfologica_formulaPodal">
+      <End Role="formulaPodal" EntitySet="formulaPodal" />
+      <End Role="decubitoSupinoExploracionMorfologica" EntitySet="decubitoSupinoExploracionMorfologica" />
+    </AssociationSet>
+    <AssociationSet Name="FK_decubitoSupinoPulsos_decubitoSupinoPulsosTipo" Association="Self.FK_decubitoSupinoPulsos_decubitoSupinoPulsosTipo">
+      <End Role="decubitoSupinoPulsosTipo" EntitySet="decubitoSupinoPulsosTipo" />
+      <End Role="decubitoSupinoPulsos" EntitySet="decubitoSupinoPulsos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_diagnostico_primeraVisita" Association="Self.FK_diagnostico_primeraVisita">
+      <End Role="primeraVisita" EntitySet="primeraVisita" />
+      <End Role="diagnostico" EntitySet="diagnostico" />
+    </AssociationSet>
+    <AssociationSet Name="FK_estudioOrtopodologico_bipedestacion" Association="Self.FK_estudioOrtopodologico_bipedestacion">
+      <End Role="bipedestacion" EntitySet="bipedestacion" />
+      <End Role="estudioOrtopodologico" EntitySet="estudioOrtopodologico" />
+    </AssociationSet>
+    <AssociationSet Name="FK_estudioOrtopodologico_deambulacion" Association="Self.FK_estudioOrtopodologico_deambulacion">
+      <End Role="deambulacion" EntitySet="deambulacion" />
+      <End Role="estudioOrtopodologico" EntitySet="estudioOrtopodologico" />
+    </AssociationSet>
+    <AssociationSet Name="FK_estudioOrtopodologico_decubitoPronoExploracionArticular" Association="Self.FK_estudioOrtopodologico_decubitoPronoExploracionArticular">
+      <End Role="decubitoPronoExploracionArticular" EntitySet="decubitoPronoExploracionArticular" />
+      <End Role="estudioOrtopodologico" EntitySet="estudioOrtopodologico" />
+    </AssociationSet>
+    <AssociationSet Name="FK_estudioOrtopodologico_decubitoSupinoExploracionArticular" Association="Self.FK_estudioOrtopodologico_decubitoSupinoExploracionArticular">
+      <End Role="decubitoSupinoExploracionArticular" EntitySet="decubitoSupinoExploracionArticular" />
+      <End Role="estudioOrtopodologico" EntitySet="estudioOrtopodologico" />
+    </AssociationSet>
+    <AssociationSet Name="FK_estudioOrtopodologico_decubitoSupinoExploracionMorfologica" Association="Self.FK_estudioOrtopodologico_decubitoSupinoExploracionMorfologica">
+      <End Role="decubitoSupinoExploracionMorfologica" EntitySet="decubitoSupinoExploracionMorfologica" />
+      <End Role="estudioOrtopodologico" EntitySet="estudioOrtopodologico" />
+    </AssociationSet>
+    <AssociationSet Name="FK_estudioOrtopodologico_decubitoSupinoExploracionMuscular" Association="Self.FK_estudioOrtopodologico_decubitoSupinoExploracionMuscular">
+      <End Role="decubitoSupinoExploracionMuscular" EntitySet="decubitoSupinoExploracionMuscular" />
+      <End Role="estudioOrtopodologico" EntitySet="estudioOrtopodologico" />
+    </AssociationSet>
+    <AssociationSet Name="FK_estudioOrtopodologico_decubitoSupinoPulsos" Association="Self.FK_estudioOrtopodologico_decubitoSupinoPulsos">
+      <End Role="decubitoSupinoPulsos" EntitySet="decubitoSupinoPulsos" />
+      <End Role="estudioOrtopodologico" EntitySet="estudioOrtopodologico" />
+    </AssociationSet>
+    <AssociationSet Name="FK_estudioOrtopodologico_sedestacionExploracionArticular" Association="Self.FK_estudioOrtopodologico_sedestacionExploracionArticular">
+      <End Role="sedestacionExploracionArticular" EntitySet="sedestacionExploracionArticular" />
+      <End Role="estudioOrtopodologico" EntitySet="estudioOrtopodologico" />
+    </AssociationSet>
+    <AssociationSet Name="FK_estudioOrtopodologico_sedestacionExploracionMuscular" Association="Self.FK_estudioOrtopodologico_sedestacionExploracionMuscular">
+      <End Role="sedestacionExploracionMuscular" EntitySet="sedestacionExploracionMuscular" />
+      <End Role="estudioOrtopodologico" EntitySet="estudioOrtopodologico" />
+    </AssociationSet>
+    <AssociationSet Name="FK_estudioOrtopodologico_visionFrontal" Association="Self.FK_estudioOrtopodologico_visionFrontal">
+      <End Role="visionFrontal" EntitySet="visionFrontal" />
+      <End Role="estudioOrtopodologico" EntitySet="estudioOrtopodologico" />
+    </AssociationSet>
+    <AssociationSet Name="FK_estudioOrtopodologico_visionSagital" Association="Self.FK_estudioOrtopodologico_visionSagital">
+      <End Role="visionSagital" EntitySet="visionSagital" />
+      <End Role="estudioOrtopodologico" EntitySet="estudioOrtopodologico" />
+    </AssociationSet>
+    <AssociationSet Name="FK_historialClinico_antecedentesFamiliares" Association="Self.FK_historialClinico_antecedentesFamiliares">
+      <End Role="antecedentesFamiliares" EntitySet="antecedentesFamiliares" />
+      <End Role="historialClinico" EntitySet="historialClinico" />
+    </AssociationSet>
+    <AssociationSet Name="FK_historialClinico_antecedentesFisiologicos" Association="Self.FK_historialClinico_antecedentesFisiologicos">
+      <End Role="antecedentesFisiologicos" EntitySet="antecedentesFisiologicos" />
+      <End Role="historialClinico" EntitySet="historialClinico" />
+    </AssociationSet>
+    <AssociationSet Name="FK_historialClinico_antecedentesPatologicos" Association="Self.FK_historialClinico_antecedentesPatologicos">
+      <End Role="antecedentesPatologicos" EntitySet="antecedentesPatologicos" />
+      <End Role="historialClinico" EntitySet="historialClinico" />
+    </AssociationSet>
+    <AssociationSet Name="FK_historialClinico_antecedentesPodologicos" Association="Self.FK_historialClinico_antecedentesPodologicos">
+      <End Role="antecedentesPodologicos" EntitySet="antecedentesPodologicos" />
+      <End Role="historialClinico" EntitySet="historialClinico" />
+    </AssociationSet>
+    <AssociationSet Name="FK_materialSoportePlantar_tratamiento" Association="Self.FK_materialSoportePlantar_tratamiento">
+      <End Role="tratamiento" EntitySet="tratamiento" />
+      <End Role="materialSoportePlantar" EntitySet="materialSoportePlantar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_paciente_persona" Association="Self.FK_paciente_persona">
+      <End Role="persona" EntitySet="persona" />
+      <End Role="paciente" EntitySet="paciente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_paciente_podologo" Association="Self.FK_paciente_podologo">
+      <End Role="podologo" EntitySet="podologo" />
+      <End Role="paciente" EntitySet="paciente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_podologo_persona" Association="Self.FK_podologo_persona">
+      <End Role="persona" EntitySet="persona" />
+      <End Role="podologo" EntitySet="podologo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_primeraVisita_calzadoHabitual" Association="Self.FK_primeraVisita_calzadoHabitual">
+      <End Role="calzadoHabitual" EntitySet="calzadoHabitual" />
+      <End Role="primeraVisita" EntitySet="primeraVisita" />
+    </AssociationSet>
+    <AssociationSet Name="FK_primeraVisita_estudioOrtopodologico" Association="Self.FK_primeraVisita_estudioOrtopodologico">
+      <End Role="estudioOrtopodologico" EntitySet="estudioOrtopodologico" />
+      <End Role="primeraVisita" EntitySet="primeraVisita" />
+    </AssociationSet>
+    <AssociationSet Name="FK_primeraVisita_paciente" Association="Self.FK_primeraVisita_paciente">
+      <End Role="paciente" EntitySet="paciente" />
+      <End Role="primeraVisita" EntitySet="primeraVisita" />
+    </AssociationSet>
+    <AssociationSet Name="FK_primeraVisita_podologo" Association="Self.FK_primeraVisita_podologo">
+      <End Role="podologo" EntitySet="podologo" />
+      <End Role="primeraVisita" EntitySet="primeraVisita" />
+    </AssociationSet>
+    <AssociationSet Name="FK_primeraVisita_tipoEstudio" Association="Self.FK_primeraVisita_tipoEstudio">
+      <End Role="tipoEstudio" EntitySet="tipoEstudio" />
+      <End Role="primeraVisita" EntitySet="primeraVisita" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tratamiento_primeraVisita" Association="Self.FK_tratamiento_primeraVisita">
+      <End Role="primeraVisita" EntitySet="primeraVisita" />
+      <End Role="tratamiento" EntitySet="tratamiento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_visionFrontal_anguloFick" Association="Self.FK_visionFrontal_anguloFick">
+      <End Role="anguloFick" EntitySet="anguloFick" />
+      <End Role="visionFrontal" EntitySet="visionFrontal" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
