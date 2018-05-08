@@ -801,12 +801,8 @@
     <Content Include="Views\Extras\TeamViewer.cshtml" />
     <Content Include="Views\Extras\VoteLinks.cshtml" />
     <Content Include="Views\Extras\Settings.cshtml" />
-    <Content Include="Views\Paciente\Index.cshtml" />
-    <Content Include="Views\Paciente\Create.cshtml" />
     <Content Include="Views\Paciente\Error_404.cshtml" />
-    <Content Include="Views\Paciente\Edit.cshtml" />
-    <Content Include="Views\Paciente\Delete.cshtml" />
-    <Content Include="Views\Paciente\Details.cshtml" />
+    <Content Include="Views\Paciente\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

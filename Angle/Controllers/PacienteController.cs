@@ -20,22 +20,21 @@ namespace Angle.Controllers
         }
 
         // GET: /Paciente/Create
-        public ActionResult Create() //luego pasar id paciente para buscarlo y leer los datos
+        public ActionResult Create() 
         {
-            return View(); //vista de paciente
+            return View(); 
         }
 
         // POST
         [HttpPost]
-        public ActionResult Create(paciente paciente)
+        public ActionResult Create(FormPaciente form)
         {
             if (ModelState.IsValid)
             {
-                db.paciente.Add(paciente);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                form.InsertarEn(db);
+                return RedirectToAction("Create");
             }
-            return View(paciente);
+            return View(form);
         }
 
         public ActionResult Error_404()
@@ -57,13 +56,15 @@ namespace Angle.Controllers
             }
 
             paciente paciente = db.paciente.Find(id);
+            persona persona = db.persona.Find(id);
 
             if (paciente == null)
             {
                 return HttpNotFound();
             }
+            FormPaciente form = FormPaciente.Rellenar(paciente, persona);
 
-            return View(paciente);
+            return View(form);
         }
 
         // POST: /Paciente/Edit
@@ -108,7 +109,7 @@ namespace Angle.Controllers
             {
                 db.Entry(paciente).State = System.Data.Entity.EntityState.Deleted;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Create");
             }
             return View(paciente);
         }
@@ -136,7 +137,7 @@ namespace Angle.Controllers
         // POST: /Paciente/Details
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Details(paciente paciente)
+        public ActionResult Details(FormPaciente paciente)
         {
             if (ModelState.IsValid)
             {

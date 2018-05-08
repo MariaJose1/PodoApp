@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 @import url(//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,400italic);
 /*!
  *
@@ -1033,7 +1033,10 @@ _:-ms-lang(x),
   padding: 0;
 }
 .topnavbar .navbar-header .brand-logo > img,
-.topnavbar .navbar-header .brand-logo-collapsed > img {
+.topnavbar .navbar-header .brand-
+
+
+collapsed > img {
   margin: 0 auto;
 }
 .topnavbar .navbar-header .brand-logo {
