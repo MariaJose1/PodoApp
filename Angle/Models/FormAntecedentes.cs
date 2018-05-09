@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 
@@ -9,6 +10,17 @@ namespace Angle.Models
 {
     public class FormAntecedentes
     {
+        // Historial Clinico
+
+        [Required()]
+        public Guid IdHistorialClinico { get; set; }
+
+        [DisplayName("Introduzca el número del historial clínico:")]
+        [Required()]
+        public string NumeroHistorialClinico { get; set; }
+
+        // ANTECEDENTES PODOLÓGICOS
+
         [Required()]
         public Guid IdAPodologicos { get; set; }
 
@@ -18,6 +30,8 @@ namespace Angle.Models
 
         [DisplayName("Antecedentes: ")]
         public string Antecedentes { get; set; }
+
+        // ANTECEDENTES PATOLÓGICOS
 
         [Required()]
         public Guid IdAPatologicos { get; set; }
@@ -73,6 +87,8 @@ namespace Angle.Models
         [DisplayName("Fractura")]
         public bool? Fractura { get; set; }
 
+        // ANTECEDENTES FISIOLÓGICOS
+
         [Required()]
         public Guid IdAFisiologicos { get; set; }
 
@@ -106,6 +122,7 @@ namespace Angle.Models
         [DisplayName("Parto de nalgas")]
         public bool? PartoNalgas { get; set; }
 
+        // ANTECEDENTES FAMILIARES
         [Required()]
         public Guid IdAFamiliares { get; set; }
 
@@ -150,16 +167,24 @@ namespace Angle.Models
 
 
 
-        public static FormAntecedentes Rellenar (antecedentesFamiliares familiares, antecedentesFisiologicos fisiologicos,
-            antecedentesPatologicos patologicos, antecedentesPodologicos podologicos)
+        public static FormAntecedentes Rellenar (historialClinico historial)
         {
+            antecedentesFamiliares familiares = historial.antecedentesFamiliares;
+            antecedentesFisiologicos fisiologicos = historial.antecedentesFisiologicos;
+            antecedentesPatologicos patologicos = historial.antecedentesPatologicos;
+            antecedentesPodologicos podologicos = historial.antecedentesPodologicos;
+
             return new FormAntecedentes
             {
+                // historial
+                IdHistorialClinico = historial.idHistorialClinico,
+                NumeroHistorialClinico = historial.numeroHistorialClinico,
+
                 // podológicos
                 IdAPodologicos = podologicos.idAPodologicos,
                 HaIdoPodologo = podologicos.haidoPodologo,
                 Antecedentes = podologicos.antecedentes,
-
+                
                 // patológicos
                 IdAPatologicos = patologicos.idAPatologico,
                 PatologiaPrevia = patologicos.patologiaPrevia,
@@ -179,7 +204,7 @@ namespace Angle.Models
                 Fisura = patologicos.fisura,
                 Fractura = patologicos.fractura,
                 Otros = patologicos.otros,
-
+                
                 // fisiológicos
                 IdAFisiologicos = fisiologicos.idAFisiologico,
                 Andador = fisiologicos.andador,
@@ -208,30 +233,37 @@ namespace Angle.Models
                 GenuVaro = familiares.genuVaro,
                 GenuValgo = familiares.genuValgo,
                 MetaAductus = familiares.metaAductus,
-                MetaVarus = familiares.metaVarus,
+                MetaVarus = familiares.metaVarus
 
+                
 
             };
         }
-
+        
         public void InsertarEn (podologiaEntities podo)
         {
             using (var tr = podo.Database.BeginTransaction())
             {
                 try
                 {
-                    var nuevoId = Guid.NewGuid();
+                    var nuevoIdHistorial = Guid.NewGuid();
+                    var nuevoIdPodo= Guid.NewGuid();
+                    var nuevoIdFam = Guid.NewGuid();
+                    var nuevoIdFisio = Guid.NewGuid();
+                    var nuevoIdPato = Guid.NewGuid();
+
+                   
 
                     int retPodologicos = podo.Database.ExecuteSqlCommand(
                         @"INSERT INTO antecedentesPodologicos(
                             [idAPodologicos],
-                            [haIdoPodologo],
+                            [haidoPodologo],
                             [antecedentes]
                             ) VALUES (
                             @p0, @p1,
                             @p2
                             )",
-                        nuevoId,
+                        nuevoIdPodo,
                         this.HaIdoPodologo,
                         this.Antecedentes
                         );
@@ -265,9 +297,9 @@ namespace Angle.Models
                             @p10, @p11,
                             @p12, @p13,
                             @p14, @p15,
-                            @p16, @p17
-                            )",
-                       nuevoId,
+                            @p16, @p17                            
+                           )",
+                       nuevoIdPato,
                        this.PatologiaPrevia,
                        this.EnfermedadInfantil,
                        this.AntecedentesTraumaticos,
@@ -304,7 +336,7 @@ namespace Angle.Models
                             [genuValgo],
                             [metaAductus],
                             [metaVarus]
-                            ) VALUES (
+                           ) VALUES (
                             @p0, @p1,
                             @p2, @p3,
                             @p4, @p5,
@@ -314,7 +346,7 @@ namespace Angle.Models
                             @p12, @p13,
                             @p14
                             )",
-                       nuevoId,
+                       nuevoIdFam,
                        this.Dismetrias,
                        this.Escoliosis,
                        this.TibiasVaras,
@@ -345,15 +377,15 @@ namespace Angle.Models
                             [otros],
                             [partoCabeza],
                             [partoNalgas]
-                            ) VALUES (
+                           ) VALUES (
                             @p0, @p1,
                             @p2, @p3,
                             @p4, @p5,
                             @p6, @p7,
                             @p8, @p9,
                             @p10, @p11
-                            )",
-                      nuevoId,
+                           )",
+                      nuevoIdFisio,
                       this.Andador,
                       this.Tacata,
                       this.InicioDeambulacion,
@@ -366,6 +398,185 @@ namespace Angle.Models
                       this.PartoCabeza,
                       this.PartoNalgas
                       );
+
+                    int retHistorial = podo.Database.ExecuteSqlCommand(
+                       @"INSERT INTO historialClinico(
+                            [idHistorialClinico],
+                            [numeroHistorialClinico],
+                            [id_ant_podologicos],
+                            [id_ant_fisiologicos],
+                            [id_ant_familiares],
+                            [id_ant_patologicos]
+                            ) VALUES (
+                            @p0, @p1, @p2,@p3,@p4,@p5
+                            )",
+                       nuevoIdHistorial,
+                       this.NumeroHistorialClinico,
+                       nuevoIdPodo,
+                       nuevoIdFisio,
+                       nuevoIdFam,
+                       nuevoIdPato
+                       );
+
+                    tr.Commit();
+                }
+                catch (Exception)
+                {
+                    tr.Rollback();
+                    throw;
+                }
+            }
+        }
+
+        public void GuardarEn(podologiaEntities podo)
+        {
+            historialClinico historial = podo.historialClinico.Where(p => p.idHistorialClinico == this.IdHistorialClinico).FirstOrDefault();
+
+            antecedentesFamiliares familiares = historial.antecedentesFamiliares;
+            antecedentesFisiologicos fisiologicos = historial.antecedentesFisiologicos;
+            antecedentesPatologicos patologicos = historial.antecedentesPatologicos;
+            antecedentesPodologicos podologicos = historial.antecedentesPodologicos;
+
+            using (var tr = podo.Database.BeginTransaction())
+            {
+                try
+                {
+                    Debug.Assert(this.IdHistorialClinico == historial.idHistorialClinico);
+                    Debug.Assert(this.IdAFamiliares == historial.id_ant_familiares);
+                    Debug.Assert(this.IdAFisiologicos == historial.id_ant_fisiologicos);
+                    Debug.Assert(this.IdAPatologicos == historial.id_ant_patologicos);
+                    Debug.Assert(this.IdAPodologicos == historial.id_ant_podologicos);
+
+                    int retPodologicos = podo.Database.ExecuteSqlCommand(
+                        @"UPDATE [antecedentesPodologicos] SET
+                             [haIdoPodologo] = @p1,
+                             [antecedentes] = @p2
+                            WHERE [idAPodologicos] = @p0",
+                        podologicos.idAPodologicos,
+                        this.HaIdoPodologo,
+                        this.Antecedentes
+                        );
+
+                    int retFamiliares = podo.Database.ExecuteSqlCommand(
+                        @"UPDATE [antecedentesFamiliares] SET
+                            [dismetrias] = @p1,
+                            [escoliosis] = @p2,
+                            [tibiasVaras] = @p3,
+                            [piesPlanos] = @p4,
+                            [piesCavos] = @p5,
+                            [piesValgos] = @p6,
+                            [piesZambos] = @p7,
+                            [hallusValgus] = @p8,
+                            [dedosGarra] = @p9,
+                            [otros] = @p10,
+                            [genuVaro] = @p11,
+                            [genuValgo] = @p12,
+                            [metaAductus] = @p13,
+                            [metaVarus] = @p14
+                           WHERE [idAFamiliares] = @p0",
+                        familiares.idAFamiliares,
+                        this.Dismetrias,
+                        this.Escoliosis,
+                        this.TibiasVaras,
+                        this.PiesPlanos,
+                        this.PiesCavos,
+                        this.PiesValgos,
+                        this.PiesZambos,
+                        this.HallusValgus,
+                        this.DedosGarra,
+                        null,
+                        this.GenuVaro,
+                        this.GenuValgo,
+                        this.MetaAductus,
+                        this.MetaVarus
+                        );
+
+                    int retFisiologicos = podo.Database.ExecuteSqlCommand(
+                        @"UPDATE [antecedentesFisiologicos] SET
+                            [andador] = @p1,
+                            [tacata] = @p2,
+                            [inicioDeambulacion] = @p3,
+                            [habitosPosturales] = @p4,
+                            [cambiosPonderales] = @p5,
+                            [zurdo] = @p6,
+                            [diestro] = @p7,
+                            [ambidiestro] = @p8,
+                            [otros] = @p9,
+                            [partoCabeza] = @p10,
+                            [partoNalgas] = @p11
+                           WHERE [idAFisiologico] = @p0",
+                        fisiologicos.idAFisiologico,
+                        this.Andador,
+                        this.Tacata,
+                        this.InicioDeambulacion,
+                        this.HabitosPosturales,
+                        this.CambiosPonderales,
+                        this.Zurdo,
+                        this.Diestro,
+                        this.Ambidiestro,
+                        null,
+                        this.PartoCabeza,
+                        this.PartoNalgas
+                        );
+
+
+                    int retPatologicos = podo.Database.ExecuteSqlCommand(
+                        @"UPDATE [antecedentesPatologicos] SET
+                            [patologiaPrevia] = @p1,
+                            [enfermedadInfantil] = @p2,
+                            [antecedentesTraumatico] = @p3,
+                            [bursitis] = @p4,
+                            [capsulitis] = @p5,
+                            [enfermedadReumatica] = @p6,
+                            [tipoEnfermedadReumatica] = @p7,
+                            [ciatica] = @p8,
+                            [otros] = @p9,
+                            [distension] = @p10,
+                            [esguince] = @p11,
+                            [tendinitis] = @p12,
+                            [contracturas] = @p13,
+                            [luxacion] = @p14,
+                            [subluxacion] = @p15,
+                            [fisura] = @p16,
+                            [fractura] = @p17
+                          WHERE [idAPatologico] = @p0",
+                        patologicos.idAPatologico,
+                        this.PatologiaPrevia,
+                        this.EnfermedadInfantil,
+                        this.AntecedentesTraumaticos,
+                        this.Bursitis,
+                        this.Capsulitis,
+                        this.EnfermedadReumatica,
+                        this.TipoEnfermedadReumatica,
+                        this.Ciatica,
+                        this.Otros,
+                        this.Distension,
+                        this.Esguince,
+                        this.Tendinitis,
+                        this.Contracturas,
+                        this.Luxacion,
+                        this.Subluxacion,
+                        this.Fisura,
+                        this.Fractura
+                        );
+
+                    int retHistorial = podo.Database.ExecuteSqlCommand(
+                     @"UPDATE historialClinico SET
+                            [numeroHistorialClinico] = @p1,
+                            [id_ant_podologicos] = @p2,
+                            [id_ant_fisiologicos] = @p3,
+                            [id_ant_familiares] = @p4,
+                            [id_ant_patologicos] = @p5
+                         WHERE [idHistorialClinico] = @p0,
+                            ",
+                     historial.idHistorialClinico,
+                     this.NumeroHistorialClinico,
+                     this.IdAPodologicos,
+                     this.IdAFisiologicos,           
+                     this.IdAFamiliares,
+                     this.IdAPatologicos
+                     );
+
 
                     tr.Commit();
                 }
