@@ -48,21 +48,20 @@ namespace Angle.Controllers
 
 
         // GET: /Paciente/Edit
-        public ActionResult Edit(Guid? id)
+        public ActionResult Edit(Guid? idpaciente)
         {
-            if (id == null)
+            if (idpaciente == null )
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            paciente paciente = db.paciente.Find(id);
-            persona persona = db.persona.Find(id);
+            paciente paciente = db.paciente.Find(idpaciente);
 
             if (paciente == null)
             {
                 return HttpNotFound();
             }
-            FormPaciente form = FormPaciente.Rellenar(paciente, persona);
+            FormPaciente form = FormPaciente.Rellenar(paciente);
 
             return View(form);
         }
@@ -70,82 +69,50 @@ namespace Angle.Controllers
         // POST: /Paciente/Edit
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit ([Bind(Include = "idPaciente, medicacionHabitual, observacion, numeroHistoriaClinica")] paciente paciente)
+        public ActionResult Edit (FormPaciente form)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(paciente).State = System.Data.Entity.EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(paciente);
-        }
-
-        // GET: /Paciente/Delete
-        public ActionResult Delete(Guid? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-
-            paciente paciente = db.paciente.Find(id);
-
-            if (paciente == null)
-            {
-                return HttpNotFound();
-            }
-
-            return View(paciente);
-        }
-
-
-        // POST: /Paciente/Delete
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(paciente paciente)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(paciente).State = System.Data.Entity.EntityState.Deleted;
-                db.SaveChanges();
+                form.GuardarEn(db);
                 return RedirectToAction("Create");
             }
-            return View(paciente);
+            return View(form);
         }
 
 
         // GET: /Paciente/Details
-        public ActionResult Details(Guid? id)
+        public ActionResult Details(Guid? idpaciente)
         {
-            if (id == null)
+            if (idpaciente == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            paciente paciente = db.paciente.Find(id);
+            paciente paciente = db.paciente.Find(idpaciente);
 
             if (paciente == null)
             {
                 return HttpNotFound();
             }
 
-            return View(paciente);
+            FormPaciente form = FormPaciente.Rellenar(paciente);
+
+            return View(form);
         }
 
 
         // POST: /Paciente/Details
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Details(FormPaciente paciente)
+        public ActionResult Details(FormPaciente form)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(paciente).State = System.Data.Entity.EntityState.Detached;
+                db.Entry(form).State = System.Data.Entity.EntityState.Detached;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Create");
             }
-            return View(paciente);
+            return View(form);
         }
 
     }

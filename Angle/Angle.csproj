@@ -177,6 +177,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AntecedentesController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\ChartsController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
@@ -272,6 +273,7 @@
     <Compile Include="Models\estudioOrtopodologico.cs">
       <DependentUpon>ModelPodologia.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\FormAntecedentes.cs" />
     <Compile Include="Models\FormPaciente.cs" />
     <Compile Include="Models\formulaDigital.cs">
       <DependentUpon>ModelPodologia.tt</DependentUpon>
@@ -803,6 +805,9 @@
     <Content Include="Views\Extras\Settings.cshtml" />
     <Content Include="Views\Paciente\Error_404.cshtml" />
     <Content Include="Views\Paciente\Create.cshtml" />
+    <Content Include="Views\Paciente\Edit.cshtml" />
+    <Content Include="Views\Antecedentes\Create.cshtml" />
+    <Content Include="Views\Paciente\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

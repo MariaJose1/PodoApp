@@ -67,5 +67,7 @@ namespace Angle.Models
         public virtual DbSet<tratamiento> tratamiento { get; set; }
         public virtual DbSet<visionFrontal> visionFrontal { get; set; }
         public virtual DbSet<visionSagital> visionSagital { get; set; }
+
+        public System.Data.Entity.DbSet<Angle.Models.FormPaciente> FormPacientes { get; set; }
     }
 }

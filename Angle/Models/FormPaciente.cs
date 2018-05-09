@@ -13,104 +13,94 @@ namespace Angle.Models
         // PACIENTE
 
         [Required()]
-        public Guid idPaciente { get; set; }
+        public Guid IdPaciente { get; set; }
 
         [DisplayName("Medicación habitual")]
         [Required()]
-        public string medicacionHabitual { get; set; }
+        public string MedicacionHabitual { get; set; }
 
         [DisplayName("Observación")]
-        public string observacion { get; set; }
+        public string Observacion { get; set; }
 
-        [DisplayName("Número Historia Clínica")] //CREO QUE SOBRA
-        public string numeroHistoriaClinica { get; set; }
+        [DisplayName("Número Historia Clínica")] 
+        public string NumeroHistoriaClinica { get; set; }
 
         [DisplayName("Podólogo que realiza la consulta")]
-        public Guid? idPodologo { get; set; }
-
-        [DisplayName("Persona que va a la consulta")]
-        public Guid? idPersona { get; set; }
-
-        [DisplayName("Historia Clínica de la persona")]
-        public Guid? idHistorialClinico { get; set; }
+        public Guid? IdPodologo { get; set; }
 
         // PERSONA
-        [Required()]
-        public Guid idPersonaP { get; set; }
-
         [DisplayName("Nombre")]
         [Required()]
-        public string nombre { get; set; }
+        public string Nombre { get; set; }
 
         [DisplayName("Primer apellido")]
         [Required()]
-        public string primerApellido { get; set; }
+        public string PrimerApellido { get; set; }
 
         [DisplayName("Segundo apellido")]
-        public string segundoApellido { get; set; }
+        public string SegundoApellido { get; set; }
 
         [DisplayName("Fecha nacimiento")]
         [Required()]
-        public DateTime? fechaNacimiento { get; set; }
+        public DateTime? FechaNacimiento { get; set; }
 
         [DisplayName("Edad")]
         [Required()]
-        public int? edad { get; set; }
+        public int? Edad { get; set; }
 
         [DisplayName("Profesión")]
-        public string profesion { get; set; }
+        public string Profesion { get; set; }
 
         [DisplayName("Dirección")]
         [Required()]
-        public string direccion { get; set; }
+        public string Direccion { get; set; }
 
         [DisplayName("Ciudad")]
         [Required()]
-        public string ciudad { get; set; }
+        public string Ciudad { get; set; }
 
         [DisplayName("Provincia")]
-        public string provincia { get; set; }
+        public string Provincia { get; set; }
 
         [DisplayName("País")]
         [Required()]
-        public string pais { get; set; }
+        public string Pais { get; set; }
 
         [DisplayName("Teléfono")]
         [Required()]
-        public string telefono { get; set; }
+        public string Telefono { get; set; }
 
         [DisplayName("DNI")]
         [Required()]
-        public string dni { get; set; }
+        public string Dni { get; set; }
 
 
 
 
 
-        public static FormPaciente Rellenar(paciente paciente, persona persona)
+        public static FormPaciente Rellenar(paciente paciente)
         {
+            persona persona = paciente.persona;
             return new FormPaciente
             {
-                idPaciente = paciente.idPaciente,
-                medicacionHabitual = paciente.medicacionHabitual,
-                observacion = paciente.observacion,
-                numeroHistoriaClinica = paciente.numeroHistoriaClinica,
-                idPodologo = paciente.id_podologo,
-                idPersona = paciente.id_persona,
-                idHistorialClinico = paciente.id_historial_clinico,
-                idPersonaP = persona.idPersona,
-                nombre = persona.nombre,
-                primerApellido = persona.apellido1,
-                segundoApellido = persona.apellido2,
-                fechaNacimiento = persona.fechaNacimiento,
-                edad = persona.edad,
-                profesion = persona.profesion,
-                direccion = persona.calle,
-                ciudad = persona.ciudad,
-                provincia = persona.provincia,
-                pais = persona.pais,
-                telefono = persona.telefono,
-                dni = persona.dni,
+                IdPaciente = paciente.idPaciente,
+                MedicacionHabitual = paciente.medicacionHabitual,
+                Observacion = paciente.observacion,
+                NumeroHistoriaClinica = paciente.numeroHistoriaClinica,
+                IdPodologo = paciente.id_podologo,
+                
+                Nombre = persona.nombre,
+                PrimerApellido = persona.apellido1,
+                SegundoApellido = persona.apellido2,
+                FechaNacimiento = persona.fechaNacimiento,
+                Edad = persona.edad,
+                Profesion = persona.profesion,
+                Direccion = persona.calle,
+                Ciudad = persona.ciudad,
+                Provincia = persona.provincia,
+                Pais = persona.pais,
+                Telefono = persona.telefono,
+                Dni = persona.dni,
             };
         }
 
@@ -148,19 +138,19 @@ namespace Angle.Models
                             @p10, @p11,
                             @p12
                         )",
-                       nuevoID2,
-                       this.nombre,
-                       this.primerApellido,
-                       this.segundoApellido,
-                       this.fechaNacimiento,
-                       this.edad,
-                       this.profesion,
-                       this.direccion,
-                       this.ciudad,
-                       this.provincia,
-                       this.pais,
-                       this.telefono,
-                       this.dni);
+                       nuevoID,
+                       this.Nombre,
+                       this.PrimerApellido,
+                       this.SegundoApellido,
+                       this.FechaNacimiento,
+                       this.Edad,
+                       this.Profesion,
+                       this.Direccion,
+                       this.Ciudad,
+                       this.Provincia,
+                       this.Pais,
+                       this.Telefono,
+                       this.Dni);
 
                   int ret2 = podo.Database.ExecuteSqlCommand(
 
@@ -170,23 +160,21 @@ namespace Angle.Models
                             [observacion], 
                             [numeroHistoriaClinica], 
                             [id_podologo],
-                            [id_historial_clinico],
+                           
                             [id_persona]
                         )   VALUES(
                             @p0, @p1,
                             @p2, @p3,
-                            @p4, @p5,
-                            @p6
+                            @p4,
+                            @p5
                         )",
-                        nuevoID,
-                        this.medicacionHabitual,
-                        this.observacion,
-                        this.numeroHistoriaClinica,
-                        this.idPodologo,
-                        this.idHistorialClinico,
-                        this.idPersona
-
-                );
+                        nuevoID2,
+                        this.MedicacionHabitual,
+                        this.Observacion,
+                        this.NumeroHistoriaClinica,
+                        this.IdPodologo,
+                        nuevoID
+                        );
                     tr.Commit();
                 }
                 catch (Exception)
@@ -197,38 +185,37 @@ namespace Angle.Models
             }
         }
 
-        public void GuardarEn(podologiaEntities podo, paciente paciente, persona persona)
+        public void GuardarEn(podologiaEntities podo)
         {
+            paciente paciente = podo.paciente.Where(p => p.idPaciente == this.IdPaciente).FirstOrDefault();
+            persona persona = paciente.persona;
             using (var tr = podo.Database.BeginTransaction())
             {
                 try
                 {
-                    Debug.Assert(this.idPaciente == paciente.idPaciente);
-                    //claves ajenas también (¿?)
-                    Debug.Assert(this.idPersona == paciente.id_persona);
-                    Debug.Assert(this.idPodologo == paciente.id_podologo);
-                    Debug.Assert(this.idHistorialClinico == paciente.id_historial_clinico);
-                    Debug.Assert(this.idPersonaP == persona.idPersona);
+                    Debug.Assert(this.IdPaciente == paciente.idPaciente);
+                    Debug.Assert(this.IdPodologo == paciente.id_podologo);
+                    
 
                     int ret = podo.Database.ExecuteSqlCommand(
                         @"UPDATE [paciente] SET
                             [medicacionHabitual] = @p1, 
                             [observacion] = @p2, 
                             [numeroHistoriaClinica] = @p3, 
-                            [id_podologo] = @p4,
-                            [id_historial_clinico] = @p5,
-                            [id_persona] = @p6
+                            [id_podologo] = @p4
+                            
                         WHERE [idPaciente] = @p0
                         ",
                             paciente.idPaciente,
-                            this.medicacionHabitual,
-                            this.observacion,
-                            this.numeroHistoriaClinica,
-                            this.idPodologo,
-                            this.idHistorialClinico,
-                            this.idPersona,
-                            
-                        @"UPDATE [persona] SET(
+                            this.MedicacionHabitual,
+                            this.Observacion,
+                            this.NumeroHistoriaClinica,
+                            this.IdPodologo
+                            );
+                
+                int ret2 = podo.Database.ExecuteSqlCommand(
+
+                        @"UPDATE [persona] SET
                             [nombre] = @p1, 
                             [apellido1] = @p2, 
                             [apellido2] = @p3, 
@@ -243,18 +230,18 @@ namespace Angle.Models
                             [dni] = @p12
                        WHERE [idPersona] = @p0",
                        persona.idPersona,
-                       this.nombre,
-                       this.primerApellido,
-                       this.segundoApellido,
-                       this.fechaNacimiento,
-                       this.edad,
-                       this.profesion,
-                       this.direccion,
-                       this.ciudad,
-                       this.provincia,
-                       this.pais,
-                       this.telefono,
-                       this.dni
+                       this.Nombre,
+                       this.PrimerApellido,
+                       this.SegundoApellido,
+                       this.FechaNacimiento,
+                       this.Edad,
+                       this.Profesion,
+                       this.Direccion,
+                       this.Ciudad,
+                       this.Provincia,
+                       this.Pais,
+                       this.Telefono,
+                       this.Dni
                         );
                     tr.Commit();
                 }
