@@ -19,10 +19,12 @@ namespace Angle.Models
         [Required()]
         public string NumeroHistorialClinico { get; set; }
 
-        // ANTECEDENTES PODOLÓGICOS
+        public Guid? IdAntPodologicos { get; set; }
+        public Guid? IdAntFisiologicos { get; set; }
+        public Guid? IdAntPatologicos { get; set; }
+        public Guid? IdAntFamiliares { get; set; }
 
-        [Required()]
-        public Guid IdAPodologicos { get; set; }
+        // ANTECEDENTES PODOLÓGICOS
 
         [DisplayName("¿Ha ido al podólogo anteriormente?")]
         [Required()]
@@ -32,9 +34,6 @@ namespace Angle.Models
         public string Antecedentes { get; set; }
 
         // ANTECEDENTES PATOLÓGICOS
-
-        [Required()]
-        public Guid IdAPatologicos { get; set; }
 
         [DisplayName("Patología previa: ")]
         public string PatologiaPrevia { get; set; }
@@ -89,9 +88,6 @@ namespace Angle.Models
 
         // ANTECEDENTES FISIOLÓGICOS
 
-        [Required()]
-        public Guid IdAFisiologicos { get; set; }
-
         [DisplayName("Andador")]
         public bool? Andador { get; set; }
 
@@ -123,8 +119,6 @@ namespace Angle.Models
         public bool? PartoNalgas { get; set; }
 
         // ANTECEDENTES FAMILIARES
-        [Required()]
-        public Guid IdAFamiliares { get; set; }
 
         [DisplayName("Dismetrías")]
         public bool? Dismetrias { get; set; }
@@ -181,12 +175,12 @@ namespace Angle.Models
                 NumeroHistorialClinico = historial.numeroHistorialClinico,
 
                 // podológicos
-                IdAPodologicos = podologicos.idAPodologicos,
+                IdAntPodologicos = historial.id_ant_podologicos,
                 HaIdoPodologo = podologicos.haidoPodologo,
                 Antecedentes = podologicos.antecedentes,
                 
                 // patológicos
-                IdAPatologicos = patologicos.idAPatologico,
+                IdAntPatologicos = historial.id_ant_patologicos,
                 PatologiaPrevia = patologicos.patologiaPrevia,
                 EnfermedadInfantil = patologicos.enfermedadInfantil,
                 AntecedentesTraumaticos = patologicos.antecedentesTraumatico,
@@ -206,7 +200,7 @@ namespace Angle.Models
                 Otros = patologicos.otros,
                 
                 // fisiológicos
-                IdAFisiologicos = fisiologicos.idAFisiologico,
+                IdAntFisiologicos = historial.id_ant_fisiologicos,
                 Andador = fisiologicos.andador,
                 Tacata = fisiologicos.tacata,
                 InicioDeambulacion = fisiologicos.inicioDeambulacion,
@@ -220,7 +214,7 @@ namespace Angle.Models
 
 
                 // familiares
-                IdAFamiliares = familiares.idAFamiliares,
+                IdAntFamiliares = historial.id_ant_familiares,
                 Dismetrias = familiares.dismetrias,
                 Escoliosis = familiares.escoliosis,
                 TibiasVaras = familiares.tibiasVaras,
@@ -236,10 +230,10 @@ namespace Angle.Models
                 MetaVarus = familiares.metaVarus
 
                 
-
+                
             };
         }
-        
+
         public void InsertarEn (podologiaEntities podo)
         {
             using (var tr = podo.Database.BeginTransaction())
@@ -442,14 +436,14 @@ namespace Angle.Models
                 try
                 {
                     Debug.Assert(this.IdHistorialClinico == historial.idHistorialClinico);
-                    Debug.Assert(this.IdAFamiliares == historial.id_ant_familiares);
-                    Debug.Assert(this.IdAFisiologicos == historial.id_ant_fisiologicos);
-                    Debug.Assert(this.IdAPatologicos == historial.id_ant_patologicos);
-                    Debug.Assert(this.IdAPodologicos == historial.id_ant_podologicos);
+                    Debug.Assert(this.IdAntFamiliares == historial.id_ant_familiares);
+                    Debug.Assert(this.IdAntFisiologicos == historial.id_ant_fisiologicos);
+                    Debug.Assert(this.IdAntPatologicos == historial.id_ant_patologicos);
+                    Debug.Assert(this.IdAntPodologicos == historial.id_ant_podologicos);
 
                     int retPodologicos = podo.Database.ExecuteSqlCommand(
                         @"UPDATE [antecedentesPodologicos] SET
-                             [haIdoPodologo] = @p1,
+                             [haidoPodologo] = @p1,
                              [antecedentes] = @p2
                             WHERE [idAPodologicos] = @p0",
                         podologicos.idAPodologicos,
@@ -571,10 +565,10 @@ namespace Angle.Models
                             ",
                      historial.idHistorialClinico,
                      this.NumeroHistorialClinico,
-                     this.IdAPodologicos,
-                     this.IdAFisiologicos,           
-                     this.IdAFamiliares,
-                     this.IdAPatologicos
+                     this.IdAntPodologicos,
+                     this.IdAntFisiologicos,           
+                     this.IdAntFamiliares,
+                     this.IdAntPatologicos
                      );
 
 

@@ -25,7 +25,7 @@
             <!-- END user info-->
             <!-- Iterates over all sidebar items-->
             <li class="nav-heading">
-                <span>Main Navigation</span>
+                <span>Menú</span>
             </li>
             <li class="@Html.isActive(controller: "Dashboard")">
                 <a href="#dashboard" title="Dashboard" data-toggle="collapse">
@@ -35,14 +35,21 @@
                 </a>
                 <ul id="dashboard" class="nav sidebar-subnav collapse">
                     <li class="sidebar-subnav-header">Dashboard</li>
-                    <li class="@Html.isActive("Dashboard", "Dashboard_v1")">
-                        <a href="@Url.Action("Dashboard_v1", "Dashboard")" title="Dashboard v1">
-                            <span>Dashboard v1</span>
+                    <!--  <li class="@Html.isActive("Dashboard", "Dashboard_v1")">
+         <a href="@Url.Action("Dashboard_v1", "Dashboard")" title="Dashboard v1"> -->
+
+                    <li class="@Html.isActive("Paciente", "Create")">
+                        <a href="@Url.Action("Create", "Paciente")" title="Dashboard v1">
+
+                            <span>Datos Personales</span>
                         </a>
                     </li>
-                    <li class="@Html.isActive("Dashboard", "Dashboard_v2")">
-                        <a href="@Url.Action("Dashboard_v2", "Dashboard")" title="Dashboard v2">
-                            <span>Dashboard v2</span>
+                    <!--  <li class="@Html.isActive("Dashboard", "Dashboard_v2")">
+    <a href="@Url.Action("Dashboard_v2", "Dashboard")" title="Dashboard v2"> -->
+                    <li class="@Html.isActive("Antecedentes", "Create")">
+                        <a href="@Url.Action("Create", "Antecedentes")" title="Dashboard v2">
+
+                            <span>Antecedentes</span>
                         </a>
                     </li>
                     <li class="@Html.isActive("Dashboard", "Dashboard_v3")">

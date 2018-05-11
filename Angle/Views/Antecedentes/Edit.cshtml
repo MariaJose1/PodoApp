@@ -15,7 +15,7 @@
         <h4>AntecedentesFamiliares</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.IdAFamiliares)
+        @Html.HiddenFor(model => model.IdAntFamiliares)
 
         <div class="form-group">
             @Html.LabelFor(model => model.Dismetrias, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -161,7 +161,7 @@
         <h4>AntecedentesPatologicos</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.IdAPatologicos)
+        @Html.HiddenFor(model => model.IdAntPatologicos)
 
         <div class="form-group">
             @Html.LabelFor(model => model.PatologiaPrevia, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -330,7 +330,7 @@
         <h4>AntecedentesFisiologicos</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.IdAFisiologicos)
+        @Html.HiddenFor(model => model.IdAntFisiologicos)
 
         <div class="form-group">
             @Html.LabelFor(model => model.Andador, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -440,7 +440,7 @@
         <h4>AntecedentesPodologicos</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.IdAPodologicos)
+        @Html.HiddenFor(model => model.IdAntPodologicos)
 
         <div class="form-group">
             @Html.LabelFor(model => model.HaIdoPodologo, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -457,6 +457,14 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Antecedentes, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Antecedentes, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NumeroHistorialClinico, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NumeroHistorialClinico, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NumeroHistorialClinico, "", new { @class = "text-danger" })
             </div>
         </div>
 
