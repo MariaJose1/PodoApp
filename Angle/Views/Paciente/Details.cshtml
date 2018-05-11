@@ -10,135 +10,147 @@
 @Html.HiddenFor(model => model.IdPaciente)
 
 <div>
-    <h4>Datos personales</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Nombre)
-        </dt>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h4>Datos personales</h4>
+                    <hr />
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Nombre)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Nombre)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.Nombre)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PrimerApellido)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.PrimerApellido)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.PrimerApellido)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.PrimerApellido)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SegundoApellido)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.SegundoApellido)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.SegundoApellido)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.SegundoApellido)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.FechaNacimiento)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.FechaNacimiento)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.FechaNacimiento)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.FechaNacimiento)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Edad)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Edad)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Edad)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.Edad)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Profesion)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Profesion)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Profesion)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.Profesion)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Direccion)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Direccion)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Direccion)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.Direccion)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Ciudad)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Ciudad)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Ciudad)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.Ciudad)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Provincia)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Provincia)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Provincia)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.Provincia)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Pais)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Pais)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Pais)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.Pais)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Telefono)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Telefono)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Telefono)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.Telefono)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Dni)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Dni)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Dni)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.Dni)
+                        </dd>
 
-    </dl>
+                    </dl>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h4>Datos del paciente</h4>
+                    <hr />
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.MedicacionHabitual)
+                        </dt>
 
-    <h4>Datos del paciente</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.MedicacionHabitual)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.MedicacionHabitual)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.MedicacionHabitual)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Observacion)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Observacion)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Observacion)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Observacion)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.NumeroHistoriaClinica)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.NumeroHistoriaClinica)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NumeroHistoriaClinica)
-        </dd>
-    </dl>
-
+                        <dd>
+                            @Html.DisplayFor(model => model.NumeroHistoriaClinica)
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <p>
     @*@ @Html.ActionLink("Edit", "Edit", new { id = Model.IdPaciente }) | *@

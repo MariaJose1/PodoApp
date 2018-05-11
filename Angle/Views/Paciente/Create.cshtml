@@ -126,16 +126,13 @@
                         @Html.ValidationMessageFor(model => model.Telefono, "", new { @class = "text-danger" })
                     </div>
                 </div>
-
-
-
             </div>
         </div>
     </div>
 
     <div class="panel panel-default">
         <div class="panel-body">
-            <form class="form-horizontal">
+            <div class="form-horizontal">
                 <legend>Datos Clínicos</legend>
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group">
@@ -146,38 +143,35 @@
                         @Html.EditorFor(model => model.MedicacionHabitual, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.MedicacionHabitual, "", new { @class = "text-danger" })
                     </div>
-                </div>
-                <div class="form-group">
                     <div class="col-md-2 text-left">
                         @Html.LabelFor(model => model.NumeroHistoriaClinica, htmlAttributes: new { @class = "control-label" })
                     </div>
-                    <div class="col-md-4 text-right">
+                    <div class="col-md-4 text-left">
                         @Html.EditorFor(model => model.NumeroHistoriaClinica, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.NumeroHistoriaClinica, "", new { @class = "text-danger" })
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-md-5 text-left">
+                    <div class="col-md-2 text-left">
                         @Html.LabelFor(model => model.Observacion, htmlAttributes: new { @class = "control-label" })
                     </div>
-                    <div class="col-md-5 text-left">
+                    <div class="col-md-10 text-left">
                         @Html.EditorFor(model => model.Observacion, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.Observacion, "", new { @class = "text-danger" })
                     </div>
                 </div>
-                </form>
-
+                </div>
+            </div>
         </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-5 col-md-10">
+                <input type="submit" value="Crear paciente" class="btn btn-primary" />
+            </div>
+        </div>
+
+}
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
     </div>
-
-    <div class="form-group">
-        <div class="col-md-offset-5 col-md-10">
-            <input type="submit" value="Crear paciente" class="btn btn-default" />
-        </div>
-    </div>
-
- }
-
-        <div>
-            @Html.ActionLink("Back to List", "Index")
-        </div>
