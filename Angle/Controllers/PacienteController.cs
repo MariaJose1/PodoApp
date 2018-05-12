@@ -16,7 +16,8 @@ namespace Angle.Controllers
         // GET: /Paciente/Index
         public ActionResult Index() //luego pasar id paciente para buscarlo y leer los datos
         {
-            return View(db.paciente.ToList()); //vista de paciente
+            FormPaciente form = (FormPaciente)TempData["paciente"];
+            return View(form); //vista de paciente
         }
 
         // GET: /Paciente/Create

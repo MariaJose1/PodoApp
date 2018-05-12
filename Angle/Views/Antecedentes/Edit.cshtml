@@ -14,7 +14,7 @@
     <div class="panel panel-default">
         <div class="panel-body">
             <div class="form-horizontal">
-                <legend>Antecedentes Familiares</legend>
+                <h4>Antecedentes Familiares</h4>
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 @Html.HiddenFor(model => model.IdAntFamiliares)
 
@@ -23,7 +23,7 @@
                     @Html.LabelFor(model => model.Dismetrias, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
                         <div class="checkbox">
-                            @Html.CheckBoxFor(model => model.Dismetrias, new { @class = "checkbox" }))
+                            @Html.CheckBoxFor(model =>(bool) model.Dismetrias, new { @class = "checkbox" }))
                             @Html.ValidationMessageFor(model => model.Dismetrias, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -163,7 +163,7 @@
     <div class="panel panel-default">
         <div class="panel-body">
             <div class="form-horizontal">
-                <legend>Antecedentes Patológicos</legend>
+                <h4>Antecedentes Patológicos</h4>
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 @Html.HiddenFor(model => model.IdAntPatologicos)
 
@@ -334,7 +334,7 @@
     <div class="panel panel-default">
         <div class="panel-body">
             <div class="form-horizontal">
-                <legend>Antecedentes Fisiológicos</legend>
+                <h4>Antecedentes Fisiológicos</h4>
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 @Html.HiddenFor(model => model.IdAntFisiologicos)
 
@@ -447,7 +447,7 @@
     <div class="panel panel-default">
         <div class="panel-body">
             <div class="form-horizontal">
-                <legend>Antecedentes Podológicos</legend>
+                <h4>Antecedentes Podológicos</h4>
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 @Html.HiddenFor(model => model.IdAntPodologicos)
 

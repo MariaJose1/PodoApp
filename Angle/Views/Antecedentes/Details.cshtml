@@ -1,0 +1,390 @@
+﻿@model Angle.Models.FormAntecedentes
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalles antecedentes</h2>
+
+@Html.AntiForgeryToken()
+@Html.HiddenFor(model => model.IdAntFamiliares)
+@Html.HiddenFor(model => model.IdAntFisiologicos)
+@Html.HiddenFor(model => model.IdAntPatologicos)
+@Html.HiddenFor(model => model.IdAntPodologicos)
+
+<div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h4>Antecedentes Familiares</h4>
+                    <hr />
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Dismetrias)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Dismetrias)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Escoliosis)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Escoliosis)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.TibiasVaras)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.TibiasVaras)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.PiesPlanos)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.PiesPlanos)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.PiesCavos)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.PiesCavos)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.PiesValgos)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.PiesValgos)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.PiesZambos)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.PiesZambos)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.HallusValgus)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.HallusValgus)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Otros)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Otros)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.GenuVaro)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.GenuVaro)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.GenuValgo)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.GenuValgo)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.MetaAductus)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.MetaAductus)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.MetaVarus)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.MetaVarus)
+                        </dd>
+
+
+                    </dl>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h4>Antecedentes Patológicos</h4>
+                    <hr />
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.PatologiaPrevia)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.PatologiaPrevia)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.EnfermedadInfantil)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.EnfermedadInfantil)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.AntecedentesTraumaticos)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.AntecedentesTraumaticos)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Bursitis)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Bursitis)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Capsulitis)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Capsulitis)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.EnfermedadReumatica)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.EnfermedadReumatica)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.TipoEnfermedadReumatica)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.TipoEnfermedadReumatica)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Ciatica)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Ciatica)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Otros)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Otros)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Distension)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Distension)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Esguince)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Esguince)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Tendinitis)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Tendinitis)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Contracturas)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Contracturas)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Luxacion)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Luxacion)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Subluxacion)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Subluxacion)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Fisura)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Fisura)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Fractura)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Fractura)
+                        </dd>
+
+
+                    </dl>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h4>Antecedentes Fisiológicos</h4>
+                    <hr />
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Andador)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Andador)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Tacata)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Tacata)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.InicioDeambulacion)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.InicioDeambulacion)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.HabitosPosturales)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.HabitosPosturales)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.CambiosPonderales)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.CambiosPonderales)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Zurdo)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Zurdo)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Diestro)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Diestro)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Ambidiestro)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Ambidiestro)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Otros)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Otros)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.PartoCabeza)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.PartoCabeza)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.PartoNalgas)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.PartoNalgas)
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h4>Antecedentes Podológicos</h4>
+                    <hr />
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.HaIdoPodologo)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.HaIdoPodologo)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.NumeroHistorialClinico)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.NumeroHistorialClinico)
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+  

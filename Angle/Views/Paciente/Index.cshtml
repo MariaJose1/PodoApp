@@ -1,0 +1,40 @@
+﻿@model Angle.Models.FormPaciente
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Lista de Pacientes</h2>
+
+<p>
+    @Html.ActionLink("Crear nuevo paciente", "Create")
+</p>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nombre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PrimerApellido)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SegundoApellido)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Dni)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MedicacionHabitual)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Observacion)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NumeroHistoriaClinica)
+                </th>
+            </tr>
+        </table>
+        </div>
+</div>

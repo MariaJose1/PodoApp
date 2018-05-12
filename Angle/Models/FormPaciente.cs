@@ -13,6 +13,7 @@ namespace Angle.Models
         // PACIENTE
 
         [Required()]
+        [Key()]
         public Guid IdPaciente { get; set; }
 
         [DisplayName("Medicación habitual")]
@@ -41,6 +42,7 @@ namespace Angle.Models
         public string SegundoApellido { get; set; }
 
         [DisplayName("Fecha nacimiento")]
+        [DisplayFormat(DataFormatString = "{dd/MM/yyyy}")]
         [Required()]
         public DateTime? FechaNacimiento { get; set; }
 

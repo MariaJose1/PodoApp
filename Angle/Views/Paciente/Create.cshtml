@@ -14,7 +14,8 @@
     <div class="panel panel-default">
         <div class="panel-body">
             <div class="form-horizontal">
-                <legend>Datos Personales</legend>
+                <h4>Datos Personales</h4>
+                <hr />
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group">
                     <div class="col-md-2 text-left">
@@ -53,7 +54,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md-2 text-left">
-                        @Html.LabelFor(model => model.FechaNacimiento, htmlAttributes: new { @class = "control-label" })                        
+                        @Html.LabelFor(model => model.FechaNacimiento, htmlAttributes: new { @class = "control-label" })
 
                     </div>
                     <div class="col-md-4 text-left">
@@ -133,7 +134,8 @@
     <div class="panel panel-default">
         <div class="panel-body">
             <div class="form-horizontal">
-                <legend>Datos Clínicos</legend>
+                <h4>Datos Clínicos</h4>
+                <hr />
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group">
                     <div class="col-md-2 text-left">
@@ -160,7 +162,7 @@
                         @Html.ValidationMessageFor(model => model.Observacion, "", new { @class = "text-danger" })
                     </div>
                 </div>
-                </div>
+            </div>
             </div>
         </div>
 
