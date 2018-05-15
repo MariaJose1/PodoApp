@@ -46,14 +46,14 @@ namespace Angle.Models
         public Nullable<double> rodillaExtensionDcha { get; set; }
         public Nullable<double> rodillaHiperextensionIzda { get; set; }
         public Nullable<double> rodillaHiperextensionDcha { get; set; }
-        public Nullable<bool> genuValgoReductibleIzda { get; set; }
-        public Nullable<bool> genuValgoReductibleDcha { get; set; }
-        public Nullable<bool> genuValgoIrreductibleIzda { get; set; }
-        public Nullable<bool> genuValgoIrreductibleDcha { get; set; }
-        public Nullable<bool> genuVaroReductibleIzda { get; set; }
-        public Nullable<bool> genuVaroReductibleDcha { get; set; }
-        public Nullable<bool> genuVaroIrreductibleIzda { get; set; }
-        public Nullable<bool> genuVaroIrreductibleDcha { get; set; }
+        public bool genuValgoReductibleIzda { get; set; }
+        public bool genuValgoReductibleDcha { get; set; }
+        public bool genuValgoIrreductibleIzda { get; set; }
+        public bool genuValgoIrreductibleDcha { get; set; }
+        public bool genuVaroReductibleIzda { get; set; }
+        public bool genuVaroReductibleDcha { get; set; }
+        public bool genuVaroIrreductibleIzda { get; set; }
+        public bool genuVaroIrreductibleDcha { get; set; }
         public Nullable<double> anguloQizda { get; set; }
         public Nullable<double> anguloQdcha { get; set; }
         public Nullable<double> tpaFpIzda { get; set; }
@@ -74,16 +74,16 @@ namespace Angle.Models
         public Nullable<double> antepie1radioAmtfFdDcha { get; set; }
         public Nullable<double> antepie1radioFalangeFpIzda { get; set; }
         public Nullable<double> antepie1radioFalangeFpDcha { get; set; }
-        public Nullable<bool> antepie1radioHallusLimitusIzdo { get; set; }
-        public Nullable<bool> antepie1radioHallusLimitusDcho { get; set; }
-        public Nullable<bool> antepie1radioHallusRigidusIzdo { get; set; }
-        public Nullable<bool> antepie1radioHallusRigidusDcho { get; set; }
-        public Nullable<bool> antepie1radioHallusFlexusIzdo { get; set; }
-        public Nullable<bool> antepie1radioHallusFlexusDcho { get; set; }
-        public Nullable<bool> antepie1radioHallusHiperextensusIzdo { get; set; }
-        public Nullable<bool> antepie1radioHallusHiperextensusDcho { get; set; }
-        public Nullable<bool> antepie1radioHallusVizdo { get; set; }
-        public Nullable<bool> antepie1radioHallusVdcho { get; set; }
+        public bool antepie1radioHallusLimitusIzdo { get; set; }
+        public bool antepie1radioHallusLimitusDcho { get; set; }
+        public bool antepie1radioHallusRigidusIzdo { get; set; }
+        public bool antepie1radioHallusRigidusDcho { get; set; }
+        public bool antepie1radioHallusFlexusIzdo { get; set; }
+        public bool antepie1radioHallusFlexusDcho { get; set; }
+        public bool antepie1radioHallusHiperextensusIzdo { get; set; }
+        public bool antepie1radioHallusHiperextensusDcho { get; set; }
+        public bool antepie1radioHallusVizdo { get; set; }
+        public bool antepie1radioHallusVdcho { get; set; }
         public string antepie1radioOtrosIzdo { get; set; }
         public string antepie1radioOtrosDcho { get; set; }
         public Nullable<double> antepie25radioAmtfFpIzdo { get; set; }
@@ -98,14 +98,14 @@ namespace Angle.Models
         public Nullable<double> antepie25radioDistalFpDcho { get; set; }
         public Nullable<double> antepie25radioDistalFdIzdo { get; set; }
         public Nullable<double> antepie25radioDistalFdDcho { get; set; }
-        public Nullable<bool> antepie25radio5metaCortoIzdo { get; set; }
-        public Nullable<bool> antepie25radio5metaCortoDcho { get; set; }
-        public Nullable<bool> antepie25radio5varoIzdo { get; set; }
-        public Nullable<bool> antepie25radio5varoDcho { get; set; }
-        public Nullable<bool> antepie25radio5hipermovilIzdo { get; set; }
-        public Nullable<bool> antepie25radio5hipermovilDcho { get; set; }
-        public Nullable<bool> antepie25radioJuaneteSastreIzdo { get; set; }
-        public Nullable<bool> antepie25radioJuaneteSastreDcho { get; set; }
+        public bool antepie25radio5metaCortoIzdo { get; set; }
+        public bool antepie25radio5metaCortoDcho { get; set; }
+        public bool antepie25radio5varoIzdo { get; set; }
+        public bool antepie25radio5varoDcho { get; set; }
+        public bool antepie25radio5hipermovilIzdo { get; set; }
+        public bool antepie25radio5hipermovilDcho { get; set; }
+        public bool antepie25radioJuaneteSastreIzdo { get; set; }
+        public bool antepie25radioJuaneteSastreDcho { get; set; }
         public string antepie25radioOtrosIzdo { get; set; }
         public string antepie25radioOtrosDcho { get; set; }
         public Nullable<System.Guid> id_posicion_angulo_antepie { get; set; }

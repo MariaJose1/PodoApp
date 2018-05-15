@@ -21,9 +21,9 @@ namespace Angle.Models
         }
     
         public System.Guid idRetropie { get; set; }
-        public Nullable<bool> varo { get; set; }
-        public Nullable<bool> valgo { get; set; }
-        public Nullable<bool> neutro { get; set; }
+        public bool varo { get; set; }
+        public bool valgo { get; set; }
+        public bool neutro { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<bipedestacion> bipedestacion { get; set; }

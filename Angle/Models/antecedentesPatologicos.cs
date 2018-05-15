@@ -24,20 +24,20 @@ namespace Angle.Models
         public string patologiaPrevia { get; set; }
         public string enfermedadInfantil { get; set; }
         public string antecedentesTraumatico { get; set; }
-        public Nullable<bool> bursitis { get; set; }
-        public Nullable<bool> capsulitis { get; set; }
-        public Nullable<bool> enfermedadReumatica { get; set; }
+        public bool bursitis { get; set; }
+        public bool capsulitis { get; set; }
+        public bool enfermedadReumatica { get; set; }
         public string tipoEnfermedadReumatica { get; set; }
-        public Nullable<bool> ciatica { get; set; }
+        public bool ciatica { get; set; }
         public string otros { get; set; }
-        public Nullable<bool> distension { get; set; }
-        public Nullable<bool> esguince { get; set; }
-        public Nullable<bool> tendinitis { get; set; }
-        public Nullable<bool> contracturas { get; set; }
-        public Nullable<bool> luxacion { get; set; }
-        public Nullable<bool> subluxacion { get; set; }
-        public Nullable<bool> fisura { get; set; }
-        public Nullable<bool> fractura { get; set; }
+        public bool distension { get; set; }
+        public bool esguince { get; set; }
+        public bool tendinitis { get; set; }
+        public bool contracturas { get; set; }
+        public bool luxacion { get; set; }
+        public bool subluxacion { get; set; }
+        public bool fisura { get; set; }
+        public bool fractura { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<historialClinico> historialClinico { get; set; }

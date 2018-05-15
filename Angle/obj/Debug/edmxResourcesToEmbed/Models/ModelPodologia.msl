@@ -152,6 +152,7 @@
     <EntitySetMapping Name="bipedestacion">
       <EntityTypeMapping TypeName="podologiaModel.bipedestacion">
         <MappingFragment StoreEntitySet="bipedestacion">
+          <ScalarProperty Name="id_fpi" ColumnName="id_fpi" />
           <ScalarProperty Name="idBipedestacion" ColumnName="idBipedestacion" />
           <ScalarProperty Name="visionAnterior" ColumnName="visionAnterior" />
           <ScalarProperty Name="visionPosterior" ColumnName="visionPosterior" />
@@ -564,6 +565,8 @@
     <EntitySetMapping Name="podologo">
       <EntityTypeMapping TypeName="podologiaModel.podologo">
         <MappingFragment StoreEntitySet="podologo">
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="idTitulo" ColumnName="idTitulo" />
           <ScalarProperty Name="idPodologo" ColumnName="idPodologo" />
           <ScalarProperty Name="id_persona" ColumnName="id_persona" />
         </MappingFragment>

@@ -21,7 +21,7 @@ namespace Angle.Models
         }
     
         public System.Guid idAPodologicos { get; set; }
-        public Nullable<bool> haidoPodologo { get; set; }
+        public bool haidoPodologo { get; set; }
         public string antecedentes { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

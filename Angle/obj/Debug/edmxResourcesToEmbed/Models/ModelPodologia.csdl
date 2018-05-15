@@ -25,20 +25,20 @@
       <PropertyRef Name="idAFamiliares" />
     </Key>
     <Property Name="idAFamiliares" Type="Guid" Nullable="false" />
-    <Property Name="dismetrias" Type="Boolean" />
-    <Property Name="escoliosis" Type="Boolean" />
-    <Property Name="tibiasVaras" Type="Boolean" />
-    <Property Name="piesPlanos" Type="Boolean" />
-    <Property Name="piesCavos" Type="Boolean" />
-    <Property Name="piesValgos" Type="Boolean" />
-    <Property Name="piesZambos" Type="Boolean" />
-    <Property Name="hallusValgus" Type="Boolean" />
-    <Property Name="dedosGarra" Type="Boolean" />
+    <Property Name="dismetrias" Type="Boolean" Nullable="false" />
+    <Property Name="escoliosis" Type="Boolean" Nullable="false" />
+    <Property Name="tibiasVaras" Type="Boolean" Nullable="false" />
+    <Property Name="piesPlanos" Type="Boolean" Nullable="false" />
+    <Property Name="piesCavos" Type="Boolean" Nullable="false" />
+    <Property Name="piesValgos" Type="Boolean" Nullable="false" />
+    <Property Name="piesZambos" Type="Boolean" Nullable="false" />
+    <Property Name="hallusValgus" Type="Boolean" Nullable="false" />
+    <Property Name="dedosGarra" Type="Boolean" Nullable="false" />
     <Property Name="otros" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="genuVaro" Type="Boolean" />
-    <Property Name="genuValgo" Type="Boolean" />
-    <Property Name="metaAductus" Type="Boolean" />
-    <Property Name="metaVarus" Type="Boolean" />
+    <Property Name="genuVaro" Type="Boolean" Nullable="false" />
+    <Property Name="genuValgo" Type="Boolean" Nullable="false" />
+    <Property Name="metaAductus" Type="Boolean" Nullable="false" />
+    <Property Name="metaVarus" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="historialClinico" Relationship="Self.FK_historialClinico_antecedentesFamiliares" FromRole="antecedentesFamiliares" ToRole="historialClinico" />
   </EntityType>
   <EntityType Name="antecedentesFisiologicos">
@@ -46,17 +46,17 @@
       <PropertyRef Name="idAFisiologico" />
     </Key>
     <Property Name="idAFisiologico" Type="Guid" Nullable="false" />
-    <Property Name="andador" Type="Boolean" />
-    <Property Name="tacata" Type="Boolean" />
+    <Property Name="andador" Type="Boolean" Nullable="false" />
+    <Property Name="tacata" Type="Boolean" Nullable="false" />
     <Property Name="inicioDeambulacion" Type="Int32" />
     <Property Name="habitosPosturales" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="cambiosPonderales" Type="Int32" />
-    <Property Name="zurdo" Type="Boolean" />
-    <Property Name="diestro" Type="Boolean" />
-    <Property Name="ambidiestro" Type="Boolean" />
+    <Property Name="zurdo" Type="Boolean" Nullable="false" />
+    <Property Name="diestro" Type="Boolean" Nullable="false" />
+    <Property Name="ambidiestro" Type="Boolean" Nullable="false" />
     <Property Name="otros" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="partoCabeza" Type="Boolean" />
-    <Property Name="partoNalgas" Type="Boolean" />
+    <Property Name="partoCabeza" Type="Boolean" Nullable="false" />
+    <Property Name="partoNalgas" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="historialClinico" Relationship="Self.FK_historialClinico_antecedentesFisiologicos" FromRole="antecedentesFisiologicos" ToRole="historialClinico" />
   </EntityType>
   <EntityType Name="antecedentesPatologicos">
@@ -67,20 +67,20 @@
     <Property Name="patologiaPrevia" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="enfermedadInfantil" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="antecedentesTraumatico" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="bursitis" Type="Boolean" />
-    <Property Name="capsulitis" Type="Boolean" />
-    <Property Name="enfermedadReumatica" Type="Boolean" />
+    <Property Name="bursitis" Type="Boolean" Nullable="false" />
+    <Property Name="capsulitis" Type="Boolean" Nullable="false" />
+    <Property Name="enfermedadReumatica" Type="Boolean" Nullable="false" />
     <Property Name="tipoEnfermedadReumatica" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="ciatica" Type="Boolean" />
+    <Property Name="ciatica" Type="Boolean" Nullable="false" />
     <Property Name="otros" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="distension" Type="Boolean" />
-    <Property Name="esguince" Type="Boolean" />
-    <Property Name="tendinitis" Type="Boolean" />
-    <Property Name="contracturas" Type="Boolean" />
-    <Property Name="luxacion" Type="Boolean" />
-    <Property Name="subluxacion" Type="Boolean" />
-    <Property Name="fisura" Type="Boolean" />
-    <Property Name="fractura" Type="Boolean" />
+    <Property Name="distension" Type="Boolean" Nullable="false" />
+    <Property Name="esguince" Type="Boolean" Nullable="false" />
+    <Property Name="tendinitis" Type="Boolean" Nullable="false" />
+    <Property Name="contracturas" Type="Boolean" Nullable="false" />
+    <Property Name="luxacion" Type="Boolean" Nullable="false" />
+    <Property Name="subluxacion" Type="Boolean" Nullable="false" />
+    <Property Name="fisura" Type="Boolean" Nullable="false" />
+    <Property Name="fractura" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="historialClinico" Relationship="Self.FK_historialClinico_antecedentesPatologicos" FromRole="antecedentesPatologicos" ToRole="historialClinico" />
   </EntityType>
   <EntityType Name="antecedentesPodologicos">
@@ -88,7 +88,7 @@
       <PropertyRef Name="idAPodologicos" />
     </Key>
     <Property Name="idAPodologicos" Type="Guid" Nullable="false" />
-    <Property Name="haidoPodologo" Type="Boolean" />
+    <Property Name="haidoPodologo" Type="Boolean" Nullable="false" />
     <Property Name="antecedentes" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="historialClinico" Relationship="Self.FK_historialClinico_antecedentesPodologicos" FromRole="antecedentesPodologicos" ToRole="historialClinico" />
   </EntityType>
@@ -97,10 +97,10 @@
       <PropertyRef Name="idAntepie" />
     </Key>
     <Property Name="idAntepie" Type="Guid" Nullable="false" />
-    <Property Name="varo" Type="Boolean" />
-    <Property Name="supinado" Type="Boolean" />
-    <Property Name="valgo" Type="Boolean" />
-    <Property Name="neutro" Type="Boolean" />
+    <Property Name="varo" Type="Boolean" Nullable="false" />
+    <Property Name="supinado" Type="Boolean" Nullable="false" />
+    <Property Name="valgo" Type="Boolean" Nullable="false" />
+    <Property Name="neutro" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="bipedestacion" Relationship="Self.FK_bipedestacion_antepie" FromRole="antepie" ToRole="bipedestacion" />
   </EntityType>
   <EntityType Name="AspNetRoles">
@@ -160,41 +160,43 @@
     <Property Name="visionAnterior" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="visionPosterior" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="visionLateral" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="basculaEscapular" Type="Boolean" />
-    <Property Name="basculaPelvica" Type="Boolean" />
+    <Property Name="basculaEscapular" Type="Boolean" Nullable="false" />
+    <Property Name="basculaPelvica" Type="Boolean" Nullable="false" />
     <Property Name="balculaPelvicaMM" Type="Double" />
-    <Property Name="posicionEscoliotica" Type="Boolean" />
-    <Property Name="testAdams" Type="Boolean" />
+    <Property Name="posicionEscoliotica" Type="Boolean" Nullable="false" />
+    <Property Name="testAdams" Type="Boolean" Nullable="false" />
     <Property Name="testAdamsGiro" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="pruebaIsquiotibilaesCortos" Type="Boolean" />
-    <Property Name="genuFisiologico" Type="Boolean" />
-    <Property Name="genuValgo" Type="Boolean" />
+    <Property Name="pruebaIsquiotibilaesCortos" Type="Boolean" Nullable="false" />
+    <Property Name="genuFisiologico" Type="Boolean" Nullable="false" />
+    <Property Name="genuValgo" Type="Boolean" Nullable="false" />
     <Property Name="genuValgoDim" Type="Double" />
-    <Property Name="genuVaro" Type="Boolean" />
+    <Property Name="genuVaro" Type="Boolean" Nullable="false" />
     <Property Name="genuVaroDic" Type="Double" />
-    <Property Name="tibiasFisiologicas" Type="Boolean" />
-    <Property Name="tibiasValgas" Type="Boolean" />
-    <Property Name="tibiasVaras" Type="Boolean" />
-    <Property Name="pieRadioInsuficiente" Type="Boolean" />
+    <Property Name="tibiasFisiologicas" Type="Boolean" Nullable="false" />
+    <Property Name="tibiasValgas" Type="Boolean" Nullable="false" />
+    <Property Name="tibiasVaras" Type="Boolean" Nullable="false" />
+    <Property Name="pieRadioInsuficiente" Type="Boolean" Nullable="false" />
     <Property Name="pieRadioInsucienteNotas" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="pieSobrecargaMeta" Type="Boolean" />
+    <Property Name="pieSobrecargaMeta" Type="Boolean" Nullable="false" />
     <Property Name="pieSobrecargaMetaNotas" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="id_retropie" Type="Guid" />
     <Property Name="id_antepie" Type="Guid" />
     <NavigationProperty Name="antepie" Relationship="Self.FK_bipedestacion_antepie" FromRole="bipedestacion" ToRole="antepie" />
     <NavigationProperty Name="retropie" Relationship="Self.FK_bipedestacion_retropie" FromRole="bipedestacion" ToRole="retropie" />
     <NavigationProperty Name="estudioOrtopodologico" Relationship="Self.FK_estudioOrtopodologico_bipedestacion" FromRole="bipedestacion" ToRole="estudioOrtopodologico" />
+    <Property Name="id_fpi" Type="Guid" />
+    <NavigationProperty Name="FPI" Relationship="podologiaModel.FK_bipedestacion_FPI" FromRole="bipedestacion" ToRole="FPI" />
   </EntityType>
   <EntityType Name="calzadoHabitual">
     <Key>
       <PropertyRef Name="idCalzado" />
     </Key>
     <Property Name="idCalzado" Type="Guid" Nullable="false" />
-    <Property Name="deportivos" Type="Boolean" />
-    <Property Name="vestir" Type="Boolean" />
-    <Property Name="sandalias" Type="Boolean" />
-    <Property Name="botines" Type="Boolean" />
-    <Property Name="tacones" Type="Boolean" />
+    <Property Name="deportivos" Type="Boolean" Nullable="false" />
+    <Property Name="vestir" Type="Boolean" Nullable="false" />
+    <Property Name="sandalias" Type="Boolean" Nullable="false" />
+    <Property Name="botines" Type="Boolean" Nullable="false" />
+    <Property Name="tacones" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="primeraVisita" Relationship="Self.FK_primeraVisita_calzadoHabitual" FromRole="calzadoHabitual" ToRole="primeraVisita" />
   </EntityType>
   <EntityType Name="consulta">
@@ -243,9 +245,9 @@
       <PropertyRef Name="idPosicion1radio" />
     </Key>
     <Property Name="idPosicion1radio" Type="Guid" Nullable="false" />
-    <Property Name="dorsalrFlex" Type="Boolean" />
-    <Property Name="plantarFlex" Type="Boolean" />
-    <Property Name="neutro" Type="Boolean" />
+    <Property Name="dorsalrFlex" Type="Boolean" Nullable="false" />
+    <Property Name="plantarFlex" Type="Boolean" Nullable="false" />
+    <Property Name="neutro" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="decubitoSupinoExploracionArticular" Relationship="Self.FK_decubitoSupinoExploracionArticular_decubitoSupinoAntepiePosicion1Radio" FromRole="decubitoSupinoAntepiePosicion1Radio" ToRole="decubitoSupinoExploracionArticular" />
   </EntityType>
   <EntityType Name="decubitoSupinoExploracionArticular">
@@ -279,14 +281,14 @@
     <Property Name="rodillaExtensionDcha" Type="Double" />
     <Property Name="rodillaHiperextensionIzda" Type="Double" />
     <Property Name="rodillaHiperextensionDcha" Type="Double" />
-    <Property Name="genuValgoReductibleIzda" Type="Boolean" />
-    <Property Name="genuValgoReductibleDcha" Type="Boolean" />
-    <Property Name="genuValgoIrreductibleIzda" Type="Boolean" />
-    <Property Name="genuValgoIrreductibleDcha" Type="Boolean" />
-    <Property Name="genuVaroReductibleIzda" Type="Boolean" />
-    <Property Name="genuVaroReductibleDcha" Type="Boolean" />
-    <Property Name="genuVaroIrreductibleIzda" Type="Boolean" />
-    <Property Name="genuVaroIrreductibleDcha" Type="Boolean" />
+    <Property Name="genuValgoReductibleIzda" Type="Boolean" Nullable="false" />
+    <Property Name="genuValgoReductibleDcha" Type="Boolean" Nullable="false" />
+    <Property Name="genuValgoIrreductibleIzda" Type="Boolean" Nullable="false" />
+    <Property Name="genuValgoIrreductibleDcha" Type="Boolean" Nullable="false" />
+    <Property Name="genuVaroReductibleIzda" Type="Boolean" Nullable="false" />
+    <Property Name="genuVaroReductibleDcha" Type="Boolean" Nullable="false" />
+    <Property Name="genuVaroIrreductibleIzda" Type="Boolean" Nullable="false" />
+    <Property Name="genuVaroIrreductibleDcha" Type="Boolean" Nullable="false" />
     <Property Name="anguloQizda" Type="Double" />
     <Property Name="anguloQdcha" Type="Double" />
     <Property Name="tpaFpIzda" Type="Double" />
@@ -307,16 +309,16 @@
     <Property Name="antepie1radioAmtfFdDcha" Type="Double" />
     <Property Name="antepie1radioFalangeFpIzda" Type="Double" />
     <Property Name="antepie1radioFalangeFpDcha" Type="Double" />
-    <Property Name="antepie1radioHallusLimitusIzdo" Type="Boolean" />
-    <Property Name="antepie1radioHallusLimitusDcho" Type="Boolean" />
-    <Property Name="antepie1radioHallusRigidusIzdo" Type="Boolean" />
-    <Property Name="antepie1radioHallusRigidusDcho" Type="Boolean" />
-    <Property Name="antepie1radioHallusFlexusIzdo" Type="Boolean" />
-    <Property Name="antepie1radioHallusFlexusDcho" Type="Boolean" />
-    <Property Name="antepie1radioHallusHiperextensusIzdo" Type="Boolean" />
-    <Property Name="antepie1radioHallusHiperextensusDcho" Type="Boolean" />
-    <Property Name="antepie1radioHallusVizdo" Type="Boolean" />
-    <Property Name="antepie1radioHallusVdcho" Type="Boolean" />
+    <Property Name="antepie1radioHallusLimitusIzdo" Type="Boolean" Nullable="false" />
+    <Property Name="antepie1radioHallusLimitusDcho" Type="Boolean" Nullable="false" />
+    <Property Name="antepie1radioHallusRigidusIzdo" Type="Boolean" Nullable="false" />
+    <Property Name="antepie1radioHallusRigidusDcho" Type="Boolean" Nullable="false" />
+    <Property Name="antepie1radioHallusFlexusIzdo" Type="Boolean" Nullable="false" />
+    <Property Name="antepie1radioHallusFlexusDcho" Type="Boolean" Nullable="false" />
+    <Property Name="antepie1radioHallusHiperextensusIzdo" Type="Boolean" Nullable="false" />
+    <Property Name="antepie1radioHallusHiperextensusDcho" Type="Boolean" Nullable="false" />
+    <Property Name="antepie1radioHallusVizdo" Type="Boolean" Nullable="false" />
+    <Property Name="antepie1radioHallusVdcho" Type="Boolean" Nullable="false" />
     <Property Name="antepie1radioOtrosIzdo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="antepie1radioOtrosDcho" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="antepie25radioAmtfFpIzdo" Type="Double" />
@@ -331,14 +333,14 @@
     <Property Name="antepie25radioDistalFpDcho" Type="Double" />
     <Property Name="antepie25radioDistalFdIzdo" Type="Double" />
     <Property Name="antepie25radioDistalFdDcho" Type="Double" />
-    <Property Name="antepie25radio5metaCortoIzdo" Type="Boolean" />
-    <Property Name="antepie25radio5metaCortoDcho" Type="Boolean" />
-    <Property Name="antepie25radio5varoIzdo" Type="Boolean" />
-    <Property Name="antepie25radio5varoDcho" Type="Boolean" />
-    <Property Name="antepie25radio5hipermovilIzdo" Type="Boolean" />
-    <Property Name="antepie25radio5hipermovilDcho" Type="Boolean" />
-    <Property Name="antepie25radioJuaneteSastreIzdo" Type="Boolean" />
-    <Property Name="antepie25radioJuaneteSastreDcho" Type="Boolean" />
+    <Property Name="antepie25radio5metaCortoIzdo" Type="Boolean" Nullable="false" />
+    <Property Name="antepie25radio5metaCortoDcho" Type="Boolean" Nullable="false" />
+    <Property Name="antepie25radio5varoIzdo" Type="Boolean" Nullable="false" />
+    <Property Name="antepie25radio5varoDcho" Type="Boolean" Nullable="false" />
+    <Property Name="antepie25radio5hipermovilIzdo" Type="Boolean" Nullable="false" />
+    <Property Name="antepie25radio5hipermovilDcho" Type="Boolean" Nullable="false" />
+    <Property Name="antepie25radioJuaneteSastreIzdo" Type="Boolean" Nullable="false" />
+    <Property Name="antepie25radioJuaneteSastreDcho" Type="Boolean" Nullable="false" />
     <Property Name="antepie25radioOtrosIzdo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="antepie25radioOtrosDcho" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="id_posicion_angulo_antepie" Type="Guid" />
@@ -352,7 +354,7 @@
       <PropertyRef Name="idEMorfologica" />
     </Key>
     <Property Name="idEMorfologica" Type="Guid" Nullable="false" />
-    <Property Name="antepieTriangular" Type="Boolean" />
+    <Property Name="antepieTriangular" Type="Boolean" Nullable="false" />
     <Property Name="otros" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="id_formula_metatarsal" Type="Guid" />
     <Property Name="id_formula_digital" Type="Guid" />
@@ -393,10 +395,10 @@
     <Property Name="musculosPronatoriosDcho" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="musculosSemipronatoriosIzdo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="musculosSemipronatoriosDcho" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="simetriaIzdo" Type="Boolean" />
-    <Property Name="simetriaDcho" Type="Boolean" />
-    <Property Name="asimetriaIzdo" Type="Boolean" />
-    <Property Name="asimetriaDcho" Type="Boolean" />
+    <Property Name="simetriaIzdo" Type="Boolean" Nullable="false" />
+    <Property Name="simetriaDcho" Type="Boolean" Nullable="false" />
+    <Property Name="asimetriaIzdo" Type="Boolean" Nullable="false" />
+    <Property Name="asimetriaDcho" Type="Boolean" Nullable="false" />
     <Property Name="otrosIzdo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="otrosDcho" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="estudioOrtopodologico" Relationship="Self.FK_estudioOrtopodologico_decubitoSupinoExploracionMuscular" FromRole="decubitoSupinoExploracionMuscular" ToRole="estudioOrtopodologico" />
@@ -406,10 +408,10 @@
       <PropertyRef Name="idPosicionAnguloAntepie" />
     </Key>
     <Property Name="idPosicionAnguloAntepie" Type="Guid" Nullable="false" />
-    <Property Name="valgo" Type="Boolean" />
-    <Property Name="varo" Type="Boolean" />
-    <Property Name="supinado" Type="Boolean" />
-    <Property Name="neutro" Type="Boolean" />
+    <Property Name="valgo" Type="Boolean" Nullable="false" />
+    <Property Name="varo" Type="Boolean" Nullable="false" />
+    <Property Name="supinado" Type="Boolean" Nullable="false" />
+    <Property Name="neutro" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="decubitoSupinoExploracionArticular" Relationship="Self.FK_decubitoSupinoExploracionArticular_decubitoSupinoPosicionAnguloAntepie" FromRole="decubitoSupinoPosicionAnguloAntepie" ToRole="decubitoSupinoExploracionArticular" />
   </EntityType>
   <EntityType Name="decubitoSupinoPulsos">
@@ -428,8 +430,8 @@
       <PropertyRef Name="idPulsosTipo" />
     </Key>
     <Property Name="idPulsosTipo" Type="Guid" Nullable="false" />
-    <Property Name="presente" Type="Boolean" />
-    <Property Name="ausente" Type="Boolean" />
+    <Property Name="presente" Type="Boolean" Nullable="false" />
+    <Property Name="ausente" Type="Boolean" Nullable="false" />
     <Property Name="debil" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
     <NavigationProperty Name="decubitoSupinoPulsos" Relationship="Self.FK_decubitoSupinoPulsos_decubitoSupinoPulsosTipo" FromRole="decubitoSupinoPulsosTipo" ToRole="decubitoSupinoPulsos" />
   </EntityType>
@@ -481,9 +483,9 @@
       <PropertyRef Name="idFormulaDigital" />
     </Key>
     <Property Name="idFormulaDigital" Type="Guid" Nullable="false" />
-    <Property Name="egipcia" Type="Boolean" />
-    <Property Name="griega" Type="Boolean" />
-    <Property Name="cuadrada" Type="Boolean" />
+    <Property Name="egipcia" Type="Boolean" Nullable="false" />
+    <Property Name="griega" Type="Boolean" Nullable="false" />
+    <Property Name="cuadrada" Type="Boolean" Nullable="false" />
     <Property Name="otra" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="decubitoSupinoExploracionMorfologica" Relationship="Self.FK_decubitoSupinoExploracionMorfologica_formulaDigital" FromRole="formulaDigital" ToRole="decubitoSupinoExploracionMorfologica" />
   </EntityType>
@@ -492,9 +494,9 @@
       <PropertyRef Name="idFormulaMetatarsal" />
     </Key>
     <Property Name="idFormulaMetatarsal" Type="Guid" Nullable="false" />
-    <Property Name="indexMinus" Type="Boolean" />
-    <Property Name="indexPlus" Type="Boolean" />
-    <Property Name="indexPlusMinus" Type="Boolean" />
+    <Property Name="indexMinus" Type="Boolean" Nullable="false" />
+    <Property Name="indexPlus" Type="Boolean" Nullable="false" />
+    <Property Name="indexPlusMinus" Type="Boolean" Nullable="false" />
     <Property Name="otra" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="decubitoSupinoExploracionMorfologica" Relationship="Self.FK_decubitoSupinoExploracionMorfologica_formulaMetatarsal" FromRole="formulaMetatarsal" ToRole="decubitoSupinoExploracionMorfologica" />
   </EntityType>
@@ -503,9 +505,9 @@
       <PropertyRef Name="idFormulaPodal" />
     </Key>
     <Property Name="idFormulaPodal" Type="Guid" Nullable="false" />
-    <Property Name="normolineo" Type="Boolean" />
-    <Property Name="longilineo" Type="Boolean" />
-    <Property Name="brevilineo" Type="Boolean" />
+    <Property Name="normolineo" Type="Boolean" Nullable="false" />
+    <Property Name="longilineo" Type="Boolean" Nullable="false" />
+    <Property Name="brevilineo" Type="Boolean" Nullable="false" />
     <Property Name="otra" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="decubitoSupinoExploracionMorfologica" Relationship="Self.FK_decubitoSupinoExploracionMorfologica_formulaPodal" FromRole="formulaPodal" ToRole="decubitoSupinoExploracionMorfologica" />
   </EntityType>
@@ -526,6 +528,7 @@
     <Property Name="alturaYcongruenciaDcha" Type="Int32" />
     <Property Name="abduccionYaduccionIzda" Type="Int32" />
     <Property Name="abduccionYaduccionDcha" Type="Int32" />
+    <NavigationProperty Name="bipedestacion" Relationship="podologiaModel.FK_bipedestacion_FPI" FromRole="FPI" ToRole="bipedestacion" />
   </EntityType>
   <EntityType Name="historialClinico">
     <Key>
@@ -542,16 +545,17 @@
     <NavigationProperty Name="antecedentesFisiologicos" Relationship="Self.FK_historialClinico_antecedentesFisiologicos" FromRole="historialClinico" ToRole="antecedentesFisiologicos" />
     <NavigationProperty Name="antecedentesPatologicos" Relationship="Self.FK_historialClinico_antecedentesPatologicos" FromRole="historialClinico" ToRole="antecedentesPatologicos" />
     <NavigationProperty Name="antecedentesPodologicos" Relationship="Self.FK_historialClinico_antecedentesPodologicos" FromRole="historialClinico" ToRole="antecedentesPodologicos" />
+    <NavigationProperty Name="paciente" Relationship="podologiaModel.FK_paciente_historialClinico" FromRole="historialClinico" ToRole="paciente" />
   </EntityType>
   <EntityType Name="materialSoportePlantar">
     <Key>
       <PropertyRef Name="idMaterialSoportePlantar" />
     </Key>
     <Property Name="idMaterialSoportePlantar" Type="Guid" Nullable="false" />
-    <Property Name="TAD" Type="Boolean" />
-    <Property Name="resinas" Type="Boolean" />
-    <Property Name="EVA" Type="Boolean" />
-    <Property Name="propileno" Type="Boolean" />
+    <Property Name="TAD" Type="Boolean" Nullable="false" />
+    <Property Name="resinas" Type="Boolean" Nullable="false" />
+    <Property Name="EVA" Type="Boolean" Nullable="false" />
+    <Property Name="propileno" Type="Boolean" Nullable="false" />
     <Property Name="componentes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="otros" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="id_tratamiento" Type="Guid" />
@@ -572,6 +576,7 @@
     <NavigationProperty Name="persona" Relationship="Self.FK_paciente_persona" FromRole="paciente" ToRole="persona" />
     <NavigationProperty Name="podologo" Relationship="Self.FK_paciente_podologo" FromRole="paciente" ToRole="podologo" />
     <NavigationProperty Name="primeraVisita" Relationship="Self.FK_primeraVisita_paciente" FromRole="paciente" ToRole="primeraVisita" />
+    <NavigationProperty Name="historialClinico" Relationship="podologiaModel.FK_paciente_historialClinico" FromRole="paciente" ToRole="historialClinico" />
   </EntityType>
   <EntityType Name="persona">
     <Key>
@@ -603,6 +608,8 @@
     <NavigationProperty Name="paciente" Relationship="Self.FK_paciente_podologo" FromRole="podologo" ToRole="paciente" />
     <NavigationProperty Name="persona" Relationship="Self.FK_podologo_persona" FromRole="podologo" ToRole="persona" />
     <NavigationProperty Name="primeraVisita" Relationship="Self.FK_primeraVisita_podologo" FromRole="podologo" ToRole="primeraVisita" />
+    <Property Name="idTitulo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="primeraVisita">
     <Key>
@@ -612,11 +619,11 @@
     <Property Name="peso" Type="Double" />
     <Property Name="talla" Type="Double" />
     <Property Name="actividadDeportiva" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="diabetes" Type="Boolean" />
-    <Property Name="alergias" Type="Boolean" />
+    <Property Name="diabetes" Type="Boolean" Nullable="false" />
+    <Property Name="alergias" Type="Boolean" Nullable="false" />
     <Property Name="tipoAlergias" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="motivoPrimeraConsulta" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="hayDolor" Type="Boolean" />
+    <Property Name="hayDolor" Type="Boolean" Nullable="false" />
     <Property Name="dolorSitio" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="dolorTipo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="fechaPrimeraConsulta" Type="DateTime" Precision="3" />
@@ -639,9 +646,9 @@
       <PropertyRef Name="idRetropie" />
     </Key>
     <Property Name="idRetropie" Type="Guid" Nullable="false" />
-    <Property Name="varo" Type="Boolean" />
-    <Property Name="valgo" Type="Boolean" />
-    <Property Name="neutro" Type="Boolean" />
+    <Property Name="varo" Type="Boolean" Nullable="false" />
+    <Property Name="valgo" Type="Boolean" Nullable="false" />
+    <Property Name="neutro" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="bipedestacion" Relationship="Self.FK_bipedestacion_retropie" FromRole="retropie" ToRole="bipedestacion" />
   </EntityType>
   <EntityType Name="sedestacionExploracionArticular">
@@ -667,7 +674,7 @@
     <Property Name="idEMuscularPieIzdo" Type="Guid" Nullable="false" />
     <Property Name="idEMuscularPieDcho" Type="Guid" Nullable="false" />
     <Property Name="hiperlaxitudArticularIzdo" Type="Boolean" Nullable="false" />
-    <Property Name="hiperlaxitudArticularDcho" Type="Boolean" />
+    <Property Name="hiperlaxitudArticularDcho" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="estudioOrtopodologico" Relationship="Self.FK_estudioOrtopodologico_sedestacionExploracionMuscular" FromRole="sedestacionExploracionMuscular" ToRole="estudioOrtopodologico" />
   </EntityType>
   <EntityType Name="tipoEstudio">
@@ -675,7 +682,7 @@
       <PropertyRef Name="idTipoEstudio" />
     </Key>
     <Property Name="idTipoEstudio" Type="Guid" Nullable="false" />
-    <Property Name="ortopodologico" Type="Boolean" />
+    <Property Name="ortopodologico" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="primeraVisita" Relationship="Self.FK_primeraVisita_tipoEstudio" FromRole="tipoEstudio" ToRole="primeraVisita" />
   </EntityType>
   <EntityType Name="tratamiento">
@@ -683,17 +690,17 @@
       <PropertyRef Name="idTratamiento" />
     </Key>
     <Property Name="idTratamiento" Type="Guid" Nullable="false" />
-    <Property Name="fisico" Type="Boolean" />
+    <Property Name="fisico" Type="Boolean" Nullable="false" />
     <Property Name="ejerciciosPropioceptivos" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="farmacologico" Type="Boolean" />
-    <Property Name="quiropodologico" Type="Boolean" />
-    <Property Name="ortosisDigital" Type="Boolean" />
+    <Property Name="farmacologico" Type="Boolean" Nullable="false" />
+    <Property Name="quiropodologico" Type="Boolean" Nullable="false" />
+    <Property Name="ortosisDigital" Type="Boolean" Nullable="false" />
     <Property Name="ortosisDigitalTipo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="soportePlantar" Type="Boolean" />
-    <Property Name="vendajeFuncional" Type="Boolean" />
-    <Property Name="preventivo" Type="Boolean" />
+    <Property Name="soportePlantar" Type="Boolean" Nullable="false" />
+    <Property Name="vendajeFuncional" Type="Boolean" Nullable="false" />
+    <Property Name="preventivo" Type="Boolean" Nullable="false" />
     <Property Name="preventivoObservacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="calzadoterapia" Type="Boolean" />
+    <Property Name="calzadoterapia" Type="Boolean" Nullable="false" />
     <Property Name="otros" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="id_primera_visita" Type="Guid" />
     <NavigationProperty Name="materialSoportePlantar" Relationship="Self.FK_materialSoportePlantar_tratamiento" FromRole="tratamiento" ToRole="materialSoportePlantar" />
@@ -1413,5 +1420,37 @@
       <End Role="AspNetRoles" EntitySet="AspNetRoles" />
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
     </AssociationSet>
+    <AssociationSet Name="FK_bipedestacion_FPI" Association="podologiaModel.FK_bipedestacion_FPI">
+      <End Role="FPI" EntitySet="FPI" />
+      <End Role="bipedestacion" EntitySet="bipedestacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_paciente_historialClinico" Association="podologiaModel.FK_paciente_historialClinico">
+      <End Role="historialClinico" EntitySet="historialClinico" />
+      <End Role="paciente" EntitySet="paciente" />
+    </AssociationSet>
   </EntityContainer>
+  <Association Name="FK_bipedestacion_FPI">
+    <End Type="podologiaModel.FPI" Role="FPI" Multiplicity="0..1" />
+    <End Type="podologiaModel.bipedestacion" Role="bipedestacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FPI">
+        <PropertyRef Name="idFPI" />
+      </Principal>
+      <Dependent Role="bipedestacion">
+        <PropertyRef Name="id_fpi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_paciente_historialClinico">
+    <End Type="podologiaModel.historialClinico" Role="historialClinico" Multiplicity="0..1" />
+    <End Type="podologiaModel.paciente" Role="paciente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="historialClinico">
+        <PropertyRef Name="idHistorialClinico" />
+      </Principal>
+      <Dependent Role="paciente">
+        <PropertyRef Name="id_historial_clinico" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

@@ -24,37 +24,37 @@
       <PropertyRef Name="idAFamiliares" />
     </Key>
     <Property Name="idAFamiliares" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="dismetrias" Type="bit" />
-    <Property Name="escoliosis" Type="bit" />
-    <Property Name="tibiasVaras" Type="bit" />
-    <Property Name="piesPlanos" Type="bit" />
-    <Property Name="piesCavos" Type="bit" />
-    <Property Name="piesValgos" Type="bit" />
-    <Property Name="piesZambos" Type="bit" />
-    <Property Name="hallusValgus" Type="bit" />
-    <Property Name="dedosGarra" Type="bit" />
+    <Property Name="dismetrias" Type="bit" Nullable="false" />
+    <Property Name="escoliosis" Type="bit" Nullable="false" />
+    <Property Name="tibiasVaras" Type="bit" Nullable="false" />
+    <Property Name="piesPlanos" Type="bit" Nullable="false" />
+    <Property Name="piesCavos" Type="bit" Nullable="false" />
+    <Property Name="piesValgos" Type="bit" Nullable="false" />
+    <Property Name="piesZambos" Type="bit" Nullable="false" />
+    <Property Name="hallusValgus" Type="bit" Nullable="false" />
+    <Property Name="dedosGarra" Type="bit" Nullable="false" />
     <Property Name="otros" Type="nvarchar(max)" />
-    <Property Name="genuVaro" Type="bit" />
-    <Property Name="genuValgo" Type="bit" />
-    <Property Name="metaAductus" Type="bit" />
-    <Property Name="metaVarus" Type="bit" />
+    <Property Name="genuVaro" Type="bit" Nullable="false" />
+    <Property Name="genuValgo" Type="bit" Nullable="false" />
+    <Property Name="metaAductus" Type="bit" Nullable="false" />
+    <Property Name="metaVarus" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="antecedentesFisiologicos">
     <Key>
       <PropertyRef Name="idAFisiologico" />
     </Key>
     <Property Name="idAFisiologico" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="andador" Type="bit" />
-    <Property Name="tacata" Type="bit" />
+    <Property Name="andador" Type="bit" Nullable="false" />
+    <Property Name="tacata" Type="bit" Nullable="false" />
     <Property Name="inicioDeambulacion" Type="int" />
     <Property Name="habitosPosturales" Type="nvarchar(max)" />
     <Property Name="cambiosPonderales" Type="int" />
-    <Property Name="zurdo" Type="bit" />
-    <Property Name="diestro" Type="bit" />
-    <Property Name="ambidiestro" Type="bit" />
+    <Property Name="zurdo" Type="bit" Nullable="false" />
+    <Property Name="diestro" Type="bit" Nullable="false" />
+    <Property Name="ambidiestro" Type="bit" Nullable="false" />
     <Property Name="otros" Type="nvarchar(max)" />
-    <Property Name="partoCabeza" Type="bit" />
-    <Property Name="partoNalgas" Type="bit" />
+    <Property Name="partoCabeza" Type="bit" Nullable="false" />
+    <Property Name="partoNalgas" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="antecedentesPatologicos">
     <Key>
@@ -64,27 +64,27 @@
     <Property Name="patologiaPrevia" Type="nvarchar(max)" />
     <Property Name="enfermedadInfantil" Type="nvarchar(max)" />
     <Property Name="antecedentesTraumatico" Type="nvarchar(max)" />
-    <Property Name="bursitis" Type="bit" />
-    <Property Name="capsulitis" Type="bit" />
-    <Property Name="enfermedadReumatica" Type="bit" />
+    <Property Name="bursitis" Type="bit" Nullable="false" />
+    <Property Name="capsulitis" Type="bit" Nullable="false" />
+    <Property Name="enfermedadReumatica" Type="bit" Nullable="false" />
     <Property Name="tipoEnfermedadReumatica" Type="nvarchar(max)" />
-    <Property Name="ciatica" Type="bit" />
+    <Property Name="ciatica" Type="bit" Nullable="false" />
     <Property Name="otros" Type="nvarchar(max)" />
-    <Property Name="distension" Type="bit" />
-    <Property Name="esguince" Type="bit" />
-    <Property Name="tendinitis" Type="bit" />
-    <Property Name="contracturas" Type="bit" />
-    <Property Name="luxacion" Type="bit" />
-    <Property Name="subluxacion" Type="bit" />
-    <Property Name="fisura" Type="bit" />
-    <Property Name="fractura" Type="bit" />
+    <Property Name="distension" Type="bit" Nullable="false" />
+    <Property Name="esguince" Type="bit" Nullable="false" />
+    <Property Name="tendinitis" Type="bit" Nullable="false" />
+    <Property Name="contracturas" Type="bit" Nullable="false" />
+    <Property Name="luxacion" Type="bit" Nullable="false" />
+    <Property Name="subluxacion" Type="bit" Nullable="false" />
+    <Property Name="fisura" Type="bit" Nullable="false" />
+    <Property Name="fractura" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="antecedentesPodologicos">
     <Key>
       <PropertyRef Name="idAPodologicos" />
     </Key>
     <Property Name="idAPodologicos" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="haidoPodologo" Type="bit" />
+    <Property Name="haidoPodologo" Type="bit" Nullable="false" />
     <Property Name="antecedentes" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="antepie">
@@ -92,10 +92,10 @@
       <PropertyRef Name="idAntepie" />
     </Key>
     <Property Name="idAntepie" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="varo" Type="bit" />
-    <Property Name="supinado" Type="bit" />
-    <Property Name="valgo" Type="bit" />
-    <Property Name="neutro" Type="bit" />
+    <Property Name="varo" Type="bit" Nullable="false" />
+    <Property Name="supinado" Type="bit" Nullable="false" />
+    <Property Name="valgo" Type="bit" Nullable="false" />
+    <Property Name="neutro" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="AspNetRoles">
     <Key>
@@ -156,38 +156,39 @@
     <Property Name="visionAnterior" Type="nvarchar(max)" />
     <Property Name="visionPosterior" Type="nvarchar(max)" />
     <Property Name="visionLateral" Type="nvarchar(max)" />
-    <Property Name="basculaEscapular" Type="bit" />
-    <Property Name="basculaPelvica" Type="bit" />
+    <Property Name="basculaEscapular" Type="bit" Nullable="false" />
+    <Property Name="basculaPelvica" Type="bit" Nullable="false" />
     <Property Name="balculaPelvicaMM" Type="float" />
-    <Property Name="posicionEscoliotica" Type="bit" />
-    <Property Name="testAdams" Type="bit" />
+    <Property Name="posicionEscoliotica" Type="bit" Nullable="false" />
+    <Property Name="testAdams" Type="bit" Nullable="false" />
     <Property Name="testAdamsGiro" Type="nvarchar(max)" />
-    <Property Name="pruebaIsquiotibilaesCortos" Type="bit" />
-    <Property Name="genuFisiologico" Type="bit" />
-    <Property Name="genuValgo" Type="bit" />
+    <Property Name="pruebaIsquiotibilaesCortos" Type="bit" Nullable="false" />
+    <Property Name="genuFisiologico" Type="bit" Nullable="false" />
+    <Property Name="genuValgo" Type="bit" Nullable="false" />
     <Property Name="genuValgoDim" Type="float" />
-    <Property Name="genuVaro" Type="bit" />
+    <Property Name="genuVaro" Type="bit" Nullable="false" />
     <Property Name="genuVaroDic" Type="float" />
-    <Property Name="tibiasFisiologicas" Type="bit" />
-    <Property Name="tibiasValgas" Type="bit" />
-    <Property Name="tibiasVaras" Type="bit" />
-    <Property Name="pieRadioInsuficiente" Type="bit" />
+    <Property Name="tibiasFisiologicas" Type="bit" Nullable="false" />
+    <Property Name="tibiasValgas" Type="bit" Nullable="false" />
+    <Property Name="tibiasVaras" Type="bit" Nullable="false" />
+    <Property Name="pieRadioInsuficiente" Type="bit" Nullable="false" />
     <Property Name="pieRadioInsucienteNotas" Type="nvarchar(max)" />
-    <Property Name="pieSobrecargaMeta" Type="bit" />
+    <Property Name="pieSobrecargaMeta" Type="bit" Nullable="false" />
     <Property Name="pieSobrecargaMetaNotas" Type="nvarchar(max)" />
     <Property Name="id_retropie" Type="uniqueidentifier" />
     <Property Name="id_antepie" Type="uniqueidentifier" />
+    <Property Name="id_fpi" Type="uniqueidentifier" />
   </EntityType>
   <EntityType Name="calzadoHabitual">
     <Key>
       <PropertyRef Name="idCalzado" />
     </Key>
     <Property Name="idCalzado" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="deportivos" Type="bit" />
-    <Property Name="vestir" Type="bit" />
-    <Property Name="sandalias" Type="bit" />
-    <Property Name="botines" Type="bit" />
-    <Property Name="tacones" Type="bit" />
+    <Property Name="deportivos" Type="bit" Nullable="false" />
+    <Property Name="vestir" Type="bit" Nullable="false" />
+    <Property Name="sandalias" Type="bit" Nullable="false" />
+    <Property Name="botines" Type="bit" Nullable="false" />
+    <Property Name="tacones" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="consulta">
     <Key>
@@ -231,9 +232,9 @@
       <PropertyRef Name="idPosicion1radio" />
     </Key>
     <Property Name="idPosicion1radio" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="dorsalrFlex" Type="bit" />
-    <Property Name="plantarFlex" Type="bit" />
-    <Property Name="neutro" Type="bit" />
+    <Property Name="dorsalrFlex" Type="bit" Nullable="false" />
+    <Property Name="plantarFlex" Type="bit" Nullable="false" />
+    <Property Name="neutro" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="decubitoSupinoExploracionArticular">
     <Key>
@@ -266,14 +267,14 @@
     <Property Name="rodillaExtensionDcha" Type="float" />
     <Property Name="rodillaHiperextensionIzda" Type="float" />
     <Property Name="rodillaHiperextensionDcha" Type="float" />
-    <Property Name="genuValgoReductibleIzda" Type="bit" />
-    <Property Name="genuValgoReductibleDcha" Type="bit" />
-    <Property Name="genuValgoIrreductibleIzda" Type="bit" />
-    <Property Name="genuValgoIrreductibleDcha" Type="bit" />
-    <Property Name="genuVaroReductibleIzda" Type="bit" />
-    <Property Name="genuVaroReductibleDcha" Type="bit" />
-    <Property Name="genuVaroIrreductibleIzda" Type="bit" />
-    <Property Name="genuVaroIrreductibleDcha" Type="bit" />
+    <Property Name="genuValgoReductibleIzda" Type="bit" Nullable="false" />
+    <Property Name="genuValgoReductibleDcha" Type="bit" Nullable="false" />
+    <Property Name="genuValgoIrreductibleIzda" Type="bit" Nullable="false" />
+    <Property Name="genuValgoIrreductibleDcha" Type="bit" Nullable="false" />
+    <Property Name="genuVaroReductibleIzda" Type="bit" Nullable="false" />
+    <Property Name="genuVaroReductibleDcha" Type="bit" Nullable="false" />
+    <Property Name="genuVaroIrreductibleIzda" Type="bit" Nullable="false" />
+    <Property Name="genuVaroIrreductibleDcha" Type="bit" Nullable="false" />
     <Property Name="anguloQizda" Type="float" />
     <Property Name="anguloQdcha" Type="float" />
     <Property Name="tpaFpIzda" Type="float" />
@@ -294,16 +295,16 @@
     <Property Name="antepie1radioAmtfFdDcha" Type="float" />
     <Property Name="antepie1radioFalangeFpIzda" Type="float" />
     <Property Name="antepie1radioFalangeFpDcha" Type="float" />
-    <Property Name="antepie1radioHallusLimitusIzdo" Type="bit" />
-    <Property Name="antepie1radioHallusLimitusDcho" Type="bit" />
-    <Property Name="antepie1radioHallusRigidusIzdo" Type="bit" />
-    <Property Name="antepie1radioHallusRigidusDcho" Type="bit" />
-    <Property Name="antepie1radioHallusFlexusIzdo" Type="bit" />
-    <Property Name="antepie1radioHallusFlexusDcho" Type="bit" />
-    <Property Name="antepie1radioHallusHiperextensusIzdo" Type="bit" />
-    <Property Name="antepie1radioHallusHiperextensusDcho" Type="bit" />
-    <Property Name="antepie1radioHallusVizdo" Type="bit" />
-    <Property Name="antepie1radioHallusVdcho" Type="bit" />
+    <Property Name="antepie1radioHallusLimitusIzdo" Type="bit" Nullable="false" />
+    <Property Name="antepie1radioHallusLimitusDcho" Type="bit" Nullable="false" />
+    <Property Name="antepie1radioHallusRigidusIzdo" Type="bit" Nullable="false" />
+    <Property Name="antepie1radioHallusRigidusDcho" Type="bit" Nullable="false" />
+    <Property Name="antepie1radioHallusFlexusIzdo" Type="bit" Nullable="false" />
+    <Property Name="antepie1radioHallusFlexusDcho" Type="bit" Nullable="false" />
+    <Property Name="antepie1radioHallusHiperextensusIzdo" Type="bit" Nullable="false" />
+    <Property Name="antepie1radioHallusHiperextensusDcho" Type="bit" Nullable="false" />
+    <Property Name="antepie1radioHallusVizdo" Type="bit" Nullable="false" />
+    <Property Name="antepie1radioHallusVdcho" Type="bit" Nullable="false" />
     <Property Name="antepie1radioOtrosIzdo" Type="nvarchar(max)" />
     <Property Name="antepie1radioOtrosDcho" Type="nvarchar(max)" />
     <Property Name="antepie25radioAmtfFpIzdo" Type="float" />
@@ -318,14 +319,14 @@
     <Property Name="antepie25radioDistalFpDcho" Type="float" />
     <Property Name="antepie25radioDistalFdIzdo" Type="float" />
     <Property Name="antepie25radioDistalFdDcho" Type="float" />
-    <Property Name="antepie25radio5metaCortoIzdo" Type="bit" />
-    <Property Name="antepie25radio5metaCortoDcho" Type="bit" />
-    <Property Name="antepie25radio5varoIzdo" Type="bit" />
-    <Property Name="antepie25radio5varoDcho" Type="bit" />
-    <Property Name="antepie25radio5hipermovilIzdo" Type="bit" />
-    <Property Name="antepie25radio5hipermovilDcho" Type="bit" />
-    <Property Name="antepie25radioJuaneteSastreIzdo" Type="bit" />
-    <Property Name="antepie25radioJuaneteSastreDcho" Type="bit" />
+    <Property Name="antepie25radio5metaCortoIzdo" Type="bit" Nullable="false" />
+    <Property Name="antepie25radio5metaCortoDcho" Type="bit" Nullable="false" />
+    <Property Name="antepie25radio5varoIzdo" Type="bit" Nullable="false" />
+    <Property Name="antepie25radio5varoDcho" Type="bit" Nullable="false" />
+    <Property Name="antepie25radio5hipermovilIzdo" Type="bit" Nullable="false" />
+    <Property Name="antepie25radio5hipermovilDcho" Type="bit" Nullable="false" />
+    <Property Name="antepie25radioJuaneteSastreIzdo" Type="bit" Nullable="false" />
+    <Property Name="antepie25radioJuaneteSastreDcho" Type="bit" Nullable="false" />
     <Property Name="antepie25radioOtrosIzdo" Type="nvarchar(max)" />
     <Property Name="antepie25radioOtrosDcho" Type="nvarchar(max)" />
     <Property Name="id_posicion_angulo_antepie" Type="uniqueidentifier" />
@@ -336,7 +337,7 @@
       <PropertyRef Name="idEMorfologica" />
     </Key>
     <Property Name="idEMorfologica" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="antepieTriangular" Type="bit" />
+    <Property Name="antepieTriangular" Type="bit" Nullable="false" />
     <Property Name="otros" Type="nvarchar(max)" />
     <Property Name="id_formula_metatarsal" Type="uniqueidentifier" />
     <Property Name="id_formula_digital" Type="uniqueidentifier" />
@@ -373,10 +374,10 @@
     <Property Name="musculosPronatoriosDcho" Type="nvarchar(max)" />
     <Property Name="musculosSemipronatoriosIzdo" Type="nvarchar(max)" />
     <Property Name="musculosSemipronatoriosDcho" Type="nvarchar(max)" />
-    <Property Name="simetriaIzdo" Type="bit" />
-    <Property Name="simetriaDcho" Type="bit" />
-    <Property Name="asimetriaIzdo" Type="bit" />
-    <Property Name="asimetriaDcho" Type="bit" />
+    <Property Name="simetriaIzdo" Type="bit" Nullable="false" />
+    <Property Name="simetriaDcho" Type="bit" Nullable="false" />
+    <Property Name="asimetriaIzdo" Type="bit" Nullable="false" />
+    <Property Name="asimetriaDcho" Type="bit" Nullable="false" />
     <Property Name="otrosIzdo" Type="nvarchar(max)" />
     <Property Name="otrosDcho" Type="nvarchar(max)" />
   </EntityType>
@@ -385,10 +386,10 @@
       <PropertyRef Name="idPosicionAnguloAntepie" />
     </Key>
     <Property Name="idPosicionAnguloAntepie" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="valgo" Type="bit" />
-    <Property Name="varo" Type="bit" />
-    <Property Name="supinado" Type="bit" />
-    <Property Name="neutro" Type="bit" />
+    <Property Name="valgo" Type="bit" Nullable="false" />
+    <Property Name="varo" Type="bit" Nullable="false" />
+    <Property Name="supinado" Type="bit" Nullable="false" />
+    <Property Name="neutro" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="decubitoSupinoPulsos">
     <Key>
@@ -404,8 +405,8 @@
       <PropertyRef Name="idPulsosTipo" />
     </Key>
     <Property Name="idPulsosTipo" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="presente" Type="bit" />
-    <Property Name="ausente" Type="bit" />
+    <Property Name="presente" Type="bit" Nullable="false" />
+    <Property Name="ausente" Type="bit" Nullable="false" />
     <Property Name="debil" Type="nchar" MaxLength="10" />
   </EntityType>
   <EntityType Name="diagnostico">
@@ -443,9 +444,9 @@
       <PropertyRef Name="idFormulaDigital" />
     </Key>
     <Property Name="idFormulaDigital" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="egipcia" Type="bit" />
-    <Property Name="griega" Type="bit" />
-    <Property Name="cuadrada" Type="bit" />
+    <Property Name="egipcia" Type="bit" Nullable="false" />
+    <Property Name="griega" Type="bit" Nullable="false" />
+    <Property Name="cuadrada" Type="bit" Nullable="false" />
     <Property Name="otra" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="formulaMetatarsal">
@@ -453,9 +454,9 @@
       <PropertyRef Name="idFormulaMetatarsal" />
     </Key>
     <Property Name="idFormulaMetatarsal" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="indexMinus" Type="bit" />
-    <Property Name="indexPlus" Type="bit" />
-    <Property Name="indexPlusMinus" Type="bit" />
+    <Property Name="indexMinus" Type="bit" Nullable="false" />
+    <Property Name="indexPlus" Type="bit" Nullable="false" />
+    <Property Name="indexPlusMinus" Type="bit" Nullable="false" />
     <Property Name="otra" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="formulaPodal">
@@ -463,9 +464,9 @@
       <PropertyRef Name="idFormulaPodal" />
     </Key>
     <Property Name="idFormulaPodal" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="normolineo" Type="bit" />
-    <Property Name="longilineo" Type="bit" />
-    <Property Name="brevilineo" Type="bit" />
+    <Property Name="normolineo" Type="bit" Nullable="false" />
+    <Property Name="longilineo" Type="bit" Nullable="false" />
+    <Property Name="brevilineo" Type="bit" Nullable="false" />
     <Property Name="otra" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="FPI">
@@ -492,21 +493,21 @@
     </Key>
     <Property Name="idHistorialClinico" Type="uniqueidentifier" Nullable="false" />
     <Property Name="numeroHistorialClinico" Type="nchar" MaxLength="10" />
+    <Property Name="id_estudio" Type="uniqueidentifier" />
     <Property Name="id_ant_podologicos" Type="uniqueidentifier" />
-    <Property Name="id_ant_patologicos" Type="uniqueidentifier" />
     <Property Name="id_ant_fisiologicos" Type="uniqueidentifier" />
     <Property Name="id_ant_familiares" Type="uniqueidentifier" />
-    <Property Name="id_estudio" Type="uniqueidentifier" />
+    <Property Name="id_ant_patologicos" Type="uniqueidentifier" />
   </EntityType>
   <EntityType Name="materialSoportePlantar">
     <Key>
       <PropertyRef Name="idMaterialSoportePlantar" />
     </Key>
     <Property Name="idMaterialSoportePlantar" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="TAD" Type="bit" />
-    <Property Name="resinas" Type="bit" />
-    <Property Name="EVA" Type="bit" />
-    <Property Name="propileno" Type="bit" />
+    <Property Name="TAD" Type="bit" Nullable="false" />
+    <Property Name="resinas" Type="bit" Nullable="false" />
+    <Property Name="EVA" Type="bit" Nullable="false" />
+    <Property Name="propileno" Type="bit" Nullable="false" />
     <Property Name="componentes" Type="nvarchar(max)" />
     <Property Name="otros" Type="nvarchar(max)" />
     <Property Name="id_tratamiento" Type="uniqueidentifier" />
@@ -546,6 +547,8 @@
       <PropertyRef Name="idPodologo" />
     </Key>
     <Property Name="idPodologo" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="idTitulo" Type="nvarchar(max)" />
+    <Property Name="email" Type="nvarchar(max)" />
     <Property Name="id_persona" Type="uniqueidentifier" />
   </EntityType>
   <EntityType Name="primeraVisita">
@@ -556,11 +559,11 @@
     <Property Name="peso" Type="float" />
     <Property Name="talla" Type="float" />
     <Property Name="actividadDeportiva" Type="nvarchar(max)" />
-    <Property Name="diabetes" Type="bit" />
-    <Property Name="alergias" Type="bit" />
+    <Property Name="diabetes" Type="bit" Nullable="false" />
+    <Property Name="alergias" Type="bit" Nullable="false" />
     <Property Name="tipoAlergias" Type="nvarchar(max)" />
     <Property Name="motivoPrimeraConsulta" Type="nvarchar(max)" />
-    <Property Name="hayDolor" Type="bit" />
+    <Property Name="hayDolor" Type="bit" Nullable="false" />
     <Property Name="dolorSitio" Type="nvarchar(max)" />
     <Property Name="dolorTipo" Type="nvarchar(max)" />
     <Property Name="fechaPrimeraConsulta" Type="datetime" />
@@ -571,28 +574,14 @@
     <Property Name="id_estudio_ortopodologico" Type="uniqueidentifier" />
     <Property Name="id_calzado_habitual" Type="uniqueidentifier" />
   </EntityType>
-  <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'podologia.dbo.pruebasComplementarias' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="pruebasComplementarias">
-          <Property Name="idPrueba" Type="uniqueidentifier" />
-          <Property Name="pedigrafia" Type="varbinary(max)" />
-          <Property Name="rayosX" Type="varbinary(max)" />
-          <Property Name="analisisSanguineo" Type="varbinary(max)" />
-          <Property Name="cultivo" Type="varbinary(max)" />
-          <Property Name="doppler" Type="varbinary(max)" />
-          <Property Name="ecografia" Type="varbinary(max)" />
-          <Property Name="fotos" Type="varbinary(max)" />
-          <Property Name="fecha" Type="datetime" />
-          <Property Name="id_primera_visita" Type="uniqueidentifier" />
-        </EntityType>-->
   <EntityType Name="retropie">
     <Key>
       <PropertyRef Name="idRetropie" />
     </Key>
     <Property Name="idRetropie" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="varo" Type="bit" />
-    <Property Name="valgo" Type="bit" />
-    <Property Name="neutro" Type="bit" />
+    <Property Name="varo" Type="bit" Nullable="false" />
+    <Property Name="valgo" Type="bit" Nullable="false" />
+    <Property Name="neutro" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="sedestacionExploracionArticular">
     <Key>
@@ -616,31 +605,31 @@ advertencia 6013: La tabla o vista 'podologia.dbo.pruebasComplementarias' no tie
     <Property Name="idEMuscularPieIzdo" Type="uniqueidentifier" Nullable="false" />
     <Property Name="idEMuscularPieDcho" Type="uniqueidentifier" Nullable="false" />
     <Property Name="hiperlaxitudArticularIzdo" Type="bit" Nullable="false" />
-    <Property Name="hiperlaxitudArticularDcho" Type="bit" />
+    <Property Name="hiperlaxitudArticularDcho" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="tipoEstudio">
     <Key>
       <PropertyRef Name="idTipoEstudio" />
     </Key>
     <Property Name="idTipoEstudio" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="ortopodologico" Type="bit" />
+    <Property Name="ortopodologico" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="tratamiento">
     <Key>
       <PropertyRef Name="idTratamiento" />
     </Key>
     <Property Name="idTratamiento" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="fisico" Type="bit" />
+    <Property Name="fisico" Type="bit" Nullable="false" />
     <Property Name="ejerciciosPropioceptivos" Type="nvarchar(max)" />
-    <Property Name="farmacologico" Type="bit" />
-    <Property Name="quiropodologico" Type="bit" />
-    <Property Name="ortosisDigital" Type="bit" />
+    <Property Name="farmacologico" Type="bit" Nullable="false" />
+    <Property Name="quiropodologico" Type="bit" Nullable="false" />
+    <Property Name="ortosisDigital" Type="bit" Nullable="false" />
     <Property Name="ortosisDigitalTipo" Type="nvarchar(max)" />
-    <Property Name="soportePlantar" Type="bit" />
-    <Property Name="vendajeFuncional" Type="bit" />
-    <Property Name="preventivo" Type="bit" />
+    <Property Name="soportePlantar" Type="bit" Nullable="false" />
+    <Property Name="vendajeFuncional" Type="bit" Nullable="false" />
+    <Property Name="preventivo" Type="bit" Nullable="false" />
     <Property Name="preventivoObservacion" Type="nvarchar(max)" />
-    <Property Name="calzadoterapia" Type="bit" />
+    <Property Name="calzadoterapia" Type="bit" Nullable="false" />
     <Property Name="otros" Type="nvarchar(max)" />
     <Property Name="id_primera_visita" Type="uniqueidentifier" />
   </EntityType>
@@ -671,6 +660,18 @@ advertencia 6013: La tabla o vista 'podologia.dbo.pruebasComplementarias' no tie
       </Principal>
       <Dependent Role="bipedestacion">
         <PropertyRef Name="id_antepie" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_bipedestacion_FPI">
+    <End Role="FPI" Type="Self.FPI" Multiplicity="0..1" />
+    <End Role="bipedestacion" Type="Self.bipedestacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FPI">
+        <PropertyRef Name="idFPI" />
+      </Principal>
+      <Dependent Role="bipedestacion">
+        <PropertyRef Name="id_fpi" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1052,6 +1053,18 @@ advertencia 6013: La tabla o vista 'podologia.dbo.pruebasComplementarias' no tie
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_paciente_historialClinico">
+    <End Role="historialClinico" Type="Self.historialClinico" Multiplicity="0..1" />
+    <End Role="paciente" Type="Self.paciente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="historialClinico">
+        <PropertyRef Name="idHistorialClinico" />
+      </Principal>
+      <Dependent Role="paciente">
+        <PropertyRef Name="id_historial_clinico" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_paciente_persona">
     <End Role="persona" Type="Self.persona" Multiplicity="0..1" />
     <End Role="paciente" Type="Self.paciente" Multiplicity="*" />
@@ -1152,9 +1165,6 @@ advertencia 6013: La tabla o vista 'podologia.dbo.pruebasComplementarias' no tie
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <!--Errores durante la generación:
-error 6004: Una relación hace referencia a la tabla 'podologia.dbo.pruebasComplementarias', pero no se encuentra la tabla.
-        <Association Name="FK_pruebasComplementarias_primeraVisita" />-->
   <Association Name="FK_tratamiento_primeraVisita">
     <End Role="primeraVisita" Type="Self.primeraVisita" Multiplicity="0..1" />
     <End Role="tratamiento" Type="Self.tratamiento" Multiplicity="*" />
@@ -1225,6 +1235,10 @@ error 6004: Una relación hace referencia a la tabla 'podologia.dbo.pruebasCompl
     <EntitySet Name="visionSagital" EntityType="Self.visionSagital" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_bipedestacion_antepie" Association="Self.FK_bipedestacion_antepie">
       <End Role="antepie" EntitySet="antepie" />
+      <End Role="bipedestacion" EntitySet="bipedestacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_bipedestacion_FPI" Association="Self.FK_bipedestacion_FPI">
+      <End Role="FPI" EntitySet="FPI" />
       <End Role="bipedestacion" EntitySet="bipedestacion" />
     </AssociationSet>
     <AssociationSet Name="FK_bipedestacion_retropie" Association="Self.FK_bipedestacion_retropie">
@@ -1346,6 +1360,10 @@ error 6004: Una relación hace referencia a la tabla 'podologia.dbo.pruebasCompl
     <AssociationSet Name="FK_materialSoportePlantar_tratamiento" Association="Self.FK_materialSoportePlantar_tratamiento">
       <End Role="tratamiento" EntitySet="tratamiento" />
       <End Role="materialSoportePlantar" EntitySet="materialSoportePlantar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_paciente_historialClinico" Association="Self.FK_paciente_historialClinico">
+      <End Role="historialClinico" EntitySet="historialClinico" />
+      <End Role="paciente" EntitySet="paciente" />
     </AssociationSet>
     <AssociationSet Name="FK_paciente_persona" Association="Self.FK_paciente_persona">
       <End Role="persona" EntitySet="persona" />

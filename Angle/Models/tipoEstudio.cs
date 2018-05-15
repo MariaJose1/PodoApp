@@ -21,7 +21,7 @@ namespace Angle.Models
         }
     
         public System.Guid idTipoEstudio { get; set; }
-        public Nullable<bool> ortopodologico { get; set; }
+        public bool ortopodologico { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<primeraVisita> primeraVisita { get; set; }

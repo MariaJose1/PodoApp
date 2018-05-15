@@ -21,7 +21,7 @@ namespace Angle.Models
         }
     
         public System.Guid idEMorfologica { get; set; }
-        public Nullable<bool> antepieTriangular { get; set; }
+        public bool antepieTriangular { get; set; }
         public string otros { get; set; }
         public Nullable<System.Guid> id_formula_metatarsal { get; set; }
         public Nullable<System.Guid> id_formula_digital { get; set; }

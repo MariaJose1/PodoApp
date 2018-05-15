@@ -28,7 +28,7 @@ namespace Angle.Models
 
         [DisplayName("¿Ha ido al podólogo anteriormente?")]
         [Required()]
-        public bool? HaIdoPodologo { get; set; }
+        public bool HaIdoPodologo { get; set; }
 
         [DisplayName("Antecedentes: ")]
         public string Antecedentes { get; set; }
@@ -45,54 +45,54 @@ namespace Angle.Models
         public string AntecedentesTraumaticos { get; set; }
 
         [DisplayName("Bursistis")]
-        public bool? Bursitis { get; set; }
+        public bool Bursitis { get; set; }
 
         [DisplayName("Capsulitis")]
-        public bool? Capsulitis { get; set; }
+        public bool Capsulitis { get; set; }
 
         [DisplayName("Enfermedad reumática")]
-        public bool? EnfermedadReumatica { get; set; }
+        public bool EnfermedadReumatica { get; set; }
 
         [DisplayName("Tipo enfermedad reumática:")]
         public string TipoEnfermedadReumatica { get; set; }
 
         [DisplayName("Ciática")]
-        public bool? Ciatica { get; set; }
+        public bool Ciatica { get; set; }
 
         [DisplayName("Otros")]
         public string Otros { get; set; }
 
         [DisplayName("Distensión")]
-        public bool? Distension { get; set; }
+        public bool Distension { get; set; }
 
         [DisplayName("Esguince")]
-        public bool? Esguince { get; set; }
+        public bool Esguince { get; set; }
 
         [DisplayName("Tendinitis")]
-        public bool? Tendinitis { get; set; }
+        public bool Tendinitis { get; set; }
 
         [DisplayName("Contracturas")]
-        public bool? Contracturas { get; set; }
+        public bool Contracturas { get; set; }
 
         [DisplayName("Luxación")]
-        public bool? Luxacion { get; set; }
+        public bool Luxacion { get; set; }
 
         [DisplayName("Subluxación")]
-        public bool? Subluxacion { get; set; }
+        public bool Subluxacion { get; set; }
 
         [DisplayName("Fisura")]
-        public bool? Fisura { get; set; }
+        public bool Fisura { get; set; }
 
         [DisplayName("Fractura")]
-        public bool? Fractura { get; set; }
+        public bool Fractura { get; set; }
 
         // ANTECEDENTES FISIOLÓGICOS
 
         [DisplayName("Andador")]
-        public bool? Andador { get; set; }
+        public bool Andador { get; set; }
 
         [DisplayName("Tacata")]
-        public bool? Tacata { get; set; }
+        public bool Tacata { get; set; }
 
         [DisplayName("Inicio Deambulación:")]
         public int? InicioDeambulacion { get; set; }
@@ -104,60 +104,60 @@ namespace Angle.Models
         public int? CambiosPonderales { get; set; }
 
         [DisplayName("Zurdo")]
-        public bool? Zurdo { get; set; }
+        public bool Zurdo { get; set; }
 
         [DisplayName("Diestro")]
-        public bool? Diestro { get; set; }
+        public bool Diestro { get; set; }
 
         [DisplayName("Ambidiestro")]
-        public bool? Ambidiestro { get; set; }
+        public bool Ambidiestro { get; set; }
 
         [DisplayName("Parto de cabeza")]
-        public bool? PartoCabeza { get; set; }
+        public bool PartoCabeza { get; set; }
 
         [DisplayName("Parto de nalgas")]
-        public bool? PartoNalgas { get; set; }
+        public bool PartoNalgas { get; set; }
 
         // ANTECEDENTES FAMILIARES
 
         [DisplayName("Dismetrías")]
-        public bool? Dismetrias { get; set; }
+        public bool Dismetrias { get; set; }
 
         [DisplayName("Escoliosis")]
-        public bool? Escoliosis { get; set; }
+        public bool Escoliosis { get; set; }
 
         [DisplayName("Tibias Varas")]
-        public bool? TibiasVaras { get; set; }
+        public bool TibiasVaras { get; set; }
 
         [DisplayName("Pies planos")]
-        public bool? PiesPlanos { get; set; }
+        public bool PiesPlanos { get; set; }
 
         [DisplayName("Pies cavos")]
-        public bool? PiesCavos { get; set; }
+        public bool PiesCavos { get; set; }
 
         [DisplayName("Pies valgos")]
-        public bool? PiesValgos { get; set; }
+        public bool PiesValgos { get; set; }
 
         [DisplayName("Pies zambos")]
-        public bool? PiesZambos { get; set; }
+        public bool PiesZambos { get; set; }
 
         [DisplayName("Hallus Valgus")]
-        public bool? HallusValgus { get; set; }
+        public bool HallusValgus { get; set; }
 
         [DisplayName("Dedos garra")]
-        public bool? DedosGarra { get; set; }
+        public bool DedosGarra { get; set; }
 
         [DisplayName("Genu Varo")]
-        public bool? GenuVaro { get; set; }
+        public bool GenuVaro { get; set; }
 
         [DisplayName("Genu Valgo")]
-        public bool? GenuValgo { get; set; }
+        public bool GenuValgo { get; set; }
 
         [DisplayName("Meta Aductus")]
-        public bool? MetaAductus { get; set; }
+        public bool MetaAductus { get; set; }
 
         [DisplayName("Meta Varus")]
-        public bool? MetaVarus { get; set; }
+        public bool MetaVarus { get; set; }
 
 
 

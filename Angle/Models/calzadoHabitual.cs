@@ -21,11 +21,11 @@ namespace Angle.Models
         }
     
         public System.Guid idCalzado { get; set; }
-        public Nullable<bool> deportivos { get; set; }
-        public Nullable<bool> vestir { get; set; }
-        public Nullable<bool> sandalias { get; set; }
-        public Nullable<bool> botines { get; set; }
-        public Nullable<bool> tacones { get; set; }
+        public bool deportivos { get; set; }
+        public bool vestir { get; set; }
+        public bool sandalias { get; set; }
+        public bool botines { get; set; }
+        public bool tacones { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<primeraVisita> primeraVisita { get; set; }

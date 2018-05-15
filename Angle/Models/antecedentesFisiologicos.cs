@@ -21,17 +21,17 @@ namespace Angle.Models
         }
     
         public System.Guid idAFisiologico { get; set; }
-        public Nullable<bool> andador { get; set; }
-        public Nullable<bool> tacata { get; set; }
+        public bool andador { get; set; }
+        public bool tacata { get; set; }
         public Nullable<int> inicioDeambulacion { get; set; }
         public string habitosPosturales { get; set; }
         public Nullable<int> cambiosPonderales { get; set; }
-        public Nullable<bool> zurdo { get; set; }
-        public Nullable<bool> diestro { get; set; }
-        public Nullable<bool> ambidiestro { get; set; }
+        public bool zurdo { get; set; }
+        public bool diestro { get; set; }
+        public bool ambidiestro { get; set; }
         public string otros { get; set; }
-        public Nullable<bool> partoCabeza { get; set; }
-        public Nullable<bool> partoNalgas { get; set; }
+        public bool partoCabeza { get; set; }
+        public bool partoNalgas { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<historialClinico> historialClinico { get; set; }

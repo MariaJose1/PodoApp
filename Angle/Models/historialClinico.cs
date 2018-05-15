@@ -14,6 +14,12 @@ namespace Angle.Models
     
     public partial class historialClinico
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public historialClinico()
+        {
+            this.paciente = new HashSet<paciente>();
+        }
+    
         public System.Guid idHistorialClinico { get; set; }
         public string numeroHistorialClinico { get; set; }
         public Nullable<System.Guid> id_ant_podologicos { get; set; }
@@ -26,5 +32,7 @@ namespace Angle.Models
         public virtual antecedentesFisiologicos antecedentesFisiologicos { get; set; }
         public virtual antecedentesPatologicos antecedentesPatologicos { get; set; }
         public virtual antecedentesPodologicos antecedentesPodologicos { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<paciente> paciente { get; set; }
     }
 }

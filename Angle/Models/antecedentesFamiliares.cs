@@ -21,20 +21,20 @@ namespace Angle.Models
         }
     
         public System.Guid idAFamiliares { get; set; }
-        public Nullable<bool> dismetrias { get; set; }
-        public Nullable<bool> escoliosis { get; set; }
-        public Nullable<bool> tibiasVaras { get; set; }
-        public Nullable<bool> piesPlanos { get; set; }
-        public Nullable<bool> piesCavos { get; set; }
-        public Nullable<bool> piesValgos { get; set; }
-        public Nullable<bool> piesZambos { get; set; }
-        public Nullable<bool> hallusValgus { get; set; }
-        public Nullable<bool> dedosGarra { get; set; }
+        public bool dismetrias { get; set; }
+        public bool escoliosis { get; set; }
+        public bool tibiasVaras { get; set; }
+        public bool piesPlanos { get; set; }
+        public bool piesCavos { get; set; }
+        public bool piesValgos { get; set; }
+        public bool piesZambos { get; set; }
+        public bool hallusValgus { get; set; }
+        public bool dedosGarra { get; set; }
         public string otros { get; set; }
-        public Nullable<bool> genuVaro { get; set; }
-        public Nullable<bool> genuValgo { get; set; }
-        public Nullable<bool> metaAductus { get; set; }
-        public Nullable<bool> metaVarus { get; set; }
+        public bool genuVaro { get; set; }
+        public bool genuValgo { get; set; }
+        public bool metaAductus { get; set; }
+        public bool metaVarus { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<historialClinico> historialClinico { get; set; }

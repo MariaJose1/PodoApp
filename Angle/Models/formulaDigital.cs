@@ -21,9 +21,9 @@ namespace Angle.Models
         }
     
         public System.Guid idFormulaDigital { get; set; }
-        public Nullable<bool> egipcia { get; set; }
-        public Nullable<bool> griega { get; set; }
-        public Nullable<bool> cuadrada { get; set; }
+        public bool egipcia { get; set; }
+        public bool griega { get; set; }
+        public bool cuadrada { get; set; }
         public string otra { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -23,7 +23,7 @@ namespace Angle.Models
         public System.Guid idEMuscularPieIzdo { get; set; }
         public System.Guid idEMuscularPieDcho { get; set; }
         public bool hiperlaxitudArticularIzdo { get; set; }
-        public Nullable<bool> hiperlaxitudArticularDcho { get; set; }
+        public bool hiperlaxitudArticularDcho { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<estudioOrtopodologico> estudioOrtopodologico { get; set; }

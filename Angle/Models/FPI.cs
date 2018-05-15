@@ -14,6 +14,12 @@ namespace Angle.Models
     
     public partial class FPI
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public FPI()
+        {
+            this.bipedestacion = new HashSet<bipedestacion>();
+        }
+    
         public System.Guid idFPI { get; set; }
         public Nullable<int> palpacionEstragaloIzda { get; set; }
         public Nullable<int> palpacionEstragaloDcha { get; set; }
@@ -27,5 +33,8 @@ namespace Angle.Models
         public Nullable<int> alturaYcongruenciaDcha { get; set; }
         public Nullable<int> abduccionYaduccionIzda { get; set; }
         public Nullable<int> abduccionYaduccionDcha { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<bipedestacion> bipedestacion { get; set; }
     }
 }

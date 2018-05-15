@@ -21,9 +21,9 @@ namespace Angle.Models
         }
     
         public System.Guid idFormulaMetatarsal { get; set; }
-        public Nullable<bool> indexMinus { get; set; }
-        public Nullable<bool> indexPlus { get; set; }
-        public Nullable<bool> indexPlusMinus { get; set; }
+        public bool indexMinus { get; set; }
+        public bool indexPlus { get; set; }
+        public bool indexPlusMinus { get; set; }
         public string otra { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

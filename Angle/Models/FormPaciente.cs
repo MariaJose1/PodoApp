@@ -42,7 +42,7 @@ namespace Angle.Models
         public string SegundoApellido { get; set; }
 
         [DisplayName("Fecha nacimiento")]
-        [DisplayFormat(DataFormatString = "{dd/MM/yyyy}")]
+        [DisplayFormat(DataFormatString = "{dd-MM-yyyy}")]
         [Required()]
         public DateTime? FechaNacimiento { get; set; }
 

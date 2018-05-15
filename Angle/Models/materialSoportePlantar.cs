@@ -15,10 +15,10 @@ namespace Angle.Models
     public partial class materialSoportePlantar
     {
         public System.Guid idMaterialSoportePlantar { get; set; }
-        public Nullable<bool> TAD { get; set; }
-        public Nullable<bool> resinas { get; set; }
-        public Nullable<bool> EVA { get; set; }
-        public Nullable<bool> propileno { get; set; }
+        public bool TAD { get; set; }
+        public bool resinas { get; set; }
+        public bool EVA { get; set; }
+        public bool propileno { get; set; }
         public string componentes { get; set; }
         public string otros { get; set; }
         public Nullable<System.Guid> id_tratamiento { get; set; }

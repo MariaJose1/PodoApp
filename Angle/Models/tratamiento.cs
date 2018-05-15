@@ -21,17 +21,17 @@ namespace Angle.Models
         }
     
         public System.Guid idTratamiento { get; set; }
-        public Nullable<bool> fisico { get; set; }
+        public bool fisico { get; set; }
         public string ejerciciosPropioceptivos { get; set; }
-        public Nullable<bool> farmacologico { get; set; }
-        public Nullable<bool> quiropodologico { get; set; }
-        public Nullable<bool> ortosisDigital { get; set; }
+        public bool farmacologico { get; set; }
+        public bool quiropodologico { get; set; }
+        public bool ortosisDigital { get; set; }
         public string ortosisDigitalTipo { get; set; }
-        public Nullable<bool> soportePlantar { get; set; }
-        public Nullable<bool> vendajeFuncional { get; set; }
-        public Nullable<bool> preventivo { get; set; }
+        public bool soportePlantar { get; set; }
+        public bool vendajeFuncional { get; set; }
+        public bool preventivo { get; set; }
         public string preventivoObservacion { get; set; }
-        public Nullable<bool> calzadoterapia { get; set; }
+        public bool calzadoterapia { get; set; }
         public string otros { get; set; }
         public Nullable<System.Guid> id_primera_visita { get; set; }
     

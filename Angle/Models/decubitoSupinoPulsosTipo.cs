@@ -21,8 +21,8 @@ namespace Angle.Models
         }
     
         public System.Guid idPulsosTipo { get; set; }
-        public Nullable<bool> presente { get; set; }
-        public Nullable<bool> ausente { get; set; }
+        public bool presente { get; set; }
+        public bool ausente { get; set; }
         public string debil { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

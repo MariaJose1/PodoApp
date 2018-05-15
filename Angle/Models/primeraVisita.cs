@@ -25,11 +25,11 @@ namespace Angle.Models
         public Nullable<double> peso { get; set; }
         public Nullable<double> talla { get; set; }
         public string actividadDeportiva { get; set; }
-        public Nullable<bool> diabetes { get; set; }
-        public Nullable<bool> alergias { get; set; }
+        public bool diabetes { get; set; }
+        public bool alergias { get; set; }
         public string tipoAlergias { get; set; }
         public string motivoPrimeraConsulta { get; set; }
-        public Nullable<bool> hayDolor { get; set; }
+        public bool hayDolor { get; set; }
         public string dolorSitio { get; set; }
         public string dolorTipo { get; set; }
         public Nullable<System.DateTime> fechaPrimeraConsulta { get; set; }

@@ -46,10 +46,10 @@ namespace Angle.Models
         public string musculosPronatoriosDcho { get; set; }
         public string musculosSemipronatoriosIzdo { get; set; }
         public string musculosSemipronatoriosDcho { get; set; }
-        public Nullable<bool> simetriaIzdo { get; set; }
-        public Nullable<bool> simetriaDcho { get; set; }
-        public Nullable<bool> asimetriaIzdo { get; set; }
-        public Nullable<bool> asimetriaDcho { get; set; }
+        public bool simetriaIzdo { get; set; }
+        public bool simetriaDcho { get; set; }
+        public bool asimetriaIzdo { get; set; }
+        public bool asimetriaDcho { get; set; }
         public string otrosIzdo { get; set; }
         public string otrosDcho { get; set; }
     
