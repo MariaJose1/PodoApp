@@ -89,6 +89,8 @@
         <AssociationConnector Association="podologiaModel.AspNetUserRoles" ManuallyRouted="false" />
         <AssociationConnector Association="podologiaModel.FK_bipedestacion_FPI" />
         <AssociationConnector Association="podologiaModel.FK_paciente_historialClinico" />
+        <AssociationConnector Association="podologiaModel.FK_historialClinico_antecedentesFamiliares1" />
+        <AssociationConnector Association="podologiaModel.FK_paciente_historialClinico1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

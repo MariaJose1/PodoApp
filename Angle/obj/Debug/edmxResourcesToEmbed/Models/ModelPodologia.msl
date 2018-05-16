@@ -533,12 +533,12 @@
     <EntitySetMapping Name="paciente">
       <EntityTypeMapping TypeName="podologiaModel.paciente">
         <MappingFragment StoreEntitySet="paciente">
+          <ScalarProperty Name="id_historial_clinico1" ColumnName="id_historial_clinico" />
           <ScalarProperty Name="idPaciente" ColumnName="idPaciente" />
           <ScalarProperty Name="medicacionHabitual" ColumnName="medicacionHabitual" />
           <ScalarProperty Name="observacion" ColumnName="observacion" />
           <ScalarProperty Name="numeroHistoriaClinica" ColumnName="numeroHistoriaClinica" />
           <ScalarProperty Name="id_podologo" ColumnName="id_podologo" />
-          <ScalarProperty Name="id_historial_clinico" ColumnName="id_historial_clinico" />
           <ScalarProperty Name="id_persona" ColumnName="id_persona" />
         </MappingFragment>
       </EntityTypeMapping>

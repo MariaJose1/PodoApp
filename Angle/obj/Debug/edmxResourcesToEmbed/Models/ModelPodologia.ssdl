@@ -492,7 +492,7 @@
       <PropertyRef Name="idHistorialClinico" />
     </Key>
     <Property Name="idHistorialClinico" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="numeroHistorialClinico" Type="nchar" MaxLength="10" />
+    <Property Name="numeroHistorialClinico" Type="nvarchar(max)" Nullable="false" />
     <Property Name="id_estudio" Type="uniqueidentifier" />
     <Property Name="id_ant_podologicos" Type="uniqueidentifier" />
     <Property Name="id_ant_fisiologicos" Type="uniqueidentifier" />
@@ -521,8 +521,8 @@
     <Property Name="observacion" Type="nvarchar(max)" />
     <Property Name="numeroHistoriaClinica" Type="nvarchar" MaxLength="20" />
     <Property Name="id_podologo" Type="uniqueidentifier" />
-    <Property Name="id_historial_clinico" Type="uniqueidentifier" />
     <Property Name="id_persona" Type="uniqueidentifier" />
+    <Property Name="id_historial_clinico" Type="uniqueidentifier" />
   </EntityType>
   <EntityType Name="persona">
     <Key>
@@ -993,18 +993,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_historialClinico_antecedentesFamiliares">
-    <End Role="antecedentesFamiliares" Type="Self.antecedentesFamiliares" Multiplicity="0..1" />
-    <End Role="historialClinico" Type="Self.historialClinico" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="antecedentesFamiliares">
-        <PropertyRef Name="idAFamiliares" />
-      </Principal>
-      <Dependent Role="historialClinico">
-        <PropertyRef Name="id_ant_familiares" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_historialClinico_antecedentesFisiologicos">
     <End Role="antecedentesFisiologicos" Type="Self.antecedentesFisiologicos" Multiplicity="0..1" />
     <End Role="historialClinico" Type="Self.historialClinico" Multiplicity="*" />
@@ -1340,10 +1328,6 @@
     <AssociationSet Name="FK_estudioOrtopodologico_visionSagital" Association="Self.FK_estudioOrtopodologico_visionSagital">
       <End Role="visionSagital" EntitySet="visionSagital" />
       <End Role="estudioOrtopodologico" EntitySet="estudioOrtopodologico" />
-    </AssociationSet>
-    <AssociationSet Name="FK_historialClinico_antecedentesFamiliares" Association="Self.FK_historialClinico_antecedentesFamiliares">
-      <End Role="antecedentesFamiliares" EntitySet="antecedentesFamiliares" />
-      <End Role="historialClinico" EntitySet="historialClinico" />
     </AssociationSet>
     <AssociationSet Name="FK_historialClinico_antecedentesFisiologicos" Association="Self.FK_historialClinico_antecedentesFisiologicos">
       <End Role="antecedentesFisiologicos" EntitySet="antecedentesFisiologicos" />

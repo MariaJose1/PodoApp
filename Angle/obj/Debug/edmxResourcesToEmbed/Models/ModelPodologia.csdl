@@ -535,7 +535,7 @@
       <PropertyRef Name="idHistorialClinico" />
     </Key>
     <Property Name="idHistorialClinico" Type="Guid" Nullable="false" />
-    <Property Name="numeroHistorialClinico" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="numeroHistorialClinico" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="id_ant_podologicos" Type="Guid" />
     <Property Name="id_ant_patologicos" Type="Guid" />
     <Property Name="id_ant_fisiologicos" Type="Guid" />
@@ -546,6 +546,9 @@
     <NavigationProperty Name="antecedentesPatologicos" Relationship="Self.FK_historialClinico_antecedentesPatologicos" FromRole="historialClinico" ToRole="antecedentesPatologicos" />
     <NavigationProperty Name="antecedentesPodologicos" Relationship="Self.FK_historialClinico_antecedentesPodologicos" FromRole="historialClinico" ToRole="antecedentesPodologicos" />
     <NavigationProperty Name="paciente" Relationship="podologiaModel.FK_paciente_historialClinico" FromRole="historialClinico" ToRole="paciente" />
+    <Property Name="id_paciente" Type="Guid" />
+    <NavigationProperty Name="paciente1" Relationship="podologiaModel.FK_historialClinico_antecedentesFamiliares1" FromRole="historialClinico" ToRole="paciente" />
+    <NavigationProperty Name="paciente2" Relationship="podologiaModel.FK_paciente_historialClinico1" FromRole="historialClinico" ToRole="paciente" />
   </EntityType>
   <EntityType Name="materialSoportePlantar">
     <Key>
@@ -577,6 +580,9 @@
     <NavigationProperty Name="podologo" Relationship="Self.FK_paciente_podologo" FromRole="paciente" ToRole="podologo" />
     <NavigationProperty Name="primeraVisita" Relationship="Self.FK_primeraVisita_paciente" FromRole="paciente" ToRole="primeraVisita" />
     <NavigationProperty Name="historialClinico" Relationship="podologiaModel.FK_paciente_historialClinico" FromRole="paciente" ToRole="historialClinico" />
+    <NavigationProperty Name="historialClinico1" Relationship="podologiaModel.FK_historialClinico_antecedentesFamiliares1" FromRole="paciente" ToRole="historialClinico" />
+    <Property Name="id_historial_clinico1" Type="Guid" />
+    <NavigationProperty Name="historialClinico2" Relationship="podologiaModel.FK_paciente_historialClinico1" FromRole="paciente" ToRole="historialClinico" />
   </EntityType>
   <EntityType Name="persona">
     <Key>
@@ -1428,6 +1434,14 @@
       <End Role="historialClinico" EntitySet="historialClinico" />
       <End Role="paciente" EntitySet="paciente" />
     </AssociationSet>
+    <AssociationSet Name="FK_historialClinico_antecedentesFamiliares1" Association="podologiaModel.FK_historialClinico_antecedentesFamiliares1">
+      <End Role="paciente" EntitySet="paciente" />
+      <End Role="historialClinico" EntitySet="historialClinico" />
+    </AssociationSet>
+    <AssociationSet Name="FK_paciente_historialClinico1" Association="podologiaModel.FK_paciente_historialClinico1">
+      <End Role="historialClinico" EntitySet="historialClinico" />
+      <End Role="paciente" EntitySet="paciente" />
+    </AssociationSet>
   </EntityContainer>
   <Association Name="FK_bipedestacion_FPI">
     <End Type="podologiaModel.FPI" Role="FPI" Multiplicity="0..1" />
@@ -1450,6 +1464,30 @@
       </Principal>
       <Dependent Role="paciente">
         <PropertyRef Name="id_historial_clinico" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_historialClinico_antecedentesFamiliares1">
+    <End Type="podologiaModel.paciente" Role="paciente" Multiplicity="0..1" />
+    <End Type="podologiaModel.historialClinico" Role="historialClinico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="paciente">
+        <PropertyRef Name="idPaciente" />
+      </Principal>
+      <Dependent Role="historialClinico">
+        <PropertyRef Name="id_paciente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_paciente_historialClinico1">
+    <End Type="podologiaModel.historialClinico" Role="historialClinico" Multiplicity="0..1" />
+    <End Type="podologiaModel.paciente" Role="paciente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="historialClinico">
+        <PropertyRef Name="idHistorialClinico" />
+      </Principal>
+      <Dependent Role="paciente">
+        <PropertyRef Name="id_historial_clinico1" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

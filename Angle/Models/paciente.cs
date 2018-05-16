@@ -19,6 +19,7 @@ namespace Angle.Models
         {
             this.consulta = new HashSet<consulta>();
             this.primeraVisita = new HashSet<primeraVisita>();
+            this.historialClinico1 = new HashSet<historialClinico>();
         }
     
         public System.Guid idPaciente { get; set; }
@@ -28,6 +29,7 @@ namespace Angle.Models
         public Nullable<System.Guid> id_podologo { get; set; }
         public Nullable<System.Guid> id_historial_clinico { get; set; }
         public Nullable<System.Guid> id_persona { get; set; }
+        public Nullable<System.Guid> id_historial_clinico1 { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<consulta> consulta { get; set; }
@@ -36,5 +38,8 @@ namespace Angle.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<primeraVisita> primeraVisita { get; set; }
         public virtual historialClinico historialClinico { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<historialClinico> historialClinico1 { get; set; }
+        public virtual historialClinico historialClinico2 { get; set; }
     }
 }
