@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="podologiaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="podologiaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="__MigrationHistory">
           <Key>
             <PropertyRef Name="MigrationId" />
@@ -421,6 +421,7 @@
           <Property Name="idDiagnostico" Type="uniqueidentifier" Nullable="false" />
           <Property Name="anotaciones" Type="nvarchar(max)" />
           <Property Name="id_primera_visita" Type="uniqueidentifier" />
+          <Property Name="id_tratamiento" Type="uniqueidentifier" />
         </EntityType>
         <EntityType Name="estudioOrtopodologico">
           <Key>
@@ -524,7 +525,6 @@
           <Property Name="idPaciente" Type="uniqueidentifier" Nullable="false" />
           <Property Name="medicacionHabitual" Type="nvarchar(max)" />
           <Property Name="observacion" Type="nvarchar(max)" />
-          <Property Name="numeroHistoriaClinica" Type="nvarchar" MaxLength="20" />
           <Property Name="id_podologo" Type="uniqueidentifier" />
           <Property Name="id_historial_clinico" Type="uniqueidentifier" />
           <Property Name="id_persona" Type="uniqueidentifier" />
@@ -579,20 +579,6 @@
           <Property Name="id_estudio_ortopodologico" Type="uniqueidentifier" />
           <Property Name="id_calzado_habitual" Type="uniqueidentifier" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'podologia.dbo.pruebasComplementarias' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="pruebasComplementarias">
-          <Property Name="idPrueba" Type="uniqueidentifier" />
-          <Property Name="pedigrafia" Type="varbinary(max)" />
-          <Property Name="rayosX" Type="varbinary(max)" />
-          <Property Name="analisisSanguineo" Type="varbinary(max)" />
-          <Property Name="cultivo" Type="varbinary(max)" />
-          <Property Name="doppler" Type="varbinary(max)" />
-          <Property Name="ecografia" Type="varbinary(max)" />
-          <Property Name="fotos" Type="varbinary(max)" />
-          <Property Name="fecha" Type="datetime" />
-          <Property Name="id_primera_visita" Type="uniqueidentifier" />
-        </EntityType>-->
         <EntityType Name="retropie">
           <Key>
             <PropertyRef Name="idRetropie" />
@@ -660,7 +646,6 @@ advertencia 6013: La tabla o vista 'podologia.dbo.pruebasComplementarias' no tie
           <Property Name="preventivoObservacion" Type="nvarchar(max)" />
           <Property Name="calzadoterapia" Type="bit" Nullable="false" />
           <Property Name="otros" Type="nvarchar(max)" />
-          <Property Name="id_primera_visita" Type="uniqueidentifier" />
         </EntityType>
         <EntityType Name="visionFrontal">
           <Key>
@@ -877,6 +862,18 @@ advertencia 6013: La tabla o vista 'podologia.dbo.pruebasComplementarias' no tie
             </Principal>
             <Dependent Role="diagnostico">
               <PropertyRef Name="id_primera_visita" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_diagnostico_tratamiento">
+          <End Role="tratamiento" Type="Self.tratamiento" Multiplicity="0..1" />
+          <End Role="diagnostico" Type="Self.diagnostico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tratamiento">
+              <PropertyRef Name="idTratamiento" />
+            </Principal>
+            <Dependent Role="diagnostico">
+              <PropertyRef Name="id_tratamiento" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1194,21 +1191,6 @@ advertencia 6013: La tabla o vista 'podologia.dbo.pruebasComplementarias' no tie
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <!--Errores durante la generación:
-error 6004: Una relación hace referencia a la tabla 'podologia.dbo.pruebasComplementarias', pero no se encuentra la tabla.
-        <Association Name="FK_pruebasComplementarias_primeraVisita" />-->
-        <Association Name="FK_tratamiento_primeraVisita">
-          <End Role="primeraVisita" Type="Self.primeraVisita" Multiplicity="0..1" />
-          <End Role="tratamiento" Type="Self.tratamiento" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="primeraVisita">
-              <PropertyRef Name="idPrimeraVisita" />
-            </Principal>
-            <Dependent Role="tratamiento">
-              <PropertyRef Name="id_primera_visita" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_visionFrontal_anguloFick">
           <End Role="anguloFick" Type="Self.anguloFick" Multiplicity="0..1" />
           <End Role="visionFrontal" Type="Self.visionFrontal" Multiplicity="*" />
@@ -1330,6 +1312,10 @@ error 6004: Una relación hace referencia a la tabla 'podologia.dbo.pruebasCompl
             <End Role="primeraVisita" EntitySet="primeraVisita" />
             <End Role="diagnostico" EntitySet="diagnostico" />
           </AssociationSet>
+          <AssociationSet Name="FK_diagnostico_tratamiento" Association="Self.FK_diagnostico_tratamiento">
+            <End Role="tratamiento" EntitySet="tratamiento" />
+            <End Role="diagnostico" EntitySet="diagnostico" />
+          </AssociationSet>
           <AssociationSet Name="FK_estudioOrtopodologico_bipedestacion" Association="Self.FK_estudioOrtopodologico_bipedestacion">
             <End Role="bipedestacion" EntitySet="bipedestacion" />
             <End Role="estudioOrtopodologico" EntitySet="estudioOrtopodologico" />
@@ -1430,17 +1416,12 @@ error 6004: Una relación hace referencia a la tabla 'podologia.dbo.pruebasCompl
             <End Role="tipoEstudio" EntitySet="tipoEstudio" />
             <End Role="primeraVisita" EntitySet="primeraVisita" />
           </AssociationSet>
-          <AssociationSet Name="FK_tratamiento_primeraVisita" Association="Self.FK_tratamiento_primeraVisita">
-            <End Role="primeraVisita" EntitySet="primeraVisita" />
-            <End Role="tratamiento" EntitySet="tratamiento" />
-          </AssociationSet>
           <AssociationSet Name="FK_visionFrontal_anguloFick" Association="Self.FK_visionFrontal_anguloFick">
             <End Role="anguloFick" EntitySet="anguloFick" />
             <End Role="visionFrontal" EntitySet="visionFrontal" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="podologiaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1886,7 +1867,9 @@ error 6004: Una relación hace referencia a la tabla 'podologia.dbo.pruebasCompl
           <Property Name="idDiagnostico" Type="Guid" Nullable="false" />
           <Property Name="anotaciones" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="id_primera_visita" Type="Guid" />
+          <Property Name="id_tratamiento" Type="Guid" />
           <NavigationProperty Name="primeraVisita" Relationship="Self.FK_diagnostico_primeraVisita" FromRole="diagnostico" ToRole="primeraVisita" />
+          <NavigationProperty Name="tratamiento" Relationship="Self.FK_diagnostico_tratamiento" FromRole="diagnostico" ToRole="tratamiento" />
         </EntityType>
         <EntityType Name="estudioOrtopodologico">
           <Key>
@@ -2012,7 +1995,6 @@ error 6004: Una relación hace referencia a la tabla 'podologia.dbo.pruebasCompl
           <Property Name="idPaciente" Type="Guid" Nullable="false" />
           <Property Name="medicacionHabitual" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="observacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="numeroHistoriaClinica" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="id_podologo" Type="Guid" />
           <Property Name="id_historial_clinico" Type="Guid" />
           <Property Name="id_persona" Type="Guid" />
@@ -2083,7 +2065,6 @@ error 6004: Una relación hace referencia a la tabla 'podologia.dbo.pruebasCompl
           <NavigationProperty Name="paciente" Relationship="Self.FK_primeraVisita_paciente" FromRole="primeraVisita" ToRole="paciente" />
           <NavigationProperty Name="podologo" Relationship="Self.FK_primeraVisita_podologo" FromRole="primeraVisita" ToRole="podologo" />
           <NavigationProperty Name="tipoEstudio" Relationship="Self.FK_primeraVisita_tipoEstudio" FromRole="primeraVisita" ToRole="tipoEstudio" />
-          <NavigationProperty Name="tratamiento" Relationship="Self.FK_tratamiento_primeraVisita" FromRole="primeraVisita" ToRole="tratamiento" />
         </EntityType>
         <EntityType Name="retropie">
           <Key>
@@ -2156,9 +2137,8 @@ error 6004: Una relación hace referencia a la tabla 'podologia.dbo.pruebasCompl
           <Property Name="preventivoObservacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="calzadoterapia" Type="Boolean" Nullable="false" />
           <Property Name="otros" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="id_primera_visita" Type="Guid" />
+          <NavigationProperty Name="diagnostico" Relationship="Self.FK_diagnostico_tratamiento" FromRole="tratamiento" ToRole="diagnostico" />
           <NavigationProperty Name="materialSoportePlantar" Relationship="Self.FK_materialSoportePlantar_tratamiento" FromRole="tratamiento" ToRole="materialSoportePlantar" />
-          <NavigationProperty Name="primeraVisita" Relationship="Self.FK_tratamiento_primeraVisita" FromRole="tratamiento" ToRole="primeraVisita" />
         </EntityType>
         <EntityType Name="visionFrontal">
           <Key>
@@ -2515,6 +2495,18 @@ error 6004: Una relación hace referencia a la tabla 'podologia.dbo.pruebasCompl
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_diagnostico_tratamiento">
+          <End Role="tratamiento" Type="Self.tratamiento" Multiplicity="0..1" />
+          <End Role="diagnostico" Type="Self.diagnostico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tratamiento">
+              <PropertyRef Name="idTratamiento" />
+            </Principal>
+            <Dependent Role="diagnostico">
+              <PropertyRef Name="id_tratamiento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_estudioOrtopodologico_sedestacionExploracionArticular">
           <End Role="sedestacionExploracionArticular" Type="Self.sedestacionExploracionArticular" Multiplicity="0..1" />
           <End Role="estudioOrtopodologico" Type="Self.estudioOrtopodologico" Multiplicity="*" />
@@ -2679,18 +2671,6 @@ error 6004: Una relación hace referencia a la tabla 'podologia.dbo.pruebasCompl
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_tratamiento_primeraVisita">
-          <End Role="primeraVisita" Type="Self.primeraVisita" Multiplicity="0..1" />
-          <End Role="tratamiento" Type="Self.tratamiento" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="primeraVisita">
-              <PropertyRef Name="idPrimeraVisita" />
-            </Principal>
-            <Dependent Role="tratamiento">
-              <PropertyRef Name="id_primera_visita" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="AspNetUserRoles">
           <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="*" />
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
@@ -2847,6 +2827,10 @@ error 6004: Una relación hace referencia a la tabla 'podologia.dbo.pruebasCompl
             <End Role="primeraVisita" EntitySet="primeraVisita" />
             <End Role="diagnostico" EntitySet="diagnostico" />
           </AssociationSet>
+          <AssociationSet Name="FK_diagnostico_tratamiento" Association="Self.FK_diagnostico_tratamiento">
+            <End Role="tratamiento" EntitySet="tratamiento" />
+            <End Role="diagnostico" EntitySet="diagnostico" />
+          </AssociationSet>
           <AssociationSet Name="FK_estudioOrtopodologico_sedestacionExploracionArticular" Association="Self.FK_estudioOrtopodologico_sedestacionExploracionArticular">
             <End Role="sedestacionExploracionArticular" EntitySet="sedestacionExploracionArticular" />
             <End Role="estudioOrtopodologico" EntitySet="estudioOrtopodologico" />
@@ -2898,10 +2882,6 @@ error 6004: Una relación hace referencia a la tabla 'podologia.dbo.pruebasCompl
           <AssociationSet Name="FK_primeraVisita_tipoEstudio" Association="Self.FK_primeraVisita_tipoEstudio">
             <End Role="tipoEstudio" EntitySet="tipoEstudio" />
             <End Role="primeraVisita" EntitySet="primeraVisita" />
-          </AssociationSet>
-          <AssociationSet Name="FK_tratamiento_primeraVisita" Association="Self.FK_tratamiento_primeraVisita">
-            <End Role="primeraVisita" EntitySet="primeraVisita" />
-            <End Role="tratamiento" EntitySet="tratamiento" />
           </AssociationSet>
           <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
             <End Role="AspNetRoles" EntitySet="AspNetRoles" />
@@ -3338,6 +3318,7 @@ error 6004: Una relación hace referencia a la tabla 'podologia.dbo.pruebasCompl
                 <ScalarProperty Name="idDiagnostico" ColumnName="idDiagnostico" />
                 <ScalarProperty Name="anotaciones" ColumnName="anotaciones" />
                 <ScalarProperty Name="id_primera_visita" ColumnName="id_primera_visita" />
+                <ScalarProperty Name="id_tratamiento" ColumnName="id_tratamiento" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -3449,7 +3430,6 @@ error 6004: Una relación hace referencia a la tabla 'podologia.dbo.pruebasCompl
                 <ScalarProperty Name="idPaciente" ColumnName="idPaciente" />
                 <ScalarProperty Name="medicacionHabitual" ColumnName="medicacionHabitual" />
                 <ScalarProperty Name="observacion" ColumnName="observacion" />
-                <ScalarProperty Name="numeroHistoriaClinica" ColumnName="numeroHistoriaClinica" />
                 <ScalarProperty Name="id_podologo" ColumnName="id_podologo" />
                 <ScalarProperty Name="id_historial_clinico" ColumnName="id_historial_clinico" />
                 <ScalarProperty Name="id_persona" ColumnName="id_persona" />
@@ -3578,7 +3558,6 @@ error 6004: Una relación hace referencia a la tabla 'podologia.dbo.pruebasCompl
                 <ScalarProperty Name="preventivoObservacion" ColumnName="preventivoObservacion" />
                 <ScalarProperty Name="calzadoterapia" ColumnName="calzadoterapia" />
                 <ScalarProperty Name="otros" ColumnName="otros" />
-                <ScalarProperty Name="id_primera_visita" ColumnName="id_primera_visita" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

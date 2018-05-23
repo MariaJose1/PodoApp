@@ -24,7 +24,6 @@ namespace Angle.Models
         public System.Guid idPaciente { get; set; }
         public string medicacionHabitual { get; set; }
         public string observacion { get; set; }
-        public string numeroHistoriaClinica { get; set; }
         public Nullable<System.Guid> id_podologo { get; set; }
         public Nullable<System.Guid> id_historial_clinico { get; set; }
         public Nullable<System.Guid> id_persona { get; set; }

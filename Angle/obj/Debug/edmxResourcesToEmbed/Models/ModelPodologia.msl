@@ -425,6 +425,7 @@
           <ScalarProperty Name="idDiagnostico" ColumnName="idDiagnostico" />
           <ScalarProperty Name="anotaciones" ColumnName="anotaciones" />
           <ScalarProperty Name="id_primera_visita" ColumnName="id_primera_visita" />
+          <ScalarProperty Name="id_tratamiento" ColumnName="id_tratamiento" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -536,7 +537,6 @@
           <ScalarProperty Name="idPaciente" ColumnName="idPaciente" />
           <ScalarProperty Name="medicacionHabitual" ColumnName="medicacionHabitual" />
           <ScalarProperty Name="observacion" ColumnName="observacion" />
-          <ScalarProperty Name="numeroHistoriaClinica" ColumnName="numeroHistoriaClinica" />
           <ScalarProperty Name="id_podologo" ColumnName="id_podologo" />
           <ScalarProperty Name="id_historial_clinico" ColumnName="id_historial_clinico" />
           <ScalarProperty Name="id_persona" ColumnName="id_persona" />
@@ -665,7 +665,6 @@
           <ScalarProperty Name="preventivoObservacion" ColumnName="preventivoObservacion" />
           <ScalarProperty Name="calzadoterapia" ColumnName="calzadoterapia" />
           <ScalarProperty Name="otros" ColumnName="otros" />
-          <ScalarProperty Name="id_primera_visita" ColumnName="id_primera_visita" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

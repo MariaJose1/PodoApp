@@ -17,6 +17,7 @@ namespace Angle.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public tratamiento()
         {
+            this.diagnostico = new HashSet<diagnostico>();
             this.materialSoportePlantar = new HashSet<materialSoportePlantar>();
         }
     
@@ -33,10 +34,10 @@ namespace Angle.Models
         public string preventivoObservacion { get; set; }
         public bool calzadoterapia { get; set; }
         public string otros { get; set; }
-        public Nullable<System.Guid> id_primera_visita { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<diagnostico> diagnostico { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<materialSoportePlantar> materialSoportePlantar { get; set; }
-        public virtual primeraVisita primeraVisita { get; set; }
     }
 }

@@ -442,7 +442,9 @@
     <Property Name="idDiagnostico" Type="Guid" Nullable="false" />
     <Property Name="anotaciones" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="id_primera_visita" Type="Guid" />
+    <Property Name="id_tratamiento" Type="Guid" />
     <NavigationProperty Name="primeraVisita" Relationship="Self.FK_diagnostico_primeraVisita" FromRole="diagnostico" ToRole="primeraVisita" />
+    <NavigationProperty Name="tratamiento" Relationship="Self.FK_diagnostico_tratamiento" FromRole="diagnostico" ToRole="tratamiento" />
   </EntityType>
   <EntityType Name="estudioOrtopodologico">
     <Key>
@@ -568,7 +570,6 @@
     <Property Name="idPaciente" Type="Guid" Nullable="false" />
     <Property Name="medicacionHabitual" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="observacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="numeroHistoriaClinica" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="id_podologo" Type="Guid" />
     <Property Name="id_historial_clinico" Type="Guid" />
     <Property Name="id_persona" Type="Guid" />
@@ -639,7 +640,6 @@
     <NavigationProperty Name="paciente" Relationship="Self.FK_primeraVisita_paciente" FromRole="primeraVisita" ToRole="paciente" />
     <NavigationProperty Name="podologo" Relationship="Self.FK_primeraVisita_podologo" FromRole="primeraVisita" ToRole="podologo" />
     <NavigationProperty Name="tipoEstudio" Relationship="Self.FK_primeraVisita_tipoEstudio" FromRole="primeraVisita" ToRole="tipoEstudio" />
-    <NavigationProperty Name="tratamiento" Relationship="Self.FK_tratamiento_primeraVisita" FromRole="primeraVisita" ToRole="tratamiento" />
   </EntityType>
   <EntityType Name="retropie">
     <Key>
@@ -712,9 +712,8 @@
     <Property Name="preventivoObservacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="calzadoterapia" Type="Boolean" Nullable="false" />
     <Property Name="otros" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="id_primera_visita" Type="Guid" />
+    <NavigationProperty Name="diagnostico" Relationship="Self.FK_diagnostico_tratamiento" FromRole="tratamiento" ToRole="diagnostico" />
     <NavigationProperty Name="materialSoportePlantar" Relationship="Self.FK_materialSoportePlantar_tratamiento" FromRole="tratamiento" ToRole="materialSoportePlantar" />
-    <NavigationProperty Name="primeraVisita" Relationship="Self.FK_tratamiento_primeraVisita" FromRole="tratamiento" ToRole="primeraVisita" />
   </EntityType>
   <EntityType Name="visionFrontal">
     <Key>
@@ -1071,6 +1070,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_diagnostico_tratamiento">
+    <End Role="tratamiento" Type="Self.tratamiento" Multiplicity="0..1" />
+    <End Role="diagnostico" Type="Self.diagnostico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tratamiento">
+        <PropertyRef Name="idTratamiento" />
+      </Principal>
+      <Dependent Role="diagnostico">
+        <PropertyRef Name="id_tratamiento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_estudioOrtopodologico_sedestacionExploracionArticular">
     <End Role="sedestacionExploracionArticular" Type="Self.sedestacionExploracionArticular" Multiplicity="0..1" />
     <End Role="estudioOrtopodologico" Type="Self.estudioOrtopodologico" Multiplicity="*" />
@@ -1235,18 +1246,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_tratamiento_primeraVisita">
-    <End Role="primeraVisita" Type="Self.primeraVisita" Multiplicity="0..1" />
-    <End Role="tratamiento" Type="Self.tratamiento" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="primeraVisita">
-        <PropertyRef Name="idPrimeraVisita" />
-      </Principal>
-      <Dependent Role="tratamiento">
-        <PropertyRef Name="id_primera_visita" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="AspNetUserRoles">
     <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="*" />
     <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
@@ -1403,6 +1402,10 @@
       <End Role="primeraVisita" EntitySet="primeraVisita" />
       <End Role="diagnostico" EntitySet="diagnostico" />
     </AssociationSet>
+    <AssociationSet Name="FK_diagnostico_tratamiento" Association="Self.FK_diagnostico_tratamiento">
+      <End Role="tratamiento" EntitySet="tratamiento" />
+      <End Role="diagnostico" EntitySet="diagnostico" />
+    </AssociationSet>
     <AssociationSet Name="FK_estudioOrtopodologico_sedestacionExploracionArticular" Association="Self.FK_estudioOrtopodologico_sedestacionExploracionArticular">
       <End Role="sedestacionExploracionArticular" EntitySet="sedestacionExploracionArticular" />
       <End Role="estudioOrtopodologico" EntitySet="estudioOrtopodologico" />
@@ -1454,10 +1457,6 @@
     <AssociationSet Name="FK_primeraVisita_tipoEstudio" Association="Self.FK_primeraVisita_tipoEstudio">
       <End Role="tipoEstudio" EntitySet="tipoEstudio" />
       <End Role="primeraVisita" EntitySet="primeraVisita" />
-    </AssociationSet>
-    <AssociationSet Name="FK_tratamiento_primeraVisita" Association="Self.FK_tratamiento_primeraVisita">
-      <End Role="primeraVisita" EntitySet="primeraVisita" />
-      <End Role="tratamiento" EntitySet="tratamiento" />
     </AssociationSet>
     <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
       <End Role="AspNetRoles" EntitySet="AspNetRoles" />

@@ -181,6 +181,7 @@
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\ChartsController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\DiagnosticoTratamientoController.cs" />
     <Compile Include="Controllers\DocumentationController.cs" />
     <Compile Include="Controllers\EcommerceController.cs" />
     <Compile Include="Controllers\ElementsController.cs" />
@@ -816,6 +817,8 @@
     <Content Include="Views\Antecedentes\Edit.cshtml" />
     <Content Include="Views\Paciente\Index.cshtml" />
     <Content Include="Views\Antecedentes\Details.cshtml" />
+    <Content Include="Views\DiagnosticoTratamiento\Create.cshtml" />
+    <Content Include="Views\DiagnosticoTratamiento\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

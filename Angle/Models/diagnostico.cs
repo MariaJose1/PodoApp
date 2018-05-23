@@ -17,7 +17,9 @@ namespace Angle.Models
         public System.Guid idDiagnostico { get; set; }
         public string anotaciones { get; set; }
         public Nullable<System.Guid> id_primera_visita { get; set; }
+        public Nullable<System.Guid> id_tratamiento { get; set; }
     
         public virtual primeraVisita primeraVisita { get; set; }
+        public virtual tratamiento tratamiento { get; set; }
     }
 }
