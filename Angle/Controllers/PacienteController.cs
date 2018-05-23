@@ -21,9 +21,9 @@ namespace Angle.Controllers
         }
 
         // GET: /Paciente/Create
-        public ActionResult Create() 
+        public ActionResult Create()
         {
-            return View(); 
+            return View();
         }
 
         // POST
@@ -51,7 +51,7 @@ namespace Angle.Controllers
         // GET: /Paciente/Edit
         public ActionResult Edit(Guid? idpaciente)
         {
-            if (idpaciente == null )
+            if (idpaciente == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
@@ -70,7 +70,7 @@ namespace Angle.Controllers
         // POST: /Paciente/Edit
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit (FormPaciente form)
+        public ActionResult Edit(FormPaciente form)
         {
             if (ModelState.IsValid)
             {

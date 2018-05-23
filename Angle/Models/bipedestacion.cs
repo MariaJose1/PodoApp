@@ -48,9 +48,9 @@ namespace Angle.Models
         public Nullable<System.Guid> id_fpi { get; set; }
     
         public virtual antepie antepie { get; set; }
+        public virtual FPI FPI { get; set; }
         public virtual retropie retropie { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<estudioOrtopodologico> estudioOrtopodologico { get; set; }
-        public virtual FPI FPI { get; set; }
     }
 }

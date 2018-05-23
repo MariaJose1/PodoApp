@@ -63,6 +63,7 @@ namespace Angle.Models
         public virtual DbSet<retropie> retropie { get; set; }
         public virtual DbSet<sedestacionExploracionArticular> sedestacionExploracionArticular { get; set; }
         public virtual DbSet<sedestacionExploracionMuscular> sedestacionExploracionMuscular { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<tipoEstudio> tipoEstudio { get; set; }
         public virtual DbSet<tratamiento> tratamiento { get; set; }
         public virtual DbSet<visionFrontal> visionFrontal { get; set; }

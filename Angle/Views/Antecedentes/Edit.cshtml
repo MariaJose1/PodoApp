@@ -9,7 +9,11 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-
+    @Html.HiddenFor(m => m.IdHistorialClinico)
+    @Html.HiddenFor(m => m.IdAntPodologicos)
+    @Html.HiddenFor(m => m.IdAntPatologicos)
+    @Html.HiddenFor(m => m.IdAntFisiologicos)
+    @Html.HiddenFor(m => m.IdAntFamiliares)
 
     <div class="row">
         <div class="col-sm-6">
@@ -206,15 +210,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <div class="col-md-3 text-left">
-                                @Html.LabelFor(model => model.NumeroHistorialClinico, htmlAttributes: new { @class = "control-label col-md-4" })
-                            </div>
-                            <div class="col-md-9 text-left">
-                                @Html.EditorFor(model => model.NumeroHistorialClinico, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.NumeroHistorialClinico, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>

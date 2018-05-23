@@ -10,14 +10,14 @@ namespace Angle.Models
 {
     public class FormAntecedentes
     {
+        public Guid IdPaciente { get; set; }
+
         // Historial Clinico
 
         [Required()]
         public Guid IdHistorialClinico { get; set; }
 
-        [DisplayName("Introduzca el número del historial clínico:")]
-        [Required()]
-        public string NumeroHistorialClinico { get; set; }
+       
 
         public Guid? IdAntPodologicos { get; set; }
         public Guid? IdAntFisiologicos { get; set; }
@@ -172,7 +172,7 @@ namespace Angle.Models
             {
                 // historial
                 IdHistorialClinico = historial.idHistorialClinico,
-                NumeroHistorialClinico = historial.numeroHistorialClinico,
+                //NumeroHistorialClinico = historial.numeroHistorialClinico,
 
                 // podológicos
                 IdAntPodologicos = historial.id_ant_podologicos,
@@ -234,20 +234,19 @@ namespace Angle.Models
             };
         }
 
-        public void InsertarEn (podologiaEntities podo)
+        public void InsertarEn (podologiaEntities podo, paciente paciente)
         {
             using (var tr = podo.Database.BeginTransaction())
             {
                 try
                 {
-                    var nuevoIdHistorial = Guid.NewGuid();
                     var nuevoIdPodo= Guid.NewGuid();
                     var nuevoIdFam = Guid.NewGuid();
                     var nuevoIdFisio = Guid.NewGuid();
                     var nuevoIdPato = Guid.NewGuid();
 
                    
-
+                
                     int retPodologicos = podo.Database.ExecuteSqlCommand(
                         @"INSERT INTO antecedentesPodologicos(
                             [idAPodologicos],
@@ -394,23 +393,22 @@ namespace Angle.Models
                       );
 
                     int retHistorial = podo.Database.ExecuteSqlCommand(
-                       @"INSERT INTO historialClinico(
-                            [idHistorialClinico],
-                            [numeroHistorialClinico],
-                            [id_ant_podologicos],
-                            [id_ant_fisiologicos],
-                            [id_ant_familiares],
-                            [id_ant_patologicos]
-                            ) VALUES (
-                            @p0, @p1, @p2,@p3,@p4,@p5
-                            )",
-                       nuevoIdHistorial,
-                       this.NumeroHistorialClinico,
-                       nuevoIdPodo,
-                       nuevoIdFisio,
-                       nuevoIdFam,
-                       nuevoIdPato
-                       );
+                    @"UPDATE historialClinico SET
+
+                            [id_ant_podologicos] = @p1,
+                            [id_ant_fisiologicos] = @p2,
+                            [id_ant_familiares] = @p3,
+                            [id_ant_patologicos] = @p4
+                         WHERE [idHistorialClinico] = @p0
+                            ",
+                    paciente.id_historial_clinico,
+                    // this.NumeroHistorialClinico,
+                    nuevoIdPodo,
+                    nuevoIdFisio,
+                    nuevoIdFam,
+                    nuevoIdPato
+                    );
+
 
                     tr.Commit();
                 }
@@ -554,22 +552,7 @@ namespace Angle.Models
                         this.Fractura
                         );
 
-                    int retHistorial = podo.Database.ExecuteSqlCommand(
-                     @"UPDATE historialClinico SET
-                            [numeroHistorialClinico] = @p1,
-                            [id_ant_podologicos] = @p2,
-                            [id_ant_fisiologicos] = @p3,
-                            [id_ant_familiares] = @p4,
-                            [id_ant_patologicos] = @p5
-                         WHERE [idHistorialClinico] = @p0,
-                            ",
-                     historial.idHistorialClinico,
-                     this.NumeroHistorialClinico,
-                     this.IdAntPodologicos,
-                     this.IdAntFisiologicos,           
-                     this.IdAntFamiliares,
-                     this.IdAntPatologicos
-                     );
+                   
 
 
                     tr.Commit();

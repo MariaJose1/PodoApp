@@ -18,7 +18,6 @@ namespace Angle.Models
         public historialClinico()
         {
             this.paciente = new HashSet<paciente>();
-            this.paciente2 = new HashSet<paciente>();
         }
     
         public System.Guid idHistorialClinico { get; set; }
@@ -28,7 +27,6 @@ namespace Angle.Models
         public Nullable<System.Guid> id_ant_fisiologicos { get; set; }
         public Nullable<System.Guid> id_ant_familiares { get; set; }
         public Nullable<System.Guid> id_estudio { get; set; }
-        public Nullable<System.Guid> id_paciente { get; set; }
     
         public virtual antecedentesFamiliares antecedentesFamiliares { get; set; }
         public virtual antecedentesFisiologicos antecedentesFisiologicos { get; set; }
@@ -36,8 +34,5 @@ namespace Angle.Models
         public virtual antecedentesPodologicos antecedentesPodologicos { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<paciente> paciente { get; set; }
-        public virtual paciente paciente1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<paciente> paciente2 { get; set; }
     }
 }

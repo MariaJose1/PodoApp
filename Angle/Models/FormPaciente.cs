@@ -23,7 +23,7 @@ namespace Angle.Models
         [DisplayName("Observación")]
         public string Observacion { get; set; }
 
-        [DisplayName("Número Historia Clínica")] 
+        [DisplayName("Número Historia Clínica")]
         public string NumeroHistoriaClinica { get; set; }
 
         [DisplayName("Podólogo que realiza la consulta")]
@@ -83,14 +83,17 @@ namespace Angle.Models
         public static FormPaciente Rellenar(paciente paciente)
         {
             persona persona = paciente.persona;
+            historialClinico historial = paciente.historialClinico;
+
             return new FormPaciente
             {
                 IdPaciente = paciente.idPaciente,
                 MedicacionHabitual = paciente.medicacionHabitual,
                 Observacion = paciente.observacion,
-                NumeroHistoriaClinica = paciente.numeroHistoriaClinica,
+                //NumeroHistoriaClinica = paciente.numeroHistoriaClinica,
+                NumeroHistoriaClinica = historial.numeroHistorialClinico,
                 IdPodologo = paciente.id_podologo,
-                
+
                 Nombre = persona.nombre,
                 PrimerApellido = persona.apellido1,
                 SegundoApellido = persona.apellido2,
@@ -115,6 +118,7 @@ namespace Angle.Models
                 {
                     var nuevoID = Guid.NewGuid();
                     var nuevoID2 = Guid.NewGuid();
+                    var nuevoIdHistorial = Guid.NewGuid();
 
                     int ret = podo.Database.ExecuteSqlCommand(
                          @"INSERT INTO persona(
@@ -154,29 +158,41 @@ namespace Angle.Models
                        this.Telefono,
                        this.Dni);
 
-                  int ret2 = podo.Database.ExecuteSqlCommand(
+                    int retHistorial = podo.Database.ExecuteSqlCommand(
+                      @"INSERT INTO historialClinico(
+                            [idHistorialClinico],
+                            [numeroHistorialClinico]
+                            ) VALUES (
+                            @p0, @p1
+                            )",
+                      nuevoIdHistorial,
+                      this.NumeroHistoriaClinica
+                      );
 
-                        @"INSERT INTO paciente(
+                    int ret2 = podo.Database.ExecuteSqlCommand(
+
+                          @"INSERT INTO paciente(
                             [idPaciente],
                             [medicacionHabitual], 
                             [observacion], 
-                            [numeroHistoriaClinica], 
                             [id_podologo],
-                           
+                            [id_historial_clinico],
                             [id_persona]
                         )   VALUES(
                             @p0, @p1,
                             @p2, @p3,
-                            @p4,
-                            @p5
+                            @p4, @p5
                         )",
-                        nuevoID2,
-                        this.MedicacionHabitual,
-                        this.Observacion,
-                        this.NumeroHistoriaClinica,
-                        this.IdPodologo,
-                        nuevoID
-                        );
+                          nuevoID2,
+                          this.MedicacionHabitual,
+                          this.Observacion,
+                          this.IdPodologo,
+                          nuevoIdHistorial,
+                          nuevoID
+                          );
+
+                   
+
                     tr.Commit();
                 }
                 catch (Exception)
@@ -197,7 +213,7 @@ namespace Angle.Models
                 {
                     Debug.Assert(this.IdPaciente == paciente.idPaciente);
                     Debug.Assert(this.IdPodologo == paciente.id_podologo);
-                    
+
 
                     int ret = podo.Database.ExecuteSqlCommand(
                         @"UPDATE [paciente] SET
@@ -214,10 +230,10 @@ namespace Angle.Models
                             this.NumeroHistoriaClinica,
                             this.IdPodologo
                             );
-                
-                int ret2 = podo.Database.ExecuteSqlCommand(
 
-                        @"UPDATE [persona] SET
+                    int ret2 = podo.Database.ExecuteSqlCommand(
+
+                            @"UPDATE [persona] SET
                             [nombre] = @p1, 
                             [apellido1] = @p2, 
                             [apellido2] = @p3, 
@@ -231,20 +247,20 @@ namespace Angle.Models
                             [telefono] = @p11,
                             [dni] = @p12
                        WHERE [idPersona] = @p0",
-                       persona.idPersona,
-                       this.Nombre,
-                       this.PrimerApellido,
-                       this.SegundoApellido,
-                       this.FechaNacimiento,
-                       this.Edad,
-                       this.Profesion,
-                       this.Direccion,
-                       this.Ciudad,
-                       this.Provincia,
-                       this.Pais,
-                       this.Telefono,
-                       this.Dni
-                        );
+                           persona.idPersona,
+                           this.Nombre,
+                           this.PrimerApellido,
+                           this.SegundoApellido,
+                           this.FechaNacimiento,
+                           this.Edad,
+                           this.Profesion,
+                           this.Direccion,
+                           this.Ciudad,
+                           this.Provincia,
+                           this.Pais,
+                           this.Telefono,
+                           this.Dni
+                            );
                     tr.Commit();
                 }
                 catch (Exception)

@@ -492,12 +492,12 @@
       <PropertyRef Name="idHistorialClinico" />
     </Key>
     <Property Name="idHistorialClinico" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="numeroHistorialClinico" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="id_estudio" Type="uniqueidentifier" />
+    <Property Name="numeroHistorialClinico" Type="nchar" MaxLength="10" />
     <Property Name="id_ant_podologicos" Type="uniqueidentifier" />
+    <Property Name="id_ant_patologicos" Type="uniqueidentifier" />
     <Property Name="id_ant_fisiologicos" Type="uniqueidentifier" />
     <Property Name="id_ant_familiares" Type="uniqueidentifier" />
-    <Property Name="id_ant_patologicos" Type="uniqueidentifier" />
+    <Property Name="id_estudio" Type="uniqueidentifier" />
   </EntityType>
   <EntityType Name="materialSoportePlantar">
     <Key>
@@ -521,8 +521,8 @@
     <Property Name="observacion" Type="nvarchar(max)" />
     <Property Name="numeroHistoriaClinica" Type="nvarchar" MaxLength="20" />
     <Property Name="id_podologo" Type="uniqueidentifier" />
-    <Property Name="id_persona" Type="uniqueidentifier" />
     <Property Name="id_historial_clinico" Type="uniqueidentifier" />
+    <Property Name="id_persona" Type="uniqueidentifier" />
   </EntityType>
   <EntityType Name="persona">
     <Key>
@@ -547,7 +547,7 @@
       <PropertyRef Name="idPodologo" />
     </Key>
     <Property Name="idPodologo" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="idTitulo" Type="nvarchar(max)" />
+    <Property Name="idTitulo" Type="nvarchar" MaxLength="50" />
     <Property Name="email" Type="nvarchar(max)" />
     <Property Name="id_persona" Type="uniqueidentifier" />
   </EntityType>
@@ -574,6 +574,20 @@
     <Property Name="id_estudio_ortopodologico" Type="uniqueidentifier" />
     <Property Name="id_calzado_habitual" Type="uniqueidentifier" />
   </EntityType>
+  <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'podologia.dbo.pruebasComplementarias' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="pruebasComplementarias">
+          <Property Name="idPrueba" Type="uniqueidentifier" />
+          <Property Name="pedigrafia" Type="varbinary(max)" />
+          <Property Name="rayosX" Type="varbinary(max)" />
+          <Property Name="analisisSanguineo" Type="varbinary(max)" />
+          <Property Name="cultivo" Type="varbinary(max)" />
+          <Property Name="doppler" Type="varbinary(max)" />
+          <Property Name="ecografia" Type="varbinary(max)" />
+          <Property Name="fotos" Type="varbinary(max)" />
+          <Property Name="fecha" Type="datetime" />
+          <Property Name="id_primera_visita" Type="uniqueidentifier" />
+        </EntityType>-->
   <EntityType Name="retropie">
     <Key>
       <PropertyRef Name="idRetropie" />
@@ -606,6 +620,16 @@
     <Property Name="idEMuscularPieDcho" Type="uniqueidentifier" Nullable="false" />
     <Property Name="hiperlaxitudArticularIzdo" Type="bit" Nullable="false" />
     <Property Name="hiperlaxitudArticularDcho" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
   <EntityType Name="tipoEstudio">
     <Key>
@@ -993,6 +1017,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_historialClinico_antecedentesFamiliares">
+    <End Role="antecedentesFamiliares" Type="Self.antecedentesFamiliares" Multiplicity="0..1" />
+    <End Role="historialClinico" Type="Self.historialClinico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="antecedentesFamiliares">
+        <PropertyRef Name="idAFamiliares" />
+      </Principal>
+      <Dependent Role="historialClinico">
+        <PropertyRef Name="id_ant_familiares" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_historialClinico_antecedentesFisiologicos">
     <End Role="antecedentesFisiologicos" Type="Self.antecedentesFisiologicos" Multiplicity="0..1" />
     <End Role="historialClinico" Type="Self.historialClinico" Multiplicity="*" />
@@ -1153,6 +1189,9 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <!--Errores durante la generación:
+error 6004: Una relación hace referencia a la tabla 'podologia.dbo.pruebasComplementarias', pero no se encuentra la tabla.
+        <Association Name="FK_pruebasComplementarias_primeraVisita" />-->
   <Association Name="FK_tratamiento_primeraVisita">
     <End Role="primeraVisita" Type="Self.primeraVisita" Multiplicity="0..1" />
     <End Role="tratamiento" Type="Self.tratamiento" Multiplicity="*" />
@@ -1217,6 +1256,7 @@
     <EntitySet Name="retropie" EntityType="Self.retropie" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sedestacionExploracionArticular" EntityType="Self.sedestacionExploracionArticular" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sedestacionExploracionMuscular" EntityType="Self.sedestacionExploracionMuscular" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tipoEstudio" EntityType="Self.tipoEstudio" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tratamiento" EntityType="Self.tratamiento" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="visionFrontal" EntityType="Self.visionFrontal" Schema="dbo" store:Type="Tables" />
@@ -1328,6 +1368,10 @@
     <AssociationSet Name="FK_estudioOrtopodologico_visionSagital" Association="Self.FK_estudioOrtopodologico_visionSagital">
       <End Role="visionSagital" EntitySet="visionSagital" />
       <End Role="estudioOrtopodologico" EntitySet="estudioOrtopodologico" />
+    </AssociationSet>
+    <AssociationSet Name="FK_historialClinico_antecedentesFamiliares" Association="Self.FK_historialClinico_antecedentesFamiliares">
+      <End Role="antecedentesFamiliares" EntitySet="antecedentesFamiliares" />
+      <End Role="historialClinico" EntitySet="historialClinico" />
     </AssociationSet>
     <AssociationSet Name="FK_historialClinico_antecedentesFisiologicos" Association="Self.FK_historialClinico_antecedentesFisiologicos">
       <End Role="antecedentesFisiologicos" EntitySet="antecedentesFisiologicos" />

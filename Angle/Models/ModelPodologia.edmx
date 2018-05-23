@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="podologiaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="podologiaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="__MigrationHistory">
           <Key>
             <PropertyRef Name="MigrationId" />
@@ -497,12 +497,12 @@
             <PropertyRef Name="idHistorialClinico" />
           </Key>
           <Property Name="idHistorialClinico" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="numeroHistorialClinico" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="id_estudio" Type="uniqueidentifier" />
+          <Property Name="numeroHistorialClinico" Type="nchar" MaxLength="10" />
           <Property Name="id_ant_podologicos" Type="uniqueidentifier" />
+          <Property Name="id_ant_patologicos" Type="uniqueidentifier" />
           <Property Name="id_ant_fisiologicos" Type="uniqueidentifier" />
           <Property Name="id_ant_familiares" Type="uniqueidentifier" />
-          <Property Name="id_ant_patologicos" Type="uniqueidentifier" />
+          <Property Name="id_estudio" Type="uniqueidentifier" />
         </EntityType>
         <EntityType Name="materialSoportePlantar">
           <Key>
@@ -526,8 +526,8 @@
           <Property Name="observacion" Type="nvarchar(max)" />
           <Property Name="numeroHistoriaClinica" Type="nvarchar" MaxLength="20" />
           <Property Name="id_podologo" Type="uniqueidentifier" />
-          <Property Name="id_persona" Type="uniqueidentifier" />
           <Property Name="id_historial_clinico" Type="uniqueidentifier" />
+          <Property Name="id_persona" Type="uniqueidentifier" />
         </EntityType>
         <EntityType Name="persona">
           <Key>
@@ -552,7 +552,7 @@
             <PropertyRef Name="idPodologo" />
           </Key>
           <Property Name="idPodologo" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="idTitulo" Type="nvarchar(max)" />
+          <Property Name="idTitulo" Type="nvarchar" MaxLength="50" />
           <Property Name="email" Type="nvarchar(max)" />
           <Property Name="id_persona" Type="uniqueidentifier" />
         </EntityType>
@@ -579,6 +579,20 @@
           <Property Name="id_estudio_ortopodologico" Type="uniqueidentifier" />
           <Property Name="id_calzado_habitual" Type="uniqueidentifier" />
         </EntityType>
+        <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'podologia.dbo.pruebasComplementarias' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="pruebasComplementarias">
+          <Property Name="idPrueba" Type="uniqueidentifier" />
+          <Property Name="pedigrafia" Type="varbinary(max)" />
+          <Property Name="rayosX" Type="varbinary(max)" />
+          <Property Name="analisisSanguineo" Type="varbinary(max)" />
+          <Property Name="cultivo" Type="varbinary(max)" />
+          <Property Name="doppler" Type="varbinary(max)" />
+          <Property Name="ecografia" Type="varbinary(max)" />
+          <Property Name="fotos" Type="varbinary(max)" />
+          <Property Name="fecha" Type="datetime" />
+          <Property Name="id_primera_visita" Type="uniqueidentifier" />
+        </EntityType>-->
         <EntityType Name="retropie">
           <Key>
             <PropertyRef Name="idRetropie" />
@@ -611,6 +625,16 @@
           <Property Name="idEMuscularPieDcho" Type="uniqueidentifier" Nullable="false" />
           <Property Name="hiperlaxitudArticularIzdo" Type="bit" Nullable="false" />
           <Property Name="hiperlaxitudArticularDcho" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="tipoEstudio">
           <Key>
@@ -998,6 +1022,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_historialClinico_antecedentesFamiliares">
+          <End Role="antecedentesFamiliares" Type="Self.antecedentesFamiliares" Multiplicity="0..1" />
+          <End Role="historialClinico" Type="Self.historialClinico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="antecedentesFamiliares">
+              <PropertyRef Name="idAFamiliares" />
+            </Principal>
+            <Dependent Role="historialClinico">
+              <PropertyRef Name="id_ant_familiares" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_historialClinico_antecedentesFisiologicos">
           <End Role="antecedentesFisiologicos" Type="Self.antecedentesFisiologicos" Multiplicity="0..1" />
           <End Role="historialClinico" Type="Self.historialClinico" Multiplicity="*" />
@@ -1158,6 +1194,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <!--Errores durante la generación:
+error 6004: Una relación hace referencia a la tabla 'podologia.dbo.pruebasComplementarias', pero no se encuentra la tabla.
+        <Association Name="FK_pruebasComplementarias_primeraVisita" />-->
         <Association Name="FK_tratamiento_primeraVisita">
           <End Role="primeraVisita" Type="Self.primeraVisita" Multiplicity="0..1" />
           <End Role="tratamiento" Type="Self.tratamiento" Multiplicity="*" />
@@ -1222,6 +1261,7 @@
           <EntitySet Name="retropie" EntityType="Self.retropie" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sedestacionExploracionArticular" EntityType="Self.sedestacionExploracionArticular" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sedestacionExploracionMuscular" EntityType="Self.sedestacionExploracionMuscular" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tipoEstudio" EntityType="Self.tipoEstudio" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tratamiento" EntityType="Self.tratamiento" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="visionFrontal" EntityType="Self.visionFrontal" Schema="dbo" store:Type="Tables" />
@@ -1334,6 +1374,10 @@
             <End Role="visionSagital" EntitySet="visionSagital" />
             <End Role="estudioOrtopodologico" EntitySet="estudioOrtopodologico" />
           </AssociationSet>
+          <AssociationSet Name="FK_historialClinico_antecedentesFamiliares" Association="Self.FK_historialClinico_antecedentesFamiliares">
+            <End Role="antecedentesFamiliares" EntitySet="antecedentesFamiliares" />
+            <End Role="historialClinico" EntitySet="historialClinico" />
+          </AssociationSet>
           <AssociationSet Name="FK_historialClinico_antecedentesFisiologicos" Association="Self.FK_historialClinico_antecedentesFisiologicos">
             <End Role="antecedentesFisiologicos" EntitySet="antecedentesFisiologicos" />
             <End Role="historialClinico" EntitySet="historialClinico" />
@@ -1395,7 +1439,8 @@
             <End Role="visionFrontal" EntitySet="visionFrontal" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="podologiaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1580,11 +1625,11 @@
           <Property Name="pieSobrecargaMetaNotas" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="id_retropie" Type="Guid" />
           <Property Name="id_antepie" Type="Guid" />
+          <Property Name="id_fpi" Type="Guid" />
           <NavigationProperty Name="antepie" Relationship="Self.FK_bipedestacion_antepie" FromRole="bipedestacion" ToRole="antepie" />
+          <NavigationProperty Name="FPI" Relationship="Self.FK_bipedestacion_FPI" FromRole="bipedestacion" ToRole="FPI" />
           <NavigationProperty Name="retropie" Relationship="Self.FK_bipedestacion_retropie" FromRole="bipedestacion" ToRole="retropie" />
           <NavigationProperty Name="estudioOrtopodologico" Relationship="Self.FK_estudioOrtopodologico_bipedestacion" FromRole="bipedestacion" ToRole="estudioOrtopodologico" />
-          <Property Name="id_fpi" Type="Guid" />
-          <NavigationProperty Name="FPI" Relationship="podologiaModel.FK_bipedestacion_FPI" FromRole="bipedestacion" ToRole="FPI" />
         </EntityType>
         <EntityType Name="calzadoHabitual">
           <Key>
@@ -1927,14 +1972,14 @@
           <Property Name="alturaYcongruenciaDcha" Type="Int32" />
           <Property Name="abduccionYaduccionIzda" Type="Int32" />
           <Property Name="abduccionYaduccionDcha" Type="Int32" />
-          <NavigationProperty Name="bipedestacion" Relationship="podologiaModel.FK_bipedestacion_FPI" FromRole="FPI" ToRole="bipedestacion" />
+          <NavigationProperty Name="bipedestacion" Relationship="Self.FK_bipedestacion_FPI" FromRole="FPI" ToRole="bipedestacion" />
         </EntityType>
         <EntityType Name="historialClinico">
           <Key>
             <PropertyRef Name="idHistorialClinico" />
           </Key>
           <Property Name="idHistorialClinico" Type="Guid" Nullable="false" />
-          <Property Name="numeroHistorialClinico" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="numeroHistorialClinico" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="id_ant_podologicos" Type="Guid" />
           <Property Name="id_ant_patologicos" Type="Guid" />
           <Property Name="id_ant_fisiologicos" Type="Guid" />
@@ -1944,10 +1989,7 @@
           <NavigationProperty Name="antecedentesFisiologicos" Relationship="Self.FK_historialClinico_antecedentesFisiologicos" FromRole="historialClinico" ToRole="antecedentesFisiologicos" />
           <NavigationProperty Name="antecedentesPatologicos" Relationship="Self.FK_historialClinico_antecedentesPatologicos" FromRole="historialClinico" ToRole="antecedentesPatologicos" />
           <NavigationProperty Name="antecedentesPodologicos" Relationship="Self.FK_historialClinico_antecedentesPodologicos" FromRole="historialClinico" ToRole="antecedentesPodologicos" />
-          <NavigationProperty Name="paciente" Relationship="podologiaModel.FK_paciente_historialClinico" FromRole="historialClinico" ToRole="paciente" />
-          <Property Name="id_paciente" Type="Guid" />
-          <NavigationProperty Name="paciente1" Relationship="podologiaModel.FK_historialClinico_antecedentesFamiliares1" FromRole="historialClinico" ToRole="paciente" />
-          <NavigationProperty Name="paciente2" Relationship="podologiaModel.FK_paciente_historialClinico1" FromRole="historialClinico" ToRole="paciente" />
+          <NavigationProperty Name="paciente" Relationship="Self.FK_paciente_historialClinico" FromRole="historialClinico" ToRole="paciente" />
         </EntityType>
         <EntityType Name="materialSoportePlantar">
           <Key>
@@ -1975,13 +2017,10 @@
           <Property Name="id_historial_clinico" Type="Guid" />
           <Property Name="id_persona" Type="Guid" />
           <NavigationProperty Name="consulta" Relationship="Self.FK_consulta_paciente" FromRole="paciente" ToRole="consulta" />
+          <NavigationProperty Name="historialClinico" Relationship="Self.FK_paciente_historialClinico" FromRole="paciente" ToRole="historialClinico" />
           <NavigationProperty Name="persona" Relationship="Self.FK_paciente_persona" FromRole="paciente" ToRole="persona" />
           <NavigationProperty Name="podologo" Relationship="Self.FK_paciente_podologo" FromRole="paciente" ToRole="podologo" />
           <NavigationProperty Name="primeraVisita" Relationship="Self.FK_primeraVisita_paciente" FromRole="paciente" ToRole="primeraVisita" />
-          <NavigationProperty Name="historialClinico" Relationship="podologiaModel.FK_paciente_historialClinico" FromRole="paciente" ToRole="historialClinico" />
-          <NavigationProperty Name="historialClinico1" Relationship="podologiaModel.FK_historialClinico_antecedentesFamiliares1" FromRole="paciente" ToRole="historialClinico" />
-          <Property Name="id_historial_clinico1" Type="Guid" />
-          <NavigationProperty Name="historialClinico2" Relationship="podologiaModel.FK_paciente_historialClinico1" FromRole="paciente" ToRole="historialClinico" />
         </EntityType>
         <EntityType Name="persona">
           <Key>
@@ -2008,13 +2047,13 @@
             <PropertyRef Name="idPodologo" />
           </Key>
           <Property Name="idPodologo" Type="Guid" Nullable="false" />
+          <Property Name="idTitulo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="id_persona" Type="Guid" />
           <NavigationProperty Name="consulta" Relationship="Self.FK_consulta_podologo" FromRole="podologo" ToRole="consulta" />
           <NavigationProperty Name="paciente" Relationship="Self.FK_paciente_podologo" FromRole="podologo" ToRole="paciente" />
           <NavigationProperty Name="persona" Relationship="Self.FK_podologo_persona" FromRole="podologo" ToRole="persona" />
           <NavigationProperty Name="primeraVisita" Relationship="Self.FK_primeraVisita_podologo" FromRole="podologo" ToRole="primeraVisita" />
-          <Property Name="idTitulo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="primeraVisita">
           <Key>
@@ -2081,6 +2120,16 @@
           <Property Name="hiperlaxitudArticularIzdo" Type="Boolean" Nullable="false" />
           <Property Name="hiperlaxitudArticularDcho" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="estudioOrtopodologico" Relationship="Self.FK_estudioOrtopodologico_sedestacionExploracionMuscular" FromRole="sedestacionExploracionMuscular" ToRole="estudioOrtopodologico" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="tipoEstudio">
           <Key>
@@ -2229,6 +2278,18 @@
             </Principal>
             <Dependent Role="AspNetUserLogins">
               <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_bipedestacion_FPI">
+          <End Role="FPI" Type="Self.FPI" Multiplicity="0..1" />
+          <End Role="bipedestacion" Type="Self.bipedestacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FPI">
+              <PropertyRef Name="idFPI" />
+            </Principal>
+            <Dependent Role="bipedestacion">
+              <PropertyRef Name="id_fpi" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2518,6 +2579,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_paciente_historialClinico">
+          <End Role="historialClinico" Type="Self.historialClinico" Multiplicity="0..1" />
+          <End Role="paciente" Type="Self.paciente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="historialClinico">
+              <PropertyRef Name="idHistorialClinico" />
+            </Principal>
+            <Dependent Role="paciente">
+              <PropertyRef Name="id_historial_clinico" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_materialSoportePlantar_tratamiento">
           <End Role="tratamiento" Type="Self.tratamiento" Multiplicity="0..1" />
           <End Role="materialSoportePlantar" Type="Self.materialSoportePlantar" Multiplicity="*" />
@@ -2661,6 +2734,7 @@
           <EntitySet Name="retropie" EntityType="Self.retropie" />
           <EntitySet Name="sedestacionExploracionArticular" EntityType="Self.sedestacionExploracionArticular" />
           <EntitySet Name="sedestacionExploracionMuscular" EntityType="Self.sedestacionExploracionMuscular" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="tipoEstudio" EntityType="Self.tipoEstudio" />
           <EntitySet Name="tratamiento" EntityType="Self.tratamiento" />
           <EntitySet Name="visionFrontal" EntityType="Self.visionFrontal" />
@@ -2696,6 +2770,10 @@
           <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_bipedestacion_FPI" Association="Self.FK_bipedestacion_FPI">
+            <End Role="FPI" EntitySet="FPI" />
+            <End Role="bipedestacion" EntitySet="bipedestacion" />
           </AssociationSet>
           <AssociationSet Name="FK_bipedestacion_retropie" Association="Self.FK_bipedestacion_retropie">
             <End Role="retropie" EntitySet="retropie" />
@@ -2789,6 +2867,10 @@
             <End Role="estudioOrtopodologico" EntitySet="estudioOrtopodologico" />
             <End Role="primeraVisita" EntitySet="primeraVisita" />
           </AssociationSet>
+          <AssociationSet Name="FK_paciente_historialClinico" Association="Self.FK_paciente_historialClinico">
+            <End Role="historialClinico" EntitySet="historialClinico" />
+            <End Role="paciente" EntitySet="paciente" />
+          </AssociationSet>
           <AssociationSet Name="FK_materialSoportePlantar_tratamiento" Association="Self.FK_materialSoportePlantar_tratamiento">
             <End Role="tratamiento" EntitySet="tratamiento" />
             <End Role="materialSoportePlantar" EntitySet="materialSoportePlantar" />
@@ -2825,71 +2907,7 @@
             <End Role="AspNetRoles" EntitySet="AspNetRoles" />
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
           </AssociationSet>
-          <AssociationSet Name="FK_bipedestacion_FPI" Association="podologiaModel.FK_bipedestacion_FPI">
-            <End Role="FPI" EntitySet="FPI" />
-            <End Role="bipedestacion" EntitySet="bipedestacion" />
-          </AssociationSet>
-          <AssociationSet Name="FK_paciente_historialClinico" Association="podologiaModel.FK_paciente_historialClinico">
-            <End Role="historialClinico" EntitySet="historialClinico" />
-            <End Role="paciente" EntitySet="paciente" />
-          </AssociationSet>
-          <AssociationSet Name="FK_historialClinico_antecedentesFamiliares1" Association="podologiaModel.FK_historialClinico_antecedentesFamiliares1">
-            <End Role="paciente" EntitySet="paciente" />
-            <End Role="historialClinico" EntitySet="historialClinico" />
-          </AssociationSet>
-          <AssociationSet Name="FK_paciente_historialClinico1" Association="podologiaModel.FK_paciente_historialClinico1">
-            <End Role="historialClinico" EntitySet="historialClinico" />
-            <End Role="paciente" EntitySet="paciente" />
-          </AssociationSet>
         </EntityContainer>
-        <Association Name="FK_bipedestacion_FPI">
-          <End Type="podologiaModel.FPI" Role="FPI" Multiplicity="0..1" />
-          <End Type="podologiaModel.bipedestacion" Role="bipedestacion" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="FPI">
-              <PropertyRef Name="idFPI" />
-            </Principal>
-            <Dependent Role="bipedestacion">
-              <PropertyRef Name="id_fpi" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_paciente_historialClinico">
-          <End Type="podologiaModel.historialClinico" Role="historialClinico" Multiplicity="0..1" />
-          <End Type="podologiaModel.paciente" Role="paciente" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="historialClinico">
-              <PropertyRef Name="idHistorialClinico" />
-            </Principal>
-            <Dependent Role="paciente">
-              <PropertyRef Name="id_historial_clinico" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_historialClinico_antecedentesFamiliares1">
-          <End Type="podologiaModel.paciente" Role="paciente" Multiplicity="0..1" />
-          <End Type="podologiaModel.historialClinico" Role="historialClinico" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="paciente">
-              <PropertyRef Name="idPaciente" />
-            </Principal>
-            <Dependent Role="historialClinico">
-              <PropertyRef Name="id_paciente" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_paciente_historialClinico1">
-          <End Type="podologiaModel.historialClinico" Role="historialClinico" Multiplicity="0..1" />
-          <End Type="podologiaModel.paciente" Role="paciente" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="historialClinico">
-              <PropertyRef Name="idHistorialClinico" />
-            </Principal>
-            <Dependent Role="paciente">
-              <PropertyRef Name="id_historial_clinico1" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -3047,7 +3065,6 @@
           <EntitySetMapping Name="bipedestacion">
             <EntityTypeMapping TypeName="podologiaModel.bipedestacion">
               <MappingFragment StoreEntitySet="bipedestacion">
-                <ScalarProperty Name="id_fpi" ColumnName="id_fpi" />
                 <ScalarProperty Name="idBipedestacion" ColumnName="idBipedestacion" />
                 <ScalarProperty Name="visionAnterior" ColumnName="visionAnterior" />
                 <ScalarProperty Name="visionPosterior" ColumnName="visionPosterior" />
@@ -3073,6 +3090,7 @@
                 <ScalarProperty Name="pieSobrecargaMetaNotas" ColumnName="pieSobrecargaMetaNotas" />
                 <ScalarProperty Name="id_retropie" ColumnName="id_retropie" />
                 <ScalarProperty Name="id_antepie" ColumnName="id_antepie" />
+                <ScalarProperty Name="id_fpi" ColumnName="id_fpi" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -3428,12 +3446,12 @@
           <EntitySetMapping Name="paciente">
             <EntityTypeMapping TypeName="podologiaModel.paciente">
               <MappingFragment StoreEntitySet="paciente">
-                <ScalarProperty Name="id_historial_clinico1" ColumnName="id_historial_clinico" />
                 <ScalarProperty Name="idPaciente" ColumnName="idPaciente" />
                 <ScalarProperty Name="medicacionHabitual" ColumnName="medicacionHabitual" />
                 <ScalarProperty Name="observacion" ColumnName="observacion" />
                 <ScalarProperty Name="numeroHistoriaClinica" ColumnName="numeroHistoriaClinica" />
                 <ScalarProperty Name="id_podologo" ColumnName="id_podologo" />
+                <ScalarProperty Name="id_historial_clinico" ColumnName="id_historial_clinico" />
                 <ScalarProperty Name="id_persona" ColumnName="id_persona" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -3460,9 +3478,9 @@
           <EntitySetMapping Name="podologo">
             <EntityTypeMapping TypeName="podologiaModel.podologo">
               <MappingFragment StoreEntitySet="podologo">
-                <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="idTitulo" ColumnName="idTitulo" />
                 <ScalarProperty Name="idPodologo" ColumnName="idPodologo" />
+                <ScalarProperty Name="idTitulo" ColumnName="idTitulo" />
+                <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="id_persona" ColumnName="id_persona" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -3522,6 +3540,17 @@
                 <ScalarProperty Name="idEMuscularPieDcho" ColumnName="idEMuscularPieDcho" />
                 <ScalarProperty Name="hiperlaxitudArticularIzdo" ColumnName="hiperlaxitudArticularIzdo" />
                 <ScalarProperty Name="hiperlaxitudArticularDcho" ColumnName="hiperlaxitudArticularDcho" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="podologiaModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

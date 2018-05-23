@@ -19,8 +19,20 @@ namespace Angle.Controllers
         }
 
         // GET: /Antecedentes/Create
-        public ActionResult Create()
+        public ActionResult Create(Guid idpaciente)
         {
+            paciente paciente = db.paciente.Find(idpaciente);
+            FormAntecedentes form = new FormAntecedentes();
+
+            if (paciente != null)
+            {
+                form.IdPaciente = idpaciente;
+            }
+            else
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+            }
             return View();
         }
 
@@ -30,8 +42,9 @@ namespace Angle.Controllers
         {
             if (ModelState.IsValid)
             {
-                form.InsertarEn(db);
-                return RedirectToAction("Create");
+                paciente paciente = db.paciente.Find(form.IdPaciente);
+                form.InsertarEn(db, paciente);
+                return RedirectToAction("Edit");
             }
             return View(form);
         }

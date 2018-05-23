@@ -274,7 +274,9 @@
       <DependentUpon>ModelPodologia.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\FormAntecedentes.cs" />
+    <Compile Include="Models\FormDiagnosticoTratamiento.cs" />
     <Compile Include="Models\FormPaciente.cs" />
+    <Compile Include="Models\FormPrimeraVisita.cs" />
     <Compile Include="Models\formulaDigital.cs">
       <DependentUpon>ModelPodologia.tt</DependentUpon>
     </Compile>
@@ -331,6 +333,9 @@
       <DependentUpon>ModelPodologia.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sedestacionExploracionMuscular.cs">
+      <DependentUpon>ModelPodologia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagrams.cs">
       <DependentUpon>ModelPodologia.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tipoEstudio.cs">

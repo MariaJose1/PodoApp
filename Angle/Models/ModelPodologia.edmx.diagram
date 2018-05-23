@@ -4,49 +4,50 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="4d1142f50e7c40d7ad4df85dd8300713" Name="Diagram1">
-        <EntityTypeShape EntityType="podologiaModel.C__MigrationHistory" Width="1.5" PointX="11.75" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="podologiaModel.anguloFick" Width="1.5" PointX="0.75" PointY="59.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="podologiaModel.antecedentesFamiliares" Width="1.5" PointX="7.75" PointY="9.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="podologiaModel.antecedentesFisiologicos" Width="1.5" PointX="7.75" PointY="14.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="podologiaModel.antecedentesPatologicos" Width="1.5" PointX="7.75" PointY="18.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="podologiaModel.antecedentesPodologicos" Width="1.5" PointX="7.75" PointY="24.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="podologiaModel.antepie" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="podologiaModel.AspNetRoles" Width="1.5" PointX="12.75" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="podologiaModel.AspNetUserClaims" Width="1.5" PointX="17.25" PointY="9.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="podologiaModel.AspNetUserLogins" Width="1.5" PointX="17.25" PointY="12" IsExpanded="true" />
-        <EntityTypeShape EntityType="podologiaModel.AspNetUsers" Width="1.5" PointX="15" PointY="9.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="podologiaModel.bipedestacion" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="podologiaModel.calzadoHabitual" Width="1.5" PointX="5.25" PointY="8.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="podologiaModel.consulta" Width="1.5" PointX="7.5" PointY="69.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="podologiaModel.deambulacion" Width="1.5" PointX="3" PointY="9.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="podologiaModel.decubitoPronoExploracionArticular" Width="1.5" PointX="3" PointY="11.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="podologiaModel.decubitoSupinoAntepiePosicion1Radio" Width="1.5" PointX="0.75" PointY="40.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="podologiaModel.decubitoSupinoExploracionArticular" Width="1.5" PointX="3" PointY="33.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="podologiaModel.decubitoSupinoExploracionMorfologica" Width="1.5" PointX="3" PointY="18.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="podologiaModel.decubitoSupinoExploracionMuscular" Width="1.5" PointX="3" PointY="22.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="podologiaModel.decubitoSupinoPosicionAnguloAntepie" Width="1.5" PointX="0.75" PointY="43.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="podologiaModel.decubitoSupinoPulsos" Width="1.5" PointX="3" PointY="31" IsExpanded="true" />
-        <EntityTypeShape EntityType="podologiaModel.decubitoSupinoPulsosTipo" Width="1.5" PointX="0.75" PointY="31.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="podologiaModel.diagnostico" Width="1.5" PointX="9.75" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="podologiaModel.estudioOrtopodologico" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="podologiaModel.formulaDigital" Width="1.5" PointX="0.75" PointY="16.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="podologiaModel.formulaMetatarsal" Width="1.5" PointX="0.75" PointY="19" IsExpanded="true" />
-        <EntityTypeShape EntityType="podologiaModel.formulaPodal" Width="1.5" PointX="0.75" PointY="21.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="podologiaModel.FPI" Width="1.5" PointX="9.75" PointY="14" IsExpanded="true" />
-        <EntityTypeShape EntityType="podologiaModel.historialClinico" Width="1.5" PointX="10" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="podologiaModel.materialSoportePlantar" Width="1.5" PointX="12" PointY="4.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="podologiaModel.paciente" Width="1.5" PointX="5.25" PointY="67.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="podologiaModel.persona" Width="1.5" PointX="3" PointY="66" IsExpanded="true" />
-        <EntityTypeShape EntityType="podologiaModel.podologo" Width="1.5" PointX="3" PointY="70.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="podologiaModel.primeraVisita" Width="1.5" PointX="7.5" PointY="1.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="podologiaModel.retropie" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="podologiaModel.sedestacionExploracionArticular" Width="1.5" PointX="3" PointY="53.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="podologiaModel.sedestacionExploracionMuscular" Width="1.5" PointX="3" PointY="57" IsExpanded="true" />
-        <EntityTypeShape EntityType="podologiaModel.tipoEstudio" Width="1.5" PointX="5.25" PointY="18.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="podologiaModel.tratamiento" Width="1.5" PointX="9.75" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="podologiaModel.visionFrontal" Width="1.5" PointX="3" PointY="59.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="podologiaModel.visionSagital" Width="1.5" PointX="3" PointY="62.75" IsExpanded="true" />
+      <Diagram DiagramId="b2e705515d7d4d2b8d09d7f2f7c28839" Name="Diagram1">
+        <EntityTypeShape EntityType="podologiaModel.C__MigrationHistory" Width="1.5" PointX="11.75" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="podologiaModel.anguloFick" Width="1.5" PointX="0.75" PointY="62.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="podologiaModel.antecedentesFamiliares" Width="1.5" PointX="0.75" PointY="68.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="podologiaModel.antecedentesFisiologicos" Width="1.5" PointX="0.75" PointY="73" IsExpanded="true" />
+        <EntityTypeShape EntityType="podologiaModel.antecedentesPatologicos" Width="1.5" PointX="0.75" PointY="77.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="podologiaModel.antecedentesPodologicos" Width="1.5" PointX="0.75" PointY="82.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="podologiaModel.antepie" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="podologiaModel.AspNetRoles" Width="1.5" PointX="7.75" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="podologiaModel.AspNetUserClaims" Width="1.5" PointX="12.25" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="podologiaModel.AspNetUserLogins" Width="1.5" PointX="12.25" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="podologiaModel.AspNetUsers" Width="1.5" PointX="10" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="podologiaModel.bipedestacion" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="podologiaModel.calzadoHabitual" Width="1.5" PointX="5.25" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="podologiaModel.consulta" Width="1.5" PointX="7.5" PointY="84.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="podologiaModel.deambulacion" Width="1.5" PointX="3" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="podologiaModel.decubitoPronoExploracionArticular" Width="1.5" PointX="3" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="podologiaModel.decubitoSupinoAntepiePosicion1Radio" Width="1.5" PointX="0.75" PointY="43.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="podologiaModel.decubitoSupinoExploracionArticular" Width="1.5" PointX="3" PointY="36.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="podologiaModel.decubitoSupinoExploracionMorfologica" Width="1.5" PointX="3" PointY="20.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="podologiaModel.decubitoSupinoExploracionMuscular" Width="1.5" PointX="3" PointY="25.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="podologiaModel.decubitoSupinoPosicionAnguloAntepie" Width="1.5" PointX="0.75" PointY="45.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="podologiaModel.decubitoSupinoPulsos" Width="1.5" PointX="3" PointY="33.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="podologiaModel.decubitoSupinoPulsosTipo" Width="1.5" PointX="0.75" PointY="33.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="podologiaModel.diagnostico" Width="1.5" PointX="9.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="podologiaModel.estudioOrtopodologico" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="podologiaModel.formulaDigital" Width="1.5" PointX="0.75" PointY="18.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="podologiaModel.formulaMetatarsal" Width="1.5" PointX="0.75" PointY="21.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="podologiaModel.formulaPodal" Width="1.5" PointX="0.75" PointY="24.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="podologiaModel.FPI" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="podologiaModel.historialClinico" Width="1.5" PointX="3" PointY="74.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="podologiaModel.materialSoportePlantar" Width="1.5" PointX="12" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="podologiaModel.paciente" Width="1.5" PointX="5.25" PointY="78.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="podologiaModel.persona" Width="1.5" PointX="3" PointY="85.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="podologiaModel.podologo" Width="1.5" PointX="3" PointY="89.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="podologiaModel.primeraVisita" Width="1.5" PointX="7.5" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="podologiaModel.retropie" Width="1.5" PointX="0.75" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="podologiaModel.sedestacionExploracionArticular" Width="1.5" PointX="3" PointY="55.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="podologiaModel.sedestacionExploracionMuscular" Width="1.5" PointX="3" PointY="59.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="podologiaModel.sysdiagrams" Width="1.5" PointX="13.75" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="podologiaModel.tipoEstudio" Width="1.5" PointX="5.25" PointY="38.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="podologiaModel.tratamiento" Width="1.5" PointX="9.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="podologiaModel.visionFrontal" Width="1.5" PointX="3" PointY="62" IsExpanded="true" />
+        <EntityTypeShape EntityType="podologiaModel.visionSagital" Width="1.5" PointX="3" PointY="64.875" IsExpanded="true" />
         <AssociationConnector Association="podologiaModel.FK_visionFrontal_anguloFick" ManuallyRouted="false" />
         <AssociationConnector Association="podologiaModel.FK_historialClinico_antecedentesFamiliares" ManuallyRouted="false" />
         <AssociationConnector Association="podologiaModel.FK_historialClinico_antecedentesFisiologicos" ManuallyRouted="false" />
@@ -55,6 +56,7 @@
         <AssociationConnector Association="podologiaModel.FK_bipedestacion_antepie" ManuallyRouted="false" />
         <AssociationConnector Association="podologiaModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="podologiaModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="podologiaModel.FK_bipedestacion_FPI" ManuallyRouted="false" />
         <AssociationConnector Association="podologiaModel.FK_bipedestacion_retropie" ManuallyRouted="false" />
         <AssociationConnector Association="podologiaModel.FK_estudioOrtopodologico_bipedestacion" ManuallyRouted="false" />
         <AssociationConnector Association="podologiaModel.FK_primeraVisita_calzadoHabitual" ManuallyRouted="false" />
@@ -78,6 +80,7 @@
         <AssociationConnector Association="podologiaModel.FK_estudioOrtopodologico_visionFrontal" ManuallyRouted="false" />
         <AssociationConnector Association="podologiaModel.FK_estudioOrtopodologico_visionSagital" ManuallyRouted="false" />
         <AssociationConnector Association="podologiaModel.FK_primeraVisita_estudioOrtopodologico" ManuallyRouted="false" />
+        <AssociationConnector Association="podologiaModel.FK_paciente_historialClinico" ManuallyRouted="false" />
         <AssociationConnector Association="podologiaModel.FK_materialSoportePlantar_tratamiento" ManuallyRouted="false" />
         <AssociationConnector Association="podologiaModel.FK_paciente_persona" ManuallyRouted="false" />
         <AssociationConnector Association="podologiaModel.FK_paciente_podologo" ManuallyRouted="false" />
@@ -87,10 +90,6 @@
         <AssociationConnector Association="podologiaModel.FK_primeraVisita_tipoEstudio" ManuallyRouted="false" />
         <AssociationConnector Association="podologiaModel.FK_tratamiento_primeraVisita" ManuallyRouted="false" />
         <AssociationConnector Association="podologiaModel.AspNetUserRoles" ManuallyRouted="false" />
-        <AssociationConnector Association="podologiaModel.FK_bipedestacion_FPI" />
-        <AssociationConnector Association="podologiaModel.FK_paciente_historialClinico" />
-        <AssociationConnector Association="podologiaModel.FK_historialClinico_antecedentesFamiliares1" />
-        <AssociationConnector Association="podologiaModel.FK_paciente_historialClinico1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -23,9 +23,9 @@ namespace Angle.Models
         }
     
         public System.Guid idPodologo { get; set; }
-        public Nullable<System.Guid> id_persona { get; set; }
         public string idTitulo { get; set; }
         public string email { get; set; }
+        public Nullable<System.Guid> id_persona { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<consulta> consulta { get; set; }
