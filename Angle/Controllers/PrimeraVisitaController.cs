@@ -8,21 +8,23 @@ using System.Web.Mvc;
 
 namespace Angle.Controllers
 {
-    public class DiagnosticoTratamientoController : Controller
+    public class PrimeraVisitaController : Controller
     {
+
         podologiaEntities db = new podologiaEntities();
 
-        // GET: DiagnosticoTratamiento
+        // GET: PrimeraVisita
         public ActionResult Index()
         {
             return View();
         }
 
-        // GET: /DiagnosticoTratamiento/Create
+
+        // GET: /PrimeraVisita/Create
         public ActionResult Create(Guid idpaciente)
         {
             paciente paciente = db.paciente.Find(idpaciente);
-            FormDiagnosticoTratamiento form = new FormDiagnosticoTratamiento();
+            FormPrimeraVisita form = new FormPrimeraVisita();
 
             if (paciente != null)
             {
@@ -38,7 +40,7 @@ namespace Angle.Controllers
 
         // POST
         [HttpPost]
-        public ActionResult Create(FormDiagnosticoTratamiento form)
+        public ActionResult Create(FormPrimeraVisita form)
         {
             if (ModelState.IsValid)
             {
@@ -49,29 +51,30 @@ namespace Angle.Controllers
             return View(form);
         }
 
-        // GET: /DiagnosticoTratamiento/Edit
-        public ActionResult Edit(Guid? iddiagnostico)
+
+        // GET: /PrimeraVisita/Edit
+        public ActionResult Edit(Guid? idvisita)
         {
-            if (iddiagnostico == null)
+            if (idvisita == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            diagnostico diagnostico = db.diagnostico.Find(iddiagnostico);
+            primeraVisita visita = db.primeraVisita.Find(idvisita);
 
-            if (iddiagnostico == null)
+            if (idvisita == null)
             {
                 return HttpNotFound();
             }
-            FormDiagnosticoTratamiento form = FormDiagnosticoTratamiento.Rellenar(diagnostico);
+            FormPrimeraVisita form = FormPrimeraVisita.Rellenar(visita);
 
             return View(form);
         }
 
-        // POST: /DiagnosticoTratamiento/Edit
+        // POST: /PrimeraVisita/Edit
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(FormDiagnosticoTratamiento form)
+        public ActionResult Edit(FormPrimeraVisita form)
         {
             if (ModelState.IsValid)
             {
@@ -80,8 +83,6 @@ namespace Angle.Controllers
             }
             return View(form);
         }
-
-
 
     }
 }

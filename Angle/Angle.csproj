@@ -192,6 +192,7 @@
     <Compile Include="Controllers\MultilevelsController.cs" />
     <Compile Include="Controllers\PacienteController.cs" />
     <Compile Include="Controllers\PagesController.cs" />
+    <Compile Include="Controllers\PrimeraVisitaController.cs" />
     <Compile Include="Controllers\TablesController.cs" />
     <Compile Include="Controllers\WidgetsController.cs" />
     <Compile Include="Global.asax.cs">
@@ -819,6 +820,8 @@
     <Content Include="Views\Antecedentes\Details.cshtml" />
     <Content Include="Views\DiagnosticoTratamiento\Create.cshtml" />
     <Content Include="Views\DiagnosticoTratamiento\Edit.cshtml" />
+    <Content Include="Views\PrimeraVisita\Create.cshtml" />
+    <Content Include="Views\PrimeraVisita\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

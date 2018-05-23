@@ -78,7 +78,7 @@ namespace Angle.Controllers
             return View(form);
         }
 
-        // POST: /Paciente/Edit
+        // POST: /Antecedentes/Edit
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(FormAntecedentes form)
@@ -92,7 +92,7 @@ namespace Angle.Controllers
         }
 
 
-        // GET: /Paciente/Details
+        // GET: /Antecedentes/Details
         public ActionResult Details(Guid? idhistorial)
         {
             if (idhistorial == null)
@@ -113,7 +113,7 @@ namespace Angle.Controllers
         }
 
 
-        // POST: /Paciente/Details
+        // POST: /Antecedentes/Details
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Details(FormAntecedentes form)
