@@ -119,6 +119,7 @@ namespace Angle.Models
                     var nuevoID = Guid.NewGuid();
                     var nuevoID2 = Guid.NewGuid();
                     var nuevoIdHistorial = Guid.NewGuid();
+                    var nuevoIdPV = Guid.NewGuid();
 
                     int ret = podo.Database.ExecuteSqlCommand(
                          @"INSERT INTO persona(
@@ -167,6 +168,23 @@ namespace Angle.Models
                             )",
                       nuevoIdHistorial,
                       this.NumeroHistoriaClinica
+                      );
+
+                    int retPV = podo.Database.ExecuteSqlCommand(
+                      @"INSERT INTO primeraVisita(
+                            [idPrimeraVisita],
+                            [diabetes],
+                            [alergias],
+                            [hayDolor],
+                            [id_historial_clinico]
+                            ) VALUES (
+                            @p0, @p1,@p2,@p3,@p4
+                            )",
+                     nuevoIdPV,
+                     0,
+                     0,
+                     0,
+                     nuevoIdHistorial
                       );
 
                     int ret2 = podo.Database.ExecuteSqlCommand(

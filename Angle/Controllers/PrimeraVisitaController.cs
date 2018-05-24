@@ -44,8 +44,8 @@ namespace Angle.Controllers
         {
             if (ModelState.IsValid)
             {
-                paciente paciente = db.paciente.Find(form.IdPaciente);
-                form.InsertarEn(db, paciente);
+                primeraVisita visita = db.primeraVisita.Find(form.IdPaciente);
+                form.InsertarEn(db, visita);
                 return RedirectToAction("Create");
             }
             return View(form);

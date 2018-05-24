@@ -69,9 +69,21 @@ namespace Angle.Models
         [DisplayName("Tacones")]
         public bool Tacones { get; set; }
 
+        // podologo
+        
+        public Guid? IdPodologo { get; set; }
+
+        public string IdTitulo { get; set; }
+
+        public string Email { get; set; }
+
+
+
         public static FormPrimeraVisita Rellenar (primeraVisita visita)
         {
             calzadoHabitual calzado = visita.calzadoHabitual;
+            podologo podologo = visita.podologo;
+
             return new FormPrimeraVisita
             {
                 IdPrimeraVisita = visita.idPrimeraVisita,
@@ -92,19 +104,26 @@ namespace Angle.Models
                 Vestir = calzado.vestir,
                 Sandalias = calzado.sandalias,
                 Botines = calzado.botines,
-                Tacones = calzado.tacones
+                Tacones = calzado.tacones,
+
+                // podologo
+                IdPodologo = visita.id_podologo,
+                IdTitulo = podologo.idTitulo,
+                Email = podologo.email
+
             };
         }
 
 
-        public void InsertarEn(podologiaEntities podo, paciente paciente)
+        public void InsertarEn(podologiaEntities podo, primeraVisita visita)
         {
             using (var tr = podo.Database.BeginTransaction())
             {
                 try
                 {
-                    var nuevoIdPrimeraVisita = Guid.NewGuid();
                     var nuevoIdCalzado = Guid.NewGuid();
+                    var nuevoIdPodologo = Guid.NewGuid();
+                    var nuevoIdPrimeraVisita = Guid.NewGuid();
 
                     int retCalzado = podo.Database.ExecuteSqlCommand(
                        @"INSERT INTO calzadoHabitual(
@@ -124,49 +143,104 @@ namespace Angle.Models
                        this.Botines,
                        this.Tacones
                        );
-
-                    int retPrimeraVisita = podo.Database.ExecuteSqlCommand(
-                         @"INSERT INTO primeraVisita(
-                            [idPrimeraVisita],
-                            [peso],
-                            [talla],
-                            [actividadDeportiva],
-                            [diabetes],
-                            [alergias],
-                            [tipoAlergias],
-                            [motivoPrimeraConsulta],
-                            [hayDolor],
-                            [dolorSitio],
-                            [dolorTipo],
-                            [fechaPrimeraConsulta],
-                            [id_paciente],
-                            [id_calzado_habitual]
+/*
+                    int retPodologo = podo.Database.ExecuteSqlCommand(
+                      @"INSERT INTO podologo(
+                            [idPodologo],
+                            [idTitulo],
+                            [email]
+                            
                             ) VALUES (
-                            @p0, @p1,
-                            @p2, @p3,
-                            @p4, @p5,
-                            @p6, @p7,
-                            @p8, @p9,
-                            @p10, @p11, @p12, @p13                  
-                           )",
-                        nuevoIdPrimeraVisita,
-                        this.Peso,
-                        this.Altura,
-                        this.ActividadDeportiva,
-                        this.Diabetes,
-                        this.Alergias,
-                        this.TipoAlergia,
-                        this.MotivoPrimeraConsulta,
-                        this.HayDolor,
-                        this.ZonaDolor,
-                        this.TipoDolor,
-                        this.FechaPrimeraConsulta,
-                        this.IdPaciente,
-                        nuevoIdCalzado
-                        );
+                            @p0, @p1, @p2
+                            )",
+                      nuevoIdPodologo,
+                      this.IdTitulo,
+                      this.Email
+                      );
+*/
+/*
+                      int retPrimeraVisita = podo.Database.ExecuteSqlCommand(
+                           @"INSERT INTO primeraVisita(
+                              [idPrimeraVisita],
+                              [peso],
+                              [talla],
+                              [actividadDeportiva],
+                              [diabetes],
+                              [alergias],
+                              [tipoAlergias],
+                              [motivoPrimeraConsulta],
+                              [hayDolor],
+                              [dolorSitio],
+                              [dolorTipo],
+                              [fechaPrimeraConsulta],
+                              [id_paciente],
+                              [id_calzado_habitual]
+                              ) VALUES (
+                              @p0, @p1,
+                              @p2, @p3,
+                              @p4, @p5,
+                              @p6, @p7,
+                              @p8, @p9,
+                              @p10, @p11, @p12, @p13           
+                             )",
+                          nuevoIdPrimeraVisita,
+                          this.Peso,
+                          this.Altura,
+                          this.ActividadDeportiva,
+                          this.Diabetes,
+                          this.Alergias,
+                          this.TipoAlergia,
+                          this.MotivoPrimeraConsulta,
+                          this.HayDolor,
+                          this.ZonaDolor,
+                          this.TipoDolor,
+                          this.FechaPrimeraConsulta,
+                          this.IdPaciente,
+                          nuevoIdCalzado
+                          );
+*/                          
+                    /*    int retDiagnostico = podo.Database.ExecuteSqlCommand(
+                      @"UPDATE diagnostico SET
+                            [id_primera_visita] = @p1
+                            WHERE idDiagnostico = @p0
+                               ",
+                      this.IdPrimeraVisita,
 
-                   
 
+                      );
+                      */
+                   /* int retPrimeraVisita = podo.Database.ExecuteSqlCommand(
+                          @"UPDATE primeraVisita SET
+                            [peso]=@p1,
+                            [talla]=@p2,
+                            [actividadDeportiva]=@p3,
+                            [diabetes]=@p4,
+                            [alergias]=@p5,
+                            [tipoAlergias]=@p6,
+                            [motivoPrimeraConsulta]=@p7,
+                            [hayDolor]=@p8,
+                            [dolorSitio]=@p9,
+                            [dolorTipo]=@p10,
+                            [fechaPrimeraConsulta]=@p11,
+                            [id_paciente]=@p12,
+                            [id_calzado_habitual]=@p13
+                            WHERE [idPrimeraVisita] = @p0",
+                         visita.idPrimeraVisita,
+                         this.Peso,
+                         this.Altura,
+                         this.ActividadDeportiva,
+                         this.Diabetes,
+                         this.Alergias,
+                         this.TipoAlergia,
+                         this.MotivoPrimeraConsulta,
+                         this.HayDolor,
+                         this.ZonaDolor,
+                         this.TipoDolor,
+                         this.FechaPrimeraConsulta,
+                         this.IdPaciente,
+                         nuevoIdCalzado
+                         );
+                         */
                     tr.Commit();
                 }
                 catch (Exception)

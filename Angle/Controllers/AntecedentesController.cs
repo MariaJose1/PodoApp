@@ -58,16 +58,18 @@ namespace Angle.Controllers
         {
             return View();
         }
-        
+
         // GET: /Antecedentes/Edit
-        public ActionResult Edit(Guid? idhistorial)
+
+        public ActionResult Edit(Guid? idpaciente)
         {
-            if (idhistorial == null)
+            if (idpaciente == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            historialClinico historial = db.historialClinico.Find(idhistorial);
+            paciente paciente = db.paciente.Find(idpaciente);
+            historialClinico historial = paciente.historialClinico;
 
             if (historial == null)
             {
@@ -91,41 +93,6 @@ namespace Angle.Controllers
             return View(form);
         }
 
-
-        // GET: /Antecedentes/Details
-        public ActionResult Details(Guid? idhistorial)
-        {
-            if (idhistorial == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-
-            historialClinico historial = db.historialClinico.Find(idhistorial);
-
-            if (historial == null)
-            {
-                return HttpNotFound();
-            }
-
-            FormAntecedentes form = FormAntecedentes.Rellenar(historial);
-
-            return View(form);
-        }
-
-
-        // POST: /Antecedentes/Details
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Details(FormAntecedentes form)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(form).State = System.Data.Entity.EntityState.Detached;
-                db.SaveChanges();
-                return RedirectToAction("Create");
-            }
-            return View(form);
-        }
         
     }
 

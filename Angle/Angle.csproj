@@ -814,10 +814,8 @@
     <Content Include="Views\Paciente\Create.cshtml" />
     <Content Include="Views\Paciente\Edit.cshtml" />
     <Content Include="Views\Antecedentes\Create.cshtml" />
-    <Content Include="Views\Paciente\Details.cshtml" />
     <Content Include="Views\Antecedentes\Edit.cshtml" />
     <Content Include="Views\Paciente\Index.cshtml" />
-    <Content Include="Views\Antecedentes\Details.cshtml" />
     <Content Include="Views\DiagnosticoTratamiento\Create.cshtml" />
     <Content Include="Views\DiagnosticoTratamiento\Edit.cshtml" />
     <Content Include="Views\PrimeraVisita\Create.cshtml" />

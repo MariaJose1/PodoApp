@@ -60,7 +60,7 @@ namespace Angle.Models
         public bool Ciatica { get; set; }
 
         [DisplayName("Otros")]
-        public string Otros { get; set; }
+        public string OtrosPatologico { get; set; }
 
         [DisplayName("Distensión")]
         public bool Distension { get; set; }
@@ -118,6 +118,9 @@ namespace Angle.Models
         [DisplayName("Parto de nalgas")]
         public bool PartoNalgas { get; set; }
 
+        [DisplayName("Otros")]
+        public string OtrosFisiologico { get; set; }
+
         // ANTECEDENTES FAMILIARES
 
         [DisplayName("Dismetrías")]
@@ -159,6 +162,8 @@ namespace Angle.Models
         [DisplayName("Meta Varus")]
         public bool MetaVarus { get; set; }
 
+        [DisplayName("Otros")]
+        public string OtrosFamiliares { get; set; }
 
 
         public static FormAntecedentes Rellenar (historialClinico historial)
@@ -197,7 +202,7 @@ namespace Angle.Models
                 Subluxacion = patologicos.subluxacion,
                 Fisura = patologicos.fisura,
                 Fractura = patologicos.fractura,
-                Otros = patologicos.otros,
+                OtrosPatologico = patologicos.otros,
                 
                 // fisiológicos
                 IdAntFisiologicos = historial.id_ant_fisiologicos,
@@ -211,7 +216,7 @@ namespace Angle.Models
                 Ambidiestro = fisiologicos.ambidiestro,
                 PartoCabeza = fisiologicos.partoCabeza,
                 PartoNalgas = fisiologicos.partoNalgas,
-
+                OtrosFisiologico = fisiologicos.otros,
 
                 // familiares
                 IdAntFamiliares = historial.id_ant_familiares,
@@ -227,8 +232,9 @@ namespace Angle.Models
                 GenuVaro = familiares.genuVaro,
                 GenuValgo = familiares.genuValgo,
                 MetaAductus = familiares.metaAductus,
-                MetaVarus = familiares.metaVarus
-
+                MetaVarus = familiares.metaVarus,
+                OtrosFamiliares = familiares.otros
+               
                 
                 
             };
@@ -246,7 +252,7 @@ namespace Angle.Models
                     var nuevoIdPato = Guid.NewGuid();
 
                    
-                
+
                     int retPodologicos = podo.Database.ExecuteSqlCommand(
                         @"INSERT INTO antecedentesPodologicos(
                             [idAPodologicos],
@@ -301,7 +307,7 @@ namespace Angle.Models
                        this.EnfermedadReumatica,
                        this.TipoEnfermedadReumatica,
                        this.Ciatica,
-                       this.Otros,
+                       this.OtrosPatologico,
                        this.Distension,
                        this.Esguince,
                        this.Tendinitis,
@@ -349,7 +355,7 @@ namespace Angle.Models
                        this.PiesZambos,
                        this.HallusValgus,
                        this.DedosGarra,
-                       null,
+                       this.OtrosFamiliares,
                        this.GenuVaro,
                        this.GenuValgo,
                        this.MetaAductus,
@@ -387,7 +393,7 @@ namespace Angle.Models
                       this.Zurdo,
                       this.Diestro,
                       this.Ambidiestro,
-                      null,
+                      this.OtrosFisiologico,
                       this.PartoCabeza,
                       this.PartoNalgas
                       );
@@ -409,6 +415,8 @@ namespace Angle.Models
                     nuevoIdPato
                     );
 
+                  
+                    
 
                     tr.Commit();
                 }
@@ -476,7 +484,7 @@ namespace Angle.Models
                         this.PiesZambos,
                         this.HallusValgus,
                         this.DedosGarra,
-                        null,
+                        this.OtrosFamiliares,
                         this.GenuVaro,
                         this.GenuValgo,
                         this.MetaAductus,
@@ -506,7 +514,7 @@ namespace Angle.Models
                         this.Zurdo,
                         this.Diestro,
                         this.Ambidiestro,
-                        null,
+                        this.OtrosFisiologico,
                         this.PartoCabeza,
                         this.PartoNalgas
                         );
@@ -541,7 +549,7 @@ namespace Angle.Models
                         this.EnfermedadReumatica,
                         this.TipoEnfermedadReumatica,
                         this.Ciatica,
-                        this.Otros,
+                        this.OtrosPatologico,
                         this.Distension,
                         this.Esguince,
                         this.Tendinitis,
