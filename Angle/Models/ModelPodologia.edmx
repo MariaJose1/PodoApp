@@ -579,6 +579,21 @@
           <Property Name="id_estudio_ortopodologico" Type="uniqueidentifier" />
           <Property Name="id_calzado_habitual" Type="uniqueidentifier" />
         </EntityType>
+        <EntityType Name="pruebasComplementarias">
+          <Key>
+            <PropertyRef Name="idPrueba" />
+          </Key>
+          <Property Name="idPrueba" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="pedigrafia" Type="varbinary(max)" />
+          <Property Name="rayosX" Type="varbinary(max)" />
+          <Property Name="analisisSanguineo" Type="varbinary(max)" />
+          <Property Name="cultivo" Type="varbinary(max)" />
+          <Property Name="doppler" Type="varbinary(max)" />
+          <Property Name="ecografia" Type="varbinary(max)" />
+          <Property Name="fotos" Type="varbinary(max)" />
+          <Property Name="fecha" Type="datetime" />
+          <Property Name="id_primera_visita" Type="uniqueidentifier" />
+        </EntityType>
         <EntityType Name="retropie">
           <Key>
             <PropertyRef Name="idRetropie" />
@@ -1191,6 +1206,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_pruebasComplementarias_primeraVisita">
+          <End Role="primeraVisita" Type="Self.primeraVisita" Multiplicity="0..1" />
+          <End Role="pruebasComplementarias" Type="Self.pruebasComplementarias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="primeraVisita">
+              <PropertyRef Name="idPrimeraVisita" />
+            </Principal>
+            <Dependent Role="pruebasComplementarias">
+              <PropertyRef Name="id_primera_visita" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_visionFrontal_anguloFick">
           <End Role="anguloFick" Type="Self.anguloFick" Multiplicity="0..1" />
           <End Role="visionFrontal" Type="Self.visionFrontal" Multiplicity="*" />
@@ -1240,6 +1267,7 @@
           <EntitySet Name="persona" EntityType="Self.persona" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="podologo" EntityType="Self.podologo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="primeraVisita" EntityType="Self.primeraVisita" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pruebasComplementarias" EntityType="Self.pruebasComplementarias" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="retropie" EntityType="Self.retropie" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sedestacionExploracionArticular" EntityType="Self.sedestacionExploracionArticular" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sedestacionExploracionMuscular" EntityType="Self.sedestacionExploracionMuscular" Schema="dbo" store:Type="Tables" />
@@ -1415,6 +1443,10 @@
           <AssociationSet Name="FK_primeraVisita_tipoEstudio" Association="Self.FK_primeraVisita_tipoEstudio">
             <End Role="tipoEstudio" EntitySet="tipoEstudio" />
             <End Role="primeraVisita" EntitySet="primeraVisita" />
+          </AssociationSet>
+          <AssociationSet Name="FK_pruebasComplementarias_primeraVisita" Association="Self.FK_pruebasComplementarias_primeraVisita">
+            <End Role="primeraVisita" EntitySet="primeraVisita" />
+            <End Role="pruebasComplementarias" EntitySet="pruebasComplementarias" />
           </AssociationSet>
           <AssociationSet Name="FK_visionFrontal_anguloFick" Association="Self.FK_visionFrontal_anguloFick">
             <End Role="anguloFick" EntitySet="anguloFick" />
@@ -2065,6 +2097,7 @@
           <NavigationProperty Name="paciente" Relationship="Self.FK_primeraVisita_paciente" FromRole="primeraVisita" ToRole="paciente" />
           <NavigationProperty Name="podologo" Relationship="Self.FK_primeraVisita_podologo" FromRole="primeraVisita" ToRole="podologo" />
           <NavigationProperty Name="tipoEstudio" Relationship="Self.FK_primeraVisita_tipoEstudio" FromRole="primeraVisita" ToRole="tipoEstudio" />
+          <NavigationProperty Name="pruebasComplementarias" Relationship="podologiaModel.FK_pruebasComplementarias_primeraVisita" FromRole="primeraVisita" ToRole="pruebasComplementarias" />
         </EntityType>
         <EntityType Name="retropie">
           <Key>
@@ -2887,7 +2920,40 @@
             <End Role="AspNetRoles" EntitySet="AspNetRoles" />
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
           </AssociationSet>
+          <EntitySet Name="pruebasComplementarias" EntityType="podologiaModel.pruebasComplementarias" />
+          <AssociationSet Name="FK_pruebasComplementarias_primeraVisita" Association="podologiaModel.FK_pruebasComplementarias_primeraVisita">
+            <End Role="primeraVisita" EntitySet="primeraVisita" />
+            <End Role="pruebasComplementarias" EntitySet="pruebasComplementarias" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="pruebasComplementarias">
+          <Key>
+            <PropertyRef Name="idPrueba" />
+          </Key>
+          <Property Name="idPrueba" Type="Guid" Nullable="false" />
+          <Property Name="pedigrafia" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="rayosX" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="analisisSanguineo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="cultivo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="doppler" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="ecografia" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="fotos" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="fecha" Type="DateTime" Precision="3" />
+          <Property Name="id_primera_visita" Type="Guid" />
+          <NavigationProperty Name="primeraVisita" Relationship="podologiaModel.FK_pruebasComplementarias_primeraVisita" FromRole="pruebasComplementarias" ToRole="primeraVisita" />
+        </EntityType>
+        <Association Name="FK_pruebasComplementarias_primeraVisita">
+          <End Type="podologiaModel.primeraVisita" Role="primeraVisita" Multiplicity="0..1" />
+          <End Type="podologiaModel.pruebasComplementarias" Role="pruebasComplementarias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="primeraVisita">
+              <PropertyRef Name="idPrimeraVisita" />
+            </Principal>
+            <Dependent Role="pruebasComplementarias">
+              <PropertyRef Name="id_primera_visita" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -3589,6 +3655,22 @@
               <ScalarProperty Name="Id" ColumnName="UserId" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="pruebasComplementarias">
+            <EntityTypeMapping TypeName="podologiaModel.pruebasComplementarias">
+              <MappingFragment StoreEntitySet="pruebasComplementarias">
+                <ScalarProperty Name="id_primera_visita" ColumnName="id_primera_visita" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="fotos" ColumnName="fotos" />
+                <ScalarProperty Name="ecografia" ColumnName="ecografia" />
+                <ScalarProperty Name="doppler" ColumnName="doppler" />
+                <ScalarProperty Name="cultivo" ColumnName="cultivo" />
+                <ScalarProperty Name="analisisSanguineo" ColumnName="analisisSanguineo" />
+                <ScalarProperty Name="rayosX" ColumnName="rayosX" />
+                <ScalarProperty Name="pedigrafia" ColumnName="pedigrafia" />
+                <ScalarProperty Name="idPrueba" ColumnName="idPrueba" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

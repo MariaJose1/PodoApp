@@ -1,0 +1,18 @@
+﻿@model Angle.Models.SubirArchivosModel
+
+@{
+    /**/
+
+    ViewBag.Title = "FileUpload";
+}
+
+<h2>FileUpload</h2>
+<h2 class="text-danger">@ViewBag.Error</h2>
+<h2 class="text-success">@ViewBag.Correcto</h2>
+
+<form method="post" enctype="multipart/form-data">
+
+    <input type="file" name="file" />
+    <button type="submit">Subir archivo</button>
+
+</form>

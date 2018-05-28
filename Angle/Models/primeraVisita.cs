@@ -18,6 +18,7 @@ namespace Angle.Models
         public primeraVisita()
         {
             this.diagnostico = new HashSet<diagnostico>();
+            this.pruebasComplementarias = new HashSet<pruebasComplementarias>();
         }
     
         public System.Guid idPrimeraVisita { get; set; }
@@ -46,5 +47,7 @@ namespace Angle.Models
         public virtual paciente paciente { get; set; }
         public virtual podologo podologo { get; set; }
         public virtual tipoEstudio tipoEstudio { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<pruebasComplementarias> pruebasComplementarias { get; set; }
     }
 }

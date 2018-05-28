@@ -640,6 +640,7 @@
     <NavigationProperty Name="paciente" Relationship="Self.FK_primeraVisita_paciente" FromRole="primeraVisita" ToRole="paciente" />
     <NavigationProperty Name="podologo" Relationship="Self.FK_primeraVisita_podologo" FromRole="primeraVisita" ToRole="podologo" />
     <NavigationProperty Name="tipoEstudio" Relationship="Self.FK_primeraVisita_tipoEstudio" FromRole="primeraVisita" ToRole="tipoEstudio" />
+    <NavigationProperty Name="pruebasComplementarias" Relationship="podologiaModel.FK_pruebasComplementarias_primeraVisita" FromRole="primeraVisita" ToRole="pruebasComplementarias" />
   </EntityType>
   <EntityType Name="retropie">
     <Key>
@@ -1462,5 +1463,38 @@
       <End Role="AspNetRoles" EntitySet="AspNetRoles" />
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
     </AssociationSet>
+    <EntitySet Name="pruebasComplementarias" EntityType="podologiaModel.pruebasComplementarias" />
+    <AssociationSet Name="FK_pruebasComplementarias_primeraVisita" Association="podologiaModel.FK_pruebasComplementarias_primeraVisita">
+      <End Role="primeraVisita" EntitySet="primeraVisita" />
+      <End Role="pruebasComplementarias" EntitySet="pruebasComplementarias" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="pruebasComplementarias">
+    <Key>
+      <PropertyRef Name="idPrueba" />
+    </Key>
+    <Property Name="idPrueba" Type="Guid" Nullable="false" />
+    <Property Name="pedigrafia" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="rayosX" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="analisisSanguineo" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="cultivo" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="doppler" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="ecografia" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="fotos" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="fecha" Type="DateTime" Precision="3" />
+    <Property Name="id_primera_visita" Type="Guid" />
+    <NavigationProperty Name="primeraVisita" Relationship="podologiaModel.FK_pruebasComplementarias_primeraVisita" FromRole="pruebasComplementarias" ToRole="primeraVisita" />
+  </EntityType>
+  <Association Name="FK_pruebasComplementarias_primeraVisita">
+    <End Type="podologiaModel.primeraVisita" Role="primeraVisita" Multiplicity="0..1" />
+    <End Type="podologiaModel.pruebasComplementarias" Role="pruebasComplementarias" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="primeraVisita">
+        <PropertyRef Name="idPrimeraVisita" />
+      </Principal>
+      <Dependent Role="pruebasComplementarias">
+        <PropertyRef Name="id_primera_visita" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

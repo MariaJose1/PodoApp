@@ -574,6 +574,21 @@
     <Property Name="id_estudio_ortopodologico" Type="uniqueidentifier" />
     <Property Name="id_calzado_habitual" Type="uniqueidentifier" />
   </EntityType>
+  <EntityType Name="pruebasComplementarias">
+    <Key>
+      <PropertyRef Name="idPrueba" />
+    </Key>
+    <Property Name="idPrueba" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="pedigrafia" Type="varbinary(max)" />
+    <Property Name="rayosX" Type="varbinary(max)" />
+    <Property Name="analisisSanguineo" Type="varbinary(max)" />
+    <Property Name="cultivo" Type="varbinary(max)" />
+    <Property Name="doppler" Type="varbinary(max)" />
+    <Property Name="ecografia" Type="varbinary(max)" />
+    <Property Name="fotos" Type="varbinary(max)" />
+    <Property Name="fecha" Type="datetime" />
+    <Property Name="id_primera_visita" Type="uniqueidentifier" />
+  </EntityType>
   <EntityType Name="retropie">
     <Key>
       <PropertyRef Name="idRetropie" />
@@ -1186,6 +1201,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_pruebasComplementarias_primeraVisita">
+    <End Role="primeraVisita" Type="Self.primeraVisita" Multiplicity="0..1" />
+    <End Role="pruebasComplementarias" Type="Self.pruebasComplementarias" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="primeraVisita">
+        <PropertyRef Name="idPrimeraVisita" />
+      </Principal>
+      <Dependent Role="pruebasComplementarias">
+        <PropertyRef Name="id_primera_visita" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_visionFrontal_anguloFick">
     <End Role="anguloFick" Type="Self.anguloFick" Multiplicity="0..1" />
     <End Role="visionFrontal" Type="Self.visionFrontal" Multiplicity="*" />
@@ -1235,6 +1262,7 @@
     <EntitySet Name="persona" EntityType="Self.persona" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="podologo" EntityType="Self.podologo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="primeraVisita" EntityType="Self.primeraVisita" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="pruebasComplementarias" EntityType="Self.pruebasComplementarias" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="retropie" EntityType="Self.retropie" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sedestacionExploracionArticular" EntityType="Self.sedestacionExploracionArticular" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sedestacionExploracionMuscular" EntityType="Self.sedestacionExploracionMuscular" Schema="dbo" store:Type="Tables" />
@@ -1410,6 +1438,10 @@
     <AssociationSet Name="FK_primeraVisita_tipoEstudio" Association="Self.FK_primeraVisita_tipoEstudio">
       <End Role="tipoEstudio" EntitySet="tipoEstudio" />
       <End Role="primeraVisita" EntitySet="primeraVisita" />
+    </AssociationSet>
+    <AssociationSet Name="FK_pruebasComplementarias_primeraVisita" Association="Self.FK_pruebasComplementarias_primeraVisita">
+      <End Role="primeraVisita" EntitySet="primeraVisita" />
+      <End Role="pruebasComplementarias" EntitySet="pruebasComplementarias" />
     </AssociationSet>
     <AssociationSet Name="FK_visionFrontal_anguloFick" Association="Self.FK_visionFrontal_anguloFick">
       <End Role="anguloFick" EntitySet="anguloFick" />

@@ -193,6 +193,8 @@
     <Compile Include="Controllers\PacienteController.cs" />
     <Compile Include="Controllers\PagesController.cs" />
     <Compile Include="Controllers\PrimeraVisitaController.cs" />
+    <Compile Include="Controllers\ListaPacientesController.cs" />
+    <Compile Include="Controllers\SubirArchivoController.cs" />
     <Compile Include="Controllers\TablesController.cs" />
     <Compile Include="Controllers\WidgetsController.cs" />
     <Compile Include="Global.asax.cs">
@@ -328,6 +330,9 @@
     <Compile Include="Models\primeraVisita.cs">
       <DependentUpon>ModelPodologia.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\pruebasComplementarias.cs">
+      <DependentUpon>ModelPodologia.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\retropie.cs">
       <DependentUpon>ModelPodologia.tt</DependentUpon>
     </Compile>
@@ -337,6 +342,7 @@
     <Compile Include="Models\sedestacionExploracionMuscular.cs">
       <DependentUpon>ModelPodologia.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\SubirArchivosModel.cs" />
     <Compile Include="Models\sysdiagrams.cs">
       <DependentUpon>ModelPodologia.tt</DependentUpon>
     </Compile>
@@ -820,6 +826,8 @@
     <Content Include="Views\DiagnosticoTratamiento\Edit.cshtml" />
     <Content Include="Views\PrimeraVisita\Create.cshtml" />
     <Content Include="Views\PrimeraVisita\Edit.cshtml" />
+    <Content Include="Views\ListaPacientes\Index.cshtml" />
+    <Content Include="Views\SubirArchivo\FileUpload.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

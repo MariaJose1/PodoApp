@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Angle.Models.paciente>
+
+<h2>Lista de Pacientes</h2>
+
+<p>
+    @Html.ActionLink("Crear nuevo paciente", "Create", "Paciente")
+</p>
+
+<div class="panel panel-default">
+    <div class="panel-body">
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayName("Nombre")
+                </th>
+                <th>
+                    @Html.DisplayName("DNI")
+                </th>
+                <th>
+                    @Html.DisplayName("Número Historial")
+                </th>
+                <th>
+                    @Html.DisplayName("Antecedentes")
+                </th>
+                <th>
+                    @Html.DisplayName("Primera Visita")
+                </th>
+                <th>
+                    @Html.DisplayName("Diagnóstico y Tratamiento")
+                </th>
+                <th>
+                    @Html.DisplayName("Consultas")
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.persona.nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.persona.dni)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.historialClinico.numeroHistorialClinico)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Añadir", "Create", "Antecedentes") |
+                        @Html.ActionLink("Editar", "Edit", "Antecedentes")
+                    </td>
+                    <td>
+                        @Html.ActionLink("Añadir", "Create", "PrimeraVisita") |
+                       @* @Html.DisplayFor(modelItem => item.idPaciente)*@
+
+                        @Html.ActionLink("Editar", "Edit", "PrimeraVisita")
+                    </td>
+                    <td>
+                        @Html.ActionLink("Añadir", "Create", "DiagnosticoTratamiento") |
+                        @Html.ActionLink("Editar", "Edit", "DiagnosticoTratamiento")
+                    </td>
+                    <td>
+                        @Html.ActionLink("Añadir", "Create", "Consultas") |
+                        @Html.ActionLink("Editar", "Edit", "Consultas")
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>

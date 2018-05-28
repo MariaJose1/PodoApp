@@ -696,5 +696,21 @@
         <ScalarProperty Name="Id" ColumnName="UserId" />
       </EndProperty>
     </AssociationSetMapping>
+    <EntitySetMapping Name="pruebasComplementarias">
+      <EntityTypeMapping TypeName="podologiaModel.pruebasComplementarias">
+        <MappingFragment StoreEntitySet="pruebasComplementarias">
+          <ScalarProperty Name="id_primera_visita" ColumnName="id_primera_visita" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="fotos" ColumnName="fotos" />
+          <ScalarProperty Name="ecografia" ColumnName="ecografia" />
+          <ScalarProperty Name="doppler" ColumnName="doppler" />
+          <ScalarProperty Name="cultivo" ColumnName="cultivo" />
+          <ScalarProperty Name="analisisSanguineo" ColumnName="analisisSanguineo" />
+          <ScalarProperty Name="rayosX" ColumnName="rayosX" />
+          <ScalarProperty Name="pedigrafia" ColumnName="pedigrafia" />
+          <ScalarProperty Name="idPrueba" ColumnName="idPrueba" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -8,12 +9,14 @@ using System.Web;
 
 namespace Angle.Models
 {
-    public class FormPaciente
+    public class FormPaciente : IEnumerable
     {
+        [Key()]
+        IEnumerable<FormPaciente> pacientes { get; set; }
+
         // PACIENTE
 
         [Required()]
-        [Key()]
         public Guid IdPaciente { get; set; }
 
         [DisplayName("Medicación habitual")]
@@ -293,7 +296,18 @@ namespace Angle.Models
 
         }
 
+        // Enumerator
 
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return (IEnumerator)GetEnumerator();
+        }
 
+        public IEnumerator GetEnumerator()
+        {
+            return ((IEnumerable)pacientes).GetEnumerator();
+        }
+
+      
     }
 }
