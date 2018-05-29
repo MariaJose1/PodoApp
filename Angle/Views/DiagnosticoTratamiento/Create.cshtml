@@ -4,7 +4,7 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Añadir Diagnóstico y Tratamiento</h2>
+<h3>Añadir Diagnóstico y Tratamiento</h3>
 
 @using (Html.BeginForm())
 {
@@ -133,11 +133,27 @@
                         </div>
                     </div>
                 </div>
-             
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Tad, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <div class="checkbox">
+                            @Html.EditorFor(model => model.Tad)
+                            @Html.ValidationMessageFor(model => model.Tad, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Resinas, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <div class="checkbox">
+                            @Html.EditorFor(model => model.Resinas)
+                            @Html.ValidationMessageFor(model => model.Resinas, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
     </div>
-
+</div>
     <div class="form-group">
         <div class="col-md-offset-5 col-md-10">
             <input type="submit" value="Añadir" class="btn btn-primary" />

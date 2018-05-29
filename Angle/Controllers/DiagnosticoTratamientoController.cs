@@ -44,7 +44,7 @@ namespace Angle.Controllers
             {
                 paciente paciente = db.paciente.Find(form.IdPaciente);
                 form.InsertarEn(db, paciente);
-                return RedirectToAction("Create");
+                return RedirectToAction("Index", "ListaPacientes");
             }
             return View(form);
         }
@@ -76,7 +76,7 @@ namespace Angle.Controllers
             if (ModelState.IsValid)
             {
                 form.GuardarEn(db);
-                return RedirectToAction("Create");
+                return RedirectToAction("Index", "ListaPacientes");
             }
             return View(form);
         }

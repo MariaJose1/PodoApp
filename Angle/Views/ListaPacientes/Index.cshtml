@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<Angle.Models.paciente>
 
-<h2>Lista de Pacientes</h2>
+<h2>Listado de Pacientes</h2>
 
 <p>
     @Html.ActionLink("Crear nuevo paciente", "Create", "Paciente")
@@ -31,6 +31,9 @@
                 <th>
                     @Html.DisplayName("Consultas")
                 </th>
+                <th>
+                    @Html.DisplayName("Subir pruebas")
+                </th>
                 <th></th>
             </tr>
 
@@ -52,7 +55,7 @@
                     </td>
                     <td>
                         @Html.ActionLink("Añadir", "Create", "PrimeraVisita") |
-                       @* @Html.DisplayFor(modelItem => item.idPaciente)*@
+                        @* @Html.DisplayFor(modelItem => item.idPaciente)*@
 
                         @Html.ActionLink("Editar", "Edit", "PrimeraVisita")
                     </td>
@@ -64,8 +67,13 @@
                         @Html.ActionLink("Añadir", "Create", "Consultas") |
                         @Html.ActionLink("Editar", "Edit", "Consultas")
                     </td>
+                    <td>
+                        @Html.ActionLink("Subir", "FileUpload", "SubirArchivo")
+                    </td>
                 </tr>
             }
         </table>
     </div>
 </div>
+
+

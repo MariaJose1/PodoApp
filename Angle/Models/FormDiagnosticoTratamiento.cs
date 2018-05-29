@@ -108,10 +108,9 @@ namespace Angle.Models
                 Preventivo = tratamiento.preventivo,
                 PreventivoObservaciones = tratamiento.preventivoObservacion,
                 Calzadoterapia = tratamiento.calzadoterapia,
-                Otros = tratamiento.otros,
+                Otros = tratamiento.otros
 
                 // material soporte plantar
-
 
             };
 
@@ -119,12 +118,16 @@ namespace Angle.Models
 
         public void InsertarEn(podologiaEntities podo, paciente paciente)
         {
+            primeraVisita visita = paciente.primeraVisita.FirstOrDefault();
+            
+
             using (var tr = podo.Database.BeginTransaction())
             {
                 try
                 {
                     var nuevoIdDiagnostico = Guid.NewGuid();
                     var nuevoIdTratamiento = Guid.NewGuid();
+                    var nuevoIdMaterial = Guid.NewGuid();
 
 
                     int retTratamiento = podo.Database.ExecuteSqlCommand(
@@ -167,20 +170,48 @@ namespace Angle.Models
 
                        );
 
+                   /* int retMaterial = podo.Database.ExecuteSqlCommand(
+                      @"INSERT INTO materialSoportePlantar(
+                            [idMaterialSoportePlantar],
+                            [TAD],
+                            [resinas],
+                            [EVA],
+                            [propileno],
+                            [componentes],
+                            [otros],
+                            [id_tratamiento]
+                            ) VALUES (
+                            @p0, @p1,
+                            @p2, @p3,
+                            @p4, @p5,
+                            @p6, @p7          
+                           )",
+                      nuevoIdMaterial,
+                      this.Tad,
+                      this.Resinas,
+                      this.Eva,
+                      this.Propileno,
+                      this.Componentes,
+                      this.Otros,
+                      nuevoIdTratamiento
+                      );
+                      */
                     int retDiagnostico = podo.Database.ExecuteSqlCommand(
                         @"INSERT INTO diagnostico(
                             [idDiagnostico],
                             [anotaciones],
+                            [id_primera_visita],
                             [id_tratamiento]
                             ) VALUES (
-                            @p0, @p1, @p2
+                            @p0, @p1, @p2, @p3
                             )",
                         nuevoIdDiagnostico,
                         this.Anotaciones,
+                        visita.idPrimeraVisita,
                         nuevoIdTratamiento
                         );
 
-                    
+                   
 
                     tr.Commit();
                 }

@@ -33,7 +33,7 @@ namespace Angle.Controllers
             if (ModelState.IsValid)
             {
                 form.InsertarEn(db);
-                return RedirectToAction("Create");
+                return RedirectToAction("Index", "ListaPacientes");
             }
             return View(form);
         }
@@ -75,7 +75,7 @@ namespace Angle.Controllers
             if (ModelState.IsValid)
             {
                 form.GuardarEn(db);
-                return RedirectToAction("Create");
+                return RedirectToAction("Index", "ListaPacientes");
             }
             return View(form);
         }

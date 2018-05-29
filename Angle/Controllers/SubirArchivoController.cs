@@ -12,7 +12,7 @@ namespace Angle.Controllers
     {
         // GET: SubirArchivo
         [HttpGet]
-        public ActionResult Upload()
+        public ActionResult FileUpload()
         {
             return View();
         }

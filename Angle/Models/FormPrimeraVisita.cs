@@ -158,8 +158,8 @@ namespace Angle.Models
                       this.Email
                       );
 */
-/*
-                      int retPrimeraVisita = podo.Database.ExecuteSqlCommand(
+
+            /*          int retPrimeraVisita = podo.Database.ExecuteSqlCommand(
                            @"INSERT INTO primeraVisita(
                               [idPrimeraVisita],
                               [peso],
@@ -198,7 +198,7 @@ namespace Angle.Models
                           this.IdPaciente,
                           nuevoIdCalzado
                           );
-*/                          
+                        */
                     /*    int retDiagnostico = podo.Database.ExecuteSqlCommand(
                       @"UPDATE diagnostico SET
                             [id_primera_visita] = @p1
@@ -209,7 +209,7 @@ namespace Angle.Models
 
                       );
                       */
-                   /* int retPrimeraVisita = podo.Database.ExecuteSqlCommand(
+                    int retPrimeraVisita = podo.Database.ExecuteSqlCommand(
                           @"UPDATE primeraVisita SET
                             [peso]=@p1,
                             [talla]=@p2,
@@ -240,7 +240,7 @@ namespace Angle.Models
                          this.IdPaciente,
                          nuevoIdCalzado
                          );
-                         */
+                         
                     tr.Commit();
                 }
                 catch (Exception)
