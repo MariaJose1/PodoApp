@@ -84,39 +84,47 @@ namespace Angle.Models
             calzadoHabitual calzado = visita.calzadoHabitual;
             podologo podologo = visita.podologo;
 
-            return new FormPrimeraVisita
-            {
-                IdPrimeraVisita = visita.idPrimeraVisita,
-                Peso = visita.peso,
-                Altura = visita.talla,
-                ActividadDeportiva = visita.actividadDeportiva,
-                Diabetes = visita.diabetes,
-                Alergias = visita.alergias,
-                TipoAlergia = visita.tipoAlergias,
-                MotivoPrimeraConsulta = visita.motivoPrimeraConsulta,
-                HayDolor = visita.hayDolor,
-                TipoDolor = visita.dolorTipo,
-                FechaPrimeraConsulta = visita.fechaPrimeraConsulta,
+            FormPrimeraVisita res = new FormPrimeraVisita();
+            res.IdPrimeraVisita = visita.idPrimeraVisita;
+            res.Peso = visita.peso;
+            res.Altura = visita.talla;
+            res.ActividadDeportiva = visita.actividadDeportiva;
+            res.Diabetes = visita.diabetes;
+            res.Alergias = visita.alergias;
+            res.TipoAlergia = visita.tipoAlergias;
+            res.MotivoPrimeraConsulta = visita.motivoPrimeraConsulta;
+            res.HayDolor = visita.hayDolor;
+            res.TipoDolor = visita.dolorTipo;
+            res.FechaPrimeraConsulta = visita.fechaPrimeraConsulta;
 
-                // calzado
-                IdCalzado = visita.id_calzado_habitual,
-                Deportivos = calzado.deportivos,
-                Vestir = calzado.vestir,
-                Sandalias = calzado.sandalias,
-                Botines = calzado.botines,
-                Tacones = calzado.tacones,
+            if (calzado != null)
+            {
+                res.IdCalzado = visita.id_calzado_habitual;
+                res.Deportivos = calzado.deportivos;
+                res.Vestir = calzado.vestir;
+                res.Sandalias = calzado.sandalias;
+                res.Botines = calzado.botines;
+                res.Tacones = calzado.tacones;
+            }
+
+            /*return new FormPrimeraVisita
+            {
+                res
 
                 // podologo
-                IdPodologo = visita.id_podologo,
-                IdTitulo = podologo.idTitulo,
-                Email = podologo.email
+                //IdPodologo = visita.id_podologo,
+                //IdTitulo = podologo.idTitulo,
+                //Email = podologo.email
 
-            };
+            };*/
+            return res;
         }
 
 
         public void InsertarEn(podologiaEntities podo, primeraVisita visita)
         {
+            visita = podo.primeraVisita.Where(p => p.idPrimeraVisita == this.IdPrimeraVisita).FirstOrDefault();
+
             using (var tr = podo.Database.BeginTransaction())
             {
                 try
@@ -266,21 +274,56 @@ namespace Angle.Models
                     Debug.Assert(this.IdPrimeraVisita == visita.idPrimeraVisita);
                     Debug.Assert(this.IdCalzado == visita.id_calzado_habitual);
 
-                    int retCalzadoHabitual = podo.Database.ExecuteSqlCommand(
-                        @"UPDATE [calzadoHabitual] SET
+                    var nuevoIdCalzado = Guid.NewGuid();
+
+                    if (visita.id_calzado_habitual == null)
+                    {
+                        visita.id_calzado_habitual = nuevoIdCalzado;
+                    }
+                    
+
+                    if (calzado != null)
+                    {
+                        int retCalzadoHabitual = podo.Database.ExecuteSqlCommand(
+                       @"UPDATE [calzadoHabitual] SET
                              [deportivos] = @p1,
                              [vestir] = @p2,
                              [sandalias] = @p3, 
                              [botines] = @p4,
                              [tacones] = @p5
                             WHERE [idCalzado] = @p0",
-                        calzado.idCalzado,
-                        this.Deportivos,
-                        this.Vestir,
-                        this.Sandalias,
-                        this.Botines,
-                        this.Tacones
-                        );
+                       calzado.idCalzado,
+                       this.Deportivos,
+                       this.Vestir,
+                       this.Sandalias,
+                       this.Botines,
+                       this.Tacones
+                       );
+                    }
+                    else
+                    {
+                        int retCalzado = podo.Database.ExecuteSqlCommand(
+                      @"INSERT INTO calzadoHabitual(
+                            [idCalzado],
+                            [deportivos],
+                            [vestir],
+                            [sandalias],
+                            [botines],
+                            [tacones]
+                            ) VALUES (
+                            @p0, @p1, @p2, @p3, @p4, @p5
+                            )",
+                      nuevoIdCalzado,
+                      this.Deportivos,
+                      this.Vestir,
+                      this.Sandalias,
+                      this.Botines,
+                      this.Tacones
+                      );
+                    }
+                   
+
+                   
 
                     int retPrimeraVisita = podo.Database.ExecuteSqlCommand(
                         @"UPDATE [primeraVisita] SET
@@ -294,7 +337,8 @@ namespace Angle.Models
                             [hayDolor] = @p8,
                             [dolorSitio] = @p9,
                             [dolorTipo] = @p10,
-                            [fechaPrimeraConsulta] = @p11
+                            [fechaPrimeraConsulta] = @p11,
+                            [id_calzado_habitual]=@p12
                            WHERE [idPrimeraVisita] = @p0",
                         visita.idPrimeraVisita,
                         this.Peso,
@@ -307,8 +351,10 @@ namespace Angle.Models
                         this.HayDolor,
                         this.ZonaDolor,
                         this.TipoDolor,
-                        this.FechaPrimeraConsulta
-    
+                        this.FechaPrimeraConsulta,
+                                                visita.id_calzado_habitual
+
+
                         );
 
                     tr.Commit();

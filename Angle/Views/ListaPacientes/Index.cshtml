@@ -50,14 +50,13 @@
                         @Html.DisplayFor(modelItem => item.historialClinico.numeroHistorialClinico)
                     </td>
                     <td>
-                        @Html.ActionLink("Añadir", "Create", "Antecedentes") |
-                        @Html.ActionLink("Editar", "Edit", "Antecedentes")
+                        <a href="@Url.Action("Create", "Antecedentes", new { idpaciente = item.idPaciente})">Añadir</a>
+                        <a href="@Url.Action("Edit", "Antecedentes", new { idpaciente = item.idPaciente})">Editar</a>
+
                     </td>
                     <td>
-                        @Html.ActionLink("Añadir", "Create", "PrimeraVisita") |
-                        @* @Html.DisplayFor(modelItem => item.idPaciente)*@
+                        <a href="@Url.Action("Edit", "PrimeraVisita", new { idvisita = item.primeraVisita.FirstOrDefault().idPrimeraVisita})">Editar</a>
 
-                        @Html.ActionLink("Editar", "Edit", "PrimeraVisita")
                     </td>
                     <td>
                         @Html.ActionLink("Añadir", "Create", "DiagnosticoTratamiento") |

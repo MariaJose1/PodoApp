@@ -170,7 +170,7 @@ namespace Angle.Models
 
                        );
 
-                   /* int retMaterial = podo.Database.ExecuteSqlCommand(
+                    int retMaterial = podo.Database.ExecuteSqlCommand(
                       @"INSERT INTO materialSoportePlantar(
                             [idMaterialSoportePlantar],
                             [TAD],
@@ -195,7 +195,7 @@ namespace Angle.Models
                       this.Otros,
                       nuevoIdTratamiento
                       );
-                      */
+                      
                     int retDiagnostico = podo.Database.ExecuteSqlCommand(
                         @"INSERT INTO diagnostico(
                             [idDiagnostico],

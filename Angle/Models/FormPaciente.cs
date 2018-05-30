@@ -173,26 +173,9 @@ namespace Angle.Models
                       this.NumeroHistoriaClinica
                       );
 
-                    int retPV = podo.Database.ExecuteSqlCommand(
-                      @"INSERT INTO primeraVisita(
-                            [idPrimeraVisita],
-                            [diabetes],
-                            [alergias],
-                            [hayDolor],
-                            [id_historial_clinico]
-                            ) VALUES (
-                            @p0, @p1,@p2,@p3,@p4
-                            )",
-                     nuevoIdPV,
-                     0,
-                     0,
-                     0,
-                     nuevoIdHistorial
-                      );
-
                     int ret2 = podo.Database.ExecuteSqlCommand(
 
-                          @"INSERT INTO paciente(
+                        @"INSERT INTO paciente(
                             [idPaciente],
                             [medicacionHabitual], 
                             [observacion], 
@@ -204,13 +187,34 @@ namespace Angle.Models
                             @p2, @p3,
                             @p4, @p5
                         )",
-                          nuevoID2,
-                          this.MedicacionHabitual,
-                          this.Observacion,
-                          this.IdPodologo,
-                          nuevoIdHistorial,
-                          nuevoID
-                          );
+                        nuevoID2,
+                        this.MedicacionHabitual,
+                        this.Observacion,
+                        this.IdPodologo,
+                        nuevoIdHistorial,
+                        nuevoID
+                        );
+
+                    int retPV = podo.Database.ExecuteSqlCommand(
+                      @"INSERT INTO primeraVisita(
+                            [idPrimeraVisita],
+                            [diabetes],
+                            [alergias],
+                            [hayDolor],
+                            [id_paciente],
+                            [id_historial_clinico]
+                            ) VALUES (
+                            @p0, @p1,@p2,@p3,@p4,@p5
+                            )",
+                     nuevoIdPV,
+                     0,
+                     0,
+                     0,
+                     nuevoID2,
+                     nuevoIdHistorial
+                      );
+
+                  
 
                    
 
