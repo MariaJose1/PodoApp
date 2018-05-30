@@ -87,7 +87,6 @@ namespace Angle.Models
         public static FormDiagnosticoTratamiento Rellenar(diagnostico diagnostico)
         {
             tratamiento tratamiento = diagnostico.tratamiento;
-            ICollection<materialSoportePlantar> materiales = tratamiento.materialSoportePlantar;
 
             return new FormDiagnosticoTratamiento
             {
@@ -108,9 +107,16 @@ namespace Angle.Models
                 Preventivo = tratamiento.preventivo,
                 PreventivoObservaciones = tratamiento.preventivoObservacion,
                 Calzadoterapia = tratamiento.calzadoterapia,
-                Otros = tratamiento.otros
+                Otros = tratamiento.otros,
 
                 // material soporte plantar
+                Tad = tratamiento.materialSoportePlantar.FirstOrDefault().TAD,
+                Resinas = tratamiento.materialSoportePlantar.FirstOrDefault().resinas,
+                Eva = tratamiento.materialSoportePlantar.FirstOrDefault().EVA,
+                Propileno = tratamiento.materialSoportePlantar.FirstOrDefault().propileno,
+                Componentes = tratamiento.materialSoportePlantar.FirstOrDefault().componentes,
+                OtrosComentarios = tratamiento.materialSoportePlantar.FirstOrDefault().otros
+
 
             };
 
@@ -275,6 +281,23 @@ namespace Angle.Models
                         this.Otros
                         );
 
+                    int retMaterial = podo.Database.ExecuteSqlCommand(
+                        @"UPDATE [materialSoportePlantar] SET
+                            [TAD] = @p1,
+                            [resinas] = @p2,
+                            [EVA] = @p3,
+                            [propileno] = @p4,
+                            [componentes] = @p5,
+                            [otros] = @p6                            
+                           WHERE [idMaterialSoportePlantar] = @p0",
+                        tratamiento.materialSoportePlantar.FirstOrDefault().idMaterialSoportePlantar,
+                        this.Tad,
+                        this.Resinas,
+                        this.Eva,
+                        this.Propileno,
+                        this.Componentes,
+                        this.Otros
+                        );
                     tr.Commit();
                 }
                 catch (Exception)

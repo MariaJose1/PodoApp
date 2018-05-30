@@ -32,44 +32,47 @@
                     @Html.DisplayName("Consultas")
                 </th>
                 <th>
-                    @Html.DisplayName("Subir pruebas")
+                    @Html.DisplayName("Editar Datos Personales")
                 </th>
                 <th></th>
             </tr>
 
             @foreach (var item in Model)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.persona.nombre)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.persona.dni)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.historialClinico.numeroHistorialClinico)
-                    </td>
-                    <td>
-                        <a href="@Url.Action("Create", "Antecedentes", new { idpaciente = item.idPaciente})">Añadir</a>
-                        <a href="@Url.Action("Edit", "Antecedentes", new { idpaciente = item.idPaciente})">Editar</a>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.persona.nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.persona.dni)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.historialClinico.numeroHistorialClinico)
+                </td>
+                <td>
+                    <a href="@Url.Action("Create", "Antecedentes", new { idpaciente = item.idPaciente})">Añadir</a>
+                    <a href="@Url.Action("Edit", "Antecedentes", new { idpaciente = item.idPaciente})">Editar</a>
 
-                    </td>
-                    <td>
-                        <a href="@Url.Action("Edit", "PrimeraVisita", new { idvisita = item.primeraVisita.FirstOrDefault().idPrimeraVisita})">Editar</a>
+                </td>
+                <td>
+                    <a href="@Url.Action("Edit", "PrimeraVisita", new { idvisita = item.primeraVisita.FirstOrDefault().idPrimeraVisita})">Editar</a>
 
-                    </td>
-                    <td>
-                        @Html.ActionLink("Añadir", "Create", "DiagnosticoTratamiento") |
-                        @Html.ActionLink("Editar", "Edit", "DiagnosticoTratamiento")
-                    </td>
-                    <td>
-                        @Html.ActionLink("Añadir", "Create", "Consultas") |
-                        @Html.ActionLink("Editar", "Edit", "Consultas")
-                    </td>
-                    <td>
-                        @Html.ActionLink("Subir", "FileUpload", "SubirArchivo")
-                    </td>
-                </tr>
+                </td>
+                <td>
+
+                    <a href="@Url.Action("Create", "DiagnosticoTratamiento", new { idpaciente = item.idPaciente})">Añadir</a>
+                    <a href="@Url.Action("Edit", "DiagnosticoTratamiento", new { iddiagnostico = item.primeraVisita.FirstOrDefault().diagnostico.FirstOrDefault().idDiagnostico})">Editar</a>
+
+                </td>
+                <td>
+                    @Html.ActionLink("Añadir", "Create", "Consultas") |
+                    @Html.ActionLink("Editar", "Edit", "Consultas")
+                </td>
+                <td>
+                    <a href="@Url.Action("Edit", "Paciente", new { idpaciente = item.idPaciente})">Editar</a>
+
+                </td>
+            </tr>
             }
         </table>
     </div>
