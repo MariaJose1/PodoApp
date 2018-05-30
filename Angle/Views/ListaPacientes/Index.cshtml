@@ -61,12 +61,14 @@
                 <td>
 
                     <a href="@Url.Action("Create", "DiagnosticoTratamiento", new { idpaciente = item.idPaciente})">Añadir</a>
-                    <a href="@Url.Action("Edit", "DiagnosticoTratamiento", new { iddiagnostico = item.primeraVisita.FirstOrDefault().diagnostico.FirstOrDefault().idDiagnostico})">Editar</a>
+                    @*<a href="@Url.Action("Edit", "DiagnosticoTratamiento", new { iddiagnostico = item.primeraVisita.FirstOrDefault().diagnostico.FirstOrDefault().idDiagnostico})">Editar</a>*@
 
                 </td>
                 <td>
-                    @Html.ActionLink("Añadir", "Create", "Consultas") |
-                    @Html.ActionLink("Editar", "Edit", "Consultas")
+                    <a href="@Url.Action("Create", "Consulta", new { idpaciente = item.idPaciente})">Añadir</a>
+                    <a href="@Url.Action("Edit", "Consulta", new { idpaciente = item.idPaciente})">Editar</a>
+                    <a href="@Url.Action("Index", "ListaConsultas", new { idpaciente = item.idPaciente})">Consultas</a>
+
                 </td>
                 <td>
                     <a href="@Url.Action("Edit", "Paciente", new { idpaciente = item.idPaciente})">Editar</a>

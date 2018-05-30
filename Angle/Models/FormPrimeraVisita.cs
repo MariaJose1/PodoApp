@@ -352,9 +352,7 @@ namespace Angle.Models
                         this.ZonaDolor,
                         this.TipoDolor,
                         this.FechaPrimeraConsulta,
-                                                visita.id_calzado_habitual
-
-
+                         visita.id_calzado_habitual
                         );
 
                     tr.Commit();

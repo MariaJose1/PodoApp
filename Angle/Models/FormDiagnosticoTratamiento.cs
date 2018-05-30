@@ -15,7 +15,7 @@ namespace Angle.Models
 
         // Diagnostico
 
-        public Guid? IdDiagnostico { get; set; }
+        public Guid IdDiagnostico { get; set; }
 
         [DisplayName("Anotaciones")]
         [Required()]
@@ -235,7 +235,9 @@ namespace Angle.Models
 
             tratamiento tratamiento = diagnostico.tratamiento;
 
+            var nuevoId = Guid.NewGuid();
 
+           
             using (var tr = podo.Database.BeginTransaction())
             {
                 try
