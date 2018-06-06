@@ -35,6 +35,7 @@ namespace Angle.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
             }
+
             return View();
         }
 
@@ -48,6 +49,8 @@ namespace Angle.Controllers
                 form.InsertarEn(db, visita);
                 return RedirectToAction("Index", "ListaPacientes");
             }
+
+          
             return View(form);
         }
 
@@ -55,6 +58,8 @@ namespace Angle.Controllers
         // GET: /PrimeraVisita/Edit
         public ActionResult Edit(Guid? idvisita)
         {
+            podologo podologo = db.podologo.FirstOrDefault();
+
             if (idvisita == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -67,6 +72,7 @@ namespace Angle.Controllers
                 return HttpNotFound();
             }
             FormPrimeraVisita form = FormPrimeraVisita.Rellenar(visita);
+            ViewBag.Podologos = new SelectList(db.persona.ToList().Where(i=>i.idPersona == podologo.id_persona), "nombre", "idPersona");
 
             return View(form);
         }

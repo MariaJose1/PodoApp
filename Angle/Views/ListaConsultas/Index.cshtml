@@ -6,9 +6,7 @@
 
 <h3>Consultas</h3>
 
-<p>
-    <a href="@Url.Action("Create", "Consulta")">Añadir Nueva Consulta</a>
-</p>
+
 <div class="panel panel-default">
     <div class="panel-body">
         <table class="table">
@@ -34,12 +32,19 @@
                     </td>
 
                     <td>
-                        @Html.ActionLink("Edit", "Consulta", new { id = item.idConsulta })
+                        @* @Html.ActionLink("Edit", "Consulta", new { id = item.idConsulta })*@
+                        <a href="@Url.Action("Edit", "Consulta", new { idpaciente = item.paciente.idPaciente})">Editar Consulta</a>
 
                     </td>
+                    <td>
+                        <a href="@Url.Action("Create", "Consulta", new { idpaciente = item.paciente.idPaciente })">Añadir Nueva Consulta</a>
+                    </td>
                 </tr>
+
             }
 
+
+
         </table>
-        </div>
+    </div>
 </div>

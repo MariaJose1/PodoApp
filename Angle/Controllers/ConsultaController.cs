@@ -21,6 +21,8 @@ namespace Angle.Controllers
         // GET: /Consulta/Create
         public ActionResult Create(Guid idpaciente)
         {
+            podologo podologo = db.podologo.FirstOrDefault();
+
             paciente paciente = db.paciente.Find(idpaciente);
             FormConsulta form = new FormConsulta();
 
@@ -33,6 +35,8 @@ namespace Angle.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
             }
+            ViewBag.Podologos = new SelectList(db.persona.ToList().Where(i => i.idPersona == podologo.id_persona), "nombre", "idPersona");
+
             return View();
         }
 
@@ -52,6 +56,8 @@ namespace Angle.Controllers
         // GET: /Consulta/Edit
         public ActionResult Edit(Guid? idpaciente)
         {
+            podologo podologo = db.podologo.FirstOrDefault();
+
             if (idpaciente == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -65,6 +71,7 @@ namespace Angle.Controllers
                 return HttpNotFound();
             }
             FormConsulta form = FormConsulta.Rellenar(consulta);
+            ViewBag.Podologos = new SelectList(db.persona.ToList().Where(i => i.idPersona == podologo.id_persona), "nombre", "idPersona");
 
             return View(form);
         }

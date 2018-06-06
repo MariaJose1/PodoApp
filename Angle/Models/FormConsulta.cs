@@ -13,6 +13,8 @@ namespace Angle.Models
 
         public Guid? IdPaciente { get; set; }
 
+        public Guid? IdPodologo { get; set; }
+
         [DisplayName("Fecha de la consulta")]
         public DateTime? Fecha { get; set; }
 
@@ -28,7 +30,6 @@ namespace Angle.Models
                 IdConsulta = consulta.idConsulta,
                 Fecha = consulta.fecha,
                 Descripcion = consulta.descripcion          
-
 
             };
 

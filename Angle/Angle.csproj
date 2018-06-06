@@ -832,7 +832,6 @@
     <Content Include="Views\Consulta\Create.cshtml" />
     <Content Include="Views\ListaConsultas\Index.cshtml" />
     <Content Include="Views\Consulta\Edit.cshtml" />
-    <Content Include="Views\Consulta\Select.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
