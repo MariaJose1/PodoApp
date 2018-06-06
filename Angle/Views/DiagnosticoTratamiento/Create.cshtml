@@ -10,6 +10,8 @@
 {
     @Html.AntiForgeryToken()
     @Html.HiddenFor(m => m.IdPaciente)
+    @Html.HiddenFor(m => m.IdTratamiento)
+    @Html.HiddenFor(m => m.IdDiagnostico)
 
     <div class="panel panel-default">
         <div class="panel-body">
@@ -185,8 +187,8 @@
                     </div>
                 </div>
             </div>
+        </div>
     </div>
-</div>
     <div class="form-group">
         <div class="col-md-offset-5 col-md-10">
             <input type="submit" value="Añadir" class="btn btn-primary" />

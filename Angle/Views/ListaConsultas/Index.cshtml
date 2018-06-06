@@ -9,33 +9,37 @@
 <p>
     <a href="@Url.Action("Create", "Consulta")">Añadir Nueva Consulta</a>
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayName("Fecha Consulta")
-        </th>
-        <th>
-            @Html.DisplayName("Observaciones")
-        </th>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayName("Fecha Consulta")
+                </th>
+                <th>
+                    @Html.DisplayName("Observaciones")
+                </th>
 
-        <th></th>
-    </tr>
+                <th></th>
+            </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.fecha)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.descripcion)
-        </td>
-        
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.idConsulta }) |
-            @Html.ActionLink("Details", "Details", new { id=item.idConsulta }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.idConsulta })
-        </td>
-    </tr>
-}
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.fecha)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.descripcion)
+                    </td>
 
-</table>
+                    <td>
+                        @Html.ActionLink("Edit", "Consulta", new { id = item.idConsulta })
+
+                    </td>
+                </tr>
+            }
+
+        </table>
+        </div>
+</div>

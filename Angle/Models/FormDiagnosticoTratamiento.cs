@@ -176,6 +176,23 @@ namespace Angle.Models
 
                        );
 
+                   
+                      
+                    int retDiagnostico = podo.Database.ExecuteSqlCommand(
+                        @"INSERT INTO diagnostico(
+                            [idDiagnostico],
+                            [anotaciones],
+                            [id_primera_visita],
+                            [id_tratamiento]
+                            ) VALUES (
+                            @p0, @p1, @p2, @p3
+                            )",
+                        nuevoIdDiagnostico,
+                        this.Anotaciones,
+                        visita.idPrimeraVisita,
+                        nuevoIdTratamiento
+                        );
+
                     int retMaterial = podo.Database.ExecuteSqlCommand(
                       @"INSERT INTO materialSoportePlantar(
                             [idMaterialSoportePlantar],
@@ -201,23 +218,6 @@ namespace Angle.Models
                       this.Otros,
                       nuevoIdTratamiento
                       );
-                      
-                    int retDiagnostico = podo.Database.ExecuteSqlCommand(
-                        @"INSERT INTO diagnostico(
-                            [idDiagnostico],
-                            [anotaciones],
-                            [id_primera_visita],
-                            [id_tratamiento]
-                            ) VALUES (
-                            @p0, @p1, @p2, @p3
-                            )",
-                        nuevoIdDiagnostico,
-                        this.Anotaciones,
-                        visita.idPrimeraVisita,
-                        nuevoIdTratamiento
-                        );
-
-                   
 
                     tr.Commit();
                 }

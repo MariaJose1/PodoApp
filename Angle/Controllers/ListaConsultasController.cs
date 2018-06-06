@@ -14,15 +14,10 @@ namespace Angle.Controllers
         // GET: ListaConsultas
         public ActionResult Index(Guid idpaciente)
         {
-            consulta consulta = db.consulta.Find(idpaciente);
-            return View(consulta);
+            
+            return View(db.consulta.Where(p=>p.id_paciente == idpaciente).ToList());
         }
 
-        // POST: ListaConsultas
-        public ActionResult Index(FormConsulta cons)
-        {
-            consulta consulta = db.consulta.Find(cons.IdPaciente);
-            return View(cons);
-        }
+        
     }
 }

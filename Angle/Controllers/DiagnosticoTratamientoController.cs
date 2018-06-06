@@ -40,13 +40,16 @@ namespace Angle.Controllers
         [HttpPost]
         public ActionResult Create(FormDiagnosticoTratamiento form)
         {
-            if (ModelState.IsValid)
+
+
+            paciente paciente = db.paciente.Find(form.IdPaciente);
+            form.InsertarEn(db, paciente);
+            return RedirectToAction("Index", "ListaPacientes");
+
+            /*if (ModelState.IsValid)
             {
-                paciente paciente = db.paciente.Find(form.IdPaciente);
-                form.InsertarEn(db, paciente);
-                return RedirectToAction("Index", "ListaPacientes");
             }
-            return View(form);
+            return View(form);*/
         }
 
         // GET: /DiagnosticoTratamiento/Edit

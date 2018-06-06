@@ -96,5 +96,31 @@ namespace Angle.Models
             }
 
         }
+
+        public void Seleccionar(podologiaEntities podo, paciente paciente)
+        {
+
+            using (var tr = podo.Database.BeginTransaction())
+            {
+                try
+                {
+                    int retConsulta = podo.Database.ExecuteSqlCommand(
+                         @"SELECT * FROM Consulta
+                            
+                            WHERE [id_paciente]=@p0",
+                            paciente.idPaciente
+
+                      );
+
+                }
+                catch (Exception)
+                {
+                    tr.Rollback();
+                    throw;
+                }
+
+            }
+
+        }
     }
 }

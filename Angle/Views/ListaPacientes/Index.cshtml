@@ -61,7 +61,11 @@
                 <td>
 
                     <a href="@Url.Action("Create", "DiagnosticoTratamiento", new { idpaciente = item.idPaciente})">Añadir</a>
-                    @*<a href="@Url.Action("Edit", "DiagnosticoTratamiento", new { iddiagnostico = item.primeraVisita.FirstOrDefault().diagnostico.FirstOrDefault().idDiagnostico})">Editar</a>*@
+
+                    @if (item.primeraVisita.FirstOrDefault().diagnostico.FirstOrDefault() != null){
+
+                         <a href="@Url.Action("Edit", "DiagnosticoTratamiento", new { iddiagnostico = item.primeraVisita.FirstOrDefault().diagnostico.FirstOrDefault().idDiagnostico})">Editar</a>
+                    }
 
                 </td>
                 <td>

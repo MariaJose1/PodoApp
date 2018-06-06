@@ -82,5 +82,37 @@ namespace Angle.Controllers
             return View(form);
         }
 
+
+        // GET: /Consulta/Select
+        public ActionResult Select(Guid idpaciente)
+        {
+            paciente paciente = db.paciente.Find(idpaciente);
+            FormConsulta form = new FormConsulta();
+
+            if (paciente != null)
+            {
+                form.IdPaciente = idpaciente;
+            }
+            else
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+            }
+            return View();
+        }
+
+        // POST
+        [HttpPost]
+        public ActionResult Select(FormConsulta form)
+        {
+            if (ModelState.IsValid)
+            {
+                paciente paciente = db.paciente.Find(form.IdPaciente);
+                form.Seleccionar(db, paciente);
+                return RedirectToAction("Select", "Consulta");
+            }
+            return View(form);
+        }
+
     }
 }
