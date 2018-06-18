@@ -46,7 +46,7 @@ namespace Angle.Models
         public string SegundoApellido { get; set; }
 
         [DisplayName("Fecha nacimiento")]
-        [DisplayFormat(DataFormatString = "{dd-MM-yyyy}")]
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}")]
         [Required()]
         public DateTime? FechaNacimiento { get; set; }
 
@@ -74,10 +74,13 @@ namespace Angle.Models
 
         [DisplayName("Teléfono")]
         [Required()]
+        [MaxLength(9, ErrorMessage ="El número de teléfono debe estar formado por 9 dígitos")]
+        [MinLength(9, ErrorMessage = "El número de teléfono debe estar formado por 9 dígitos")]
         public string Telefono { get; set; }
 
         [DisplayName("DNI")]
         [Required()]
+        [RegularExpression(@"^((([A-Z]|[a-z])\d{8})|(\d{8}([A-Z]|[a-z])))$", ErrorMessage = "Introduzca un DNI válido")]
         public string Dni { get; set; }
 
 
@@ -245,17 +248,16 @@ namespace Angle.Models
                         @"UPDATE [paciente] SET
                             [medicacionHabitual] = @p1, 
                             [observacion] = @p2, 
-                            [numeroHistoriaClinica] = @p3, 
-                            [id_podologo] = @p4
-                            
+                            [id_podologo] = @p3
                         WHERE [idPaciente] = @p0
                         ",
                             paciente.idPaciente,
                             this.MedicacionHabitual,
                             this.Observacion,
-                            this.NumeroHistoriaClinica,
                             this.IdPodologo
                             );
+
+                  
 
                     int ret2 = podo.Database.ExecuteSqlCommand(
 

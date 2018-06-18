@@ -10,6 +10,8 @@
 <div class="panel panel-default">
     <div class="panel-body">
         <table class="table">
+            <a href="@Url.Action("Create", "Consulta" )">Añadir Nueva Consulta</a>
+
             <tr>
                 <th>
                     @Html.DisplayName("Fecha Consulta")
@@ -22,26 +24,23 @@
             </tr>
 
             @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.fecha)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.descripcion)
-                    </td>
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.fecha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.descripcion)
+            </td>
 
-                    <td>
-                        @* @Html.ActionLink("Edit", "Consulta", new { id = item.idConsulta })*@
-                        <a href="@Url.Action("Edit", "Consulta", new { idpaciente = item.paciente.idPaciente})">Editar Consulta</a>
+            <td>
+                @* @Html.ActionLink("Edit", "Consulta", new { id = item.idConsulta })*@
+                <a href="@Url.Action("Edit", "Consulta", new { idpaciente = item.paciente.idPaciente})">Editar Consulta</a>
 
-                    </td>
-                    <td>
-                        <a href="@Url.Action("Create", "Consulta", new { idpaciente = item.paciente.idPaciente })">Añadir Nueva Consulta</a>
-                    </td>
-                </tr>
+            </td>
+        </tr>
 
-            }
+}
 
 
 
