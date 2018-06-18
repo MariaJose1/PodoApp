@@ -30,15 +30,15 @@ namespace Angle.Models
         [Required()]
         public bool HaIdoPodologo { get; set; }
 
-        [DisplayName("Antecedentes: ")]
+        [DisplayName("Antecedentes ")]
         public string Antecedentes { get; set; }
 
         // ANTECEDENTES PATOLÓGICOS
 
-        [DisplayName("Patología previa: ")]
+        [DisplayName("Patología previa ")]
         public string PatologiaPrevia { get; set; }
 
-        [DisplayName("Enfermedad infantil: ")]
+        [DisplayName("Enfermedad infantil ")]
         public string EnfermedadInfantil { get; set; }
 
         [DisplayName("Antecedentes traumáticos")]
@@ -53,7 +53,7 @@ namespace Angle.Models
         [DisplayName("Enfermedad reumática")]
         public bool EnfermedadReumatica { get; set; }
 
-        [DisplayName("Tipo enfermedad reumática:")]
+        [DisplayName("Tipo enfermedad reumática")]
         public string TipoEnfermedadReumatica { get; set; }
 
         [DisplayName("Ciática")]
@@ -94,7 +94,7 @@ namespace Angle.Models
         [DisplayName("Tacata")]
         public bool Tacata { get; set; }
 
-        [DisplayName("Inicio Deambulación:")]
+        [DisplayName("Inicio Deambulación")]
         public int? InicioDeambulacion { get; set; }
 
         [DisplayName("Hábitos Posturales")]

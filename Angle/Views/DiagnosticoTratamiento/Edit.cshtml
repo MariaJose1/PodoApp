@@ -125,15 +125,19 @@
                         @Html.ValidationMessageFor(model => model.Otros, "", new { @class = "text-danger" })
                     </div>
                 </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.SoportePlantar, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        <div class="checkbox">
-                            @Html.EditorFor(model => model.SoportePlantar)
-                            @Html.ValidationMessageFor(model => model.SoportePlantar, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
+
+                <h5>Soporte Plantar</h5>
+                @*  <div class="form-group">
+            @Html.LabelFor(model => model.SoportePlantar, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.SoportePlantar)
+                    @Html.ValidationMessageFor(model => model.SoportePlantar, "", new { @class = "text-danger" })
                 </div>
+            </div>
+        </div>
+                *@
+
                 <div class="form-group">
                     @Html.LabelFor(model => model.Tad, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-1">
@@ -183,16 +187,16 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-offset-5 col-md-10">
-            <input type="submit" value="Modificar" class="btn btn-primary" />
-        </div>
-    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-5 col-md-10">
+                    <input type="submit" value="Modificar" class="btn btn-primary" />
+                </div>
+            </div>
 
 
-}
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+        }
+            <div>
+                @Html.ActionLink("Volver atrás", "Index", "ListaPacientes")
+            </div>

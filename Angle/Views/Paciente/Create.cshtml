@@ -57,7 +57,7 @@
 
                     </div>
                     <div class="col-md-4 text-left">
-                        @Html.EditorFor(model => model.FechaNacimiento, new { htmlAttributes = new {@class="form-control datepicker", @placeholder = "09-08-1957" } })
+                        @Html.EditorFor(model => model.FechaNacimiento, new { htmlAttributes = new {@class="form-control ", @placeholder = "09-08-1957" } })
                         @Html.ValidationMessageFor(model => model.FechaNacimiento, "", new { @class = "text-danger" })
                     </div>
 

@@ -27,6 +27,7 @@ namespace Angle.Models
         public string Observacion { get; set; }
 
         [DisplayName("Número Historia Clínica")]
+        [Required()]
         public string NumeroHistoriaClinica { get; set; }
 
         [DisplayName("Podólogo que realiza la consulta")]
