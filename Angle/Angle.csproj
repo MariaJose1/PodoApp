@@ -178,26 +178,14 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AntecedentesController.cs" />
-    <Compile Include="Controllers\BlogController.cs" />
-    <Compile Include="Controllers\ChartsController.cs" />
     <Compile Include="Controllers\ConsultaController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\DiagnosticoTratamientoController.cs" />
-    <Compile Include="Controllers\DocumentationController.cs" />
-    <Compile Include="Controllers\EcommerceController.cs" />
-    <Compile Include="Controllers\ElementsController.cs" />
-    <Compile Include="Controllers\ExtrasController.cs" />
-    <Compile Include="Controllers\FormsController.cs" />
-    <Compile Include="Controllers\ForumController.cs" />
     <Compile Include="Controllers\ListaConsultasController.cs" />
-    <Compile Include="Controllers\MapsController.cs" />
-    <Compile Include="Controllers\MultilevelsController.cs" />
     <Compile Include="Controllers\PacienteController.cs" />
     <Compile Include="Controllers\PagesController.cs" />
     <Compile Include="Controllers\PrimeraVisitaController.cs" />
     <Compile Include="Controllers\ListaPacientesController.cs" />
-    <Compile Include="Controllers\TablesController.cs" />
-    <Compile Include="Controllers\WidgetsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -319,8 +307,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ModelPodologia.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\Movie.cs" />
-    <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="Models\paciente.cs">
       <DependentUpon>ModelPodologia.tt</DependentUpon>
     </Compile>
@@ -705,11 +691,8 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Shared\_Offsidebar.cshtml" />
-    <Content Include="Views\Shared\_Sidebar.cshtml" />
     <Content Include="Views\Shared\_TopNavbar.cshtml" />
     <Content Include="Views\Dashboard\Dashboard_v1.cshtml" />
-    <Content Include="Views\Widgets\Index.cshtml" />
     <Content Include="Views\Pages\Error_404.cshtml" />
     <Content Include="Views\Pages\Lock.cshtml" />
     <Content Include="Views\Pages\Login.cshtml" />
@@ -717,9 +700,6 @@
     <Content Include="Views\Pages\Template.cshtml" />
     <Content Include="Views\Shared\_LayoutPage.cshtml" />
     <Content Include="Views\Pages\Register.cshtml" />
-    <Content Include="Views\Dashboard\Dashboard_v2.cshtml" />
-    <Content Include="Views\Dashboard\Dashboard_v3.cshtml" />
-    <Content Include="Views\Dashboard\Dashboard_h.cshtml" />
     <Content Include="Views\Shared\_LayoutHorizontal.cshtml" />
     <Content Include="Views\Shared\_TopNavbarHorizontal.cshtml" />
     <Content Include="Scripts\jquery-2.1.4.min.map" />
@@ -754,6 +734,8 @@
     <Content Include="Views\Consulta\Create.cshtml" />
     <Content Include="Views\ListaConsultas\Index.cshtml" />
     <Content Include="Views\Consulta\Edit.cshtml" />
+    <Content Include="Views\Shared\_Sidebar.cshtml" />
+    <Content Include="Views\Shared\_Offsidebar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
