@@ -58,7 +58,7 @@ namespace Angle.Controllers
         // GET: /PrimeraVisita/Edit
         public ActionResult Edit(Guid? idvisita)
         {
-            podologo podologo = db.podologo.FirstOrDefault();
+            List<podologo> podologos = db.podologo.ToList();
 
             if (idvisita == null)
             {
@@ -72,7 +72,9 @@ namespace Angle.Controllers
                 return HttpNotFound();
             }
             FormPrimeraVisita form = FormPrimeraVisita.Rellenar(visita);
-            ViewBag.Podologos = new SelectList(db.persona.ToList().Where(i=>i.idPersona == podologo.id_persona), "nombre", "idPersona");
+            List<Guid?> lista = podologos.Select(i => i.id_persona).ToList();
+
+            ViewBag.Podologos = new SelectList(db.persona.ToList().Where(i=>lista.Contains(i.idPersona)), "nombre", "idPersona");
 
             return View(form);
         }

@@ -51,7 +51,7 @@ namespace Angle.Models
                             [id_paciente]
                             ) VALUES (
                             @p0, @p1,
-                            @p2, @p3         
+                            @p2, @p3        
                            )",
                       nuevoIdConsulta,
                       this.Fecha,

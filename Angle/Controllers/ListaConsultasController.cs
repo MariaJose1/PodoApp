@@ -14,7 +14,9 @@ namespace Angle.Controllers
         // GET: ListaConsultas
         public ActionResult Index(Guid idpaciente)
         {
-            
+
+            ViewBag.paciente = new SelectList(db.paciente.ToList().Where(i => i.idPaciente == idpaciente), "idPaciente", "idPaciente");
+
             return View(db.consulta.Where(p=>p.id_paciente == idpaciente).ToList());
         }
 

@@ -205,15 +205,17 @@ namespace Angle.Models
                             [diabetes],
                             [alergias],
                             [hayDolor],
+                            [fechaPrimeraConsulta],
                             [id_paciente],
                             [id_historial_clinico]
                             ) VALUES (
-                            @p0, @p1,@p2,@p3,@p4,@p5
+                            @p0, @p1,@p2,@p3,@p4,@p5,@p6
                             )",
                      nuevoIdPV,
                      0,
                      0,
                      0,
+                     DateTime.Now,
                      nuevoID2,
                      nuevoIdHistorial
                       );

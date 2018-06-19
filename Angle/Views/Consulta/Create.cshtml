@@ -21,13 +21,14 @@
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
                     <div class="form-group">
-                        @Html.LabelFor(model => model.IdPodologo, htmlAttributes: new { @class = "control-label col-md-2" })
-
-                        <div class="col-md-10">
+                        <div class="col-md-3 text-left">
+                            @Html.Label("Atendido por", htmlAttributes: new { @class = "control-label col-md-4" })
+                        </div>
+                        <div class="col-md-8">
                             @Html.DropDownListFor(model => model.IdPodologo, new SelectList(ViewBag.Podologos,
-                        "Text", "Value", "-- Seleccionar --"
-                       ),
-                       new { @class = "form-control" })
+                "Text", "Value", "-- Seleccionar --"
+               ),
+               new { @class = "form-control" })
 
                         </div>
                     </div>
@@ -35,7 +36,7 @@
                         <div class="col-md-3 text-left">
                             @Html.LabelFor(model => model.Fecha, htmlAttributes: new { @class = "control-label col-md-4" })
                         </div>
-                        <div class="col-md-9 text-left">
+                        <div class="col-md-8 text-left">
                             @Html.EditorFor(model => model.Fecha, new { htmlAttributes = new { @class = "form-control" } })
                             @Html.ValidationMessageFor(model => model.Fecha, "", new { @class = "text-danger" })
                         </div>
@@ -45,7 +46,7 @@
                         <div class="col-md-3 text-left">
                             @Html.LabelFor(model => model.Descripcion, htmlAttributes: new { @class = "control-label col-md-4" })
                         </div>
-                        <div class="col-md-9 text-left">
+                        <div class="col-md-8 text-left">
                             @Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @class = "form-control" } })
                             @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
                         </div>

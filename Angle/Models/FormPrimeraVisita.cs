@@ -82,7 +82,8 @@ namespace Angle.Models
         public static FormPrimeraVisita Rellenar (primeraVisita visita)
         {
             calzadoHabitual calzado = visita.calzadoHabitual;
-            podologo podologo = visita.podologo;
+            paciente paciente = visita.paciente; //paciente no es null
+            //podologo podologo = paciente.podologo; //podologo si es null ¿?
 
             FormPrimeraVisita res = new FormPrimeraVisita();
             res.IdPrimeraVisita = visita.idPrimeraVisita;
@@ -96,6 +97,7 @@ namespace Angle.Models
             res.HayDolor = visita.hayDolor;
             res.TipoDolor = visita.dolorTipo;
             res.FechaPrimeraConsulta = visita.fechaPrimeraConsulta;
+            //res.IdPodologo = podologo.idPodologo;
 
             if (calzado != null)
             {
@@ -266,6 +268,7 @@ namespace Angle.Models
 
             calzadoHabitual calzado = visita.calzadoHabitual;
 
+            podologo pod = podo.podologo.Where(i => i.idPodologo == this.IdPodologo).FirstOrDefault();
 
             using (var tr = podo.Database.BeginTransaction())
             {
@@ -273,6 +276,7 @@ namespace Angle.Models
                 {
                     Debug.Assert(this.IdPrimeraVisita == visita.idPrimeraVisita);
                     Debug.Assert(this.IdCalzado == visita.id_calzado_habitual);
+                    Debug.Assert(this.IdPodologo == visita.id_podologo);
 
                     var nuevoIdCalzado = Guid.NewGuid();
 
@@ -321,10 +325,7 @@ namespace Angle.Models
                       this.Tacones
                       );
                     }
-                   
-
-                   
-
+               
                     int retPrimeraVisita = podo.Database.ExecuteSqlCommand(
                         @"UPDATE [primeraVisita] SET
                             [peso] = @p1,
@@ -338,7 +339,8 @@ namespace Angle.Models
                             [dolorSitio] = @p9,
                             [dolorTipo] = @p10,
                             [fechaPrimeraConsulta] = @p11,
-                            [id_calzado_habitual]=@p12
+                            [id_podologo] = @p12,
+                            [id_calzado_habitual]=@p13
                            WHERE [idPrimeraVisita] = @p0",
                         visita.idPrimeraVisita,
                         this.Peso,
@@ -352,7 +354,8 @@ namespace Angle.Models
                         this.ZonaDolor,
                         this.TipoDolor,
                         this.FechaPrimeraConsulta,
-                         visita.id_calzado_habitual
+                        visita.id_podologo,
+                        visita.id_calzado_habitual
                         );
 
                     tr.Commit();

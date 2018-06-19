@@ -63,7 +63,7 @@
 
                     </div>
                     <div class="col-md-4 text-left">
-                        @Html.EditorFor(model => model.FechaNacimiento,  new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.EditorFor(model => model.FechaNacimiento,  new { htmlAttributes = new { @class = "form-control" , @Value = Model.FechaNacimiento.Value.ToString("dd-MM-yyyy") } })
                         @Html.ValidationMessageFor(model => model.FechaNacimiento, "", new { @class = "text-danger" })
                     </div>
 
@@ -153,7 +153,7 @@
                         @Html.LabelFor(model => model.NumeroHistoriaClinica, htmlAttributes: new { @class = "control-label" })
                     </div>
                     <div class="col-md-4 text-left">
-                        @Html.EditorFor(model => model.NumeroHistoriaClinica, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled", @readonly = true } })
+                        @Html.EditorFor(model => model.NumeroHistoriaClinica, new { htmlAttributes = new { @class = "form-control"} })
                         @Html.ValidationMessageFor(model => model.NumeroHistoriaClinica, "", new { @class = "text-danger" })
                     </div>
                 </div>
