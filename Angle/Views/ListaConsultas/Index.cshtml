@@ -10,8 +10,7 @@
 <div class="panel panel-default">
     <div class="panel-body">
         <table class="table">
-            @* <a href="@Url.Action("Create", "Consulta", new { ViewBag.paciente}  )">Añadir Nueva Consulta</a>*@
-
+          
             <tr>
                 <th>
                     @Html.DisplayName("Fecha Consulta")
@@ -19,9 +18,7 @@
                 <th>
                     @Html.DisplayName("Observaciones")
                 </th>
-                <th>
-                    @Html.DisplayName("Atendido por")
-                </th>
+                
                 <th></th>
             </tr>
 
@@ -37,13 +34,9 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.descripcion)
                 </td>
+               
                 <td>
-                    @Html.DisplayFor(modelItem => item.podologo.idTitulo)
-                </td>
-                <td>
-
                     <a href="@Url.Action("Edit", "Consulta", new { idpaciente = item.paciente.idPaciente})">Editar Consulta</a>
-
                 </td>
             </tr>
 

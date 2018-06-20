@@ -21,7 +21,7 @@
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group">
                     @Html.LabelFor(model => model.Anotaciones, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
+                    <div class="col-md-9">
                         @Html.EditorFor(model => model.Anotaciones, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.Anotaciones, "", new { @class = "text-danger" })
                     </div>
@@ -121,7 +121,7 @@
                 </div>
                 <div class="form-group">
                     @Html.LabelFor(model => model.Otros, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
+                    <div class="col-md-9">
                         @Html.EditorFor(model => model.Otros, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.Otros, "", new { @class = "text-danger" })
                     </div>
@@ -175,14 +175,14 @@
                 </div>
                 <div class="form-group">
                     @Html.LabelFor(model => model.Componentes, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
+                    <div class="col-md-9">
                         @Html.EditorFor(model => model.Componentes, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.Componentes, "", new { @class = "text-danger" })
                     </div>
                 </div>
                 <div class="form-group">
                     @Html.LabelFor(model => model.OtrosComentarios, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
+                    <div class="col-md-9">
                         @Html.EditorFor(model => model.OtrosComentarios, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.OtrosComentarios, "", new { @class = "text-danger" })
                     </div>
