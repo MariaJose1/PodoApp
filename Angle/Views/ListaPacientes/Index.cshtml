@@ -8,30 +8,30 @@
 
 <div class="panel panel-default">
     <div class="panel-body">
-        <table id="datatable1" class="table table-striped table-hover">
-            <tr>
-                <th>
-                    @Html.DisplayName("Nombre")
+        <table id="datatable1" class="table table-striped table-hover" style="text-align: center";>
+            <tr >
+                <th style="text-align:center">
+                    @Html.Label("Nombre")
                 </th>
-                <th>
-                    @Html.DisplayName("DNI")
+                <th style="text-align:center">
+                    @Html.Label("DNI")
                 </th>
-                <th>
-                    @Html.DisplayName("Número Historial")
+                <th style="text-align:center">
+                    @Html.Label("Número Historial")
                 </th>
-                <th>
-                    @Html.DisplayName("Antecedentes")
+                <th style="text-align:center">
+                    @Html.Label("Antecedentes")
                 </th>
-                <th>
-                    @Html.DisplayName("Primera Visita")
+                <th style="text-align:center">
+                    @Html.Label("Primera Visita")
                 </th>
-                <th>
+                <th style="text-align:center">
                     @Html.DisplayName("Diagnóstico y Tratamiento")
                 </th>
-                <th>
+                <th style="text-align:center">
                     @Html.DisplayName("Consultas")
                 </th>
-                <th>
+                <th style="text-align:center">
                     @Html.DisplayName("Editar Datos Personales")
                 </th>
                 <th></th>
@@ -79,7 +79,7 @@
                     </td>
                     <td>
                         <a href="@Url.Action("Create", "Consulta", new { idpaciente = item.idPaciente})">Añadir</a>
-
+                        <br />
                         <a href="@Url.Action("Index", "ListaConsultas", new { idpaciente = item.idPaciente})">Consultas</a>
 
                     </td>

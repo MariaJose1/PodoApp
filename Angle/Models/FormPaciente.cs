@@ -97,7 +97,6 @@ namespace Angle.Models
                 IdPaciente = paciente.idPaciente,
                 MedicacionHabitual = paciente.medicacionHabitual,
                 Observacion = paciente.observacion,
-                //NumeroHistoriaClinica = paciente.numeroHistoriaClinica,
                 NumeroHistoriaClinica = historial.numeroHistorialClinico,
                 IdPodologo = paciente.id_podologo,
 
@@ -219,11 +218,7 @@ namespace Angle.Models
                      nuevoID2,
                      nuevoIdHistorial
                       );
-
-                  
-
-                   
-
+                    
                     tr.Commit();
                 }
                 catch (Exception)

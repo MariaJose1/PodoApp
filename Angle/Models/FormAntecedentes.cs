@@ -177,7 +177,6 @@ namespace Angle.Models
             {
                 // historial
                 IdHistorialClinico = historial.idHistorialClinico,
-                //NumeroHistorialClinico = historial.numeroHistorialClinico,
 
                 // podológicos
                 IdAntPodologicos = historial.id_ant_podologicos,
@@ -408,15 +407,11 @@ namespace Angle.Models
                          WHERE [idHistorialClinico] = @p0
                             ",
                     paciente.id_historial_clinico,
-                    // this.NumeroHistorialClinico,
                     nuevoIdPodo,
                     nuevoIdFisio,
                     nuevoIdFam,
                     nuevoIdPato
                     );
-
-                  
-                    
 
                     tr.Commit();
                 }
@@ -559,10 +554,7 @@ namespace Angle.Models
                         this.Fisura,
                         this.Fractura
                         );
-
-                   
-
-
+                    
                     tr.Commit();
                 }
                 catch (Exception)

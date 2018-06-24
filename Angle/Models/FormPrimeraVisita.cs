@@ -82,8 +82,7 @@ namespace Angle.Models
         public static FormPrimeraVisita Rellenar (primeraVisita visita)
         {
             calzadoHabitual calzado = visita.calzadoHabitual;
-            paciente paciente = visita.paciente; //paciente no es null
-            //podologo podologo = paciente.podologo; //podologo si es null ¿?
+            paciente paciente = visita.paciente; 
 
             FormPrimeraVisita res = new FormPrimeraVisita();
             res.IdPrimeraVisita = visita.idPrimeraVisita;
@@ -97,7 +96,6 @@ namespace Angle.Models
             res.HayDolor = visita.hayDolor;
             res.TipoDolor = visita.dolorTipo;
             res.FechaPrimeraConsulta = visita.fechaPrimeraConsulta;
-            //res.IdPodologo = podologo.idPodologo;
 
             if (calzado != null)
             {
@@ -109,16 +107,7 @@ namespace Angle.Models
                 res.Tacones = calzado.tacones;
             }
 
-            /*return new FormPrimeraVisita
-            {
-                res
-
-                // podologo
-                //IdPodologo = visita.id_podologo,
-                //IdTitulo = podologo.idTitulo,
-                //Email = podologo.email
-
-            };*/
+            
             return res;
         }
 
@@ -153,72 +142,7 @@ namespace Angle.Models
                        this.Botines,
                        this.Tacones
                        );
-/*
-                    int retPodologo = podo.Database.ExecuteSqlCommand(
-                      @"INSERT INTO podologo(
-                            [idPodologo],
-                            [idTitulo],
-                            [email]
-                            
-                            ) VALUES (
-                            @p0, @p1, @p2
-                            )",
-                      nuevoIdPodologo,
-                      this.IdTitulo,
-                      this.Email
-                      );
-*/
 
-            /*          int retPrimeraVisita = podo.Database.ExecuteSqlCommand(
-                           @"INSERT INTO primeraVisita(
-                              [idPrimeraVisita],
-                              [peso],
-                              [talla],
-                              [actividadDeportiva],
-                              [diabetes],
-                              [alergias],
-                              [tipoAlergias],
-                              [motivoPrimeraConsulta],
-                              [hayDolor],
-                              [dolorSitio],
-                              [dolorTipo],
-                              [fechaPrimeraConsulta],
-                              [id_paciente],
-                              [id_calzado_habitual]
-                              ) VALUES (
-                              @p0, @p1,
-                              @p2, @p3,
-                              @p4, @p5,
-                              @p6, @p7,
-                              @p8, @p9,
-                              @p10, @p11, @p12, @p13           
-                             )",
-                          nuevoIdPrimeraVisita,
-                          this.Peso,
-                          this.Altura,
-                          this.ActividadDeportiva,
-                          this.Diabetes,
-                          this.Alergias,
-                          this.TipoAlergia,
-                          this.MotivoPrimeraConsulta,
-                          this.HayDolor,
-                          this.ZonaDolor,
-                          this.TipoDolor,
-                          this.FechaPrimeraConsulta,
-                          this.IdPaciente,
-                          nuevoIdCalzado
-                          );
-                        */
-                    /*    int retDiagnostico = podo.Database.ExecuteSqlCommand(
-                      @"UPDATE diagnostico SET
-                            [id_primera_visita] = @p1
-                            WHERE idDiagnostico = @p0
-                               ",
-                      this.IdPrimeraVisita,
-
-
-                      );
-                      */
                     int retPrimeraVisita = podo.Database.ExecuteSqlCommand(
                           @"UPDATE primeraVisita SET
                             [peso]=@p1,

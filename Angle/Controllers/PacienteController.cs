@@ -14,10 +14,10 @@ namespace Angle.Controllers
         podologiaEntities db = new podologiaEntities();
 
         // GET: /Paciente/Index
-        public ActionResult Index() //luego pasar id paciente para buscarlo y leer los datos
+        public ActionResult Index() 
         {
             FormPaciente form = (FormPaciente)TempData["paciente"];
-            return View(form); //vista de paciente
+            return View(form); 
         }
 
         // GET: /Paciente/Create
